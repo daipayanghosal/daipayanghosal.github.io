@@ -5,6 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daipayan Ghosal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        h1, h2, h5 {
+            font-family: 'Nunito', sans-serif;
+        }
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #343a40;
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+        .header-content h1 {
+            margin-bottom: 0;
+        }
+        .header-content p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        section h2 {
+            font-weight: 600;
+            color: #343a40;
+            border-bottom: 2px solid #343a40;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .table thead th {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+        }
+        .table-bordered th, .table-bordered td {
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -38,28 +96,35 @@
     </nav>
 
     <!-- Header -->
-    <header class="bg-light text-center py-5">
+    <header class="bg-white text-center py-5">
         <div class="container">
-            <h1 class="display-4">Daipayan Ghosal</h1>
-            <p>Ph.: +918250701617 // +919832670677 (WhatsApp) <br>
-            Email: <a href="mailto:daipayanghosal.dev@gmail.com">daipayanghosal.dev@gmail.com</a> <br>
-            LinkedIn: <a href="https://www.linkedin.com/in/daipayan-ghosal/">linkedin.com/in/daipayan-ghosal</a> <br>
-            Address: Ward No. 14, Konnagar, Ghatal, Paschim Medinipur, West Bengal, India; PIN-721212</p>
+            <div class="header-content">
+                <a href="LINK_TO_PROFILE_IMAGE">
+                    <img src="LINK_TO_PROFILE_IMAGE" alt="Profile Image" class="profile-img">
+                </a>
+                <div>
+                    <h1 class="display-4">Daipayan Ghosal</h1>
+                    <p>Ph.: +918250701617 // +919832670677 (WhatsApp) <br>
+                    Email: <a href="mailto:daipayanghosal.dev@gmail.com">daipayanghosal.dev@gmail.com</a> <br>
+                    LinkedIn: <a href="https://www.linkedin.com/in/daipayan-ghosal/">linkedin.com/in/daipayan-ghosal</a> <br>
+                    Address: Ward No. 14, Konnagar, Ghatal, Paschim Medinipur, West Bengal, India; PIN-721212</p>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Bio Section -->
-    <section id="bio" class="py-5">
+    <section id="bio">
         <div class="container">
-            <h2 class="mb-4">Bio</h2>
+            <h2>Bio</h2>
             <p>An IT professional with specialized expertise in Cybersecurity, particularly in Threat and Vulnerability Management and Penetration Testing. Demonstrates a proven track record of rapidly advancing through roles and responsibilities while working with prestigious clients to identify and mitigate security risks, ensure robust IT infrastructure, and deliver comprehensive security solutions. Adept at conducting in-depth code reviews, executing web application penetration tests, managing support ticketing and incident response, and administering server environments.</p>
         </div>
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="bg-light py-5">
+    <section id="education" class="bg-light">
         <div class="container">
-            <h2 class="mb-4">Education</h2>
+            <h2>Education</h2>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
@@ -100,9 +165,9 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="py-5">
+    <section id="certifications">
         <div class="container">
-            <h2 class="mb-4">Certifications</h2>
+            <h2>Certifications</h2>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
@@ -157,9 +222,9 @@
     </section>
 
     <!-- Work Experience Section -->
-    <section id="experience" class="bg-light py-5">
+    <section id="experience" class="bg-light">
         <div class="container">
-            <h2 class="mb-4">Work Experience</h2>
+            <h2>Work Experience</h2>
             <h5>Wipro | June 2022 - Present</h5>
             <ul>
                 <li>Spearheaded in-depth code reviews to uncover security flaws for a leading consumer electronics retailer, delivered actionable feedback to developers, established and maintained security policies, and led security awareness training sessions. <strong>Skills:</strong> Code Review, Security Policies, Security Awareness Training.</li>
@@ -171,27 +236,20 @@
     </section>
 
     <!-- Professional Details Section -->
-    <section id="details" class="py-5">
+    <section id="details">
         <div class="container">
-            <h2 class="mb-4">Professional Details</h2>
+            <h2>Professional Details</h2>
             <div class="row">
                 <div class="col-md-6">
                     <ul>
                         <li><strong>Total Work Experience:</strong> 2 Years 2 Months</li>
-                        <li><strong>Relevant Work Experience:</strong> 2 Years 2 Months</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <ul>
-                        <li><strong>Hometown:</strong> Kolkata, India</li>
-                        <li><strong>Preferred Work Location:</strong> Kolkata, India</li>
+                        <!-- Add more details as necessary -->
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
