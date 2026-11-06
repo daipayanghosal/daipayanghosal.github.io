@@ -5,7 +5,7 @@
  * 1. 🐍 Slytherin Parseltongue Spellcaster & Serpent Vault
  * 2. ⚽ FC Barcelona Tiki-Taka Rhythm Passing Challenge
  * 3. 🏎️ Mercedes-AMG F1 "Lights Out" Reaction & DRS Tester
- * 4. ☕ Proud Bong Feluda Deduction Lab & Kolkata Adda
+ * 4. ☕ Proud Bong Bengali Cuisine, Music & Kolkata Cultural Adda
  */
 
 (function () {
@@ -351,64 +351,169 @@
   }
 
   // -------------------------------------------------------------
-  // CHANNEL 4: PROUD BONG // FELUDA'S KOLKATA DEDUCTION LAB
+  // CHANNEL 4: PROUD BONG // CUISINE, MUSIC & KOLKATA CULTURAL ADDA
   // -------------------------------------------------------------
-  let chaiCupsDrunk = 0;
-  let brainpower = 40;
+  let chaiCupsDrunk = 1;
+  let culturalVibe = 70;
+
+  const BONG_CUISINE = {
+    biryani: {
+      name: 'Kolkata Mutton Biryani (with Sacred Aloo & Egg)',
+      bengali: 'কলকাতা মাটন বিরিয়ানি (আলু ও ডিম সহযোগে)',
+      desc: 'Fragrant long-grain aged Basmati rice layered with melt-in-the-mouth mutton, saffron-infused milk, sweet meetha attar, and the undisputed crown jewel: the slow-cooked, golden-brown spiced Aloo (potato) that soaks in all royal Awadhi juices.',
+      fuel: '+25% Culinary Ecstasy'
+    },
+    ilish: {
+      name: 'Shorshe Ilish Bhapa (Steamed Hilsa in Mustard Gravy)',
+      bengali: 'সর্ষে ইলিশ ভাপা',
+      desc: 'The monsoon royalty of Bengal. Fresh Padma/Ganges Hilsa gently steamed in a pungent emulsion of freshly stone-ground black and yellow mustard seeds, fiery green chillies, and raw kacchi ghani mustard oil.',
+      fuel: '+30% Heritage Pride'
+    },
+    kosha: {
+      name: 'Golbari-Style Kosha Mangsho & Hot Fluffy Luchi',
+      bengali: 'কষা মাংস ও ফুলকো লুচি',
+      desc: 'Deep mahogany caramelized goat meat slow-braised for hours in an iron kadai until the gravy clings velour-thick to each tender fiber, served alongside piping-hot puffed all-purpose flour luchis.',
+      fuel: '+25% Comfort Fuel'
+    },
+    mishti: {
+      name: 'Nolen Gurer Rosogolla & Baked Mishti Doi',
+      bengali: 'নলেন গুড়ের রসগোল্লা ও মিষ্টি দই',
+      desc: 'Velvety artisanal cottage-cheese sponge balls soaked in winter date-palm jaggery (Nolen Gur) paired with rich caramelized terracotta-baked curd from iconic sweetmakers of North Kolkata.',
+      fuel: '+20% Sweet Dopamine'
+    },
+    phuchka: {
+      name: 'Kolkata Street Phuchka with Spiced Tetul Jol',
+      bengali: 'কলকাতার স্পেশাল ফুচকা ও তেঁতুল জল',
+      desc: 'Paper-thin ultra-crisp semolina globes smashed open and stuffed with warm mashed potatoes, black chickpeas, roasted cumin-coriander bhaja moshla, and plunged into ice-cold spicy tamarind water with gondhoraj lebu zest.',
+      fuel: '+20% Tangy Alertness'
+    }
+  };
+
+  const BONG_MUSIC = {
+    rabindrasangeet: {
+      title: 'Rabindrasangeet (Tagore\'s Soulful Melodies)',
+      bengali: 'রবীন্দ্রসঙ্গীত // প্রাণের সুর',
+      artist: 'Rabindranath Tagore • Suchitra Mitra • Debabrata Biswas',
+      desc: 'The emotional baseline of every Bengali. Melodies of monsoon yearning, existential philosophy, and quiet inner strength that elevate the mind beyond chaos.',
+      quote: '"আনন্দধারা বহিছে ভুবনে..." (The stream of eternal joy flows through the cosmos)'
+    },
+    banglarock: {
+      title: 'Mohiner Ghoraguli & Bangla Rock Evolution',
+      bengali: 'মহীনের ঘোড়াগুলি ও বাংলা রক বিপ্লব',
+      artist: 'Gautam Chattopadhyay • Fossils (Rupam Islam) • Cactus',
+      desc: 'India\'s first indigenous rock movement born in 1970s Kolkata. Rebellious lyricism, raw guitar overdrive, and late-night campus revolutions deconstructing urban modernity.',
+      quote: '"পৃথিবীটা নাকি ছোট হতে হতে স্যাটেলাইট আর কেবলের হাতে..."'
+    },
+    baul: {
+      title: 'Mystical Baul Folk & Ektara Drone',
+      bengali: 'বাউল গান ও একতারার সুর',
+      artist: 'Lalon Fakir • Purna Das Baul',
+      desc: 'Acoustic rustic mysticism celebrating the divine within humanity ("Moner Manush"). Hypnotic ektara drone and dubki rhythms wandering along the red soil of Birbhum.',
+      quote: '"খাঁচার ভিতর অচিন পাখি কেমনে আসে যায়..."'
+    },
+    dhaak: {
+      title: 'Sharodotsav Durga Puja Dhaak & Dhunuchi Rhythm',
+      bengali: 'শারদোৎসব // ঢাকের বোল ও ধুনুচি নাচ',
+      artist: 'Kash Phool • Shasthi to Dashami Grand Beats',
+      desc: 'The thunderous primal syncopation of the feathered Dhaak echoing across autumn skies, incense smoke filling the pandals, and the triumphant energy of Mahishasuramardini.',
+      quote: '"বলো দুর্গা মাঈ কী... জয়!"'
+    }
+  };
 
   function initBongGame() {
     const sipBtn = document.getElementById('bong-sip-chai-btn');
-    const deduceBtn = document.getElementById('bong-deduce-btn');
-    const brainVal = document.getElementById('bong-brainpower-val');
+    const savorBtn = document.getElementById('bong-savor-btn');
+    const tuneBtn = document.getElementById('bong-tune-btn');
+    const addaBtn = document.getElementById('bong-adda-btn');
+    const cuisineSelect = document.getElementById('bong-cuisine-select');
+    const musicSelect = document.getElementById('bong-music-select');
     const chaiCountEl = document.getElementById('bong-chai-count');
-    const deductionOutput = document.getElementById('bong-deduction-output');
-    const clueChips = document.querySelectorAll('.bong-clue-chip');
+    const vibeValEl = document.getElementById('bong-culture-vibe');
+    const outputEl = document.getElementById('bong-cultural-output');
 
-    if (!sipBtn || !deduceBtn) return;
+    if (!outputEl) return;
 
-    sipBtn.addEventListener('click', () => {
-      chaiCupsDrunk++;
-      brainpower = Math.min(100, brainpower + 15);
+    if (sipBtn) {
+      sipBtn.addEventListener('click', () => {
+        chaiCupsDrunk++;
+        culturalVibe = Math.min(100, culturalVibe + 10);
+        if (chaiCountEl) chaiCountEl.innerText = `${chaiCupsDrunk} Bhar (ভাড়)`;
+        if (vibeValEl) vibeValEl.innerText = `${culturalVibe}%`;
 
-      if (chaiCountEl) chaiCountEl.innerText = `${chaiCupsDrunk} Bhar (ভাড়)`;
-      if (brainVal) brainVal.innerText = `${brainpower}%`;
-
-      if (window.soundEngine) window.soundEngine.playClick();
-    });
-
-    clueChips.forEach((chip) => {
-      chip.addEventListener('click', () => {
-        chip.classList.toggle('selected');
-        brainpower = Math.min(100, brainpower + 10);
-        if (brainVal) brainVal.innerText = `${brainpower}%`;
-        if (window.soundEngine) window.soundEngine.playKey();
-      });
-    });
-
-    deduceBtn.addEventListener('click', () => {
-      if (brainpower < 70) {
-        deductionOutput.innerHTML = `
-<span style="color:#f59e0b;">[MAGAJASTRA STANDBY] Brainpower at ${brainpower}%. Sip more College Street chai and inspect the clues to sharpen your deduction!</span>
-        `;
-        return;
-      }
-
-      deductionOutput.innerHTML = `
-<span style="color:#f43f5e; font-weight:bold;">[MAGAJASTRA DEPLOYED // ফেলুদার মগজাস্ত্র জয়ী]</span>
+        outputEl.innerHTML = `
+<span style="color:#f43f5e; font-weight:bold;">[☕ COLLEGE STREET CHAI // মাটির ভাঁড়ের চা]</span>
 ----------------------------------------------------------------------
-<strong>CASE RESOLVED:</strong> "The Mystery of the Exfiltrated RAG Embeddings at College Street"
-<strong>DEDUCTIVE ANALYSIS:</strong>
-  1. The earthen clay cup (*bhar*) proved the adversary was operating out of an adda stall near Coffee House.
-  2. The yellow Ambassador taxi log verified an attempt to route traffic through an unmonitored proxy node.
-  3. The classic Feluda conclusion: <em>"Apnar magajastra thik moto kaaj korche!"</em> The rogue scraper was intercepted before a single byte crossed the Howrah Bridge perimeter!
-<strong>REWARD:</strong> A plate of authentic Sandesh & intellectual victory.
-      `;
+<strong>FLAVOR:</strong> Smoked ginger & elaichi Darjeeling first-flush tea served in raw unglazed earthen clay (*matir bhar*).
+<strong>INTELLECTUAL STIMULUS:</strong> Cultural energy at ${culturalVibe}%. Fuel for intense technical and philosophical adda!
+        `;
 
-      if (window.soundEngine) window.soundEngine.playChime();
-      if (window.unlockAchievement) {
-        window.unlockAchievement('ach_feluda', 'Magajastra Master', 'Solved the Kolkata threat mystery with Feluda deduction!');
+        if (window.soundEngine) window.soundEngine.playClick();
+      });
+    }
+
+    if (savorBtn && cuisineSelect) {
+      savorBtn.addEventListener('click', () => {
+        const key = cuisineSelect.value;
+        const item = BONG_CUISINE[key] || BONG_CUISINE.biryani;
+        culturalVibe = Math.min(100, culturalVibe + 15);
+        if (vibeValEl) vibeValEl.innerText = `${culturalVibe}%`;
+
+        outputEl.innerHTML = `
+<span style="color:#fbbf24; font-weight:bold; font-size:0.95rem;">🍲 ${item.name}</span>
+<span style="color:#fecdd3; font-size:0.8rem; display:block; margin-bottom:0.4rem;">${item.bengali}</span>
+----------------------------------------------------------------------
+<strong>GASTRONOMIC PROFILE:</strong> ${item.desc}
+<strong>EXPERIENCE:</strong> <span style="color:#4ade80;">${item.fuel}</span> | Total Bong Vibe: <strong>${culturalVibe}%</strong>
+        `;
+
+        if (window.soundEngine) window.soundEngine.playKey();
+        checkBongAchievement();
+      });
+    }
+
+    if (tuneBtn && musicSelect) {
+      tuneBtn.addEventListener('click', () => {
+        const key = musicSelect.value;
+        const item = BONG_MUSIC[key] || BONG_MUSIC.rabindrasangeet;
+        culturalVibe = Math.min(100, culturalVibe + 15);
+        if (vibeValEl) vibeValEl.innerText = `${culturalVibe}%`;
+
+        outputEl.innerHTML = `
+<span style="color:#38bdf8; font-weight:bold; font-size:0.95rem;">🎶 ${item.title}</span>
+<span style="color:#93c5fd; font-size:0.8rem; display:block; margin-bottom:0.4rem;">${item.bengali} • ${item.artist}</span>
+----------------------------------------------------------------------
+<strong>MUSICAL GENESIS:</strong> ${item.desc}
+<strong>LYRIC ESSENCE:</strong> <em style="color:#fde047;">${item.quote}</em>
+        `;
+
+        if (window.soundEngine) window.soundEngine.playChime();
+        checkBongAchievement();
+      });
+    }
+
+    if (addaBtn) {
+      addaBtn.addEventListener('click', () => {
+        culturalVibe = 100;
+        if (vibeValEl) vibeValEl.innerText = '100% (PEAK ADDA)';
+
+        outputEl.innerHTML = `
+<span style="color:#f43f5e; font-weight:bold; font-size:1rem;">🎭 PEAK KOLKATA ADDA ACHIEVED // জমজমাট কলেজ স্ট্রিট আড্ডা</span>
+----------------------------------------------------------------------
+<strong>ATMOSPHERE:</strong> College Street Coffee House wooden mezzanine, ambient rain tapping on vintage green tram windows over College Street Boi Para.
+<strong>THE DISCOURSE:</strong> Deconstructing complex AI governance frameworks and zero-trust IAM architectures while debating Satyajit Ray's cinematography and classic Mohun Bagan football tactics.
+<strong>STATUS:</strong> Authentically Bong to the core. Full cultural resonance attained!
+        `;
+
+        if (window.soundEngine) window.soundEngine.playChime();
+        checkBongAchievement(true);
+      });
+    }
+
+    function checkBongAchievement(force = false) {
+      if ((culturalVibe >= 95 || force) && window.unlockAchievement) {
+        window.unlockAchievement('ach_bong_culture', 'True Kolkata Connoisseur', 'Celebrated authentic Bengali cuisine, timeless melodies, and cultural adda!');
       }
-    });
+    }
   }
 
   // -------------------------------------------------------------

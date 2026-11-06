@@ -1024,6 +1024,7 @@ body[data-view="executive"] .section-title {
 
 .jml-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   margin-bottom: 2rem;
   border-bottom: 1px solid var(--border-subtle);
@@ -2438,9 +2439,41 @@ footer {
   color: #ffffff;
 }
 
+/* Bong Cuisine & Music Console */
+.bong-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 1.5rem;
+}
+
+.bong-select-box {
+  background: #180a10;
+  border: 1px solid rgba(244, 63, 94, 0.4);
+  color: #fecdd3;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  width: 100%;
+  margin-bottom: 0.85rem;
+  outline: none;
+}
+
+.bong-select-box option {
+  background: #1a0b12;
+  color: #ffffff;
+}
+
+.bong-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 1024px) {
   .mv-tabs-row { grid-template-columns: repeat(3, 1fr); }
-  .sly-grid, .barca-grid, .marvel-grid, .pr-grid { grid-template-columns: 1fr; }
+  .sly-grid, .barca-grid, .marvel-grid, .pr-grid, .bong-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {

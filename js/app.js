@@ -81,7 +81,7 @@
     { title: 'Overview & Profile', section: 'hero', icon: '👤', kbd: 'G O' },
     { title: 'VulnInvestigator (Flagship GenAI Repo)', section: 'vulninvestigator', icon: '🔍', kbd: 'G V' },
     { title: 'AI Threat Defense Lab', section: 'ai-threat-lab', icon: '🛡️', kbd: 'G T' },
-    { title: 'IAM & JML Lifecycle Matrix', section: 'iam-matrix', icon: '🔑', kbd: 'G I' },
+    { title: 'Enterprise IGA Governance Matrix', section: 'iam-matrix', icon: '🔑', kbd: 'G I' },
     { title: 'Skills & Enterprise Expertise', section: 'skills', icon: '⚡', kbd: 'G S' },
     { title: 'Work Experience (Wipro)', section: 'experience', icon: '💼', kbd: 'G E' },
     { title: 'Research & CV Superpixel Lab', section: 'research', icon: '🔬', kbd: 'G R' },

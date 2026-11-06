@@ -52,7 +52,7 @@ Available Security Shell Commands:
   <span style="color:#f59e0b;">[AI Security & Governance]</span>
     • LLM & RAG Security, Prompt Injection Testing, AI Risk Assessments, OWASP Top 10 for LLMs
   <span style="color:#38bdf8;">[Identity & Access Governance]</span>
-    • Saviynt IGA Level 200, Okta Identity Cloud, JML Lifecycle, RBAC, DLP, SOD Governance
+    • Saviynt EIC Level 200, Okta Identity Cloud, Enterprise IGA Architecture, Continuous Certification, SoD Mitigation, Dynamic RBAC/ABAC
   <span style="color:#10b981;">[AppSec & DevSecOps]</span>
     • Secure SDLC, Checkmarx SAST, CI/CD Pipeline Hardening, Code Reviews, Python Scripting
   <span style="color:#ec4899;">[Risk, Audit & SecOps]</span>
@@ -63,10 +63,10 @@ Available Security Shell Commands:
 <span style="color:#00f0ff; font-weight:bold;">PROFESSIONAL FLIGHT LOG:</span>
 --------------------------------------------------
   <span style="color:#10b981;">[Oct 2025 – Present]</span>  <span style="color:#ffffff; font-weight:bold;">Cyber Security Analyst (IAM)</span> — Wipro Limited
-    • End-to-end Saviynt IGA identity governance & RBAC role architecture
-    • Automated Joiner-Mover-Leaver (JML) integration across Workday & Okta
-    • ServiceNow workflow automation creating immutable ITGC audit trails
-    • Elimination of toxic access combinations & segregation of duties (SOD) violations
+    • Enterprise Saviynt IGA governance, dynamic RBAC/ABAC role engineering, & Zero Standing Privileges
+    • Authoritative Workday & Okta integration for event-driven identity lifecycle orchestration
+    • ServiceNow workflow automation creating immutable ITGC Section 404 audit trails
+    • Elimination of toxic access combinations & predictive Segregation of Duties (SoD) governance
 
   <span style="color:#38bdf8;">[June 2022 – Oct 2025]</span>  <span style="color:#ffffff; font-weight:bold;">Cyber Security Analyst (AppSec & DevSecOps)</span> — Wipro Limited
     • Application risk assessments during early onboarding & secure SDLC integration
@@ -111,7 +111,7 @@ Available Security Shell Commands:
   [CHECK] Prompt Injection Vulnerability (LLM01): <span style="color:#10b981;">HARDENED via Semantic Filter</span>
   [CHECK] Insecure Output Handling (LLM02):       <span style="color:#10b981;">NEUTRALIZED via Sanitizer</span>
   [CHECK] Excessive Agency (LLM06):               <span style="color:#10b981;">RESTRICTED via Saviynt RBAC</span>
-  [CHECK] IAM Orphan Accounts (ITGC-404):         <span style="color:#10b981;">ZERO ORPHANS (JML Synced)</span>
+  [CHECK] IAM Orphan Accounts (ITGC-404):         <span style="color:#10b981;">ZERO ORPHANS (IGA Reconciled)</span>
   [AUDIT] Threat Score: 12/100 (LOW RISK). System perimeter verified.
 `,
 
@@ -194,17 +194,17 @@ Available Security Shell Commands:
 `,
 
     bong: () => `
-<span style="color:#f43f5e; font-weight:bold;">[☕ PROUD BONG // কলকাতা (KOLKATA) ROOTS]</span>
+<span style="color:#f43f5e; font-weight:bold;">[☕ PROUD BONG // কলকাতা (KOLKATA) CUISINE, MUSIC & CULTURE]</span>
 --------------------------------------------------
-  Born and anchored in the cultural and intellectual capital of India:
-    • <span style="color:#fbbf24;">Adda Culture:</span> High-octane philosophical, political & technical debates
-      at College Street Coffee House, deconstructing complex neural networks over cha & telebhaja.
-    • <span style="color:#fbbf24;">The Feluda Mindset:</span> Approaching threat hunting and incident response
-      with the razor-sharp analytical deduction of Satyajit Ray's legendary detective.
-    • <span style="color:#fbbf24;">Football Mania:</span> Derby season fever (Mohun Bagan vs East Bengal)
-      in the veins, shaping an eternal obsession with the beautiful game.
-    • <span style="color:#fbbf24;">Fuel of Champions:</span> Macher jhol, kosha mangsho, and sweet roshogolla
-      powering midnight secure LLM fine-tuning sessions.
+  Anchored in the timeless cultural, musical, and culinary soul of Bengal:
+    • <span style="color:#fbbf24;">Gastronomic Royalty:</span> Kolkata Mutton Biryani (with the revered slow-cooked Aloo & Dim),
+      pungent Shorshe Ilish Bhapa, velvety Kosha Mangsho with hot Luchis, and terracotta Mishti Doi.
+    • <span style="color:#38bdf8;">Musical Baseline:</span> The haunting depth of Rabindrasangeet, the pioneering rebellion of 
+      Mohiner Ghoraguli & Bangla Rock (Fossils, Cactus), and the rustic acoustic drone of Baul Ektara.
+    • <span style="color:#f43f5e;">The Kolkata Adda:</span> Unhurried, high-octane intellectual debates over steaming earthen
+      clay cups of tea (*matir bhar er cha*) at College Street Boi Para, deconstructing philosophy and code.
+    • <span style="color:#fbbf24;">Sharodotsav Energy:</span> The thunderous syncopation of Durga Puja Dhaak beats, Dhunuchi Naach,
+      autumn skies with Kash Phool, and eternal football passion at Salt Lake Stadium.
 `,
 
     personality: () => `
