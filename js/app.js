@@ -87,6 +87,10 @@
     { title: 'Research & CV Superpixel Lab', section: 'research', icon: '🔬', kbd: 'G R' },
     { title: 'Certifications & Credentials', section: 'certifications', icon: '📜', kbd: 'G C' },
     { title: 'Interactive CLI Terminal', section: 'terminal-section', icon: '💻', kbd: 'G X' },
+    { title: 'Slytherin Lore & Ambition', action: 'slytherin', icon: '🐍', kbd: 'S L' },
+    { title: 'FC Barcelona (Més que un club)', action: 'barca', icon: '⚽', kbd: 'F C' },
+    { title: 'Mercedes-AMG Petronas F1 Team', action: 'f1', icon: '🏎️', kbd: 'F 1' },
+    { title: 'Proud Bong // Kolkata Roots', action: 'bong', icon: '☕', kbd: 'B O' },
     { title: 'Toggle Sentinel OS / Executive Mode', action: 'toggleView', icon: '🔄', kbd: 'T' },
     { title: 'Toggle Matrix Digital Rain', action: 'matrix', icon: '🟩', kbd: 'M' },
     { title: 'Open Encrypted Contact Channels', action: 'contact', icon: '✉️', kbd: 'C' },
@@ -208,6 +212,14 @@
         window.print();
       } else if (act.action === 'sfx') {
         toggleSoundBtn();
+      } else if (['slytherin', 'barca', 'f1', 'bong'].includes(act.action)) {
+        const termInput = document.getElementById('term-input');
+        const termSection = document.getElementById('terminal-section');
+        if (termInput && termSection) {
+          termSection.scrollIntoView({ behavior: 'smooth' });
+          termInput.value = act.action;
+          termInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+        }
       }
     }
   }

@@ -15,6 +15,10 @@ Available Security Shell Commands:
   <span style="color:#00f0ff;">certs</span>         - Display verified security certifications (Saviynt, Qualys, CEH, SC-200)
   <span style="color:#00f0ff;">threat-model</span>  - Run automated OWASP LLM & IAM STRIDE risk checklist
   <span style="color:#00f0ff;">vuln</span>          - Inspect featured project: VulnInvestigator GenAI prototype
+  <span style="color:#00f0ff;">slytherin</span>     - 🐍 Hogwarts House allegiance (Ambition & Resourcefulness)
+  <span style="color:#00f0ff;">barca</span>         - ⚽ Visca el Barça! (Blaugrana tiki-taka philosophy)
+  <span style="color:#00f0ff;">f1</span>            - 🏎️ Mercedes-AMG Petronas F1 telemetry & Silver Arrows
+  <span style="color:#00f0ff;">bong</span>          - ☕ Kolkata heritage, intellectual adda & cultural roots
   <span style="color:#00f0ff;">neofetch</span>      - Output cyber system configuration & telemetry specs
   <span style="color:#00f0ff;">matrix</span>        - Toggle interactive full-screen Matrix rain construct
   <span style="color:#00f0ff;">contact</span>       - Open encrypted communication channels (Email, WhatsApp, LinkedIn)
@@ -127,8 +131,71 @@ Available Security Shell Commands:
               Identity:   Saviynt IGA Level 200 // Okta IAM
               AppSec:     Checkmarx SAST // DevSecOps CI/CD
               ML Engine:  Ollama / DeepSeek R1 / Aquila Optimizer
+              House:      🐍 Slytherin (Emerald & Silver / Pure Ambition)
+              Football:   🔵🔴 FC Barcelona (Més que un club / Tiki-Taka)
+              Paddock:    🏎️ Mercedes-AMG Petronas F1 (Silver Arrows)
+              Roots:      ☕ Proud Bong (City of Joy // Kolkata Adda)
               Location:   Kolkata, West Bengal, India
 </span>
+`,
+
+    slytherin: () => `
+<span style="color:#22c55e; font-weight:bold;">
+     ---_ ......._-_--.
+    (|\\ /      / /| \\  \\
+    /  /     .'  -=-'   )
+   /  /   .'             )   HOUSE SLYTHERIN 🐍
+ _/  /   /   _..--.  .  /    ------------------------------------
+( \\   ) / //' /  \\  \\  /     Motto:   "Ambition, Resourcefulness, Cunning"
+ \\ '-.-' / ( (    )  ) /     Colors:  Emerald Green & Silver
+  '-----'   \\ '._.'  /       Element: Water // Dungeon Enclave
+             '-----'
+</span>
+<span style="color:#86efac;">"Or perhaps in Slytherin, you'll make your real friends,</span>
+<span style="color:#86efac;">those cunning folk use any means to achieve their ends."</span>
+  — The Sorting Hat verdict for Daipayan Ghosal.
+  Applied to SecOps: Relentless ambition in defense architecture, strategic foresight, 
+  and never taking the easy route when hardening enterprise resilience.
+`,
+
+    barca: () => `
+<span style="color:#004d98; font-weight:bold;">[🔵🔴 FUTBOL CLUB BARCELONA // MÉS QUE UN CLUB]</span>
+--------------------------------------------------
+  Camp Nou Faithful • Est. 1899 • Blaugrana Pride
+  Tiki-Taka Philosophy Applied to Cybersecurity:
+    • <span style="color:#edbb00;">Continuous Movement:</span> Like Busquets, Xavi & Iniesta dictating the tempo,
+      modern IAM ensures continuous entitlement verification without latency.
+    • <span style="color:#edbb00;">High Press & Fast Recovery:</span> Just as Pep's Barça enforced the 6-second
+      ball recovery rule, our AppSec pipeline neutralizes high-severity CVEs in real-time.
+    • <span style="color:#edbb00;">Vision:</span> Total spatial awareness across the enterprise attack surface.
+  <span style="color:#edbb00; font-weight:bold;">Visca el Barça i Visca Catalunya! 🔵🔴</span>
+`,
+
+    f1: () => `
+<span style="color:#00d2be; font-weight:bold;">[🏎️ MERCEDES-AMG PETRONAS FORMULA ONE TEAM]</span>
+--------------------------------------------------
+  Brackley & Brixworth Telemetry // 8x World Constructors' Champions
+  Chassis:       Mercedes-AMG F1 W16 E Performance
+  Power Unit:    1.6L Turbocharged Hybrid V6
+  Radio Trans:   <span style="color:#ffffff;">"Hammer Time, Daipayan! Gap to nearest threat is 0.4s."</span>
+  Telemetry Ops:
+    • Downforce vs Drag: Balancing strict Zero Trust friction with seamless dev velocity.
+    • Sensor Array: Thousands of real-time telemetry channels mirroring XDR & SIEM log ingestion.
+    • In Toto Wolff We Trust: "We don't take it easy. We optimize every single millisecond."
+`,
+
+    bong: () => `
+<span style="color:#f43f5e; font-weight:bold;">[☕ PROUD BONG // কলকাতা (KOLKATA) ROOTS]</span>
+--------------------------------------------------
+  Born and anchored in the cultural and intellectual capital of India:
+    • <span style="color:#fbbf24;">Adda Culture:</span> High-octane philosophical, political & technical debates
+      at College Street Coffee House, deconstructing complex neural networks over cha & telebhaja.
+    • <span style="color:#fbbf24;">The Feluda Mindset:</span> Approaching threat hunting and incident response
+      with the razor-sharp analytical deduction of Satyajit Ray's legendary detective.
+    • <span style="color:#fbbf24;">Football Mania:</span> Derby season fever (Mohun Bagan vs East Bengal)
+      in the veins, shaping an eternal obsession with the beautiful game.
+    • <span style="color:#fbbf24;">Fuel of Champions:</span> Macher jhol, kosha mangsho, and sweet roshogolla
+      powering midnight secure LLM fine-tuning sessions.
 `,
 
     matrix: () => {
@@ -248,7 +315,11 @@ Dispatching contact channels:
       }
 
       if (window.unlockAchievement) {
-        window.unlockAchievement('ach_terminal', 'Root Access Granted', 'Discovered the interactive security terminal CLI');
+        if (['slytherin', 'barca', 'f1', 'bong'].includes(baseCmd)) {
+          window.unlockAchievement('ach_lore', 'Lore Master', `Discovered Daipayan's ${baseCmd.toUpperCase()} Easter egg!`);
+        } else {
+          window.unlockAchievement('ach_terminal', 'Root Access Granted', 'Discovered the interactive security terminal CLI');
+        }
       }
 
       body.scrollTop = body.scrollHeight;

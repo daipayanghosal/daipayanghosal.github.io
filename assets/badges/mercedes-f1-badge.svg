@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31">
+  <rect width="88" height="31" fill="#0b0f12" stroke="#00d2be"/>
+  <rect x="1" y="1" width="86" height="14" fill="#00a19c"/>
+  <rect x="1" y="15" width="86" height="15" fill="#182226"/>
+  <text x="44" y="11" fill="#000000" font-family="'Courier New', monospace" font-size="7.5" font-weight="900" text-anchor="middle">MERCEDES F1 🏎️</text>
+  <text x="44" y="26" fill="#00d2be" font-family="'Courier New', monospace" font-size="7" font-weight="bold" text-anchor="middle">SILVER ARROWS</text>
+  <rect x="1" y="1" width="86" height="29" fill="none" stroke="#00d2be" stroke-opacity="0.3"/>
+</svg>

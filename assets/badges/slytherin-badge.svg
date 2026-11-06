@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31">
+  <rect width="88" height="31" fill="#062215" stroke="#22c55e"/>
+  <rect x="1" y="1" width="86" height="14" fill="#14532d"/>
+  <rect x="1" y="15" width="86" height="15" fill="#052e16"/>
+  <text x="44" y="11" fill="#e2e8f0" font-family="'Courier New', monospace" font-size="8" font-weight="bold" text-anchor="middle">SLYTHERIN 🐍</text>
+  <text x="44" y="26" fill="#86efac" font-family="'Courier New', monospace" font-size="7" font-weight="bold" text-anchor="middle">AMBITION &amp; PRIDE</text>
+  <rect x="1" y="1" width="86" height="29" fill="none" stroke="#22c55e" stroke-opacity="0.3"/>
+</svg>

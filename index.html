@@ -607,6 +607,87 @@
             <span class="skill-chip">Technical Reporting</span>
           </div>
         </div>
+
+        <!-- Personal Lore & Nerdy Passions Bento Card -->
+        <div class="bento-card col-12" style="background: linear-gradient(135deg, rgba(8, 14, 24, 0.95), rgba(15, 23, 42, 0.9)); border: 1px solid rgba(0, 240, 255, 0.25);">
+          <div class="skill-header" style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.85rem; margin-bottom: 1.25rem;">
+            <div class="skill-icon-wrap" style="background: rgba(139, 92, 246, 0.2); color: #c084fc;">⚡</div>
+            <div>
+              <h3>Off-Duty Telemetry // Personal Lore & Culture</h3>
+              <p style="font-size:0.8rem; color:var(--neon-cyan);">Identity beyond the SecOps perimeter — Hogwarts, Camp Nou, Brackley & Kolkata</p>
+            </div>
+          </div>
+
+          <div class="lore-grid">
+            <!-- Slytherin -->
+            <div style="background: rgba(6, 34, 21, 0.6); border: 1px solid rgba(34, 197, 94, 0.35); border-radius: 10px; padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; gap: 0.75rem;">
+              <div>
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.4rem;">
+                  <span style="font-size:1.4rem;">🐍</span>
+                  <span style="font-family:var(--font-mono); font-size:0.68rem; background:rgba(34,197,94,0.15); color:#86efac; border:1px solid rgba(34,197,94,0.3); padding:2px 6px; border-radius:4px;">SLYTHERIN</span>
+                </div>
+                <h4 style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.35rem;">House of the Serpent</h4>
+                <p style="font-size:0.8rem; color:#94a3b8; line-height:1.5;">
+                  Sorted into Slytherin. Driven by unwavering ambition, cunning problem-solving, and ruthless defense logic against systemic threat vectors.
+                </p>
+              </div>
+              <button class="quick-cmd-pill" style="align-self:flex-start; border-color:rgba(34,197,94,0.4); color:#86efac;" onclick="document.getElementById('term-input').value='slytherin'; document.getElementById('terminal-section').scrollIntoView({behavior:'smooth'});">
+                <span>🐍 Test 'slytherin'</span>
+              </button>
+            </div>
+
+            <!-- FC Barcelona -->
+            <div style="background: rgba(0, 24, 51, 0.6); border: 1px solid rgba(0, 77, 152, 0.5); border-radius: 10px; padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; gap: 0.75rem;">
+              <div>
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.4rem;">
+                  <span style="font-size:1.4rem;">⚽</span>
+                  <span style="font-family:var(--font-mono); font-size:0.68rem; background:rgba(0,77,152,0.3); color:#edbb00; border:1px solid rgba(237,187,0,0.4); padding:2px 6px; border-radius:4px;">BLAUGRANA</span>
+                </div>
+                <h4 style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.35rem;">FC Barcelona</h4>
+                <p style="font-size:0.8rem; color:#94a3b8; line-height:1.5;">
+                  <em>Més que un club.</em> Football purist inspired by Camp Nou tiki-taka, spatial intelligence, and the 6-second high-press ball recovery rule.
+                </p>
+              </div>
+              <button class="quick-cmd-pill" style="align-self:flex-start; border-color:rgba(237,187,0,0.4); color:#edbb00;" onclick="document.getElementById('term-input').value='barca'; document.getElementById('terminal-section').scrollIntoView({behavior:'smooth'});">
+                <span>⚽ Test 'barca'</span>
+              </button>
+            </div>
+
+            <!-- Proud Bong -->
+            <div style="background: rgba(30, 16, 20, 0.6); border: 1px solid rgba(244, 63, 94, 0.35); border-radius: 10px; padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; gap: 0.75rem;">
+              <div>
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.4rem;">
+                  <span style="font-size:1.4rem;">☕</span>
+                  <span style="font-family:var(--font-mono); font-size:0.68rem; background:rgba(244,63,94,0.15); color:#fecdd3; border:1px solid rgba(244,63,94,0.3); padding:2px 6px; border-radius:4px;">KOLKATA</span>
+                </div>
+                <h4 style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.35rem;">Proud Bong</h4>
+                <p style="font-size:0.8rem; color:#94a3b8; line-height:1.5;">
+                  Rooted in the intellectual soul of Kolkata. Fueled by College Street Coffee House addas, Satyajit Ray's Feluda deductions, and derby football fever.
+                </p>
+              </div>
+              <button class="quick-cmd-pill" style="align-self:flex-start; border-color:rgba(244,63,94,0.4); color:#fecdd3;" onclick="document.getElementById('term-input').value='bong'; document.getElementById('terminal-section').scrollIntoView({behavior:'smooth'});">
+                <span>☕ Test 'bong'</span>
+              </button>
+            </div>
+
+            <!-- Mercedes F1 -->
+            <div style="background: rgba(11, 15, 18, 0.6); border: 1px solid rgba(0, 210, 190, 0.35); border-radius: 10px; padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; gap: 0.75rem;">
+              <div>
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.4rem;">
+                  <span style="font-size:1.4rem;">🏎️</span>
+                  <span style="font-family:var(--font-mono); font-size:0.68rem; background:rgba(0,210,190,0.15); color:#00d2be; border:1px solid rgba(0,210,190,0.3); padding:2px 6px; border-radius:4px;">SILVER ARROWS</span>
+                </div>
+                <h4 style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.35rem;">Mercedes-AMG F1</h4>
+                <p style="font-size:0.8rem; color:#94a3b8; line-height:1.5;">
+                  Brackley telemetry fanatic. <em>"Hammer Time."</em> Obsessed with aerodynamic downforce, powertrain telemetry, and relentless engineering optimization.
+                </p>
+              </div>
+              <button class="quick-cmd-pill" style="align-self:flex-start; border-color:rgba(0,210,190,0.4); color:#00d2be;" onclick="document.getElementById('term-input').value='f1'; document.getElementById('terminal-section').scrollIntoView({behavior:'smooth'});">
+                <span>🏎️ Test 'f1'</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1009,6 +1090,10 @@ Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with
             <span class="quick-cmd-pill" data-cmd="threat-model">threat-model</span>
             <span class="quick-cmd-pill" data-cmd="papers">papers</span>
             <span class="quick-cmd-pill" data-cmd="certs">certs</span>
+            <span class="quick-cmd-pill" data-cmd="slytherin">🐍 slytherin</span>
+            <span class="quick-cmd-pill" data-cmd="barca">⚽ barca</span>
+            <span class="quick-cmd-pill" data-cmd="f1">🏎️ f1</span>
+            <span class="quick-cmd-pill" data-cmd="bong">☕ bong</span>
             <span class="quick-cmd-pill" data-cmd="neofetch">neofetch</span>
             <span class="quick-cmd-pill" data-cmd="matrix">matrix</span>
             <span class="quick-cmd-pill" data-cmd="hack">hack</span>
@@ -1068,6 +1153,18 @@ Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with
         </a>
         <a href="#research" class="retro-badge-item" title="4x Peer-Reviewed Research Publications">
           <img src="assets/badges/scholar-badge.svg" width="88" height="31" alt="4x Published" />
+        </a>
+        <a href="#skills" class="retro-badge-item" title="House Slytherin (Ambition & Resourcefulness)">
+          <img src="assets/badges/slytherin-badge.svg" width="88" height="31" alt="Slytherin" />
+        </a>
+        <a href="#skills" class="retro-badge-item" title="FC Barcelona (Més que un club)">
+          <img src="assets/badges/barca-badge.svg" width="88" height="31" alt="FC Barcelona" />
+        </a>
+        <a href="#skills" class="retro-badge-item" title="Mercedes-AMG Petronas F1 Team">
+          <img src="assets/badges/mercedes-f1-badge.svg" width="88" height="31" alt="Mercedes F1" />
+        </a>
+        <a href="#skills" class="retro-badge-item" title="Proud Bong (Kolkata Pride & Heritage)">
+          <img src="assets/badges/bong-badge.svg" width="88" height="31" alt="Proud Bong" />
         </a>
         <a href="https://ring.seggs.lol/" target="_blank" rel="noopener" class="retro-badge-item" title="Threadlocker Webring Member">
           <img src="assets/badges/threadlocker-badge.svg" width="88" height="31" alt="Webring" />
