@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="kolkataBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4c0519" />
+      <stop offset="50%" stop-color="#1f1015" />
+      <stop offset="100%" stop-color="#090508" />
+    </linearGradient>
+    <linearGradient id="terracotta" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c" />
+      <stop offset="50%" stop-color="#c2410c" />
+      <stop offset="100%" stop-color="#7c2d12" />
+    </linearGradient>
+    <linearGradient id="chaiSteam" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#fb7185" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circular Heritage Medallion -->
+  <circle cx="50" cy="50" r="44" fill="url(#kolkataBg)" stroke="#f43f5e" stroke-width="2.5" />
+  <circle cx="50" cy="50" r="41" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="2,2" stroke-opacity="0.6" />
+
+  <!-- Howrah Bridge Cantilever Truss Silhouette (Top Half) -->
+  <path d="M16 46 L26 26 L50 36 L74 26 L84 46 Z" fill="none" stroke="#f43f5e" stroke-width="1.6" opacity="0.45" />
+  <path d="M26 26 L26 46 M38 31 L38 46 M50 36 L50 46 M62 31 L62 46 M74 26 L74 46" stroke="#f43f5e" stroke-width="1" opacity="0.35" />
+  <!-- Bridge Deck -->
+  <line x1="14" y1="46" x2="86" y2="46" stroke="#fbbf24" stroke-width="1.8" opacity="0.7" />
+
+  <!-- Feluda Magnifying Glass (Right side) -->
+  <circle cx="68" cy="44" r="10" fill="none" stroke="#facc15" stroke-width="2" />
+  <line x1="75" y1="51" x2="86" y2="62" stroke="#d97706" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Steaming Earthen Clay Chai Cup (Matir Bhar) (Center) -->
+  <!-- Steam Trails -->
+  <path d="M44 48 C42 42, 46 38, 44 32" stroke="url(#chaiSteam)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+  <path d="M50 48 C52 42, 48 36, 51 30" stroke="url(#chaiSteam)" stroke-width="2" stroke-linecap="round" fill="none" />
+  <path d="M56 48 C54 44, 58 38, 56 34" stroke="url(#chaiSteam)" stroke-width="1.6" stroke-linecap="round" fill="none" />
+
+  <!-- Clay Cup Body -->
+  <path d="M38 52 C38 50, 62 50, 62 52 L57 74 C56 77, 44 77, 43 74 Z" fill="url(#terracotta)" stroke="#fed7aa" stroke-width="1" />
+  <!-- Cup Rim -->
+  <ellipse cx="50" cy="52" rx="12" ry="2.5" fill="#f97316" stroke="#fed7aa" stroke-width="0.8" />
+
+  <!-- Vintage Fountain Pen Nib (Left) -->
+  <path d="M24 72 L30 52 L34 54 L30 74 Z" fill="#fbbf24" opacity="0.9" />
+  <line x1="28" y1="60" x2="25" y2="70" stroke="#000000" stroke-width="0.8" />
+
+  <!-- Bengali Cultural Flourish Text -->
+  <text x="50" y="86" fill="#fbbf24" font-family="'Space Grotesk', serif" font-size="6" font-weight="bold" text-anchor="middle" letter-spacing="1">কলকাতা • ADDA</text>
+</svg>

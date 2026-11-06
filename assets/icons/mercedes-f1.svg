@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="petronasTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5d4" />
+      <stop offset="50%" stop-color="#00d2be" />
+      <stop offset="100%" stop-color="#008077" />
+    </linearGradient>
+    <linearGradient id="carbonFiber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+    <filter id="f1Glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- F1 Butterfly Steering Wheel Chassis -->
+  <path d="M22 18 C30 14, 70 14, 78 18 C86 22, 92 36, 88 56 C86 68, 76 86, 68 86 C62 86, 58 76, 50 76 C42 76, 38 86, 32 86 C24 86, 14 68, 12 56 C8 36, 14 22, 22 18 Z" 
+        fill="url(#carbonFiber)" stroke="url(#petronasTeal)" stroke-width="2" />
+
+  <!-- Grips -->
+  <path d="M12 40 C14 30, 20 28, 22 36 L24 64 C20 72, 14 66, 12 56 Z" fill="#374151" />
+  <path d="M88 40 C86 30, 80 28, 78 36 L76 64 C80 72, 86 66, 88 56 Z" fill="#374151" />
+
+  <!-- RPM Shift LED Array Top -->
+  <circle cx="34" cy="22" r="2" fill="#a855f7" />
+  <circle cx="40" cy="20" r="2" fill="#3b82f6" />
+  <circle cx="46" cy="19" r="2" fill="#00d2be" />
+  <circle cx="50" cy="19" r="2.2" fill="#22c55e" filter="url(#f1Glow)" />
+  <circle cx="54" cy="19" r="2" fill="#00d2be" />
+  <circle cx="60" cy="20" r="2" fill="#ef4444" />
+  <circle cx="66" cy="22" r="2" fill="#ef4444" />
+
+  <!-- Center Screen Display -->
+  <rect x="36" y="28" width="28" height="18" rx="3" fill="#030712" stroke="#00d2be" stroke-width="1" />
+  <text x="50" y="37" fill="#00d2be" font-family="monospace" font-size="5" font-weight="bold" text-anchor="middle">STRAT 2</text>
+  <text x="50" y="43" fill="#ffffff" font-family="monospace" font-size="4.5" text-anchor="middle">DRS READY</text>
+
+  <!-- Central Mercedes Star Hub -->
+  <circle cx="50" cy="58" r="11" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.8" />
+  <!-- Three-pointed Star -->
+  <path d="M50 49 L52.2 56.5 L59.5 59 L52.6 61 L50 67 L47.4 61 L40.5 59 L47.8 56.5 Z" fill="#f8fafc" />
+
+  <!-- Rotary Dials & Buttons -->
+  <circle cx="32" cy="54" r="3.5" fill="#ef4444" stroke="#7f1d1d" stroke-width="1" />
+  <text x="32" y="55.5" fill="#ffffff" font-family="sans-serif" font-size="3" font-weight="bold" text-anchor="middle">OT</text>
+
+  <circle cx="68" cy="54" r="3.5" fill="#00d2be" stroke="#065f46" stroke-width="1" />
+  <text x="68" y="55.5" fill="#000000" font-family="sans-serif" font-size="3" font-weight="bold" text-anchor="middle">DRS</text>
+
+  <circle cx="34" cy="70" r="3" fill="#eab308" />
+  <circle cx="66" cy="70" r="3" fill="#3b82f6" />
+</svg>

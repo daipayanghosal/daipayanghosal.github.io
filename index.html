@@ -608,83 +608,213 @@
           </div>
         </div>
 
-        <!-- Personal Lore & Nerdy Passions Bento Card -->
-        <div class="bento-card col-12" style="background: linear-gradient(135deg, rgba(8, 14, 24, 0.95), rgba(15, 23, 42, 0.9)); border: 1px solid rgba(0, 240, 255, 0.25);">
-          <div class="skill-header" style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.85rem; margin-bottom: 1.25rem;">
-            <div class="skill-icon-wrap" style="background: rgba(139, 92, 246, 0.2); color: #c084fc;">⚡</div>
+        <!-- THE MULTIVERSE CONSOLE // GAMIFIED OFF-DUTY ARENA -->
+        <div class="col-12 mv-console">
+          <div class="skill-header" style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.85rem; margin-bottom: 1.5rem;">
+            <div class="skill-icon-wrap" style="background: rgba(0, 240, 255, 0.15); color: var(--neon-cyan);">🎮</div>
             <div>
-              <h3>Off-Duty Telemetry // Personal Lore & Culture</h3>
-              <p style="font-size:0.8rem; color:var(--neon-cyan);">Identity beyond the SecOps perimeter — Hogwarts, Camp Nou, Brackley & Kolkata</p>
+              <h3>The Multiverse Console // Off-Duty Interactive Arena</h3>
+              <p style="font-size:0.8rem; color:var(--text-dim);">
+                Explore gamified interactive channels celebrating House Slytherin, FC Barcelona, Mercedes-AMG F1, and Kolkata culture.
+              </p>
             </div>
           </div>
 
-          <div class="lore-grid">
-            <!-- Slytherin -->
-            <div style="background: rgba(6, 34, 21, 0.6); border: 1px solid rgba(34, 197, 94, 0.35); border-radius: 10px; padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; gap: 0.75rem;">
-              <div>
-                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.4rem;">
-                  <span style="font-size:1.4rem;">🐍</span>
-                  <span style="font-family:var(--font-mono); font-size:0.68rem; background:rgba(34,197,94,0.15); color:#86efac; border:1px solid rgba(34,197,94,0.3); padding:2px 6px; border-radius:4px;">SLYTHERIN</span>
-                </div>
-                <h4 style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.35rem;">House of the Serpent</h4>
-                <p style="font-size:0.8rem; color:#94a3b8; line-height:1.5;">
-                  Sorted into Slytherin. Driven by unwavering ambition, cunning problem-solving, and ruthless defense logic against systemic threat vectors.
-                </p>
+          <!-- 4 Channel Switcher Tabs with Custom Crafted SVG Emblems -->
+          <div class="mv-tabs-row">
+            <!-- Channel 1: Slytherin -->
+            <button class="mv-tab-btn active" data-channel="slytherin">
+              <div class="mv-tab-icon">
+                <img src="assets/icons/slytherin-emblem.svg" alt="Slytherin" style="width:38px; height:38px;" />
               </div>
-              <button class="quick-cmd-pill" style="align-self:flex-start; border-color:rgba(34,197,94,0.4); color:#86efac;" onclick="document.getElementById('term-input').value='slytherin'; document.getElementById('terminal-section').scrollIntoView({behavior:'smooth'});">
-                <span>🐍 Test 'slytherin'</span>
-              </button>
+              <div class="mv-tab-info">
+                <span class="title">House Slytherin</span>
+                <span class="subtitle" style="color:#86efac;">Parseltongue Vault 🐍</span>
+              </div>
+            </button>
+
+            <!-- Channel 2: FC Barcelona -->
+            <button class="mv-tab-btn" data-channel="barca">
+              <div class="mv-tab-icon">
+                <img src="assets/icons/barca-crest.svg" alt="FC Barcelona" style="width:38px; height:38px;" />
+              </div>
+              <div class="mv-tab-info">
+                <span class="title">FC Barcelona</span>
+                <span class="subtitle" style="color:#edbb00;">Tiki-Taka Rhythm ⚽</span>
+              </div>
+            </button>
+
+            <!-- Channel 3: Mercedes F1 -->
+            <button class="mv-tab-btn" data-channel="f1">
+              <div class="mv-tab-icon">
+                <img src="assets/icons/mercedes-f1.svg" alt="Mercedes F1" style="width:38px; height:38px;" />
+              </div>
+              <div class="mv-tab-info">
+                <span class="title">Mercedes-AMG F1</span>
+                <span class="subtitle" style="color:#00d2be;">Lights Out Reaction 🏎️</span>
+              </div>
+            </button>
+
+            <!-- Channel 4: Proud Bong -->
+            <button class="mv-tab-btn" data-channel="bong">
+              <div class="mv-tab-icon">
+                <img src="assets/icons/kolkata-bong.svg" alt="Proud Bong" style="width:38px; height:38px;" />
+              </div>
+              <div class="mv-tab-info">
+                <span class="title">Proud Bong</span>
+                <span class="subtitle" style="color:#fecdd3;">Feluda Deduction ☕</span>
+              </div>
+            </button>
+          </div>
+
+          <!-- ============================================================== -->
+          <!-- CHANNEL 1 VIEW: SLYTHERIN SPELLCASTER & SERPENT CIPHER -->
+          <!-- ============================================================== -->
+          <div class="mv-channel-view active" data-channel="slytherin">
+            <div class="sly-grid">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.75rem; color:#86efac; margin-bottom:0.6rem;">
+                  // SELECT SLYTHERIN DEFENSE INCANTATION:
+                </div>
+                <div class="sly-spells-list">
+                  <button class="sly-spell-btn active" data-spell="serpensortia">
+                    <span>🐍 Serpensortia (Perimeter Serpent)</span>
+                    <span style="color:#22c55e;">[CAST]</span>
+                  </button>
+                  <button class="sly-spell-btn" data-spell="zerotrust">
+                    <span>⚡ Avada Zero-Trust (Token Severance)</span>
+                    <span style="color:#22c55e;">[CAST]</span>
+                  </button>
+                  <button class="sly-spell-btn" data-spell="legilimens">
+                    <span>👁️ Legilimens Audit (Prompt Probe)</span>
+                    <span style="color:#22c55e;">[CAST]</span>
+                  </button>
+                  <button class="sly-spell-btn" data-spell="imperio">
+                    <span>📜 Imperio Governance (SOD Policy)</span>
+                    <span style="color:#22c55e;">[CAST]</span>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <div style="position:relative; width:100%; height:90px; background:#02150d; border:1px solid rgba(34,197,94,0.3); border-radius:8px; overflow:hidden; margin-bottom:0.75rem;">
+                  <canvas id="sly-spark-canvas" style="width:100%; height:100%; display:block;"></canvas>
+                  <div style="position:absolute; top:6px; right:8px; font-family:var(--font-mono); font-size:0.68rem; color:#86efac;">EMERALD RUNIC PARTICLE DISCHARGE</div>
+                </div>
+                <div id="sly-spell-output" style="background:#02150d; border:1px solid rgba(34,197,94,0.3); border-radius:8px; padding:0.85rem; font-family:var(--font-mono); font-size:0.75rem; color:#cbd5e1; line-height:1.5;">
+                  <span style="color:#86efac;">Click any incantation above to discharge emerald Slytherin runic defenses.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================== -->
+          <!-- CHANNEL 2 VIEW: FC BARCELONA TIKI-TAKA CHALLENGE -->
+          <!-- ============================================================== -->
+          <div class="mv-channel-view" data-channel="barca">
+            <div class="barca-grid">
+              <div class="barca-pitch-wrapper">
+                <canvas id="barca-pitch-canvas"></canvas>
+                <div style="position:absolute; bottom:8px; left:10px; right:10px; display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.72rem; color:#edbb00; background:rgba(0,0,0,0.6); padding:3px 8px; border-radius:4px;">
+                  <span>CAMP NOU // DIAMOND POSSESSION RIG</span>
+                  <span>TARGET: <span id="barca-target-player" style="color:#fff;">Pedri</span></span>
+                </div>
+              </div>
+
+              <div style="display:flex; flex-direction:column; justify-content:space-between; gap:0.85rem;">
+                <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:0.75rem;">
+                  <div style="background:#061324; border:1px solid rgba(0,77,152,0.5); border-radius:8px; padding:0.75rem;">
+                    <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dim);">PASSES COMPLETED</div>
+                    <div style="font-family:var(--font-mono); font-size:1.6rem; font-weight:800; color:#edbb00;" id="barca-pass-count">0</div>
+                  </div>
+                  <div style="background:#061324; border:1px solid rgba(0,77,152,0.5); border-radius:8px; padding:0.75rem;">
+                    <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dim);">BALL POSSESSION</div>
+                    <div style="font-family:var(--font-mono); font-size:1.6rem; font-weight:800; color:#38bdf8;" id="barca-possession-val">72%</div>
+                  </div>
+                </div>
+
+                <div id="barca-game-status" style="background:#030a14; border:1px solid rgba(237,187,0,0.3); border-radius:8px; padding:0.85rem; font-family:var(--font-mono); font-size:0.78rem; color:#94a3b8; line-height:1.5;">
+                  Hit "PASS BALL (TIKI-TAKA)" to keep the ball flowing and evade the high press.
+                </div>
+
+                <button id="barca-pass-btn" class="btn-primary" style="background:#edbb00; color:#000; justify-content:center; box-shadow:0 0 18px rgba(237,187,0,0.35);">
+                  <span>⚽ PASS BALL (TIKI-TAKA)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================== -->
+          <!-- CHANNEL 3 VIEW: MERCEDES-AMG F1 "LIGHTS OUT" REACTION TESTER -->
+          <!-- ============================================================== -->
+          <div class="mv-channel-view" data-channel="f1">
+            <!-- FIA 5-Red-Lights Rig -->
+            <div class="f1-lights-rig">
+              <div class="f1-light"></div>
+              <div class="f1-light"></div>
+              <div class="f1-light"></div>
+              <div class="f1-light"></div>
+              <div class="f1-light"></div>
             </div>
 
-            <!-- FC Barcelona -->
-            <div style="background: rgba(0, 24, 51, 0.6); border: 1px solid rgba(0, 77, 152, 0.5); border-radius: 10px; padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; gap: 0.75rem;">
-              <div>
-                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.4rem;">
-                  <span style="font-size:1.4rem;">⚽</span>
-                  <span style="font-family:var(--font-mono); font-size:0.68rem; background:rgba(0,77,152,0.3); color:#edbb00; border:1px solid rgba(237,187,0,0.4); padding:2px 6px; border-radius:4px;">BLAUGRANA</span>
-                </div>
-                <h4 style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.35rem;">FC Barcelona</h4>
-                <p style="font-size:0.8rem; color:#94a3b8; line-height:1.5;">
-                  <em>Més que un club.</em> Football purist inspired by Camp Nou tiki-taka, spatial intelligence, and the 6-second high-press ball recovery rule.
-                </p>
-              </div>
-              <button class="quick-cmd-pill" style="align-self:flex-start; border-color:rgba(237,187,0,0.4); color:#edbb00;" onclick="document.getElementById('term-input').value='barca'; document.getElementById('terminal-section').scrollIntoView({behavior:'smooth'});">
-                <span>⚽ Test 'barca'</span>
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
+              <button id="f1-launch-btn" class="btn-primary" style="background:#00d2be; color:#000; font-size:0.9rem; padding:0.85rem 1.75rem; box-shadow:0 0 20px rgba(0,210,190,0.4);">
+                <span>🏎️ START COUNTDOWN (LIGHTS OUT)</span>
               </button>
+
+              <label style="display:flex; align-items:center; gap:0.6rem; font-family:var(--font-mono); font-size:0.8rem; color:#00d2be; cursor:pointer;">
+                <input type="checkbox" id="f1-drs-toggle" checked style="width:18px; height:18px; accent-color:#00d2be;" />
+                <span>DRS REAR WING FLAP OPEN (+18 km/h)</span>
+              </label>
             </div>
 
-            <!-- Proud Bong -->
-            <div style="background: rgba(30, 16, 20, 0.6); border: 1px solid rgba(244, 63, 94, 0.35); border-radius: 10px; padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; gap: 0.75rem;">
-              <div>
-                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.4rem;">
-                  <span style="font-size:1.4rem;">☕</span>
-                  <span style="font-family:var(--font-mono); font-size:0.68rem; background:rgba(244,63,94,0.15); color:#fecdd3; border:1px solid rgba(244,63,94,0.3); padding:2px 6px; border-radius:4px;">KOLKATA</span>
-                </div>
-                <h4 style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.35rem;">Proud Bong</h4>
-                <p style="font-size:0.8rem; color:#94a3b8; line-height:1.5;">
-                  Rooted in the intellectual soul of Kolkata. Fueled by College Street Coffee House addas, Satyajit Ray's Feluda deductions, and derby football fever.
-                </p>
-              </div>
-              <button class="quick-cmd-pill" style="align-self:flex-start; border-color:rgba(244,63,94,0.4); color:#fecdd3;" onclick="document.getElementById('term-input').value='bong'; document.getElementById('terminal-section').scrollIntoView({behavior:'smooth'});">
-                <span>☕ Test 'bong'</span>
-              </button>
+            <div id="f1-result-display" style="background:#04070d; border:1px solid rgba(0,210,190,0.3); border-radius:8px; padding:1rem; font-family:var(--font-mono); font-size:0.78rem; color:#cbd5e1; line-height:1.5;">
+              Click 'START COUNTDOWN' to test your reaction time when the 5 red lights extinguish!
             </div>
+          </div>
 
-            <!-- Mercedes F1 -->
-            <div style="background: rgba(11, 15, 18, 0.6); border: 1px solid rgba(0, 210, 190, 0.35); border-radius: 10px; padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; gap: 0.75rem;">
+          <!-- ============================================================== -->
+          <!-- CHANNEL 4 VIEW: PROUD BONG FELUDA DEDUCTION LAB -->
+          <!-- ============================================================== -->
+          <div class="mv-channel-view" data-channel="bong">
+            <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:1.5rem;">
               <div>
-                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.4rem;">
-                  <span style="font-size:1.4rem;">🏎️</span>
-                  <span style="font-family:var(--font-mono); font-size:0.68rem; background:rgba(0,210,190,0.15); color:#00d2be; border:1px solid rgba(0,210,190,0.3); padding:2px 6px; border-radius:4px;">SILVER ARROWS</span>
+                <div style="font-family:var(--font-mono); font-size:0.75rem; color:#f43f5e; margin-bottom:0.5rem;">
+                  // SELECT CLUES TO INSPECT (CLICK TO EXAMINE):
                 </div>
-                <h4 style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.35rem;">Mercedes-AMG F1</h4>
-                <p style="font-size:0.8rem; color:#94a3b8; line-height:1.5;">
-                  Brackley telemetry fanatic. <em>"Hammer Time."</em> Obsessed with aerodynamic downforce, powertrain telemetry, and relentless engineering optimization.
-                </p>
+                <div class="bong-clues-row">
+                  <div class="bong-clue-chip">🔍 Clue 1: Earthen Clay Bhar with Darjeeling Chai (+10%)</div>
+                  <div class="bong-clue-chip">📜 Clue 2: College Street Book Receipt from 11:45 PM (+10%)</div>
+                  <div class="bong-clue-chip">🚕 Clue 3: Yellow Ambassador Taxi Node Log (+10%)</div>
+                  <div class="bong-clue-chip">🍬 Clue 4: Sweet Sandesh Box with Timestamp (+10%)</div>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:0.85rem; margin-bottom:1rem;">
+                  <button id="bong-sip-chai-btn" class="btn-outline" style="border-color:#f43f5e; color:#fecdd3;">
+                    <span>☕ Sip College Street Chai (+15% Brainpower)</span>
+                  </button>
+                  <button id="bong-deduce-btn" class="btn-primary" style="background:#f43f5e; color:#fff; box-shadow:0 0 16px rgba(244,63,94,0.4);">
+                    <span>🧠 Deploy Feluda Magajastra</span>
+                  </button>
+                </div>
               </div>
-              <button class="quick-cmd-pill" style="align-self:flex-start; border-color:rgba(0,210,190,0.4); color:#00d2be;" onclick="document.getElementById('term-input').value='f1'; document.getElementById('terminal-section').scrollIntoView({behavior:'smooth'});">
-                <span>🏎️ Test 'f1'</span>
-              </button>
+
+              <div>
+                <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:0.75rem; margin-bottom:0.75rem;">
+                  <div style="background:#1e1014; border:1px solid rgba(244,63,94,0.3); border-radius:8px; padding:0.75rem;">
+                    <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dim);">CHAI INTAKE</div>
+                    <div style="font-family:var(--font-mono); font-size:1.4rem; font-weight:800; color:#fecdd3;" id="bong-chai-count">1 Bhar (ভাড়)</div>
+                  </div>
+                  <div style="background:#1e1014; border:1px solid rgba(244,63,94,0.3); border-radius:8px; padding:0.75rem;">
+                    <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dim);">MAGAJASTRA BRAINPOWER</div>
+                    <div style="font-family:var(--font-mono); font-size:1.4rem; font-weight:800; color:#fbbf24;" id="bong-brainpower-val">55%</div>
+                  </div>
+                </div>
+
+                <div id="bong-deduction-output" style="background:#090508; border:1px solid rgba(244,63,94,0.3); border-radius:8px; padding:0.85rem; font-family:var(--font-mono); font-size:0.75rem; color:#cbd5e1; line-height:1.5; min-height:110px;">
+                  Examine clues or sip chai to charge your Magajastra meter before deploying deductive reasoning!
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1284,6 +1414,7 @@ Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with
   <!-- Scripts -->
   <script src="js/sound-fx.js"></script>
   <script src="js/matrix-rain.js"></script>
+  <script src="js/nerd-arcade.js"></script>
   <script src="js/vuln-investigator.js"></script>
   <script src="js/guardrail-sim.js"></script>
   <script src="js/jml-visualizer.js"></script>

@@ -2138,3 +2138,213 @@ footer {
 @media (max-width: 640px) {
   .lore-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ==========================================================================
+   THE MULTIVERSE CONSOLE // OFF-DUTY ARENA & GAMIFIED ARCADE
+   ========================================================================== */
+
+.mv-console {
+  background: linear-gradient(135deg, rgba(8, 13, 24, 0.95), rgba(12, 18, 32, 0.9));
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  border-radius: 16px;
+  padding: 2.25rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 240, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.mv-console::before {
+  content: 'OFF-DUTY TELEMETRY // 4-CHANNEL GAMIFIED ARENA';
+  position: absolute;
+  top: 0.85rem;
+  right: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--neon-cyan);
+  opacity: 0.7;
+}
+
+.mv-tabs-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.25rem;
+}
+
+.mv-tab-btn {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition-smooth);
+}
+
+.mv-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 240, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.mv-tab-btn.active {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.2);
+}
+
+.mv-tab-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mv-tab-info .title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: block;
+}
+
+.mv-tab-info .subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  display: block;
+}
+
+.mv-channel-view {
+  display: none;
+  animation: fadeIn 0.3s ease backwards;
+}
+
+.mv-channel-view.active {
+  display: block;
+}
+
+/* Slytherin Game View */
+.sly-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.sly-spells-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sly-spell-btn {
+  background: rgba(6, 34, 21, 0.7);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #86efac;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sly-spell-btn:hover, .sly-spell-btn.active {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: #22c55e;
+  color: #ffffff;
+}
+
+/* Barca Game View */
+.barca-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1.5rem;
+}
+
+.barca-pitch-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: #061324;
+  border: 1px solid rgba(0, 77, 152, 0.6);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#barca-pitch-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* F1 Game View */
+.f1-lights-rig {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  background: #04070d;
+  border: 2px solid #1e293b;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.f1-light {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 3px solid #000000;
+  transition: background 0.1s, box-shadow 0.1s;
+}
+
+/* Bong Game View */
+.bong-clues-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.bong-clue-chip {
+  background: rgba(30, 16, 20, 0.7);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #fecdd3;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.bong-clue-chip:hover, .bong-clue-chip.selected {
+  background: rgba(244, 63, 94, 0.25);
+  border-color: #f43f5e;
+  color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+  .mv-tabs-row { grid-template-columns: repeat(2, 1fr); }
+  .sly-grid, .barca-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .mv-tabs-row { grid-template-columns: 1fr; }
+  .f1-lights-rig { gap: 0.65rem; }
+  .f1-light { width: 34px; height: 34px; }
+}
