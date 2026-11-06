@@ -115,6 +115,12 @@
                   <span>⚡</span>
                   <span>Cybersecurity Analyst & AI Governance Researcher</span>
                 </div>
+                <div class="hero-personality-tag" title="Astrological & Psychological Profile">
+                  <span class="scorpio">♏ SCORPIO</span>
+                  <span>•</span>
+                  <span class="entj">ENTJ-A 8w7</span>
+                  <span class="personality-sub">The Commander & Challenger</span>
+                </div>
               </div>
             </div>
 
@@ -615,12 +621,12 @@
             <div>
               <h3>The Multiverse Console // Off-Duty Interactive Arena</h3>
               <p style="font-size:0.8rem; color:var(--text-dim);">
-                Explore gamified interactive channels celebrating House Slytherin, FC Barcelona, Mercedes-AMG F1, and Kolkata culture.
+                Explore gamified interactive channels celebrating House Slytherin, FC Barcelona, Mercedes-AMG F1, Kolkata heritage, Marvel Avengers (Spider-Man & Thor), and Power Rangers.
               </p>
             </div>
           </div>
 
-          <!-- 4 Channel Switcher Tabs with Custom Crafted SVG Emblems -->
+          <!-- 6 Channel Switcher Tabs with Custom Crafted SVG Emblems -->
           <div class="mv-tabs-row">
             <!-- Channel 1: Slytherin -->
             <button class="mv-tab-btn active" data-channel="slytherin">
@@ -663,6 +669,28 @@
               <div class="mv-tab-info">
                 <span class="title">Proud Bong</span>
                 <span class="subtitle" style="color:#fecdd3;">Feluda Deduction ☕</span>
+              </div>
+            </button>
+
+            <!-- Channel 5: Marvel Avengers -->
+            <button class="mv-tab-btn" data-channel="marvel">
+              <div class="mv-tab-icon">
+                <img src="assets/icons/marvel-emblem.svg" alt="Marvel Hub" style="width:38px; height:38px;" />
+              </div>
+              <div class="mv-tab-info">
+                <span class="title">Marvel Hub</span>
+                <span class="subtitle" style="color:#ef4444;">Spidey & Thor 🕷️⚡</span>
+              </div>
+            </button>
+
+            <!-- Channel 6: Power Rangers -->
+            <button class="mv-tab-btn" data-channel="powerrangers">
+              <div class="mv-tab-icon">
+                <img src="assets/icons/powerrangers-emblem.svg" alt="Power Rangers" style="width:38px; height:38px;" />
+              </div>
+              <div class="mv-tab-info">
+                <span class="title">Power Rangers</span>
+                <span class="subtitle" style="color:#facc15;">Morphin Grid ⚡🦖</span>
               </div>
             </button>
           </div>
@@ -813,6 +841,89 @@
 
                 <div id="bong-deduction-output" style="background:#090508; border:1px solid rgba(244,63,94,0.3); border-radius:8px; padding:0.85rem; font-family:var(--font-mono); font-size:0.75rem; color:#cbd5e1; line-height:1.5; min-height:110px;">
                   Examine clues or sip chai to charge your Magajastra meter before deploying deductive reasoning!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================== -->
+          <!-- CHANNEL 5 VIEW: MARVEL AVENGERS HUB (SPIDER-MAN & THOR) -->
+          <!-- ============================================================== -->
+          <div class="mv-channel-view" data-channel="marvel">
+            <div class="marvel-grid">
+              <div class="marvel-actions-col">
+                <div class="marvel-hero-card">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
+                    <div style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:#ef4444;">
+                      🕷️ Peter Parker // Web-Shooter Defense
+                    </div>
+                    <span id="marvel-web-count" style="font-family:var(--font-mono); font-size:0.75rem; color:#fca5a5;">0 Webs Fired</span>
+                  </div>
+                  <p style="font-size:0.78rem; color:#cbd5e1; margin-bottom:0.75rem; line-height:1.4;">
+                    Deploy high-tensile web-fluid to wrap zero-day anomalies and protect the API perimeter. <em>"With great privilege comes great access governance!"</em>
+                  </p>
+                  <button id="marvel-thwip-btn" class="btn-primary" style="background:#ef4444; color:#fff; box-shadow:0 0 16px rgba(239,68,68,0.4); width:100%; justify-content:center;">
+                    <span>🕸️ THWIP! TRAP ANOMALY</span>
+                  </button>
+                </div>
+
+                <div class="thor-hero-card">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
+                    <div style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:#38bdf8;">
+                      ⚡ Thor Odinson // Mjolnir Worthiness Test
+                    </div>
+                    <span style="font-family:var(--font-mono); font-size:0.72rem; color:#7dd3fc;">ASGARDIAN AUDIT</span>
+                  </div>
+                  <p style="font-size:0.78rem; color:#cbd5e1; margin-bottom:0.75rem; line-height:1.4;">
+                    Attempt to lift Mjolnir. Only those with untampered audit trails and pure zero-trust integrity can summon the lightning.
+                  </p>
+                  <button id="marvel-mjolnir-btn" class="btn-primary" style="background:#0284c7; color:#fff; box-shadow:0 0 16px rgba(2,132,199,0.4); width:100%; justify-content:center;">
+                    <span>⚡ LIFT MJOLNIR // SUMMON LIGHTNING</span>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <div style="position:relative; width:100%; height:95px; background:#071224; border:1px solid rgba(56,189,248,0.3); border-radius:8px; overflow:hidden; margin-bottom:0.75rem;">
+                  <canvas id="marvel-lightning-canvas" style="width:100%; height:100%; display:block;"></canvas>
+                  <div style="position:absolute; top:6px; right:8px; font-family:var(--font-mono); font-size:0.68rem; color:#38bdf8;">ASGARDIAN BIFROST DISCHARGE</div>
+                </div>
+
+                <div id="marvel-output" style="background:#090e17; border:1px solid rgba(239,68,68,0.3); border-radius:8px; padding:0.85rem; font-family:var(--font-mono); font-size:0.75rem; color:#cbd5e1; line-height:1.5; min-height:115px;">
+                  Select a Marvel operative above to trigger Spider-Sense containment or prove worthiness with Thor's Mjolnir!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================== -->
+          <!-- CHANNEL 6 VIEW: POWER RANGERS MORPHIN GRID COMMAND -->
+          <!-- ============================================================== -->
+          <div class="mv-channel-view" data-channel="powerrangers">
+            <div class="pr-grid">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.75rem; color:#facc15; margin-bottom:0.5rem;">
+                  // SELECT RANGER & ZORD AVATAR:
+                </div>
+                <select id="pr-zord-select" class="pr-zord-select-box">
+                  <option value="green">GREEN RANGER // Tommy Oliver 🎺 (Dragonzord Grid)</option>
+                  <option value="red">RED RANGER // Jason Lee Scott 🦖 (Tyrannosaurus Firepower)</option>
+                  <option value="white">WHITE RANGER // White Tigerzord 🐅 (Pure Zero-Trust Light)</option>
+                </select>
+
+                <button id="pr-morph-btn" class="btn-primary" style="background:#eab308; color:#000; font-weight:800; box-shadow:0 0 20px rgba(234,179,8,0.45); width:100%; justify-content:center; font-size:0.92rem; padding:0.85rem 1rem;">
+                  <span>⚡ "IT'S MORPHIN' TIME!" // INITIATE MORPH</span>
+                </button>
+              </div>
+
+              <div>
+                <div style="position:relative; width:100%; height:80px; background:#181302; border:1px solid rgba(234,179,8,0.3); border-radius:8px; overflow:hidden; margin-bottom:0.75rem;">
+                  <canvas id="pr-morph-canvas" style="width:100%; height:100%; display:block;"></canvas>
+                  <div style="position:absolute; top:6px; right:8px; font-family:var(--font-mono); font-size:0.68rem; color:#facc15;">ANGEL GROVE COMMAND FREQUENCY</div>
+                </div>
+
+                <div id="pr-output" style="background:#0e0c03; border:1px solid rgba(234,179,8,0.3); border-radius:8px; padding:0.85rem; font-family:var(--font-mono); font-size:0.75rem; color:#cbd5e1; line-height:1.5; min-height:115px;">
+                  Select your Ranger and hit "IT'S MORPHIN' TIME!" to connect with the Morphin Grid and assemble the Dino Megazord!
                 </div>
               </div>
             </div>
@@ -1222,6 +1333,10 @@ Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with
             <span class="quick-cmd-pill" data-cmd="certs">certs</span>
             <span class="quick-cmd-pill" data-cmd="slytherin">🐍 slytherin</span>
             <span class="quick-cmd-pill" data-cmd="barca">⚽ barca</span>
+            <span class="quick-cmd-pill" data-cmd="personality">♏ personality</span>
+            <span class="quick-cmd-pill" data-cmd="spiderman">🕷️ spiderman</span>
+            <span class="quick-cmd-pill" data-cmd="thor">⚡ thor</span>
+            <span class="quick-cmd-pill" data-cmd="morph">🦖 morph</span>
             <span class="quick-cmd-pill" data-cmd="f1">🏎️ f1</span>
             <span class="quick-cmd-pill" data-cmd="bong">☕ bong</span>
             <span class="quick-cmd-pill" data-cmd="neofetch">neofetch</span>
@@ -1295,6 +1410,15 @@ Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with
         </a>
         <a href="#skills" class="retro-badge-item" title="Proud Bong (Kolkata Pride & Heritage)">
           <img src="assets/badges/bong-badge.svg" width="88" height="31" alt="Proud Bong" />
+        </a>
+        <a href="#skills" class="retro-badge-item" title="Scorpio & ENTJ-A 8w7 Personality Profile">
+          <img src="assets/badges/scorpio-entj-badge.svg" width="88" height="31" alt="Scorpio ENTJ-A" />
+        </a>
+        <a href="#skills" class="retro-badge-item" title="Marvel Hub: Spider-Man & Thor">
+          <img src="assets/badges/marvel-badge.svg" width="88" height="31" alt="Marvel" />
+        </a>
+        <a href="#skills" class="retro-badge-item" title="Power Rangers Morphin Grid">
+          <img src="assets/badges/powerrangers-badge.svg" width="88" height="31" alt="Power Rangers" />
         </a>
         <a href="https://ring.seggs.lol/" target="_blank" rel="noopener" class="retro-badge-item" title="Threadlocker Webring Member">
           <img src="assets/badges/threadlocker-badge.svg" width="88" height="31" alt="Webring" />

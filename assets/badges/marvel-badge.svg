@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31">
+  <rect width="88" height="31" fill="#180404" stroke="#ef4444"/>
+  <rect x="1" y="1" width="86" height="14" fill="#dc2626"/>
+  <rect x="1" y="15" width="86" height="15" fill="#0284c7"/>
+  <text x="44" y="11" fill="#ffffff" font-family="'Courier New', monospace" font-size="7.5" font-weight="900" text-anchor="middle">SPIDER-MAN 🕷️</text>
+  <text x="44" y="26" fill="#fef08a" font-family="'Courier New', monospace" font-size="7" font-weight="bold" text-anchor="middle">THOR WORTHY ⚡</text>
+  <rect x="1" y="1" width="86" height="29" fill="none" stroke="#ef4444" stroke-opacity="0.3"/>
+</svg>

@@ -412,6 +412,181 @@
   }
 
   // -------------------------------------------------------------
+  // CHANNEL 5: MARVEL AVENGERS HUB (SPIDER-MAN & THOR)
+  // -------------------------------------------------------------
+  let spiderWebsShot = 0;
+
+  function initMarvelGame() {
+    const thwipBtn = document.getElementById('marvel-thwip-btn');
+    const mjolnirBtn = document.getElementById('marvel-mjolnir-btn');
+    const webCountEl = document.getElementById('marvel-web-count');
+    const marvelOutput = document.getElementById('marvel-output');
+    const lightningCanvas = document.getElementById('marvel-lightning-canvas');
+
+    if (!thwipBtn || !mjolnirBtn) return;
+
+    thwipBtn.addEventListener('click', () => {
+      spiderWebsShot++;
+      if (webCountEl) webCountEl.innerText = `${spiderWebsShot} Webs Fired`;
+
+      marvelOutput.innerHTML = `
+<span style="color:#ef4444; font-weight:bold;">[🕸️ THWIP! SPIDER-SENSE ANOMALY TRAPPED]</span>
+----------------------------------------------------------------------
+<strong>STATUS:</strong> Perimeter vulnerability cocooned in reinforced tensile webbing.
+<strong>PETER's PRINCIPLE:</strong> <em>"With great privilege comes great access governance!"</em>
+<strong>SPIDER-SENSE TELEMETRY:</strong> Anomaly neutralized before reaching core database.
+      `;
+
+      if (window.soundEngine) window.soundEngine.playKey();
+      if (window.unlockAchievement && spiderWebsShot >= 3) {
+        window.unlockAchievement('ach_spidey', 'Friendly Neighborhood SecOps', 'Neutralized threats with Spider-Sense web-shooters!');
+      }
+    });
+
+    mjolnirBtn.addEventListener('click', () => {
+      marvelOutput.innerHTML = `
+<span style="color:#38bdf8; font-weight:bold;">[⚡ MJOLNIR AUDIT: WHOSOEVER BE WORTHY...]</span>
+----------------------------------------------------------------------
+<strong>OPERATOR IDENTITY:</strong> Daipayan Ghosal (C|EH Certified Ethical Hacker)
+<strong>CODE INTEGRITY AUDIT:</strong> 100% CLEAN
+<strong>VERDICT:</strong> <span style="color:#fde047; font-size:1.1rem; font-weight:bold;">YOU ARE DEEMED WORTHY! ⚡</span>
+<em>"Whosoever holds this hammer, if he be worthy, shall possess the power of Thor."</em>
+Asgardian lightning channeled into enterprise cyber resilience.
+      `;
+
+      renderThorLightning(lightningCanvas);
+      if (window.soundEngine) window.soundEngine.playShield();
+      if (window.unlockAchievement) {
+        window.unlockAchievement('ach_thor', 'God of Thunder', 'Proven worthy to wield Mjolnir in the SecOps arena!');
+      }
+    });
+
+    function renderThorLightning(c) {
+      if (!c) return;
+      const ctx = c.getContext('2d');
+      const w = (c.width = c.clientWidth);
+      const h = (c.height = c.clientHeight);
+
+      let bolts = [];
+      for (let b = 0; b < 3; b++) {
+        let path = [{ x: w / 2, y: 0 }];
+        let curX = w / 2;
+        let curY = 0;
+        while (curY < h) {
+          curX += (Math.random() - 0.5) * 25;
+          curY += Math.random() * 15 + 10;
+          path.push({ x: curX, y: curY });
+        }
+        bolts.push(path);
+      }
+
+      let alpha = 1.0;
+      function step() {
+        ctx.clearRect(0, 0, w, h);
+        ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+        ctx.lineWidth = 2.5;
+        ctx.shadowColor = '#00f0ff';
+        ctx.shadowBlur = 12;
+
+        bolts.forEach((bolt) => {
+          ctx.beginPath();
+          ctx.moveTo(bolt[0].x, bolt[0].y);
+          for (let i = 1; i < bolt.length; i++) {
+            ctx.lineTo(bolt[i].x, bolt[i].y);
+          }
+          ctx.stroke();
+        });
+
+        alpha -= 0.08;
+        if (alpha > 0) requestAnimationFrame(step);
+      }
+      step();
+    }
+  }
+
+  // -------------------------------------------------------------
+  // CHANNEL 6: POWER RANGERS COMMAND CENTER ("IT'S MORPHIN' TIME!")
+  // -------------------------------------------------------------
+  const RANGER_ZORDS = {
+    green: {
+      ranger: 'GREEN RANGER // TOMMY OLIVER 🎺',
+      zord: 'Dragonzord Defense Grid',
+      weapon: 'Dragon Dagger Flute Frequency',
+      color: '#22c55e',
+      desc: 'Summons underwater cyber dragonzord shielding against advanced persistent threats (APTs).'
+    },
+    red: {
+      ranger: 'RED RANGER // JASON 🦖',
+      zord: 'Tyrannosaurus Dinozord',
+      weapon: 'Power Sword Executioner',
+      color: '#ef4444',
+      desc: 'Unleashes raw perimeter firewall firepower against high-volume DDoS floods.'
+    },
+    white: {
+      ranger: 'WHITE RANGER // TIGERZORD 🐅',
+      zord: 'White Tigerzord Warrior Mode',
+      weapon: 'Saba Enchanted Talking Saber',
+      color: '#f8fafc',
+      desc: 'Orchestrates pure light zero-trust verification across all identity tenants.'
+    }
+  };
+
+  function initPowerRangersGame() {
+    const morphBtn = document.getElementById('pr-morph-btn');
+    const zordSelect = document.getElementById('pr-zord-select');
+    const prOutput = document.getElementById('pr-output');
+    const prCanvas = document.getElementById('pr-morph-canvas');
+
+    if (!morphBtn || !prOutput) return;
+
+    morphBtn.addEventListener('click', () => {
+      const selected = zordSelect ? zordSelect.value : 'green';
+      const data = RANGER_ZORDS[selected] || RANGER_ZORDS.green;
+
+      prOutput.innerHTML = `
+<span style="color:${data.color}; font-weight:bold; font-size:1rem;">⚡ "IT'S MORPHIN' TIME!" // ${data.ranger}</span>
+----------------------------------------------------------------------
+<strong>ACTIVE ZORD:</strong> ${data.zord}
+<strong>PRIMARY ARSENAL:</strong> ${data.weapon}
+<strong>TACTICAL MATRIX:</strong> ${data.desc}
+<strong>MEGAZORD STATUS:</strong> <span style="color:#fde047;">DINO MEGAZORD ONLINE & ASSEMBLED!</span>
+      `;
+
+      renderMorphFlash(prCanvas, data.color);
+      if (window.soundEngine) window.soundEngine.playChime();
+      if (window.unlockAchievement) {
+        window.unlockAchievement('ach_ranger', 'Mighty Morphin Guardian', 'Triggered the Power Rangers Morphin Grid!');
+      }
+    });
+
+    function renderMorphFlash(c, color) {
+      if (!c) return;
+      const ctx = c.getContext('2d');
+      const w = (c.width = c.clientWidth);
+      const h = (c.height = c.clientHeight);
+
+      let radius = 5;
+      let alpha = 1.0;
+
+      function step() {
+        ctx.clearRect(0, 0, w, h);
+        ctx.beginPath();
+        ctx.arc(w / 2, h / 2, radius, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.globalAlpha = alpha;
+        ctx.shadowColor = '#facc15';
+        ctx.shadowBlur = 20;
+        ctx.fill();
+
+        radius += 8;
+        alpha -= 0.05;
+        if (alpha > 0) requestAnimationFrame(step);
+      }
+      step();
+    }
+  }
+
+  // -------------------------------------------------------------
   // MULTIVERSE CONSOLE TABS SWITCHER
   // -------------------------------------------------------------
   function initMultiverseTabs() {
@@ -445,5 +620,7 @@
     initBarcaGame();
     initF1Game();
     initBongGame();
+    initMarvelGame();
+    initPowerRangersGame();
   });
 })();

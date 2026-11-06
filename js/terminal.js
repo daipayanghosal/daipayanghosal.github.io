@@ -15,6 +15,10 @@ Available Security Shell Commands:
   <span style="color:#00f0ff;">certs</span>         - Display verified security certifications (Saviynt, Qualys, CEH, SC-200)
   <span style="color:#00f0ff;">threat-model</span>  - Run automated OWASP LLM & IAM STRIDE risk checklist
   <span style="color:#00f0ff;">vuln</span>          - Inspect featured project: VulnInvestigator GenAI prototype
+  <span style="color:#00f0ff;">personality</span>   - ♏ Scorpio • ENTJ-A 8w7 Commander psychometric profile
+  <span style="color:#00f0ff;">spiderman</span>     - 🕷️ Spider-Sense anomaly detection & web-shooters
+  <span style="color:#00f0ff;">thor</span>          - ⚡ Asgardian Mjolnir worthiness evaluation
+  <span style="color:#00f0ff;">morph</span>         - 🦖 Power Rangers "It's Morphin' Time!" Dinozord matrix
   <span style="color:#00f0ff;">slytherin</span>     - 🐍 Hogwarts House allegiance (Ambition & Resourcefulness)
   <span style="color:#00f0ff;">barca</span>         - ⚽ Visca el Barça! (Blaugrana tiki-taka philosophy)
   <span style="color:#00f0ff;">f1</span>            - 🏎️ Mercedes-AMG Petronas F1 telemetry & Silver Arrows
@@ -32,8 +36,10 @@ Available Security Shell Commands:
 --------------------------------------------------
   Name:        Daipayan Ghosal
   Role:        Cybersecurity Analyst (IAM / AppSec / AI Governance)
+  Archetype:   Scorpio ♏ • ENTJ-A (The Commander) • Enneagram 8w7 (The Challenger)
   Org:         Wipro Limited (Kolkata, IN)
   Focus:       AI Security, Saviynt IGA, Okta SSO, OWASP LLM Top 10, DevSecOps
+  Alliances:   Slytherin 🐍 // FC Barcelona 🔵🔴 // Mercedes F1 🏎️ // Marvel (Spidey/Thor) ⚡ // Power Rangers 🦖
   Email:       daipayanghosal@outlook.com // daipayanghosal.dev@gmail.com
   Location:    Kolkata, West Bengal, India [UTC+5:30]
   Academic:    Published Researcher in Neural Computing & Computer Vision
@@ -131,9 +137,12 @@ Available Security Shell Commands:
               Identity:   Saviynt IGA Level 200 // Okta IAM
               AppSec:     Checkmarx SAST // DevSecOps CI/CD
               ML Engine:  Ollama / DeepSeek R1 / Aquila Optimizer
+              Archetype:  ♏ Scorpio • ENTJ-A (Commander) • 8w7
               House:      🐍 Slytherin (Emerald & Silver / Pure Ambition)
               Football:   🔵🔴 FC Barcelona (Més que un club / Tiki-Taka)
               Paddock:    🏎️ Mercedes-AMG Petronas F1 (Silver Arrows)
+              Heroes:     🕷️ Spider-Man // ⚡ Thor (Mjolnir Worthy)
+              Squad:      ⚡ Power Rangers ("It's Morphin' Time!")
               Roots:      ☕ Proud Bong (City of Joy // Kolkata Adda)
               Location:   Kolkata, West Bengal, India
 </span>
@@ -196,6 +205,57 @@ Available Security Shell Commands:
       in the veins, shaping an eternal obsession with the beautiful game.
     • <span style="color:#fbbf24;">Fuel of Champions:</span> Macher jhol, kosha mangsho, and sweet roshogolla
       powering midnight secure LLM fine-tuning sessions.
+`,
+
+    personality: () => `
+<span style="color:#c084fc; font-weight:bold;">[PSYCHOMETRIC PROFILE: SCORPIO ♏ • ENTJ-A 8w7]</span>
+--------------------------------------------------
+  • <span style="color:#38bdf8;">Sun Sign:</span> Scorpio ♏
+    Relentless investigative depth, natural threat hunter, strategic secrecy, 
+    uncompromising loyalty, and laser focus when debugging complex security vulnerabilities.
+  • <span style="color:#38bdf8;">MBTI:</span> ENTJ-A (The Commander - Assertive)
+    Decisive strategic leadership, long-range architectural vision, high efficiency,
+    natural authority in enterprise governance, and zero fear of systemic complexity.
+  • <span style="color:#38bdf8;">Enneagram:</span> Type 8w7 (The Challenger with 7-wing "The Maverick")
+    Fierce protector of enterprise perimeters, direct communication, fearless in high-stakes
+    audits, high energy, and relentlessly driven to build resilient, unbreachable systems.
+`,
+
+    spiderman: () => `
+<span style="color:#ef4444; font-weight:bold;">[🕷️ YOUR FRIENDLY NEIGHBORHOOD CYBERSEC ANALYST]</span>
+--------------------------------------------------
+  Peter Parker's Principle Applied to IAM:
+  <span style="color:#ffffff; font-weight:bold;">"WITH GREAT PRIVILEGE COMES GREAT ACCESS GOVERNANCE!"</span>
+    • <span style="color:#38bdf8;">Spider-Sense:</span> Real-time instinctual anomaly detection firing off
+      whenever prompt injection heuristics or unauthorized token escalations touch the perimeter.
+    • <span style="color:#38bdf8;">Web-Shooters:</span> Instantaneous session quarantine trapping rogue API actors.
+    • <span style="color:#38bdf8;">Resilience:</span> Getting knocked down by novel algorithmic zero-days
+      and swinging right back up with automated patch orchestration.
+`,
+
+    thor: () => `
+<span style="color:#38bdf8; font-weight:bold;">[⚡ GOD OF THUNDER // THE MJOLNIR AUDIT]</span>
+--------------------------------------------------
+  <span style="color:#fde047; font-weight:bold;">"WHOSOEVER HOLDS THIS HAMMER, IF HE BE WORTHY,</span>
+  <span style="color:#fde047; font-weight:bold;">SHALL POSSESS THE POWER OF THOR!"</span>
+  Asgardian Resiliency in Enterprise SecOps:
+    • <span style="color:#ffffff;">The Worthiness Check:</span> Strict integrity verification. Only uncompromised,
+      fully attested identity tokens may invoke root permissions.
+    • <span style="color:#ffffff;">Lightning Strike:</span> Rapid automated static code analysis (SAST)
+      vaporizing structural code flaws before reaching staging environments.
+    • <span style="color:#ffffff;">Stormbreaker Scale:</span> Multi-tenant identity governance capable of
+      shielding enterprise workloads across multi-cloud realms (AWS, Azure, GCP).
+`,
+
+    morph: () => `
+<span style="color:#eab308; font-weight:bold;">[⚡ "IT'S MORPHIN' TIME!" // POWER RANGERS DEFENSE GRID]</span>
+--------------------------------------------------
+  🎺 <span style="color:#22c55e; font-weight:bold;">DRAGONZORD!</span> (Tommy Oliver flute frequency summoning deep telemetry)
+  🦖 <span style="color:#ef4444; font-weight:bold;">TYRANNOSAURUS!</span> (Raw perimeter firewall firepower)
+  🐅 <span style="color:#f8fafc; font-weight:bold;">WHITE TIGERZORD!</span> (Pure light zero-trust verification)
+  🦅 <span style="color:#ec4899; font-weight:bold;">PTERODACTYL!</span> (Aerial threat-hunting sensor reconnaissance)
+  <span style="color:#fde047; font-weight:bold;">MEGAZORD SEQUENCE INITIATED:</span>
+  All enterprise security layers combine into an autonomous, impenetrable defense colossus!
 `,
 
     matrix: () => {
@@ -315,7 +375,7 @@ Dispatching contact channels:
       }
 
       if (window.unlockAchievement) {
-        if (['slytherin', 'barca', 'f1', 'bong'].includes(baseCmd)) {
+        if (['slytherin', 'barca', 'f1', 'bong', 'personality', 'spiderman', 'thor', 'morph'].includes(baseCmd)) {
           window.unlockAchievement('ach_lore', 'Lore Master', `Discovered Daipayan's ${baseCmd.toUpperCase()} Easter egg!`);
         } else {
           window.unlockAchievement('ach_terminal', 'Root Access Granted', 'Discovered the interactive security terminal CLI');
