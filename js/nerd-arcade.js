@@ -410,7 +410,7 @@
       verdict: 'Bearer brings another round of piping hot black coffee and clay bhar er cha.'
     },
     lyadh: {
-      title: '🛋️ The Supreme Art of Lyadh (লায়াদ চর্চা)',
+      title: '🛋️ The Supreme Art of Lyadh (ল্যাদচর্চা)',
       bengali: 'বৃষ্টিভেজা বিকেলে পরম সুখ',
       desc: 'On a stormy monsoon afternoon with rain pelting the vintage green tram tracks, you attain supreme philosophical relaxation in bed, listening to Fossils and Rabindrasangeet with hot telebhaja and luchi.',
       boost: 15,
@@ -455,7 +455,7 @@
       chaiBtn.addEventListener('click', () => {
         chaiCupsDrunk++;
         culturalResonance = Math.min(100, culturalResonance + 8);
-        if (chaiCountEl) chaiCountEl.innerText = `${chaiCupsDrunk} Bhar (ভাড়)`;
+        if (chaiCountEl) chaiCountEl.innerText = `${chaiCupsDrunk} Bhar (ভাঁড়)`;
         if (vibeEl) vibeEl.innerText = `${culturalResonance}%`;
 
         outputEl.innerHTML = `
