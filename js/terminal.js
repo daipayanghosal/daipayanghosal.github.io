@@ -153,30 +153,30 @@ Available Security Shell Commands:
      ---_ ......._-_--.
     (|\\ /      / /| \\  \\
     /  /     .'  -=-'   )
-   /  /   .'             )   HOUSE SLYTHERIN 🐍
+   /  /   .'             )   HOUSE SLYTHERIN 🐍 // DUNGEON MISCHIEF
  _/  /   /   _..--.  .  /    ------------------------------------
-( \\   ) / //' /  \\  \\  /     Motto:   "Ambition, Resourcefulness, Cunning"
- \\ '-.-' / ( (    )  ) /     Colors:  Emerald Green & Silver
+( \\   ) / //' /  \\  \\  /     Motto:   "Ambition, Resourcefulness, Mischief"
+ \\ '-.-' / ( (    )  ) /     Spells:  Colloshoo, Furnunculus, Dungbombs
   '-----'   \\ '._.'  /       Element: Water // Dungeon Enclave
              '-----'
 </span>
-<span style="color:#86efac;">"Or perhaps in Slytherin, you'll make your real friends,</span>
-<span style="color:#86efac;">those cunning folk use any means to achieve their ends."</span>
-  — The Sorting Hat verdict for Daipayan Ghosal.
-  Applied to SecOps: Relentless ambition in defense architecture, strategic foresight, 
-  and never taking the easy route when hardening enterprise resilience.
+<span style="color:#86efac;">"I solemnly swear that I am up to no good."</span>
+  • <span style="color:#fde047;">Dungeon Mischief:</span> Deploying Colloshoo shoe-stick hexes and Polyjuice draughts
+    to bypass strict prefect patrols and outmaneuver bureaucratic gatekeepers.
+  • <span style="color:#22c55e;">Applied to SecOps:</span> Thinking like an adversary to expose structural flaws
+    and zero-days before unauthorized actors exploit enterprise perimeters.
 `,
 
     barca: () => `
-<span style="color:#004d98; font-weight:bold;">[🔵🔴 FUTBOL CLUB BARCELONA // MÉS QUE UN CLUB]</span>
+<span style="color:#004d98; font-weight:bold;">[🔵🔴 FUTBOL CLUB BARCELONA // EL CLÁSICO TIKI-TAKA]</span>
 --------------------------------------------------
   Camp Nou Faithful • Est. 1899 • Blaugrana Pride
-  Tiki-Taka Philosophy Applied to Cybersecurity:
-    • <span style="color:#edbb00;">Continuous Movement:</span> Like Busquets, Xavi & Iniesta dictating the tempo,
-      modern IAM ensures continuous entitlement verification without latency.
-    • <span style="color:#edbb00;">High Press & Fast Recovery:</span> Just as Pep's Barça enforced the 6-second
-      ball recovery rule, our AppSec pipeline neutralizes high-severity CVEs in real-time.
-    • <span style="color:#edbb00;">Vision:</span> Total spatial awareness across the enterprise attack surface.
+  Tiki-Taka Midfield Dominance vs. Real Madrid:
+    • <span style="color:#edbb00;">Evading Bellingham & Valverde:</span> One-touch rapid circulation bypassing 
+      Jude Bellingham's sliding box-to-box press and Fede Valverde's 35 km/h counter-sprint.
+    • <span style="color:#edbb00;">La Pausa & Line Breaking:</span> Pedri and Gavi dictating spatial tempo to slip through 
+      Camavinga and Tchouaméni's double-pivot block.
+    • <span style="color:#edbb00;">Lamine Yamal Flair:</span> Unlocking low blocks with audacious nutmegs and diagonal lasers.
   <span style="color:#edbb00; font-weight:bold;">Visca el Barça i Visca Catalunya! 🔵🔴</span>
 `,
 
@@ -185,12 +185,13 @@ Available Security Shell Commands:
 --------------------------------------------------
   Brackley & Brixworth Telemetry // 8x World Constructors' Champions
   Chassis:       Mercedes-AMG F1 W16 E Performance
-  Power Unit:    1.6L Turbocharged Hybrid V6
-  Radio Trans:   <span style="color:#ffffff;">"Hammer Time, Daipayan! Gap to nearest threat is 0.4s."</span>
+  Power Unit:    1.6L Turbocharged Hybrid V6 (100% ERS Deploy)
+  Radio Trans:   <span style="color:#ffffff;">"Hammer Time, Daipayan! Hunt down the McLaren, Ferrari, and Red Bull!"</span>
   Telemetry Ops:
-    • Downforce vs Drag: Balancing strict Zero Trust friction with seamless dev velocity.
-    • Sensor Array: Thousands of real-time telemetry channels mirroring XDR & SIEM log ingestion.
-    • In Toto Wolff We Trust: "We don't take it easy. We optimize every single millisecond."
+    • <span style="color:#f97316;">McLaren Overtake:</span> Cleared Lando Norris in Curva Grande with superior DRS slipstream.
+    • <span style="color:#ef4444;">Ferrari Overtake:</span> Dispatched Charles Leclerc into Ascari on late-braking balance.
+    • <span style="color:#3b82f6;">Red Bull Overtake:</span> Passed Max Verstappen on the start-finish straight for P1 victory!
+    • <span style="color:#00d2be;">Toto Wolff:</span> "We optimize every single millisecond. P1 is where we belong."
 `,
 
     bong: () => `
@@ -248,14 +249,29 @@ Available Security Shell Commands:
 `,
 
     morph: () => `
-<span style="color:#eab308; font-weight:bold;">[⚡ "IT'S MORPHIN' TIME!" // POWER RANGERS DEFENSE GRID]</span>
+<span style="color:#0284c7; font-weight:bold;">[🚨 "S.P.D. EMERGENCY!" // POWER RANGERS SPACE PATROL DELTA]</span>
 --------------------------------------------------
-  🎺 <span style="color:#22c55e; font-weight:bold;">DRAGONZORD!</span> (Tommy Oliver flute frequency summoning deep telemetry)
-  🦖 <span style="color:#ef4444; font-weight:bold;">TYRANNOSAURUS!</span> (Raw perimeter firewall firepower)
-  🐅 <span style="color:#f8fafc; font-weight:bold;">WHITE TIGERZORD!</span> (Pure light zero-trust verification)
-  🦅 <span style="color:#ec4899; font-weight:bold;">PTERODACTYL!</span> (Aerial threat-hunting sensor reconnaissance)
-  <span style="color:#fde047; font-weight:bold;">MEGAZORD SEQUENCE INITIATED:</span>
-  All enterprise security layers combine into an autonomous, impenetrable defense colossus!
+  🔴 <span style="color:#ef4444; font-weight:bold;">RED RANGER // Jack Landors:</span> Molecular Intangibility & Delta Blasters
+  🔵 <span style="color:#3b82f6; font-weight:bold;">BLUE RANGER // Sky Tate:</span> Force Field Barriers & Elite Tactical Command
+  🟢 <span style="color:#22c55e; font-weight:bold;">GREEN RANGER // Bridge Carson:</span> Psychometry & Aura Sensing (Handstand Intel)
+  🟡 <span style="color:#eab308; font-weight:bold;">YELLOW RANGER // Z Delgado:</span> Genetic Replication Clones
+  🌸 <span style="color:#ec4899; font-weight:bold;">PINK RANGER // Syd Drew:</span> Molecular Fist of Iron & Elemental Mimicry
+  🐺 <span style="color:#06b6d4; font-weight:bold;">SHADOW RANGER // Commander Cruger:</span> Shadow Saber 100-Strike Mastery
+  ⚪ <span style="color:#f8fafc; font-weight:bold;">OMEGA RANGER // Sam:</span> Photonic Light Warrior & Omegamax Cycle
+  <span style="color:#ef4444; font-weight:bold;">JUDGEMENT TIME SCANNER:</span>
+  Adversary scanned... VERDICT: ❌ GUILTY! Offender sealed in S.P.D. Confinement Card!
+`,
+
+    marvel: () => `
+<span style="color:#ef4444; font-weight:bold;">[⚔️ 8-BIT MARVEL PIXEL ARCADE FIGHTER]</span>
+--------------------------------------------------
+  6 Legendary Hero vs. Arch-Villain Matchups:
+    • <span style="color:#3b82f6;">Captain America</span> vs. <span style="color:#ef4444;">Red Skull</span> (Vibranium Shield vs Tesseract)
+    • <span style="color:#eab308;">Iron Man</span> vs. <span style="color:#94a3b8;">Ultron</span> (Unibeam Cannon vs Vibranium Infection)
+    • <span style="color:#38bdf8;">Thor Odinson</span> vs. <span style="color:#22c55e;">Loki</span> (Mjolnir Thunderstrike vs Illusion Clone)
+    • <span style="color:#f43f5e;">Spider-Man</span> vs. <span style="color:#10b981;">Green Goblin</span> (Web-Sling Dropkick vs Pumpkin Bombs)
+    • <span style="color:#22c55e;">Hulk</span> vs. <span style="color:#a855f7;">Thanos</span> (Hulk Smash vs Infinity Gauntlet)
+    • <span style="color:#64748b;">Black Widow</span> vs. <span style="color:#f97316;">Taskmaster</span> (Widow's Bite vs Photographic Reflexes)
 `,
 
     matrix: () => {
