@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31">
+  <rect width="88" height="31" fill="#0f172a" stroke="#38bdf8"/>
+  <rect x="1" y="1" width="86" height="14" fill="#0284c7"/>
+  <rect x="1" y="15" width="86" height="15" fill="#082f49"/>
+  <text x="44" y="11" fill="#ffffff" font-family="Courier, monospace" font-size="8" font-weight="bold" text-anchor="middle">AZURE SC-200</text>
+  <text x="44" y="26" fill="#7dd3fc" font-family="Courier, monospace" font-size="7" font-weight="bold" text-anchor="middle">SecOps Analyst</text>
+</svg>

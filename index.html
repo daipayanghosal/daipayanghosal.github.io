@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Daipayan Ghosal | Cybersecurity Analyst & AI Governance Researcher</title>
+  <meta name="description" content="Portfolio of Daipayan Ghosal — Cybersecurity Analyst specializing in Identity & Access Governance (Saviynt IGA, Okta), Application Security (AppSec/DevSecOps), and AI Governance & LLM Threat Defense. Published researcher in Neural Computing." />
+  <meta name="keywords" content="Daipayan Ghosal, Cybersecurity Analyst, IAM, Saviynt IGA, Okta, AppSec, DevSecOps, OWASP LLM, AI Governance, Kolkata, Wipro, C|EH, Qualys VMDR" />
+  <meta name="author" content="Daipayan Ghosal" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://daipayanghosal.github.io/" />
+  <meta property="og:title" content="Daipayan Ghosal | Cybersecurity Analyst & AI Governance Researcher" />
+  <meta property="og:description" content="Explore the interactive cybersecurity command deck, AI prompt injection defense simulator, IAM lifecycle matrix, and published research by Daipayan Ghosal." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/63237368?v=4" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/print-resume.css" />
+</head>
+<body data-view="sentinel">
+
+  <!-- Background Canvases -->
+  <canvas id="cyber-canvas"></canvas>
+  <canvas id="matrix-canvas"></canvas>
+  <div class="cyber-grid-overlay"></div>
+  <div class="mouse-glow"></div>
+
+  <!-- Gamified Achievement Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ==========================================================================
+       TOP NAVIGATION & CYBER HUD
+       ========================================================================== -->
+  <header class="hud-nav">
+    <div class="hud-container">
+      <div class="hud-left">
+        <a href="#hero" class="hud-brand">
+          <div class="brand-icon">⬡</div>
+          <span>DAIPAYAN.GHOSAL // SEC-ID: 0x8F4</span>
+        </a>
+        <div class="hud-status-badge">
+          <span class="status-dot"></span>
+          <span>DEFCON 5 // SYSTEM SECURE</span>
+        </div>
+      </div>
+
+      <!-- Nav Links -->
+      <ul class="hud-nav-links">
+        <li><a href="#hero" class="hud-link active"><span class="num">01</span> Overview</a></li>
+        <li><a href="#vulninvestigator" class="hud-link"><span class="num">02</span> VulnInvestigator</a></li>
+        <li><a href="#ai-threat-lab" class="hud-link"><span class="num">03</span> AI Threat Lab</a></li>
+        <li><a href="#iam-matrix" class="hud-link"><span class="num">04</span> IAM Matrix</a></li>
+        <li><a href="#skills" class="hud-link"><span class="num">05</span> Skills</a></li>
+        <li><a href="#experience" class="hud-link"><span class="num">06</span> Experience</a></li>
+        <li><a href="#research" class="hud-link"><span class="num">07</span> Research</a></li>
+        <li><a href="#certifications" class="hud-link"><span class="num">08</span> Credentials</a></li>
+        <li><a href="#terminal-section" class="hud-link"><span class="num">09</span> Terminal</a></li>
+      </ul>
+
+      <!-- HUD Controls -->
+      <div class="hud-right">
+        <!-- Dual Mode Switcher -->
+        <div class="view-switch" title="Toggle between Gamified Sentinel OS and Clean Executive Dossier">
+          <button id="btn-mode-sentinel" class="view-btn active">🎮 Sentinel OS</button>
+          <button id="btn-mode-executive" class="view-btn">📑 Dossier</button>
+        </div>
+
+        <!-- Sound FX Button -->
+        <button id="hud-sfx-toggle" class="ctrl-btn" title="Toggle Cyber Audio Synthesizer">
+          <span>🔈 SFX: OFF</span>
+        </button>
+
+        <!-- Command Palette Trigger -->
+        <button id="hud-cmd-trigger" class="ctrl-btn" title="Launch Command Palette (Ctrl+K)">
+          <span>⌘K</span>
+        </button>
+
+        <!-- Direct Resume Print -->
+        <button onclick="window.print()" class="ctrl-btn" title="Print or Save Executive Resume as PDF">
+          <span>📄 CV</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO / MISSION CONTROL & DOSSIER INTRO
+       ========================================================================== -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Hero Left: Bio Card -->
+        <div class="hero-intro-card">
+          <div>
+            <div class="hero-meta-strip">
+              <span>LOC // KOLKATA, INDIA [UTC+5:30]</span>
+              <span id="achievement-count-badge">[🏆 0/5 ACHIEVEMENTS]</span>
+            </div>
+
+            <div class="hero-avatar-row">
+              <div class="avatar-wrapper">
+                <img src="assets/avatar.jpg" alt="Daipayan Ghosal" class="avatar-img" onerror="this.src='https://avatars.githubusercontent.com/u/63237368?v=4'" />
+                <span class="avatar-badge">VERIFIED</span>
+              </div>
+              <div class="hero-title-group">
+                <h1>DAIPAYAN GHOSAL</h1>
+                <div class="hero-tagline">
+                  <span>⚡</span>
+                  <span>Cybersecurity Analyst & AI Governance Researcher</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="hero-summary">
+              Agile Cybersecurity Analyst with cross-domain expertise spanning <strong>Identity & Access Governance (IGA/IAM)</strong>, 
+              <strong>Application Security (AppSec)</strong>, and proactive threat research. Anchored by a published academic background in 
+              applied machine learning and neural computing, I operate at the intersection of <strong>AI governance</strong> and enterprise 
+              resilience—specializing in architecting secure LLM integrations, mitigating algorithmic threat vectors, and automating zero-trust JML workflows.
+            </p>
+
+            <div class="hero-highlights">
+              <div class="highlight-stat">
+                <span class="num">4+</span>
+                <span class="label">Published Papers (Springer)</span>
+              </div>
+              <div class="highlight-stat">
+                <span class="num">5+</span>
+                <span class="label">Enterprise Certs (Saviynt/CEH)</span>
+              </div>
+              <div class="highlight-stat">
+                <span class="num">100%</span>
+                <span class="label">ITGC Audit Compliance</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#ai-threat-lab" class="btn-primary">
+              <span>🛡️ Test AI Threat Lab</span>
+            </a>
+            <button class="btn-outline trigger-contact">
+              <span>✉️ Encrypted Transmission</span>
+            </button>
+            <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="btn-outline">
+              <span>🎓 Google Scholar</span>
+            </a>
+            <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener" class="btn-outline">
+              <span>🔗 LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right: Live Telemetry & Mission Control -->
+        <div class="hero-telemetry-card">
+          <div class="telemetry-header">
+            <div class="telemetry-title">
+              <span>📡</span>
+              <span>LIVE DEFENSE TELEMETRY</span>
+            </div>
+            <div class="telemetry-defcon" onclick="window.toggleMatrixMode()" style="cursor: pointer;" title="Click for Matrix Rain construct">
+              <span class="status-dot"></span>
+              <span>DEFCON 5 : NORMAL</span>
+            </div>
+          </div>
+
+          <div class="telemetry-grid">
+            <div class="telemetry-box">
+              <div class="meta">LOCAL TELEMETRY TIME</div>
+              <div class="val cyan" id="telemetry-clock">06:00:00 AM (Kolkata, IN)</div>
+            </div>
+            <div class="telemetry-box">
+              <div class="meta">CURRENT AFFILIATION</div>
+              <div class="val emerald">Wipro Limited</div>
+            </div>
+            <div class="telemetry-box">
+              <div class="meta">PRIMARY PLATFORMS</div>
+              <div class="val amber">Saviynt IGA // Okta // Workday</div>
+            </div>
+            <div class="telemetry-box">
+              <div class="meta">AI RESEARCH MODELS</div>
+              <div class="val violet">Ollama // DeepSeek R1 // RAG</div>
+            </div>
+          </div>
+
+          <!-- Mini Terminal Widget -->
+          <div class="mini-terminal">
+            <div class="mini-terminal-bar">
+              <div class="terminal-dots">
+                <div class="terminal-dot dot-red"></div>
+                <div class="terminal-dot dot-yellow"></div>
+                <div class="terminal-dot dot-green"></div>
+              </div>
+              <span>secops-daemon --active</span>
+            </div>
+            <div class="mini-term-line"><span class="cyan">[SYSTEM]</span> Kernel initialized: AI-Governance-IAM-Bridge</div>
+            <div class="mini-term-line"><span class="green">[OKTA]</span> SSO Directory synchronized; Zero drift recorded</div>
+            <div class="mini-term-line"><span class="green">[SAVIYNT]</span> JML event triggers listening; SOD compliance: 100%</div>
+            <div class="mini-term-line"><span class="amber">[LLM-GUARD]</span> OWASP Top 10 heuristics loaded. Ready for testing.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FEATURED PROJECT: VULNINVESTIGATOR (GenAI & Threat Prioritisation)
+       ========================================================================== -->
+  <section id="vulninvestigator">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Flagship Open-Source GenAI Prototype</div>
+        <h2 class="section-title">VulnInvestigator 🔍</h2>
+        <p class="section-desc">
+          Evidence-Grounded GenAI for Vulnerability-to-Threat Investigation and Risk Prioritisation. 
+          Augmenting conventional CVSS ranking with contextual asset criticality, <strong>CISA KEV</strong> exploitation data, 
+          and <strong>MITRE ATT&CK</strong> technique correlation.
+        </p>
+      </div>
+
+      <div class="vi-card">
+        <div class="vi-header-row">
+          <div class="vi-title-group">
+            <h3>
+              <span>VulnInvestigator</span>
+              <span style="font-size:0.75rem; font-family:var(--font-mono); background:rgba(0,240,255,0.15); color:var(--neon-cyan); border:1px solid rgba(0,240,255,0.4); padding:2px 8px; border-radius:4px;">RESEARCH PROTOTYPE</span>
+            </h3>
+            <div class="vi-subtitle">
+              Evidence-Grounded Threat Correlation & Prioritisation Pipeline // Python 3.12 + Streamlit
+            </div>
+          </div>
+
+          <div class="vi-repo-links">
+            <a href="https://github.com/daipayanghosal/VulnInvestigator" target="_blank" rel="noopener" class="btn-primary">
+              <span>📂 View on GitHub ↗</span>
+            </a>
+            <button class="btn-outline" onclick="navigator.clipboard.writeText('git clone https://github.com/daipayanghosal/VulnInvestigator.git'); alert('Clone command copied to clipboard!');">
+              <span>📋 Clone Repo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tech Stack Chips -->
+        <div class="skill-chips" style="margin-bottom: 1.5rem;">
+          <span class="skill-chip" style="color:var(--neon-cyan); border-color:var(--neon-cyan);">Python 3.12</span>
+          <span class="skill-chip">NVD REST API v2</span>
+          <span class="skill-chip" style="color:#f87171; border-color:#f87171;">CISA KEV Catalogue</span>
+          <span class="skill-chip" style="color:#fbbf24; border-color:#fbbf24;">MITRE ATT&CK STIX</span>
+          <span class="skill-chip" style="color:#c084fc; border-color:#c084fc;">Google Gemini / Ollama</span>
+          <span class="skill-chip">Streamlit Dashboard</span>
+          <span class="skill-chip">Pandas & PyArrow</span>
+          <span class="skill-chip">Kendall's τ & nDCG</span>
+          <span class="skill-chip">SQLite Layer</span>
+          <span class="skill-chip" style="color:#34d399; border-color:#34d399;">MIT License</span>
+        </div>
+
+        <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.5rem;">
+          Traditional CVSS scores assign static theoretical severity without accounting for whether an exploit is weaponized in the wild or resides on an isolated asset. 
+          <strong>VulnInvestigator</strong> computes multi-factor contextual risk scores and feeds normalized telemetry into a GenAI pipeline that synthesizes verifiable, 
+          evidence-grounded investigation reports with strict citation validation.
+        </p>
+
+        <!-- Interactive Contextual Risk Calculator -->
+        <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--neon-cyan); margin-bottom:0.75rem;">
+          // INTERACTIVE CONTEXTUAL RISK SCORING SIMULATOR:
+        </div>
+
+        <!-- Presets -->
+        <div class="vi-presets-row">
+          <button class="vi-preset-btn active" data-cve="cve1">CVE-2024-38077 (Windows RLS)</button>
+          <button class="vi-preset-btn" data-cve="cve2">CVE-2023-48795 (Terrapin SSH)</button>
+          <button class="vi-preset-btn" data-cve="cve3">CVE-2024-21413 (Outlook Moniker)</button>
+          <button class="vi-preset-btn" data-cve="cve4">CVE-2021-44228 (Log4Shell)</button>
+        </div>
+
+        <div class="vi-interactive-grid">
+          <!-- Left: Controls -->
+          <div class="vi-control-group">
+            <div class="vi-field">
+              <label>
+                <span>CVSS Base Score (Weight: 35%):</span>
+                <span id="vi-cvss-val" style="color:var(--neon-cyan); font-weight:bold;">9.8</span>
+              </label>
+              <input type="range" id="vi-cvss-slider" min="0" max="10" step="0.1" value="9.8" style="accent-color:var(--neon-cyan);" />
+            </div>
+
+            <div class="vi-field" style="flex-direction:row; justify-content:space-between; align-items:center; padding:0.4rem 0;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.78rem; color:#fff;">CISA KEV Exploitation Status (Weight: 30%)</div>
+                <div style="font-size:0.7rem; color:var(--text-dim);">Actively weaponized in the wild</div>
+              </div>
+              <input type="checkbox" id="vi-kev-toggle" checked style="width:20px; height:20px; accent-color:#ef4444; cursor:pointer;" />
+            </div>
+
+            <div class="vi-field">
+              <label>
+                <span>Asset Criticality Tier (Weight: 20%):</span>
+              </label>
+              <select id="vi-asset-select">
+                <option value="1.0">Tier 1: Mission-Critical (DC / Core Auth / DB) [1.0]</option>
+                <option value="0.75">Tier 2: High Priority (Application Gateways) [0.75]</option>
+                <option value="0.5">Tier 3: Medium (Internal Tooling) [0.50]</option>
+                <option value="0.25">Tier 4: Low (Ephemeral Testbeds) [0.25]</option>
+              </select>
+            </div>
+
+            <div class="vi-field">
+              <label>
+                <span>Perimeter Exposure (Weight: 15%):</span>
+              </label>
+              <select id="vi-exp-select">
+                <option value="1.0">Public Internet Facing [1.0]</option>
+                <option value="0.7" selected>DMZ / Partner VPN Accessible [0.7]</option>
+                <option value="0.3">Isolated Internal Network [0.3]</option>
+              </select>
+            </div>
+
+            <div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim); border-top:1px solid var(--border-subtle); padding-top:0.75rem;">
+              <strong>Scoring Formula:</strong> <br />
+              <code style="color:var(--neon-cyan);">Score = 0.35*(CVSS/10) + 0.30*KEV + 0.20*Asset + 0.15*Exposure</code>
+            </div>
+          </div>
+
+          <!-- Right: Outputs & GenAI Report -->
+          <div>
+            <div class="vi-scores-grid">
+              <div class="vi-score-box">
+                <div class="label">CONVENTIONAL CVSS BASELINE</div>
+                <div class="val" id="vi-res-cvss" style="color:#94a3b8;">98/100</div>
+              </div>
+              <div class="vi-score-box" style="border-color:rgba(0,240,255,0.4);">
+                <div class="label" style="color:var(--neon-cyan);">VULNINVESTIGATOR CONTEXTUAL SCORE</div>
+                <div class="val" id="vi-res-contextual" style="color:#ef4444;">95/100</div>
+              </div>
+            </div>
+
+            <div class="vi-delta-banner" id="vi-res-delta">
+              <span style="color:#ef4444;">▲ Prioritized via active CISA KEV exploitation and Tier 1 asset weight</span>
+            </div>
+
+            <!-- MITRE ATT&CK Mapping -->
+            <div style="background:rgba(8,13,20,0.8); border:1px solid var(--border-subtle); border-radius:8px; padding:0.65rem 0.85rem; margin-bottom:1rem; font-family:var(--font-mono); font-size:0.75rem;">
+              <div style="color:var(--text-dim); margin-bottom:2px;">MITRE ATT&CK CORRELATION:</div>
+              <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
+                <span style="color:#fbbf24;" id="vi-mitre-tech">T1210: Exploitation of Remote Services</span>
+                <span style="color:var(--neon-cyan);" id="vi-mitre-tactic">TA0008: Lateral Movement</span>
+              </div>
+            </div>
+
+            <!-- Simulated GenAI Report Terminal -->
+            <div class="vi-report-terminal" id="vi-genai-report">
+              <!-- Rendered by vuln-investigator.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 1: GAMIFIED AI THREAT LAB & GUARDRAIL DEFENSE SIMULATOR
+       ========================================================================== -->
+  <section id="ai-threat-lab">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Interactive Cyber Defense Sandbox</div>
+        <h2 class="section-title">AI Threat Lab & Guardrail Simulator</h2>
+        <p class="section-desc">
+          Test live adversarial prompt injection vectors, privilege escalation attempts, and sensitive data leakage payloads 
+          against an enterprise multi-tier defense guardrail architecture mapped to the <strong>OWASP Top 10 for LLMs</strong>.
+        </p>
+      </div>
+
+      <div class="sim-container">
+        <div class="sim-presets-title">// SELECT ADVERSARIAL PENETRATION VECTOR:</div>
+        <div class="sim-presets-grid">
+          <button class="sim-preset-btn active" data-preset="jailbreak">
+            <strong>01 // Jailbreak & Token Dump</strong>
+            OWASP LLM01: Prompt Injection
+          </button>
+          <button class="sim-preset-btn" data-preset="rbac">
+            <strong>02 // RBAC Role Escalation</strong>
+            ITGC Least Privilege Violation
+          </button>
+          <button class="sim-preset-btn" data-preset="dlp">
+            <strong>03 // Enterprise DLP Breach</strong>
+            OWASP LLM02: Data Disclosure
+          </button>
+          <button class="sim-preset-btn" data-preset="indirect">
+            <strong>04 // Indirect Prompt Injection</strong>
+            Untrusted Ingestion & RAG
+          </button>
+        </div>
+
+        <div class="sim-console-grid">
+          <!-- Input Side -->
+          <div class="sim-input-box">
+            <textarea id="sim-payload-input" class="sim-textarea" placeholder="Type custom adversarial prompt or select a preset vector above..."></textarea>
+            <button id="sim-fire-btn" class="sim-fire-btn">
+              <span>⚡ EXECUTE PENETRATION VECTOR</span>
+            </button>
+          </div>
+
+          <!-- Multi-Stage Defense Pipeline -->
+          <div class="defense-stages" id="defense-stages">
+            <div class="stage-card">
+              <div class="stage-name">
+                <span style="color:var(--neon-cyan)">[01]</span>
+                <span>Semantic & Token Ingestion Filter</span>
+              </div>
+              <span class="stage-badge" style="background:rgba(255,255,255,0.08);">READY</span>
+            </div>
+            <div class="stage-card">
+              <div class="stage-name">
+                <span style="color:var(--neon-cyan)">[02]</span>
+                <span>OWASP Top 10 for LLMs Interceptor</span>
+              </div>
+              <span class="stage-badge" style="background:rgba(255,255,255,0.08);">READY</span>
+            </div>
+            <div class="stage-card">
+              <div class="stage-name">
+                <span style="color:var(--neon-cyan)">[03]</span>
+                <span>Saviynt & Okta RBAC Policy Gate</span>
+              </div>
+              <span class="stage-badge" style="background:rgba(255,255,255,0.08);">READY</span>
+            </div>
+            <div class="stage-card">
+              <div class="stage-name">
+                <span style="color:var(--neon-cyan)">[04]</span>
+                <span>Defense Guardrail & SIEM Audit Dispatch</span>
+              </div>
+              <span class="stage-badge" style="background:rgba(255,255,255,0.08);">READY</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-Time Defense Log Box -->
+        <div id="sim-log-box" class="sim-log-box">
+          <span style="color: #64748b;">// Security telemetry stream standby. Click 'Execute Penetration Vector' to launch real-time evaluation...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 2: IAM & JML LIFECYCLE WORKFLOW MATRIX
+       ========================================================================== -->
+  <section id="iam-matrix">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Identity & Access Governance</div>
+        <h2 class="section-title">Automated JML Lifecycle Matrix</h2>
+        <p class="section-desc">
+          Architecture demonstrating end-to-end Joiner-Mover-Leaver automation integrating <strong>Workday HR</strong>, 
+          <strong>Saviynt IGA Level 200</strong>, <strong>Okta Identity Cloud</strong>, and <strong>ServiceNow</strong> to enforce 
+          strict ITGC least privilege and eliminate segregation of duties (SOD) violations.
+        </p>
+      </div>
+
+      <div class="jml-container">
+        <div class="jml-tabs">
+          <button class="jml-tab-btn active" data-jml="joiner">
+            <span>🌱 01 // JOINER (Onboarding)</span>
+          </button>
+          <button class="jml-tab-btn" data-jml="mover">
+            <span>🔄 02 // MOVER (Role Transition & SOD)</span>
+          </button>
+          <button class="jml-tab-btn" data-jml="leaver">
+            <span>⚡ 03 // LEAVER (Zero-Trust Revocation)</span>
+          </button>
+        </div>
+
+        <div style="margin-bottom: 1.25rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--neon-cyan);" id="jml-phase-title">
+          Phase: Joiner (Automated Day 1 Provisioning)
+        </div>
+
+        <div id="jml-workflow-display" class="jml-workflow-display">
+          <!-- Populated dynamically by jml-visualizer.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: CORE SKILLS & EXPERTISE BENTO
+       ========================================================================== -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Enterprise Competencies</div>
+        <h2 class="section-title">Tactical Skills & Defense Stack</h2>
+        <p class="section-desc">
+          Proven cross-domain proficiency spanning identity governance, secure pipelines, vulnerability management, and applied artificial intelligence.
+        </p>
+      </div>
+
+      <div class="skills-bento-grid">
+        <!-- AI Security & Governance -->
+        <div class="bento-card col-6">
+          <div class="skill-header">
+            <div class="skill-icon-wrap icon-cyan">🤖</div>
+            <div>
+              <h3>AI Security & Governance</h3>
+              <p style="font-size:0.8rem; color:var(--text-dim);">Large Language Models, RAG, & Adversarial AI</p>
+            </div>
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.55;">
+            Architecting secure LLM integrations, mitigating algorithmic threat vectors, running prompt injection red-teaming, 
+            and conducting AI risk assessments against the OWASP Top 10 for LLMs.
+          </p>
+          <div class="skill-chips">
+            <span class="skill-chip">LLM & RAG Security</span>
+            <span class="skill-chip">Prompt Injection Testing</span>
+            <span class="skill-chip">AI Risk Assessments</span>
+            <span class="skill-chip">OWASP Top 10 for LLMs</span>
+            <span class="skill-chip">Ollama / DeepSeek R1</span>
+            <span class="skill-chip">EU AI Act Awareness</span>
+          </div>
+        </div>
+
+        <!-- Identity & Access Governance -->
+        <div class="bento-card col-6">
+          <div class="skill-header">
+            <div class="skill-icon-wrap icon-emerald">🔑</div>
+            <div>
+              <h3>Identity & Access Governance (IGA/IAM)</h3>
+              <p style="font-size:0.8rem; color:var(--text-dim);">Enterprise Access Frameworks & Least Privilege</p>
+            </div>
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.55;">
+            Overseeing end-to-end identity governance utilizing Saviynt IGA; designing RBAC models, access certifications, 
+            automated JML lifecycle workflows, and segregation of duties (SOD) governance.
+          </p>
+          <div class="skill-chips">
+            <span class="skill-chip">Saviynt IGA (Level 200/100)</span>
+            <span class="skill-chip">Okta IAM / SSO / MFA</span>
+            <span class="skill-chip">Workday HR Integration</span>
+            <span class="skill-chip">JML Lifecycle Automation</span>
+            <span class="skill-chip">RBAC Architecture</span>
+            <span class="skill-chip">ServiceNow Workflows</span>
+          </div>
+        </div>
+
+        <!-- Application & Pipeline Security -->
+        <div class="bento-card col-4">
+          <div class="skill-header">
+            <div class="skill-icon-wrap icon-amber">🛡️</div>
+            <div>
+              <h3>AppSec & DevSecOps</h3>
+              <p style="font-size:0.8rem; color:var(--text-dim);">Secure SDLC & Pipeline Defenses</p>
+            </div>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-muted);">
+            Spearheading application risk assessments during early-stage onboarding; executing SAST using Checkmarx; hardening automated CI/CD pipeline defenses.
+          </p>
+          <div class="skill-chips">
+            <span class="skill-chip">Secure SDLC</span>
+            <span class="skill-chip">DevSecOps</span>
+            <span class="skill-chip">SAST (Checkmarx)</span>
+            <span class="skill-chip">Code Review</span>
+            <span class="skill-chip">Python Scripting</span>
+          </div>
+        </div>
+
+        <!-- Risk, Audit & Compliance -->
+        <div class="bento-card col-4">
+          <div class="skill-header">
+            <div class="skill-icon-wrap icon-rose">⚖️</div>
+            <div>
+              <h3>Risk, Audit & Compliance</h3>
+              <p style="font-size:0.8rem; color:var(--text-dim);">Enterprise ITGC & Regulatory Controls</p>
+            </div>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-muted);">
+            Maintaining access control frameworks aligned with ITGC principles, embedding least privilege, and supporting corporate SOX/regulatory compliance mandates.
+          </p>
+          <div class="skill-chips">
+            <span class="skill-chip">IT General Controls (ITGC)</span>
+            <span class="skill-chip">Control Evaluation</span>
+            <span class="skill-chip">Audit Support & Readiness</span>
+            <span class="skill-chip">SLA & Risk Metrics</span>
+          </div>
+        </div>
+
+        <!-- Vulnerability Management & Core -->
+        <div class="bento-card col-4">
+          <div class="skill-header">
+            <div class="skill-icon-wrap icon-violet">🎯</div>
+            <div>
+              <h3>Vulnerability Management</h3>
+              <p style="font-size:0.8rem; color:var(--text-dim);">Threat Hunting & SecOps Maturity</p>
+            </div>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-muted);">
+            Certified Qualys VMDR specialist managing vulnerability lifecycles, proactive threat-hunting, incident response coordination, and technical reporting.
+          </p>
+          <div class="skill-chips">
+            <span class="skill-chip">Qualys VMDR</span>
+            <span class="skill-chip">Penetration Testing (C|EH)</span>
+            <span class="skill-chip">Incident Response</span>
+            <span class="skill-chip">Technical Reporting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: PROFESSIONAL EXPERIENCE
+       ========================================================================== -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Career Milestones</div>
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-desc">
+          Delivering enterprise cybersecurity excellence, automated identity governance, and secure software development lifecycles at Wipro Limited.
+        </p>
+      </div>
+
+      <div class="experience-list">
+        <!-- Role 1: Cyber Security Analyst (IAM) -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role-group">
+              <h3>Cyber Security Analyst (IAM)</h3>
+              <div class="exp-company">Wipro Limited • Kolkata, IN</div>
+            </div>
+            <div class="exp-date-badge">Oct 2025 – Present</div>
+          </div>
+
+          <ul class="exp-bullets">
+            <li>
+              <strong>Identity Governance & RBAC:</strong> Oversee end-to-end identity governance utilizing Saviynt IGA; designed role-based access control (RBAC) models and streamlined access certifications to enforce strict compliance.
+            </li>
+            <li>
+              <strong>Control Compliance:</strong> Architected and maintained enterprise access control frameworks aligned with ITGC principles, embedding the principle of least privilege across business units.
+            </li>
+            <li>
+              <strong>Lifecycle Automation:</strong> Engineered and managed automated Joiner-Mover-Leaver (JML) identity lifecycle workflows by integrating Workday HR platforms with Okta IAM environments.
+            </li>
+            <li>
+              <strong>Risk Remediation:</strong> Proactively detected and mitigated critical access control gaps, significantly reducing risk exposure and enhancing corporate audit readiness.
+            </li>
+            <li>
+              <strong>Workflow Integration:</strong> Integrated ServiceNow workflows with identity solutions to create verifiable audit trails and structured access provisioning paths.
+            </li>
+            <li>
+              <strong>Stakeholder Alignment & Documentation:</strong> Partnered with HR, IT Operations, and Risk Governance teams to synchronize strategies; authored comprehensive documentation for system architectures and control procedures.
+            </li>
+          </ul>
+
+          <div class="exp-tech-tags">
+            <span class="exp-tech-tag">Saviynt IGA Level 200</span>
+            <span class="exp-tech-tag">Okta Identity Cloud</span>
+            <span class="exp-tech-tag">Workday HR</span>
+            <span class="exp-tech-tag">ServiceNow</span>
+            <span class="exp-tech-tag">ITGC Principles</span>
+            <span class="exp-tech-tag">RBAC Design</span>
+            <span class="exp-tech-tag">JML Lifecycle</span>
+            <span class="exp-tech-tag">DLP Governance</span>
+          </div>
+        </div>
+
+        <!-- Role 2: Cyber Security Analyst (AppSec & DevSecOps) -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role-group">
+              <h3>Cyber Security Analyst (AppSec & DevSecOps)</h3>
+              <div class="exp-company">Wipro Limited • Kolkata, IN</div>
+            </div>
+            <div class="exp-date-badge">June 2022 – Oct 2025</div>
+          </div>
+
+          <ul class="exp-bullets">
+            <li>
+              <strong>Risk Assessments & SDLC:</strong> Spearheaded application risk assessments during early-stage onboarding and secure SDLC integration to catch structural flaws before production.
+            </li>
+            <li>
+              <strong>CI/CD Pipeline Security:</strong> Evaluated and optimized security controls embedded within CI/CD pipelines, driving measurable maturity in automated pipeline defenses.
+            </li>
+            <li>
+              <strong>Vulnerability Management:</strong> Executed Static Application Security Testing (SAST) using Checkmarx; analyzed source code to discover vulnerabilities and partnered with engineers to guide remediation.
+            </li>
+            <li>
+              <strong>Audit & Liaison:</strong> Compiled detailed vulnerability findings, risk metrics, and mitigation actions to support corporate regulatory and compliance mandates; served as technical liaison between engineering and business stakeholders.
+            </li>
+            <li>
+              <strong>Process Optimization:</strong> Refined Standard Operating Procedures (SOPs) and governance documentation, accelerating process standardization across security practices.
+            </li>
+          </ul>
+
+          <div class="exp-tech-tags">
+            <span class="exp-tech-tag">Checkmarx SAST</span>
+            <span class="exp-tech-tag">Secure SDLC</span>
+            <span class="exp-tech-tag">DevSecOps</span>
+            <span class="exp-tech-tag">CI/CD Hardening</span>
+            <span class="exp-tech-tag">Python Scripting</span>
+            <span class="exp-tech-tag">Vulnerability Remediation</span>
+            <span class="exp-tech-tag">SOP Standardization</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 5: RESEARCH & COMPUTER VISION SUPERPIXEL PLAYGROUND
+       ========================================================================== -->
+  <section id="research">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Published Academic Research</div>
+        <h2 class="section-title">Research Lab & CV Playground</h2>
+        <p class="section-desc">
+          Published peer-reviewed research in applied machine learning, neural computing, and computer vision. 
+          Experiment with real-time algorithm simulations below and explore published journal papers.
+        </p>
+      </div>
+
+      <!-- Interactive Canvas Playground -->
+      <div class="cv-lab-card">
+        <div class="cv-lab-grid">
+          <div class="cv-canvas-wrapper">
+            <canvas id="cv-sim-canvas"></canvas>
+            <div class="cv-canvas-overlay">
+              <span id="cv-readout">ALGO: AQUILA // K=4 // CONVERGED</span>
+              <span>[CLICK CANVAS TO RECALCULATE]</span>
+            </div>
+          </div>
+
+          <div class="cv-controls">
+            <div>
+              <label style="font-family:var(--font-mono); font-size:0.75rem; color:var(--neon-cyan); margin-bottom:0.4rem; display:block;">
+                // SELECT SEGMENTATION ALGORITHM:
+              </label>
+              <div class="cv-algo-buttons">
+                <button class="cv-algo-btn active" data-algo="aquila">Aquila Optimizer (WBC)</button>
+                <button class="cv-algo-btn" data-algo="rough_kmeans">Rough K-Means (CIELab)</button>
+                <button class="cv-algo-btn" data-algo="crack">Crack Morphology</button>
+                <button class="cv-algo-btn" data-algo="hist">Fast Histogram</button>
+              </div>
+            </div>
+
+            <div class="cv-slider-group">
+              <label>
+                <span>Cluster Count (K):</span>
+                <span id="cv-k-val" style="color:var(--neon-cyan);">4</span>
+              </label>
+              <input type="range" id="cv-k-slider" min="2" max="8" value="4" />
+            </div>
+
+            <div class="cv-slider-group">
+              <label>
+                <span>Morphological Sensitivity / Threshold:</span>
+                <span id="cv-thresh-val" style="color:var(--neon-cyan);">55%</span>
+              </label>
+              <input type="range" id="cv-thresh-slider" min="15" max="90" value="55" />
+            </div>
+
+            <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dim); line-height:1.5;">
+              * Renders interactive visual models based on Daipayan Ghosal's published algorithms in <em>Neural Computing and Applications</em> and <em>Pattern Recognition & Image Analysis</em>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Published Papers Grid -->
+      <div class="papers-grid">
+        <!-- Paper 1 -->
+        <div class="paper-card">
+          <div>
+            <div class="paper-meta">
+              <span>SPRINGER NATURE // NCA</span>
+              <span>VOL 35 (2023)</span>
+            </div>
+            <h4 class="paper-title">
+              Chaotic fitness-dependent quasi-reflected Aquila optimizer for superpixel based white blood cell segmentation
+            </h4>
+            <div class="paper-venue">
+              Neural Computing and Applications 35 (21), 15315-15332 (2023).
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.55;">
+              Introduced a novel chaotic quasi-reflected metaheuristic optimizer enabling robust superpixel white blood cell boundary segmentation in complex hematological microscopy datasets.
+            </p>
+          </div>
+          <div class="paper-footer">
+            <span style="color:var(--text-dim);">Co-authored with Dr. K. G. Dhal</span>
+            <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="paper-link">
+              <span>Scholar Citations ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Paper 2 -->
+        <div class="paper-card">
+          <div>
+            <div class="paper-meta">
+              <span>SPRINGER // ISAI</span>
+              <span>CONF 2022</span>
+            </div>
+            <h4 class="paper-title">
+              Concrete Crack Segmentation Using Histogram Based Fast Clustering and Morphological Operators
+            </h4>
+            <div class="paper-venue">
+              International Symposium on Artificial Intelligence, 305-313 (2022).
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.55;">
+              Engineered high-speed morphological operators and histogram clustering to detect micro-cracks in civil infrastructure surfaces under non-uniform illumination conditions.
+            </p>
+          </div>
+          <div class="paper-footer">
+            <span style="color:var(--text-dim);">ISAI Proceedings</span>
+            <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="paper-link">
+              <span>Scholar Citations ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Paper 3 -->
+        <div class="paper-card">
+          <div>
+            <div class="paper-meta">
+              <span>PLEIADES / SPRINGER</span>
+              <span>PRIA 2022</span>
+            </div>
+            <h4 class="paper-title">
+              A comparative study among clustering techniques for leaf segmentation in rosette plants
+            </h4>
+            <div class="paper-venue">
+              Pattern Recognition and Image Analysis 32 (1), 129-141 (2022).
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.55;">
+              Extensive comparative study of rough vs fuzzy vs classical clustering algorithms for high-throughput phenotyping of rosette plant leaves in agricultural computer vision.
+            </p>
+          </div>
+          <div class="paper-footer">
+            <span style="color:var(--text-dim);">PRIA Journal</span>
+            <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="paper-link">
+              <span>Scholar Citations ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Paper 4 -->
+        <div class="paper-card">
+          <div>
+            <div class="paper-meta">
+              <span>SCSRC 2021</span>
+              <span>PROCEEDINGS</span>
+            </div>
+            <h4 class="paper-title">
+              Leaf Segmentation of Rosette Plants using Rough K-Means in CIELab Color Space
+            </h4>
+            <div class="paper-venue">
+              Proceedings of the 2021 7th Student Computer Science Research Conference, 19 (2021).
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.55;">
+              Demonstrated rough set theory applied to K-Means clustering across the perceptually uniform CIELab space to eliminate boundary ambiguity in plant image segmentation.
+            </p>
+          </div>
+          <div class="paper-footer">
+            <span style="color:var(--text-dim);">SCSRC Conf</span>
+            <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="paper-link">
+              <span>Scholar Citations ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 6: CERTIFICATIONS & EDUCATION
+       ========================================================================== -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Verified Credentials</div>
+        <h2 class="section-title">Certifications & Education</h2>
+        <p class="section-desc">
+          Professional security certifications and academic foundation verifying technical rigor in enterprise cyber defense and computer science.
+        </p>
+      </div>
+
+      <div class="certs-grid">
+        <!-- Cert 1: Saviynt Level 200 -->
+        <div class="cert-card">
+          <div class="cert-top">
+            <span class="cert-issuer">SAVIYNT IGA</span>
+            <span class="cert-status verified">✓ CERTIFIED</span>
+          </div>
+          <div class="cert-title">Saviynt IGA Level 200</div>
+          <div class="cert-date">Credential Year: 2026</div>
+        </div>
+
+        <!-- Cert 2: Saviynt Level 100 -->
+        <div class="cert-card">
+          <div class="cert-top">
+            <span class="cert-issuer">SAVIYNT IGA</span>
+            <span class="cert-status verified">✓ CERTIFIED</span>
+          </div>
+          <div class="cert-title">Saviynt IGA Level 100</div>
+          <div class="cert-date">Credential Year: 2026</div>
+        </div>
+
+        <!-- Cert 3: Qualys VMDR -->
+        <div class="cert-card">
+          <div class="cert-top">
+            <span class="cert-issuer">QUALYS</span>
+            <span class="cert-status verified">✓ CERTIFIED</span>
+          </div>
+          <div class="cert-title">Qualys Certified Specialist - VMDR</div>
+          <div class="cert-date">Credential Year: 2024</div>
+        </div>
+
+        <!-- Cert 4: CEH -->
+        <div class="cert-card">
+          <div class="cert-top">
+            <span class="cert-issuer">EC-COUNCIL</span>
+            <span class="cert-status verified">✓ CERTIFIED</span>
+          </div>
+          <div class="cert-title">Certified Ethical Hacker (C|EH)</div>
+          <div class="cert-date">Credential Year: 2023</div>
+        </div>
+
+        <!-- Cert 5: Azure SC-200 -->
+        <div class="cert-card">
+          <div class="cert-top">
+            <span class="cert-issuer">MICROSOFT AZURE</span>
+            <span class="cert-status progress">⟳ IN PROGRESS</span>
+          </div>
+          <div class="cert-title">Security Operations Analyst (SC-200)</div>
+          <div class="cert-date">Microsoft Azure SecOps</div>
+        </div>
+
+        <!-- Education Card -->
+        <div class="edu-card">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--neon-emerald); margin-bottom:0.25rem;">
+              ACADEMIC DEGREE // COMPUTER SCIENCE
+            </div>
+            <h3 style="font-size:1.25rem; font-weight:700; color:#fff;">Bachelor of Computer Applications (BCA)</h3>
+            <div style="font-size:0.9rem; color:var(--text-muted); margin-top:2px;">
+              Midnapore College (Autonomous) — Vidyasagar University (2019 – 2022)
+            </div>
+            <div style="font-size:0.8rem; color:var(--text-dim); margin-top:4px;">
+              * Academic background continuing with WILP applied research in Neural Computing and Machine Learning
+            </div>
+          </div>
+          <div class="edu-score-badge">
+            81.75%
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 7: INTERACTIVE CLI SECURITY TERMINAL
+       ========================================================================== -->
+  <section id="terminal-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Root Shell Interface</div>
+        <h2 class="section-title">Sentinel-X Interactive Terminal</h2>
+        <p class="section-desc">
+          Interact directly with Daipayan's cyber console. Type commands or click quick-action pills to query telemetry, threat vectors, publications, or trigger easter eggs.
+        </p>
+      </div>
+
+      <div class="terminal-window">
+        <div class="terminal-titlebar">
+          <div class="terminal-dots">
+            <div class="terminal-dot dot-red"></div>
+            <div class="terminal-dot dot-yellow"></div>
+            <div class="terminal-dot dot-green"></div>
+          </div>
+          <div class="title">daipayan@sentinel: ~ (zsh / interactive-cli)</div>
+          <div style="font-size:0.68rem; color:var(--text-dim);">UTF-8 // SEC-ENCLAVE</div>
+        </div>
+
+        <div class="terminal-body" id="terminal-body">
+          <div class="term-output">
+<span style="color:#00f0ff; font-weight:bold;">SENTINEL-X CYBER INTERFACE v4.12 [KOLKATA NODE]</span>
+Type <span style="color:#00f0ff; font-weight:bold;">help</span> to inspect valid commands, or click any quick command below.
+Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with read-only audit permissions.
+          </div>
+        </div>
+
+        <div style="padding: 0 1.25rem 1.25rem;">
+          <div class="term-input-row">
+            <span class="term-prompt">daipayan@sentinel:~$</span>
+            <input type="text" id="term-input" class="term-input" placeholder="type command (e.g. whoami, skills, papers, certs, threat-model, matrix)..." autocomplete="off" spellcheck="false" />
+          </div>
+
+          <div class="term-quick-cmds">
+            <span style="font-size:0.72rem; color:var(--text-dim); margin-right:4px;">Quick Execute:</span>
+            <span class="quick-cmd-pill" data-cmd="whoami">whoami</span>
+            <span class="quick-cmd-pill" data-cmd="vuln">vuln</span>
+            <span class="quick-cmd-pill" data-cmd="skills">skills</span>
+            <span class="quick-cmd-pill" data-cmd="exp">exp</span>
+            <span class="quick-cmd-pill" data-cmd="threat-model">threat-model</span>
+            <span class="quick-cmd-pill" data-cmd="papers">papers</span>
+            <span class="quick-cmd-pill" data-cmd="certs">certs</span>
+            <span class="quick-cmd-pill" data-cmd="neofetch">neofetch</span>
+            <span class="quick-cmd-pill" data-cmd="matrix">matrix</span>
+            <span class="quick-cmd-pill" data-cmd="hack">hack</span>
+            <span class="quick-cmd-pill" data-cmd="clear">clear</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 8: WEBRING & RETRO 88x31 BADGES (Inspiration from ring.seggs.lol)
+       ========================================================================== -->
+  <section id="webring" class="webring-section">
+    <div class="container">
+      <div class="webring-box">
+        <div class="webring-info">
+          <img src="assets/badges/threadlocker-badge.svg" width="88" height="31" alt="Threadlocker Webring" />
+          <div class="webring-text">
+            <h4>Member of the Threadlocker Webring & Hacker Community</h4>
+            <p>Connecting innovative developers, security researchers, and creative builders across the web.</p>
+          </div>
+        </div>
+
+        <div class="webring-controls">
+          <a href="https://ring.seggs.lol/" target="_blank" rel="noopener" class="webring-btn">← Ring Index</a>
+          <button id="webring-random-btn" class="webring-btn">🎲 Random Hop</button>
+          <a href="https://ring.seggs.lol/" target="_blank" rel="noopener" class="webring-btn">Next →</a>
+        </div>
+      </div>
+
+      <!-- Retro 88x31 Badges Marquee -->
+      <div class="retro-badges-grid">
+        <a href="#vulninvestigator" class="retro-badge-item" title="VulnInvestigator GenAI Security Prototype">
+          <img src="assets/badges/vuln-badge.svg" width="88" height="31" alt="VulnInvestigator" />
+        </a>
+        <a href="#skills" class="retro-badge-item" title="Saviynt IGA Certified Level 200">
+          <img src="assets/badges/saviynt-badge.svg" width="88" height="31" alt="Saviynt IGA" />
+        </a>
+        <a href="#ai-threat-lab" class="retro-badge-item" title="OWASP Top 10 for LLMs Defense">
+          <img src="assets/badges/owasp-badge.svg" width="88" height="31" alt="OWASP LLM" />
+        </a>
+        <a href="#certifications" class="retro-badge-item" title="EC-Council Certified Ethical Hacker">
+          <img src="assets/badges/ceh-badge.svg" width="88" height="31" alt="CEH Verified" />
+        </a>
+        <a href="#certifications" class="retro-badge-item" title="Azure SC-200 SecOps Analyst">
+          <img src="assets/badges/sc200-badge.svg" width="88" height="31" alt="Azure SC-200" />
+        </a>
+        <a href="#certifications" class="retro-badge-item" title="Qualys VMDR Specialist">
+          <img src="assets/badges/qualys-badge.svg" width="88" height="31" alt="Qualys VMDR" />
+        </a>
+        <a href="#skills" class="retro-badge-item" title="Python 3.12 SecOps & Automation">
+          <img src="assets/badges/python-badge.svg" width="88" height="31" alt="Python 3.12" />
+        </a>
+        <a href="#iam-matrix" class="retro-badge-item" title="Zero Trust & Principle of Least Privilege">
+          <img src="assets/badges/zerotrust-badge.svg" width="88" height="31" alt="Zero Trust" />
+        </a>
+        <a href="#research" class="retro-badge-item" title="4x Peer-Reviewed Research Publications">
+          <img src="assets/badges/scholar-badge.svg" width="88" height="31" alt="4x Published" />
+        </a>
+        <a href="https://ring.seggs.lol/" target="_blank" rel="noopener" class="retro-badge-item" title="Threadlocker Webring Member">
+          <img src="assets/badges/threadlocker-badge.svg" width="88" height="31" alt="Webring" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       COMMAND PALETTE MODAL (Ctrl+K)
+       ========================================================================== -->
+  <div id="palette-overlay" class="palette-overlay">
+    <div class="palette-modal">
+      <div class="palette-input-wrap">
+        <span style="color:var(--neon-cyan)">⌘</span>
+        <input type="text" id="palette-input" class="palette-input" placeholder="Type a command or jump to section..." autocomplete="off" />
+        <span style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim);">ESC to close</span>
+      </div>
+      <div id="palette-results" class="palette-results">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CONTACT & ENCRYPTED TRANSMISSION MODAL
+       ========================================================================== -->
+  <div id="contact-modal-overlay" class="contact-modal-overlay">
+    <div class="contact-modal-card">
+      <button id="contact-modal-close" class="modal-close-btn">&times;</button>
+      
+      <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--neon-cyan); margin-bottom:0.35rem;">
+        // DIRECT COMMUNICATIONS CHANNELS
+      </div>
+      <h3 style="font-size:1.5rem; font-weight:800; color:#fff; margin-bottom:0.75rem;">Get in Touch with Daipayan</h3>
+      <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem;">
+        Available for enterprise IAM / AppSec roles, AI Governance advisory, and academic research collaborations.
+      </p>
+
+      <!-- Quick Action Buttons -->
+      <div style="display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.5rem;">
+        <!-- Email Copy -->
+        <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); border-radius:8px; padding:0.75rem 1rem;">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dim);">PRIMARY EMAIL</div>
+            <div style="font-family:var(--font-mono); font-size:0.85rem; color:#fff;">daipayanghosal@outlook.com</div>
+          </div>
+          <button id="btn-copy-email" class="ctrl-btn">
+            <span>Copy</span>
+            <span id="email-copy-feedback" style="display:none; color:var(--neon-emerald);">Copied!</span>
+          </button>
+        </div>
+
+        <!-- GitHub Direct -->
+        <a href="https://github.com/daipayanghosal" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); border-radius:8px; padding:0.75rem 1rem; text-decoration:none;">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dim);">GITHUB PROFILE</div>
+            <div style="font-family:var(--font-mono); font-size:0.85rem; color:#fff;">github.com/daipayanghosal</div>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--neon-cyan); font-weight:bold;">Explore ↗</span>
+        </a>
+
+        <!-- LinkedIn Direct -->
+        <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:space-between; background:rgba(0,240,255,0.06); border:1px solid rgba(0,240,255,0.2); border-radius:8px; padding:0.75rem 1rem; text-decoration:none;">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--neon-cyan);">LINKEDIN PROFILE</div>
+            <div style="font-family:var(--font-mono); font-size:0.85rem; color:#fff;">linkedin.com/in/daipayan-ghosal</div>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--neon-cyan); font-weight:bold;">Connect ↗</span>
+        </a>
+      </div>
+
+      <!-- Quick Message Form -->
+      <form id="contact-direct-form" style="display:flex; flex-direction:column; gap:0.75rem;">
+        <input type="text" id="contact-form-name" required placeholder="Your Name / Organization" style="background:#04070d; border:1px solid var(--border-subtle); border-radius:8px; padding:0.65rem 0.85rem; color:#fff; font-family:var(--font-mono); font-size:0.82rem; outline:none;" />
+        <textarea id="contact-form-msg" required placeholder="Brief message or role description..." style="height:80px; background:#04070d; border:1px solid var(--border-subtle); border-radius:8px; padding:0.65rem 0.85rem; color:#fff; font-family:var(--font-mono); font-size:0.82rem; outline:none; resize:none;"></textarea>
+        <button type="submit" class="btn-primary" style="justify-content:center;">
+          <span>📨 Dispatch Transmission</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING QUICK-ACTION DOCK
+       ========================================================================== -->
+  <div class="floating-dock">
+    <a href="#hero" class="dock-item" title="Overview">👤</a>
+    <a href="#vulninvestigator" class="dock-item" title="VulnInvestigator">🔍</a>
+    <a href="#ai-threat-lab" class="dock-item" title="AI Threat Lab">🛡️</a>
+    <a href="#iam-matrix" class="dock-item" title="IAM Matrix">🔑</a>
+    <a href="#skills" class="dock-item" title="Tactical Skills">⚡</a>
+    <a href="#experience" class="dock-item" title="Experience">💼</a>
+    <a href="#research" class="dock-item" title="Research Lab">🔬</a>
+    <a href="#terminal-section" class="dock-item" title="Interactive Terminal">💻</a>
+    <button class="dock-item trigger-contact" style="border:none; cursor:pointer;" title="Contact Modal">✉️</button>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer>
+    <div class="container">
+      <div style="margin-bottom:0.75rem;">
+        [DAIPAYAN GHOSAL] // SEC-OPS & NEURAL RESILIENCE WORKSPACE // v4.12
+      </div>
+      <div>
+        Crafted with modern HTML5, CSS3, Web Audio API & Vanilla ES6. Zero runtime dependencies. 
+        Designed for high-impact enterprise resilience.
+      </div>
+      <div style="margin-top:0.5rem; opacity:0.6;">
+        © 2026 Daipayan Ghosal. All rights reserved. Kolkata, India.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/sound-fx.js"></script>
+  <script src="js/matrix-rain.js"></script>
+  <script src="js/vuln-investigator.js"></script>
+  <script src="js/guardrail-sim.js"></script>
+  <script src="js/jml-visualizer.js"></script>
+  <script src="js/cv-research-sim.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
