@@ -119,6 +119,7 @@ Available Security Shell Commands:
 <span style="color:#00f0ff; font-weight:bold;">[FEATURED REPO: VulnInvestigator 🔍]</span>
 --------------------------------------------------
   Name:        VulnInvestigator (Evidence-Grounded GenAI)
+  Live App:    <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" style="color:#10b981; font-weight:bold;">https://daipayanghosal.github.io/VulnInvestigator ↗</a>
   GitHub:      <a href="https://github.com/daipayanghosal/VulnInvestigator" target="_blank" style="color:#00f0ff;">https://github.com/daipayanghosal/VulnInvestigator.git</a>
   Description: Evidence-grounded cybersecurity prototype combining contextual vulnerability risk scoring (NVD, CISA KEV, MITRE ATT&CK) with verifiable threat investigation.
   Tech Stack:  Python 3.12, Pandas, NVD REST API v2, CISA KEV, MITRE ATT&CK STIX, Google Gemini / Ollama, Streamlit, SQLite

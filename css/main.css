@@ -44,17 +44,93 @@
   --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Executive Dossier Theme Overrides */
+/* ==========================================================================
+   EXECUTIVE DOSSIER THEME OVERRIDES (Default Designer View)
+   ========================================================================== */
+body[data-view="dossier"],
 body[data-view="executive"] {
-  --bg-deep: #090a0f;
-  --bg-surface: #10121a;
-  --bg-card: rgba(18, 21, 31, 0.85);
-  --bg-card-hover: rgba(28, 33, 48, 0.95);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(255, 255, 255, 0.28);
-  --neon-cyan: #e2e8f0;
-  --neon-cyan-dim: rgba(255, 255, 255, 0.06);
-  --glow-cyan: none;
+  --bg-deep: #080a10;
+  --bg-surface: #0e121d;
+  --bg-card: rgba(16, 21, 35, 0.78);
+  --bg-card-hover: rgba(24, 31, 52, 0.92);
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-active: rgba(99, 102, 241, 0.45);
+  --neon-cyan: #38bdf8;
+  --neon-cyan-dim: rgba(56, 189, 248, 0.12);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --text-accent: #60a5fa;
+  --glow-cyan: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+/* Dual Mode Visibility Control */
+body[data-view="dossier"] .sentinel-only,
+body[data-view="executive"] .sentinel-only {
+  display: none !important;
+}
+
+body[data-view="sentinel"] .dossier-only {
+  display: none !important;
+}
+
+body[data-view="dossier"] .dossier-only,
+body[data-view="executive"] .dossier-only {
+  display: block;
+}
+
+body[data-view="dossier"] span.dossier-only,
+body[data-view="executive"] span.dossier-only {
+  display: inline-flex;
+  align-items: center;
+}
+
+body[data-view="dossier"] div.hud-status-badge.dossier-only,
+body[data-view="executive"] div.hud-status-badge.dossier-only {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Animated Ambient Aurora Background in Dossier Mode */
+body[data-view="dossier"]::before,
+body[data-view="executive"]::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(56, 189, 248, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.04) 0%, transparent 40%);
+  animation: auroraFlow 25s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes auroraFlow {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-3%, 4%) scale(1.05) rotate(2deg);
+  }
+  100% {
+    transform: translate(4%, -3%) scale(0.98) rotate(-1deg);
+  }
+}
+
+body[data-view="dossier"] .cyber-grid-overlay,
+body[data-view="executive"] .cyber-grid-overlay {
+  opacity: 0.25;
+}
+
+body[data-view="dossier"] #cyber-canvas,
+body[data-view="executive"] #cyber-canvas {
+  opacity: 0.35;
 }
 
 /* Base Resets */
@@ -187,17 +263,18 @@ body {
 .hud-container {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 0.75rem 1.5rem;
+  padding: 0.65rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .hud-left {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .hud-brand {
@@ -237,6 +314,8 @@ body {
   background: rgba(16, 185, 129, 0.1);
   border: 1px solid rgba(16, 185, 129, 0.3);
   color: #34d399;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .status-dot {
@@ -256,21 +335,22 @@ body {
 .hud-nav-links {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   list-style: none;
 }
 
 .hud-link {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
   text-decoration: none;
-  padding: 0.4rem 0.75rem;
+  padding: 0.35rem 0.65rem;
   border-radius: 6px;
   transition: var(--transition-smooth);
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  white-space: nowrap;
 }
 
 .hud-link span.num {
@@ -284,10 +364,19 @@ body {
   border: 1px solid var(--border-subtle);
 }
 
+@media (max-width: 1400px) {
+  .hud-link span.num { display: none; }
+  .hud-link { padding: 0.28rem 0.48rem; font-size: 0.73rem; }
+  .hud-container { gap: 0.45rem; padding: 0.6rem 1rem; }
+  .dossier-role-pill { display: none; }
+  .view-btn { padding: 0.28rem 0.6rem; font-size: 0.72rem; }
+}
+
 .hud-right {
   display: flex;
   align-items: center;
   gap: 0.65rem;
+  flex-shrink: 0;
 }
 
 /* View Mode Switcher Pill */
@@ -323,10 +412,32 @@ body {
   box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
 }
 
-body[data-view="executive"] .view-btn.active {
-  background: #f8fafc;
-  color: #0f172a;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+body[data-view="executive"] #btn-mode-executive,
+body[data-view="dossier"] #btn-mode-executive {
+  background: #ffffff !important;
+  color: #090b11 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 14px rgba(255, 255, 255, 0.35) !important;
+}
+
+body[data-view="executive"] #btn-mode-sentinel,
+body[data-view="dossier"] #btn-mode-sentinel {
+  background: transparent !important;
+  color: #94a3b8 !important;
+  box-shadow: none !important;
+}
+
+body[data-view="sentinel"] #btn-mode-sentinel {
+  background: var(--neon-cyan) !important;
+  color: #040810 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.45) !important;
+}
+
+body[data-view="sentinel"] #btn-mode-executive {
+  background: transparent !important;
+  color: #94a3b8 !important;
+  box-shadow: none !important;
 }
 
 /* Quick Control Buttons */
@@ -2630,4 +2741,378 @@ footer {
   .f1-lights-rig { gap: 0.65rem; }
   .f1-light { width: 34px; height: 34px; }
   .hero-personality-tag { flex-wrap: wrap; }
+}
+
+/* ==========================================================================
+   NEW DESIGNER DOSSIER // ELEGANT & ANIMATED PROFESSIONAL PRESENTATION
+   ========================================================================== */
+
+/* Live Pulsing Status Dot */
+.live-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: liveDotPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  flex-shrink: 0;
+}
+
+@keyframes liveDotPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    transform: scale(0.95);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+    transform: scale(1.15);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    transform: scale(0.95);
+  }
+}
+
+/* Brand & Header in Dossier Mode */
+.brand-dossier-text {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.dossier-role-pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1px 7px;
+  border-radius: 4px;
+}
+
+.dossier-avail-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #34d399;
+  letter-spacing: 0.04em;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+/* Dossier Executive Security Architecture Deck (Hero Right) */
+.dossier-deck {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.55);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dossier-deck::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4f46e5 0%, #38bdf8 50%, #10b981 100%);
+}
+
+.dossier-deck:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(99, 102, 241, 0.12);
+  transform: translateY(-2px);
+}
+
+.dossier-deck-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 0.85rem;
+}
+
+.dossier-deck-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.05em;
+}
+
+.dossier-deck-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 2px 9px;
+  border-radius: 9999px;
+}
+
+.dossier-deck-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dossier-deck-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.dossier-deck-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.35;
+}
+
+.dossier-deck-sub {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.45;
+}
+
+.dossier-deck-shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.dossier-shortcut-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dossier-shortcut-pill:hover {
+  color: #ffffff;
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.35);
+  transform: translateY(-1px);
+}
+
+/* VulnInvestigator Live Deployment Banner & Links */
+.vi-live-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.12) 0%, rgba(56, 189, 248, 0.09) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.32);
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.08);
+}
+
+.vi-live-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.vi-live-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #34d399;
+  letter-spacing: 0.05em;
+}
+
+.vi-live-url {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.vi-live-url:hover {
+  color: #38bdf8;
+  text-decoration: underline;
+}
+
+.vi-live-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 3px 9px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.vi-tag-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.vi-btn-launch {
+  background: linear-gradient(135deg, #059669 0%, #0284c7 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.vi-btn-launch:hover {
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5) !important;
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.hero-btn-live {
+  background: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.35) !important;
+}
+
+.hero-btn-live:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(79, 70, 229, 0.5) !important;
+  filter: brightness(1.1);
+}
+
+/* Button & Card Micro-Interactions in Dossier Mode */
+body[data-view="dossier"] .btn-primary,
+body[data-view="executive"] .btn-primary {
+  background: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 18px rgba(79, 70, 229, 0.35);
+  font-weight: 600;
+  border-radius: 9px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body[data-view="dossier"] .btn-primary:hover,
+body[data-view="executive"] .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5), 0 0 15px rgba(56, 189, 248, 0.3);
+  filter: brightness(1.08);
+}
+
+body[data-view="dossier"] .btn-outline,
+body[data-view="executive"] .btn-outline {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  border-radius: 9px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body[data-view="dossier"] .btn-outline:hover,
+body[data-view="executive"] .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+body[data-view="dossier"] .bento-card,
+body[data-view="dossier"] .vi-card,
+body[data-view="dossier"] .exp-card,
+body[data-view="dossier"] .paper-card,
+body[data-view="dossier"] .cert-card,
+body[data-view="dossier"] .hero-intro-card,
+body[data-view="executive"] .bento-card,
+body[data-view="executive"] .vi-card,
+body[data-view="executive"] .exp-card,
+body[data-view="executive"] .paper-card,
+body[data-view="executive"] .cert-card,
+body[data-view="executive"] .hero-intro-card {
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.28s ease;
+}
+
+body[data-view="dossier"] .bento-card:hover,
+body[data-view="dossier"] .vi-card:hover,
+body[data-view="dossier"] .exp-card:hover,
+body[data-view="dossier"] .paper-card:hover,
+body[data-view="dossier"] .cert-card:hover,
+body[data-view="executive"] .bento-card:hover,
+body[data-view="executive"] .vi-card:hover,
+body[data-view="executive"] .exp-card:hover,
+body[data-view="executive"] .paper-card:hover,
+body[data-view="executive"] .cert-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(99, 102, 241, 0.32);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.65), 0 0 20px rgba(99, 102, 241, 0.08);
+}
+
+/* Clean Editorial Section Titles in Dossier Mode */
+body[data-view="dossier"] .section-title,
+body[data-view="executive"] .section-title {
+  font-family: var(--font-sans);
+  font-size: 2.3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+body[data-view="dossier"] .section-tag,
+body[data-view="executive"] .section-tag {
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.25);
+  font-weight: 600;
 }

@@ -12,8 +12,8 @@
       title: 'Windows Remote Desktop Licensing Service RCE',
       cvss: 9.8,
       kev: 1, // in KEV
-      asset: 1.0, // Tier 1 Domain Controller
-      exposure: 0.7, // DMZ / Internal VPN
+      asset: '1.0', // Tier 1 Domain Controller
+      exposure: '0.7', // DMZ / Internal VPN
       mitre: 'T1210: Exploitation of Remote Services',
       tactic: 'TA0008: Lateral Movement',
       citations: ['NVD API v2.0 (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)', 'CISA KEV Catalogue (Added: 2024-08-13)', 'MITRE ATT&CK Enterprise Matrix v14']
@@ -23,8 +23,8 @@
       title: 'Terrapin SSH Protocol Prefix Truncation',
       cvss: 5.9,
       kev: 0, // not in KEV
-      asset: 0.85, // Tier 1/2 Linux Bastion
-      exposure: 1.0, // Public Internet Facing
+      asset: '0.75', // Tier 2 High Priority Linux Bastion
+      exposure: '1.0', // Public Internet Facing
       mitre: 'T1557: Adversary-in-the-Middle',
       tactic: 'TA0006: Credential Access',
       citations: ['NVD API v2.0 (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N)', 'Asset Inventory: DMZ-SSH-GW-01', 'BSI Technical Advisory 2023']
@@ -34,8 +34,8 @@
       title: 'Microsoft Outlook Moniker Link Validation RCE',
       cvss: 9.8,
       kev: 1, // in KEV
-      asset: 1.0, // Enterprise Exchange / Workstations
-      exposure: 1.0, // Public Inbound Email
+      asset: '1.0', // Enterprise Exchange / Workstations
+      exposure: '1.0', // Public Inbound Email
       mitre: 'T1566.002: Spearphishing Link',
       tactic: 'TA0001: Initial Access',
       citations: ['NVD API v2.0 (CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H)', 'CISA KEV Catalogue (Active In-The-Wild Exploitation)', 'MITRE ATT&CK Technique T1566']
@@ -45,8 +45,8 @@
       title: 'Apache Log4j2 JNDI Remote Code Execution (Log4Shell)',
       cvss: 10.0,
       kev: 1,
-      asset: 1.0,
-      exposure: 1.0,
+      asset: '1.0',
+      exposure: '1.0',
       mitre: 'T1190: Exploit Public-Facing Application',
       tactic: 'TA0001: Initial Access',
       citations: ['NVD API v2.0 (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H)', 'CISA KEV Catalogue (Global Ransomware Vector)', 'MITRE ATT&CK STIX 2.1']
@@ -130,8 +130,10 @@
       if (cvssVal) cvssVal.innerText = cvss.toFixed(1);
 
       const isKev = kevToggle ? (kevToggle.checked ? 1.0 : 0.0) : 0.0;
-      const asset = assetSelect ? parseFloat(assetSelect.value) : 1.0;
-      const exposure = expSelect ? parseFloat(expSelect.value) : 1.0;
+      let asset = parseFloat(assetSelect ? assetSelect.value : '1.0');
+      let exposure = parseFloat(expSelect ? expSelect.value : '0.7');
+      if (isNaN(asset)) asset = 1.0;
+      if (isNaN(exposure)) exposure = 0.7;
 
       // Formula:
       // score = (0.35 * (cvss / 10)) + (0.30 * isKev) + (0.20 * asset) + (0.15 * exposure)

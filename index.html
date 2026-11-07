@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/print-resume.css" />
 </head>
-<body data-view="sentinel">
+<body data-view="dossier">
 
   <!-- Background Canvases -->
   <canvas id="cyber-canvas"></canvas>
@@ -32,22 +32,27 @@
   <div class="cyber-grid-overlay"></div>
   <div class="mouse-glow"></div>
 
-  <!-- Gamified Achievement Toast Container -->
-  <div id="toast-container" class="toast-container"></div>
+  <!-- Gamified Achievement Toast Container (Sentinel Mode Only) -->
+  <div id="toast-container" class="toast-container sentinel-only"></div>
 
   <!-- ==========================================================================
-       TOP NAVIGATION & CYBER HUD
+       TOP NAVIGATION & CYBER HUD / EXECUTIVE DOSSIER NAVBAR
        ========================================================================== -->
   <header class="hud-nav">
     <div class="hud-container">
       <div class="hud-left">
         <a href="#hero" class="hud-brand">
           <div class="brand-icon">⬡</div>
-          <span>DAIPAYAN.GHOSAL // SEC-ID: 0x8F4</span>
+          <span class="sentinel-only">DAIPAYAN.GHOSAL // SEC-ID: 0x8F4</span>
+          <span class="dossier-only brand-dossier-text">DAIPAYAN GHOSAL <span class="dossier-role-pill">Cybersecurity Analyst</span></span>
         </a>
-        <div class="hud-status-badge">
+        <div class="hud-status-badge sentinel-only">
           <span class="status-dot"></span>
           <span>DEFCON 5 // SYSTEM SECURE</span>
+        </div>
+        <div class="hud-status-badge dossier-only">
+          <span class="live-dot-pulse"></span>
+          <span>AVAILABLE</span>
         </div>
       </div>
 
@@ -61,19 +66,19 @@
         <li><a href="#experience" class="hud-link"><span class="num">06</span> Experience</a></li>
         <li><a href="#research" class="hud-link"><span class="num">07</span> Research</a></li>
         <li><a href="#certifications" class="hud-link"><span class="num">08</span> Credentials</a></li>
-        <li><a href="#terminal-section" class="hud-link"><span class="num">09</span> Terminal</a></li>
+        <li class="sentinel-only"><a href="#terminal-section" class="hud-link"><span class="num">09</span> Terminal</a></li>
       </ul>
 
       <!-- HUD Controls -->
       <div class="hud-right">
         <!-- Dual Mode Switcher -->
-        <div class="view-switch" title="Toggle between Gamified Sentinel OS and Clean Executive Dossier">
-          <button id="btn-mode-sentinel" class="view-btn active">🎮 Sentinel OS</button>
-          <button id="btn-mode-executive" class="view-btn">📑 Dossier</button>
+        <div class="view-switch" title="Toggle between Clean Executive Dossier and Cyber Sentinel OS">
+          <button id="btn-mode-executive" class="view-btn active" title="Switch to Clean Executive Dossier">📑 Dossier</button>
+          <button id="btn-mode-sentinel" class="view-btn" title="Switch to Cyber Sentinel OS">🎮 Sentinel OS</button>
         </div>
 
-        <!-- Sound FX Button -->
-        <button id="hud-sfx-toggle" class="ctrl-btn" title="Toggle Cyber Audio Synthesizer">
+        <!-- Sound FX Button (Sentinel Only) -->
+        <button id="hud-sfx-toggle" class="ctrl-btn sentinel-only" title="Toggle Cyber Audio Synthesizer">
           <span>🔈 SFX: OFF</span>
         </button>
 
@@ -101,7 +106,8 @@
           <div>
             <div class="hero-meta-strip">
               <span>LOC // KOLKATA, INDIA [UTC+5:30]</span>
-              <span id="achievement-count-badge">[🏆 0/5 ACHIEVEMENTS]</span>
+              <span id="achievement-count-badge" class="sentinel-only">[🏆 0/5 ACHIEVEMENTS]</span>
+              <span class="dossier-only dossier-avail-tag">🟢 OPEN FOR ENTERPRISE ROLES</span>
             </div>
 
             <div class="hero-avatar-row">
@@ -112,59 +118,67 @@
               <div class="hero-title-group">
                 <h1>DAIPAYAN GHOSAL</h1>
                 <div class="hero-tagline">
-                  <span>⚡</span>
-                  <span>Cybersecurity Analyst & AI Governance Researcher</span>
+                  <span class="sentinel-only">⚡</span>
+                  <span>Cybersecurity Analyst &amp; AI Governance Researcher</span>
                 </div>
                 <div class="hero-personality-tag" title="Astrological & Psychological Profile">
                   <span class="scorpio">♏ SCORPIO</span>
                   <span>•</span>
                   <span class="entj">ENTJ-A 8w7</span>
-                  <span class="personality-sub">The Commander & Challenger</span>
+                  <span class="personality-sub">The Commander &amp; Challenger</span>
                 </div>
               </div>
             </div>
 
             <p class="hero-summary">
-              Agile Cybersecurity Analyst with cross-domain expertise spanning <strong>Identity & Access Governance (IGA/IAM)</strong>, 
-              <strong>Application Security (AppSec)</strong>, and proactive threat research. Anchored by a published academic background in 
-              applied machine learning and neural computing, I operate at the intersection of <strong>AI governance</strong> and enterprise 
-              resilience—specializing in architecting secure LLM integrations, mitigating algorithmic threat vectors, and orchestrating enterprise Identity Governance & Administration (IGA) with automated zero-trust policy engines.
+              Enterprise Cybersecurity Analyst with 3+ years at <strong>Wipro Limited</strong>, specializing in 
+              <strong>Identity &amp; Access Governance (Saviynt IGA, Okta)</strong>, <strong>Application Security (AppSec)</strong>, 
+              and proactive AI threat defense. Anchored by <strong>4 peer-reviewed Springer publications</strong> in applied machine 
+              learning and neural computing, I engineer resilient zero-trust access frameworks, automated JML lifecycles with 100% ITGC audit compliance, 
+              and evidence-grounded AI risk pipelines for global enterprises.
             </p>
 
             <div class="hero-highlights">
               <div class="highlight-stat">
-                <span class="num">4+</span>
-                <span class="label">Published Papers (Springer)</span>
+                <span class="num">3+</span>
+                <span class="label">Years at Wipro Limited</span>
               </div>
               <div class="highlight-stat">
-                <span class="num">5+</span>
-                <span class="label">Enterprise Certs (Saviynt/CEH)</span>
+                <span class="num">4</span>
+                <span class="label">Springer Publications</span>
               </div>
               <div class="highlight-stat">
                 <span class="num">100%</span>
                 <span class="label">ITGC Audit Compliance</span>
               </div>
+              <div class="highlight-stat">
+                <span class="num">L200</span>
+                <span class="label">Saviynt Certified Architect</span>
+              </div>
             </div>
           </div>
 
           <div class="hero-actions">
-            <a href="#ai-threat-lab" class="btn-primary">
-              <span>🛡️ Test AI Threat Lab</span>
+            <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" class="btn-primary hero-btn-live">
+              <span>🚀 Launch VulnInvestigator Live App ↗</span>
             </a>
-            <button class="btn-outline trigger-contact">
-              <span>✉️ Encrypted Transmission</span>
+            <button onclick="window.print()" class="btn-outline">
+              <span>📄 Download CV (PDF)</span>
             </button>
-            <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="btn-outline">
-              <span>🎓 Google Scholar</span>
-            </a>
+            <button class="btn-outline trigger-contact">
+              <span>✉️ Get in Touch</span>
+            </button>
             <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener" class="btn-outline">
               <span>🔗 LinkedIn</span>
+            </a>
+            <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="btn-outline">
+              <span>🎓 Google Scholar</span>
             </a>
           </div>
         </div>
 
-        <!-- Hero Right: Live Telemetry & Mission Control -->
-        <div class="hero-telemetry-card">
+        <!-- Hero Right: Live Telemetry & Mission Control (Sentinel OS View) -->
+        <div class="hero-telemetry-card sentinel-only">
           <div class="telemetry-header">
             <div class="telemetry-title">
               <span>📡</span>
@@ -211,6 +225,52 @@
             <div class="mini-term-line"><span class="amber">[LLM-GUARD]</span> OWASP Top 10 heuristics loaded. Ready for testing.</div>
           </div>
         </div>
+
+        <!-- Hero Right: Executive Security Architecture Deck (Dossier View) -->
+        <div class="dossier-deck dossier-only">
+          <div class="dossier-deck-header">
+            <div class="dossier-deck-title">
+              <span>🏢</span>
+              <span>ENTERPRISE ARCHITECTURE DOSSIER</span>
+            </div>
+            <div class="dossier-deck-status">
+              <span class="live-dot-pulse"></span>
+              <span>VERIFIED EXPERTISE</span>
+            </div>
+          </div>
+
+          <div class="dossier-deck-row">
+            <div class="dossier-deck-label">Current Role &amp; Affiliation</div>
+            <div class="dossier-deck-val">Cyber Security Analyst @ Wipro Limited</div>
+            <div class="dossier-deck-sub">Leading enterprise IAM governance, authoritative cloud identity sync, and AppSec pipelines.</div>
+          </div>
+
+          <div class="dossier-deck-row">
+            <div class="dossier-deck-label">Core Enterprise Architecture</div>
+            <div class="dossier-deck-val">Saviynt EIC (Level 200) • Okta • Workday HCM • ServiceNow</div>
+            <div class="dossier-deck-sub">Authoritative HR lifecycle orchestration, continuous attestation campaigns, and zero-drift SoD mitigation.</div>
+          </div>
+
+          <div class="dossier-deck-row">
+            <div class="dossier-deck-label">Flagship Innovation</div>
+            <div class="dossier-deck-val">VulnInvestigator (Evidence-Grounded GenAI)</div>
+            <div class="dossier-deck-sub">Contextual vulnerability prioritization with CISA KEV and MITRE ATT&amp;CK. Live at <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" style="color:#38bdf8; text-decoration:underline;">daipayanghosal.github.io/VulnInvestigator</a>.</div>
+          </div>
+
+          <div class="dossier-deck-row">
+            <div class="dossier-deck-label">Academic Foundations &amp; Research</div>
+            <div class="dossier-deck-val">BCA Distinction (81.75%) • 4 Springer Publications</div>
+            <div class="dossier-deck-sub">Peer-reviewed book chapters and journal papers in neural computing, computer vision, and applied ML.</div>
+          </div>
+
+          <div class="dossier-deck-shortcuts">
+            <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" class="dossier-shortcut-pill" style="color:#34d399; border-color:rgba(16,185,129,0.3);">🚀 Launch Live App ↗</a>
+            <a href="#iam-matrix" class="dossier-shortcut-pill">🔑 IAM Governance Matrix</a>
+            <a href="#ai-threat-lab" class="dossier-shortcut-pill">🛡️ AI Threat Defense</a>
+            <a href="#experience" class="dossier-shortcut-pill">💼 Wipro Experience</a>
+            <a href="#research" class="dossier-shortcut-pill">🔬 Springer Research</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -221,30 +281,45 @@
   <section id="vulninvestigator">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">Flagship Open-Source GenAI Prototype</div>
+        <div class="section-tag">Flagship Production &amp; Research Prototype</div>
         <h2 class="section-title">VulnInvestigator 🔍</h2>
         <p class="section-desc">
           Evidence-Grounded GenAI for Vulnerability-to-Threat Investigation and Risk Prioritisation. 
           Augmenting conventional CVSS ranking with contextual asset criticality, <strong>CISA KEV</strong> exploitation data, 
-          and <strong>MITRE ATT&CK</strong> technique correlation.
+          and <strong>MITRE ATT&amp;CK</strong> technique correlation. Now deployed live at <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" style="color:var(--text-accent); text-decoration:underline;">daipayanghosal.github.io/VulnInvestigator</a>.
         </p>
       </div>
 
       <div class="vi-card">
+        <!-- Live Deployment Banner -->
+        <div class="vi-live-banner">
+          <div class="vi-live-left">
+            <span class="live-dot-pulse"></span>
+            <span class="vi-live-label">LIVE WEB APPLICATION:</span>
+            <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" class="vi-live-url">
+              https://daipayanghosal.github.io/VulnInvestigator ↗
+            </a>
+          </div>
+          <span class="vi-live-badge">INTERACTIVE PROTOTYPE</span>
+        </div>
+
         <div class="vi-header-row">
           <div class="vi-title-group">
             <h3>
               <span>VulnInvestigator</span>
-              <span style="font-size:0.75rem; font-family:var(--font-mono); background:rgba(0,240,255,0.15); color:var(--neon-cyan); border:1px solid rgba(0,240,255,0.4); padding:2px 8px; border-radius:4px;">RESEARCH PROTOTYPE</span>
+              <span class="vi-tag-badge">STREAMLIT + PYTHON 3.12</span>
             </h3>
             <div class="vi-subtitle">
-              Evidence-Grounded Threat Correlation & Prioritisation Pipeline // Python 3.12 + Streamlit
+              Evidence-Grounded Threat Correlation &amp; Prioritisation Pipeline // Python 3.12 + Streamlit
             </div>
           </div>
 
           <div class="vi-repo-links">
-            <a href="https://github.com/daipayanghosal/VulnInvestigator" target="_blank" rel="noopener" class="btn-primary">
-              <span>📂 View on GitHub ↗</span>
+            <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" class="btn-primary vi-btn-launch">
+              <span>🚀 Launch Live App ↗</span>
+            </a>
+            <a href="https://github.com/daipayanghosal/VulnInvestigator" target="_blank" rel="noopener" class="btn-outline">
+              <span>📂 GitHub Repo ↗</span>
             </a>
             <button class="btn-outline" onclick="navigator.clipboard.writeText('git clone https://github.com/daipayanghosal/VulnInvestigator.git'); alert('Clone command copied to clipboard!');">
               <span>📋 Clone Repo</span>
@@ -619,8 +694,8 @@
           </div>
         </div>
 
-        <!-- THE MULTIVERSE CONSOLE // GAMIFIED OFF-DUTY ARENA -->
-        <div class="col-12 mv-console">
+        <!-- THE MULTIVERSE CONSOLE // GAMIFIED OFF-DUTY ARENA (Sentinel Mode Only) -->
+        <div class="col-12 mv-console sentinel-only">
           <div class="skill-header" style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.85rem; margin-bottom: 1.5rem;">
             <div class="skill-icon-wrap" style="background: rgba(0, 240, 255, 0.15); color: var(--neon-cyan);">🎮</div>
             <div>
@@ -1347,9 +1422,9 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION 7: INTERACTIVE CLI SECURITY TERMINAL
+       SECTION 7: INTERACTIVE CLI SECURITY TERMINAL (Sentinel Mode Only)
        ========================================================================== -->
-  <section id="terminal-section">
+  <section id="terminal-section" class="sentinel-only">
     <div class="container">
       <div class="section-header">
         <div class="section-tag">Root Shell Interface</div>
@@ -1412,9 +1487,9 @@ Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with
   </section>
 
   <!-- ==========================================================================
-       SECTION 8: WEBRING & RETRO 88x31 BADGES (Inspiration from ring.seggs.lol)
+       SECTION 8: WEBRING & RETRO 88x31 BADGES (Sentinel Mode Only)
        ========================================================================== -->
-  <section id="webring" class="webring-section">
+  <section id="webring" class="webring-section sentinel-only">
     <div class="container">
       <div class="webring-box">
         <div class="webring-info">
@@ -1575,7 +1650,7 @@ Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with
     <a href="#skills" class="dock-item" title="Tactical Skills">⚡</a>
     <a href="#experience" class="dock-item" title="Experience">💼</a>
     <a href="#research" class="dock-item" title="Research Lab">🔬</a>
-    <a href="#terminal-section" class="dock-item" title="Interactive Terminal">💻</a>
+    <a href="#terminal-section" class="dock-item sentinel-only" title="Interactive Terminal">💻</a>
     <button class="dock-item trigger-contact" style="border:none; cursor:pointer;" title="Contact Modal">✉️</button>
   </div>
 

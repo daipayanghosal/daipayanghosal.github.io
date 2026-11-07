@@ -5,19 +5,22 @@
  */
 
 (function () {
-  // 1. Dual Mode System: Sentinel OS vs Executive Dossier
-  const savedView = localStorage.getItem('sentinel_view') || 'sentinel';
-  document.body.setAttribute('data-view', savedView);
+  // 1. Dual Mode System: Executive Dossier (Default) vs Sentinel OS
+  const savedView = localStorage.getItem('portfolio_view') || localStorage.getItem('sentinel_view') || 'dossier';
+  const initialView = (savedView === 'sentinel') ? 'sentinel' : 'dossier';
+  document.body.setAttribute('data-view', initialView);
 
   window.switchViewMode = function (mode) {
-    document.body.setAttribute('data-view', mode);
-    localStorage.setItem('sentinel_view', mode);
+    const normalizedMode = (mode === 'sentinel') ? 'sentinel' : 'dossier';
+    document.body.setAttribute('data-view', normalizedMode);
+    localStorage.setItem('portfolio_view', normalizedMode);
+    localStorage.setItem('sentinel_view', normalizedMode);
 
     const btnSentinel = document.getElementById('btn-mode-sentinel');
     const btnExecutive = document.getElementById('btn-mode-executive');
 
     if (btnSentinel && btnExecutive) {
-      if (mode === 'executive') {
+      if (normalizedMode === 'dossier') {
         btnExecutive.classList.add('active');
         btnSentinel.classList.remove('active');
       } else {
@@ -26,16 +29,18 @@
       }
     }
 
-    if (window.soundEngine) window.soundEngine.playChime();
-    if (window.unlockAchievement && mode === 'executive') {
-      window.unlockAchievement('ach_dossier', 'Executive Briefing', 'Switched to clean Executive Dossier view');
+    // Play chime and sound feedback ONLY in Sentinel mode
+    if (normalizedMode === 'sentinel' && window.soundEngine && window.soundEngine.enabled) {
+      window.soundEngine.playChime();
     }
   };
 
-  // 2. Gamified Achievement System
+  // 2. Gamified Achievement System (Sentinel Mode Only)
   const UNLOCKED_ACHIEVEMENTS = JSON.parse(localStorage.getItem('sentinel_achievements') || '{}');
 
   window.unlockAchievement = function (key, title, desc) {
+    // Suppress all gamification toasts when in Dossier mode
+    if (document.body.getAttribute('data-view') !== 'sentinel') return;
     if (UNLOCKED_ACHIEVEMENTS[key]) return; // already unlocked
 
     UNLOCKED_ACHIEVEMENTS[key] = { title, desc, time: Date.now() };
@@ -79,19 +84,19 @@
   // 3. Command Palette (Ctrl+K or ⌘K)
   const PALETTE_ACTIONS = [
     { title: 'Overview & Profile', section: 'hero', icon: '👤', kbd: 'G O' },
-    { title: 'VulnInvestigator (Flagship GenAI Repo)', section: 'vulninvestigator', icon: '🔍', kbd: 'G V' },
+    { title: 'VulnInvestigator (Live App & GenAI Prototype)', section: 'vulninvestigator', icon: '🚀', kbd: 'G V' },
     { title: 'AI Threat Defense Lab', section: 'ai-threat-lab', icon: '🛡️', kbd: 'G T' },
     { title: 'Enterprise IGA Governance Matrix', section: 'iam-matrix', icon: '🔑', kbd: 'G I' },
     { title: 'Skills & Enterprise Expertise', section: 'skills', icon: '⚡', kbd: 'G S' },
     { title: 'Work Experience (Wipro)', section: 'experience', icon: '💼', kbd: 'G E' },
     { title: 'Research & CV Superpixel Lab', section: 'research', icon: '🔬', kbd: 'G R' },
     { title: 'Certifications & Credentials', section: 'certifications', icon: '📜', kbd: 'G C' },
-    { title: 'Interactive CLI Terminal', section: 'terminal-section', icon: '💻', kbd: 'G X' },
+    { title: 'Interactive CLI Terminal (Sentinel OS)', section: 'terminal-section', icon: '💻', kbd: 'G X' },
     { title: 'Slytherin Lore & Ambition', action: 'slytherin', icon: '🐍', kbd: 'S L' },
     { title: 'FC Barcelona (Més que un club)', action: 'barca', icon: '⚽', kbd: 'F C' },
     { title: 'Mercedes-AMG Petronas F1 Team', action: 'f1', icon: '🏎️', kbd: 'F 1' },
     { title: 'Proud Bong // Kolkata Roots', action: 'bong', icon: '☕', kbd: 'B O' },
-    { title: 'Toggle Sentinel OS / Executive Mode', action: 'toggleView', icon: '🔄', kbd: 'T' },
+    { title: 'Toggle Dossier / Sentinel OS Mode', action: 'toggleView', icon: '🔄', kbd: 'T' },
     { title: 'Toggle Matrix Digital Rain', action: 'matrix', icon: '🟩', kbd: 'M' },
     { title: 'Open Encrypted Contact Channels', action: 'contact', icon: '✉️', kbd: 'C' },
     { title: 'Print / Save Executive Resume (PDF)', action: 'print', icon: '📄', kbd: 'P' },
@@ -203,7 +208,7 @@
         if (el) el.scrollIntoView({ behavior: 'smooth' });
       } else if (act.action === 'toggleView') {
         const current = document.body.getAttribute('data-view');
-        window.switchViewMode(current === 'sentinel' ? 'executive' : 'sentinel');
+        window.switchViewMode(current === 'sentinel' ? 'dossier' : 'sentinel');
       } else if (act.action === 'matrix') {
         window.toggleMatrixMode();
       } else if (act.action === 'contact') {
@@ -368,11 +373,11 @@
       btnSentinel.addEventListener('click', () => window.switchViewMode('sentinel'));
     }
     if (btnExecutive) {
-      btnExecutive.addEventListener('click', () => window.switchViewMode('executive'));
+      btnExecutive.addEventListener('click', () => window.switchViewMode('dossier'));
     }
 
-    // Initial view sync
-    window.switchViewMode(savedView);
+    // Initial view sync (defaulting to dossier)
+    window.switchViewMode(initialView);
 
     initSoundButton();
     initCommandPalette();
@@ -380,13 +385,17 @@
     initLiveTelemetry();
     updateAchievementCounter();
 
-    // Sound effects on buttons & links
+    // Sound effects on buttons & links (Active ONLY in Sentinel OS mode)
     document.querySelectorAll('a, button').forEach((el) => {
       el.addEventListener('mouseenter', () => {
-        if (window.soundEngine) window.soundEngine.playHover();
+        if (document.body.getAttribute('data-view') === 'sentinel' && window.soundEngine) {
+          window.soundEngine.playHover();
+        }
       });
       el.addEventListener('click', () => {
-        if (window.soundEngine) window.soundEngine.playClick();
+        if (document.body.getAttribute('data-view') === 'sentinel' && window.soundEngine) {
+          window.soundEngine.playClick();
+        }
       });
     });
 
