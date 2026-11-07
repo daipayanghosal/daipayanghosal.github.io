@@ -204,7 +204,22 @@
     function executePaletteAction(act) {
       window.closePalette();
       if (act.section) {
-        const el = document.getElementById(act.section);
+        const isDossier = document.body.getAttribute('data-view') !== 'sentinel';
+        let targetId = act.section;
+        if (isDossier) {
+          const map = {
+            'hero': 'dossier-hero',
+            'vulninvestigator': 'dossier-vuln',
+            'ai-threat-lab': 'dossier-ai',
+            'iam-matrix': 'dossier-iam',
+            'skills': 'dossier-iam',
+            'experience': 'dossier-experience',
+            'research': 'dossier-research',
+            'certifications': 'dossier-credentials'
+          };
+          targetId = map[act.section] || act.section;
+        }
+        const el = document.getElementById(targetId) || document.getElementById(act.section);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
       } else if (act.action === 'toggleView') {
         const current = document.body.getAttribute('data-view');
@@ -218,13 +233,18 @@
       } else if (act.action === 'sfx') {
         toggleSoundBtn();
       } else if (['slytherin', 'barca', 'f1', 'bong'].includes(act.action)) {
-        const termInput = document.getElementById('term-input');
-        const termSection = document.getElementById('terminal-section');
-        if (termInput && termSection) {
-          termSection.scrollIntoView({ behavior: 'smooth' });
-          termInput.value = act.action;
-          termInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+        if (document.body.getAttribute('data-view') !== 'sentinel') {
+          window.switchViewMode('sentinel');
         }
+        setTimeout(() => {
+          const termInput = document.getElementById('term-input');
+          const termSection = document.getElementById('terminal-section');
+          if (termInput && termSection) {
+            termSection.scrollIntoView({ behavior: 'smooth' });
+            termInput.value = act.action;
+            termInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+          }
+        }, 150);
       }
     }
   }
@@ -363,7 +383,36 @@
     }
   }
 
-  // 7. Initialize Everything on Load
+  // 7. Dossier Navigation Scrollspy
+  function initDossierScrollspy() {
+    const sections = ['dossier-hero', 'dossier-vuln', 'dossier-iam', 'dossier-ai', 'dossier-experience', 'dossier-research', 'dossier-credentials', 'dossier-contact'];
+    const links = document.querySelectorAll('.dossier-nav a');
+    if (!links.length) return;
+
+    window.addEventListener('scroll', () => {
+      if (document.body.getAttribute('data-view') === 'sentinel') return;
+      let current = 'dossier-hero';
+      const scrollPos = window.scrollY + 180;
+
+      for (const secId of sections) {
+        const el = document.getElementById(secId);
+        if (el && el.offsetTop <= scrollPos) {
+          current = secId;
+        }
+      }
+
+      links.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (href === `#${current}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }, { passive: true });
+  }
+
+  // 8. Initialize Everything on Load
   document.addEventListener('DOMContentLoaded', () => {
     // Mode switcher buttons
     const btnSentinel = document.getElementById('btn-mode-sentinel');
@@ -384,6 +433,7 @@
     initContactModal();
     initLiveTelemetry();
     updateAchievementCounter();
+    initDossierScrollspy();
 
     // Sound effects on buttons & links (Active ONLY in Sentinel OS mode)
     document.querySelectorAll('a, button').forEach((el) => {

@@ -25,7 +25,20 @@
   .btn-primary,
   .btn-outline,
   .hero-telemetry-card,
+  #sentinel-view,
   footer {
+    display: none !important;
+  }
+
+  #dossier-view {
+    display: block !important;
+    padding-top: 0 !important;
+  }
+
+  .dossier-ambient-glow,
+  .dossier-hero-actions,
+  .dossier-project-ctas,
+  .dossier-contact-actions {
     display: none !important;
   }
 
