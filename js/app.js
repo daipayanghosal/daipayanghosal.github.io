@@ -18,6 +18,8 @@
 
     const btnSentinel = document.getElementById('btn-mode-sentinel');
     const btnExecutive = document.getElementById('btn-mode-executive');
+    const sideBtnSentinel = document.getElementById('side-btn-sentinel');
+    const sideBtnExecutive = document.getElementById('side-btn-executive');
 
     if (btnSentinel && btnExecutive) {
       if (normalizedMode === 'dossier') {
@@ -26,6 +28,16 @@
       } else {
         btnSentinel.classList.add('active');
         btnExecutive.classList.remove('active');
+      }
+    }
+
+    if (sideBtnSentinel && sideBtnExecutive) {
+      if (normalizedMode === 'dossier') {
+        sideBtnExecutive.classList.add('active');
+        sideBtnSentinel.classList.remove('active');
+      } else {
+        sideBtnSentinel.classList.add('active');
+        sideBtnExecutive.classList.remove('active');
       }
     }
 
@@ -130,6 +142,13 @@
 
     if (triggerBtn) {
       triggerBtn.addEventListener('click', window.openPalette);
+    }
+    const sideCmdTrigger = document.getElementById('side-cmd-trigger');
+    if (sideCmdTrigger) {
+      sideCmdTrigger.addEventListener('click', () => {
+        if (window.closeSideNavbar) window.closeSideNavbar();
+        window.openPalette();
+      });
     }
 
     overlay.addEventListener('click', (e) => {
@@ -252,20 +271,36 @@
   // 4. Sound FX Button Orchestration
   function initSoundButton() {
     const sfxBtn = document.getElementById('hud-sfx-toggle');
-    if (!sfxBtn) return;
+    const sideSfxBtn = document.getElementById('side-sfx-toggle');
 
     function updateLabel(enabled) {
-      sfxBtn.innerHTML = enabled
-        ? '<span>🔊 SFX: ON</span>'
-        : '<span style="opacity: 0.6;">🔈 SFX: OFF</span>';
+      if (sfxBtn) {
+        sfxBtn.innerHTML = enabled
+          ? '<span>🔊 SFX: ON</span>'
+          : '<span style="opacity: 0.6;">🔈 SFX: OFF</span>';
+      }
+      if (sideSfxBtn) {
+        sideSfxBtn.innerHTML = enabled
+          ? '<span>🔊 SFX: ON</span>'
+          : '<span>🔈 SFX: OFF</span>';
+      }
     }
 
-    updateLabel(window.soundEngine.enabled);
+    if (window.soundEngine) updateLabel(window.soundEngine.enabled);
 
-    sfxBtn.addEventListener('click', () => {
-      const state = window.soundEngine.toggle();
-      updateLabel(state);
-    });
+    if (sfxBtn) {
+      sfxBtn.addEventListener('click', () => {
+        const state = window.soundEngine.toggle();
+        updateLabel(state);
+      });
+    }
+
+    if (sideSfxBtn) {
+      sideSfxBtn.addEventListener('click', () => {
+        const state = window.soundEngine.toggle();
+        updateLabel(state);
+      });
+    }
 
     window.toggleSoundBtn = () => {
       const state = window.soundEngine.toggle();
@@ -386,7 +421,7 @@
   // 7. Dossier Navigation Scrollspy
   function initDossierScrollspy() {
     const sections = ['dossier-hero', 'dossier-vuln', 'dossier-iam', 'dossier-ai', 'dossier-skills', 'dossier-experience', 'dossier-research', 'dossier-credentials', 'dossier-contact'];
-    const links = document.querySelectorAll('.dossier-nav a');
+    const links = document.querySelectorAll('.dossier-nav a, .side-nav-list.dossier-nav a');
     if (!links.length) return;
 
     window.addEventListener('scroll', () => {
@@ -413,6 +448,121 @@
   }
 
   // 8. Initialize Everything on Load
+  
+  // Retractable Side Navbar Drawer Engine
+  function initSideNavbar() {
+    const sidebar = document.getElementById('side-navbar');
+    const backdrop = document.getElementById('side-navbar-backdrop');
+    const toggleBtn = document.getElementById('btn-sidebar-toggle');
+    const closeBtn = document.getElementById('btn-sidebar-close');
+
+    if (!sidebar) return;
+
+    window.openSideNavbar = function () {
+      sidebar.classList.add('open');
+      if (backdrop) backdrop.classList.add('open');
+      if (toggleBtn) toggleBtn.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (window.soundEngine && document.body.getAttribute('data-view') === 'sentinel') {
+        window.soundEngine.playClick();
+      }
+    };
+
+    window.closeSideNavbar = function () {
+      sidebar.classList.remove('open');
+      if (backdrop) backdrop.classList.remove('open');
+      if (toggleBtn) toggleBtn.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    window.toggleSideNavbar = function () {
+      if (sidebar.classList.contains('open')) {
+        window.closeSideNavbar();
+      } else {
+        window.openSideNavbar();
+      }
+    };
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.toggleSideNavbar();
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.closeSideNavbar();
+      });
+    }
+
+    if (backdrop) {
+      backdrop.addEventListener('click', () => {
+        window.closeSideNavbar();
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+        window.closeSideNavbar();
+      }
+    });
+
+    // Close on link click
+    const sideLinks = sidebar.querySelectorAll('.side-link');
+    sideLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        window.closeSideNavbar();
+      });
+    });
+
+    // Sidebar mode switcher buttons
+    const sideBtnSentinel = document.getElementById('side-btn-sentinel');
+    const sideBtnExecutive = document.getElementById('side-btn-executive');
+
+    if (sideBtnSentinel) {
+      sideBtnSentinel.addEventListener('click', () => {
+        window.switchViewMode('sentinel');
+        window.closeSideNavbar();
+      });
+    }
+    if (sideBtnExecutive) {
+      sideBtnExecutive.addEventListener('click', () => {
+        window.switchViewMode('dossier');
+        window.closeSideNavbar();
+      });
+    }
+  }
+
+  function initSentinelScrollspy() {
+    const sections = ['hero', 'vulninvestigator', 'ai-threat-lab', 'iam-matrix', 'skills', 'experience', 'research', 'certifications', 'terminal-section'];
+    const links = document.querySelectorAll('.side-nav-list.sentinel-nav a');
+    if (!links.length) return;
+
+    window.addEventListener('scroll', () => {
+      if (document.body.getAttribute('data-view') !== 'sentinel') return;
+      let current = 'hero';
+      const scrollPos = window.scrollY + 180;
+
+      for (const secId of sections) {
+        const el = document.getElementById(secId);
+        if (el && el.offsetTop <= scrollPos) {
+          current = secId;
+        }
+      }
+
+      links.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (href === `#${current}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }, { passive: true });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     // Mode switcher buttons
     const btnSentinel = document.getElementById('btn-mode-sentinel');
@@ -434,6 +584,8 @@
     initLiveTelemetry();
     updateAchievementCounter();
     initDossierScrollspy();
+    initSentinelScrollspy();
+    initSideNavbar();
 
     // Sound effects on buttons & links (Active ONLY in Sentinel OS mode)
     document.querySelectorAll('a, button').forEach((el) => {

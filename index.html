@@ -37,19 +37,27 @@
   <div id="toast-container" class="toast-container sentinel-only"></div>
 
   <!-- ==========================================================================
-       TOP NAVIGATION & CYBER HUD / EXECUTIVE DOSSIER NAVBAR
+       TOP BAR & RETRACTABLE SIDE NAVBAR (MOBILE OPTIMIZED)
        ========================================================================== -->
   <header class="hud-nav">
     <div class="hud-container">
       <div class="hud-left">
+        <!-- Retractable Sidebar Toggle Button -->
+        <button id="btn-sidebar-toggle" class="sidebar-toggle-btn" aria-label="Toggle Navigation Sidebar" title="Open Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
         <a href="#hero" class="hud-brand">
           <div class="brand-icon">⬡</div>
-          <span class="sentinel-only">DAIPAYAN.GHOSAL // SEC-ID: 0x8F4</span>
+          <span class="sentinel-only brand-sentinel-text">DAIPAYAN.GHOSAL // SEC-ID: 0x8F4</span>
           <span class="dossier-only brand-dossier-text">DAIPAYAN GHOSAL <span class="dossier-role-pill">Cybersecurity Analyst</span></span>
         </a>
+
         <div class="hud-status-badge sentinel-only">
           <span class="status-dot"></span>
-          <span>DEFCON 5 // SYSTEM SECURE</span>
+          <span>DEFCON 5</span>
         </div>
         <div class="hud-status-badge dossier-only">
           <span class="live-dot-pulse"></span>
@@ -57,57 +65,132 @@
         </div>
       </div>
 
-      <!-- Dossier Navigation Links -->
-      <ul class="hud-nav-links dossier-nav dossier-only">
-        <li><a href="#dossier-hero" class="hud-link active">About</a></li>
-        <li><a href="#dossier-vuln" class="hud-link">VulnInvestigator</a></li>
-        <li><a href="#dossier-iam" class="hud-link">Enterprise IGA</a></li>
-        <li><a href="#dossier-ai" class="hud-link">AI Security</a></li>
-        <li><a href="#dossier-skills" class="hud-link">Skills</a></li>
-        <li><a href="#dossier-experience" class="hud-link">Experience</a></li>
-        <li><a href="#dossier-research" class="hud-link">Publications</a></li>
-        <li><a href="#dossier-credentials" class="hud-link">Credentials</a></li>
-        <li><a href="#dossier-contact" class="hud-link">Contact</a></li>
-      </ul>
-
-      <!-- Sentinel Navigation Links -->
-      <ul class="hud-nav-links sentinel-nav sentinel-only">
-        <li><a href="#hero" class="hud-link active"><span class="num">01</span> Overview</a></li>
-        <li><a href="#vulninvestigator" class="hud-link"><span class="num">02</span> VulnInvestigator</a></li>
-        <li><a href="#ai-threat-lab" class="hud-link"><span class="num">03</span> AI Threat Lab</a></li>
-        <li><a href="#iam-matrix" class="hud-link"><span class="num">04</span> IAM Matrix</a></li>
-        <li><a href="#skills" class="hud-link"><span class="num">05</span> Skills</a></li>
-        <li><a href="#experience" class="hud-link"><span class="num">06</span> Experience</a></li>
-        <li><a href="#research" class="hud-link"><span class="num">07</span> Research</a></li>
-        <li><a href="#certifications" class="hud-link"><span class="num">08</span> Credentials</a></li>
-        <li><a href="#terminal-section" class="hud-link"><span class="num">09</span> Terminal</a></li>
-      </ul>
-
-      <!-- HUD Controls -->
+      <!-- Compact Top Controls -->
       <div class="hud-right">
         <!-- Dual Mode Switcher -->
         <div class="view-switch" title="Toggle between Clean Executive Dossier and Cyber Sentinel OS">
-          <button id="btn-mode-executive" class="view-btn active" title="Switch to Clean Executive Dossier">📑 Dossier</button>
-          <button id="btn-mode-sentinel" class="view-btn" title="Switch to Cyber Sentinel OS">🎮 Sentinel OS</button>
+          <button id="btn-mode-executive" class="view-btn active" title="Switch to Clean Executive Dossier">
+            <span class="mode-icon">📑</span>
+            <span class="mode-text">Dossier</span>
+          </button>
+          <button id="btn-mode-sentinel" class="view-btn" title="Switch to Cyber Sentinel OS">
+            <span class="mode-icon">🎮</span>
+            <span class="mode-text">Sentinel OS</span>
+          </button>
         </div>
-
-        <!-- Sound FX Button (Sentinel Only) -->
-        <button id="hud-sfx-toggle" class="ctrl-btn sentinel-only" title="Toggle Cyber Audio Synthesizer">
-          <span>🔈 SFX: OFF</span>
-        </button>
 
         <!-- Command Palette Trigger -->
         <button id="hud-cmd-trigger" class="ctrl-btn" title="Launch Command Palette (Ctrl+K)">
           <span>⌘K</span>
         </button>
 
-        <!-- Direct Resume Print -->
-        <button onclick="window.print()" class="ctrl-btn" title="Print or Save Executive Resume as PDF">
+        <!-- Direct Resume Print (Desktop) -->
+        <button onclick="window.print()" class="ctrl-btn hud-cv-btn" title="Print or Save Executive Resume as PDF">
           <span>📄 CV</span>
         </button>
       </div>
     </div>
   </header>
+
+  <!-- ==========================================================================
+       RETRACTABLE SIDE NAVBAR DRAWER (ACCESSIBLE ACROSS ALL DEVICES)
+       ========================================================================== -->
+  <aside id="side-navbar" class="side-navbar" aria-label="Main Navigation">
+    <div class="side-navbar-inner">
+      <!-- Sidebar Identity Card Header -->
+      <div class="side-navbar-header">
+        <div class="side-brand">
+          <div class="side-avatar">
+            <img src="assets/avatar.jpg" alt="Daipayan Ghosal" onerror="this.src='https://avatars.githubusercontent.com/u/63237368?v=4'" />
+            <span class="side-status-dot"></span>
+          </div>
+          <div class="side-brand-meta">
+            <div class="side-name">Daipayan Ghosal</div>
+            <div class="side-title">Cybersecurity Analyst &amp; AI Researcher</div>
+          </div>
+        </div>
+        <button id="btn-sidebar-close" class="side-close-btn" aria-label="Close Navigation Menu" title="Close Sidebar">
+          <span>✕</span>
+        </button>
+      </div>
+
+      <!-- Mode Switcher Inside Sidebar -->
+      <div class="side-mode-switcher-wrap">
+        <div class="side-mode-label">// SELECT INTERFACE MODE:</div>
+        <div class="side-mode-switcher">
+          <button id="side-btn-executive" class="side-mode-btn active" title="Switch to Clean Executive Dossier">
+            <span>📑 Dossier</span>
+          </button>
+          <button id="side-btn-sentinel" class="side-mode-btn" title="Switch to Cyber Sentinel OS">
+            <span>🎮 Sentinel OS</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dossier Navigation Links -->
+      <div class="side-nav-group dossier-only">
+        <div class="side-nav-heading">EXECUTIVE DOSSIER NAVIGATION</div>
+        <ul class="side-nav-list dossier-nav">
+          <li><a href="#dossier-hero" class="side-link active"><span class="side-icon">👤</span> <span>About &amp; Overview</span></a></li>
+          <li><a href="#dossier-vuln" class="side-link"><span class="side-icon">🚀</span> <span>VulnInvestigator (Live)</span></a></li>
+          <li><a href="#dossier-iam" class="side-link"><span class="side-icon">🔑</span> <span>Enterprise IGA</span></a></li>
+          <li><a href="#dossier-ai" class="side-link"><span class="side-icon">🛡️</span> <span>AI Security</span></a></li>
+          <li><a href="#dossier-skills" class="side-link"><span class="side-icon">⚡</span> <span>Core Skills</span></a></li>
+          <li><a href="#dossier-experience" class="side-link"><span class="side-icon">💼</span> <span>Professional Experience</span></a></li>
+          <li><a href="#dossier-research" class="side-link"><span class="side-icon">📚</span> <span>Published Research</span></a></li>
+          <li><a href="#dossier-credentials" class="side-link"><span class="side-icon">📜</span> <span>Certifications &amp; BCA</span></a></li>
+          <li><a href="#dossier-contact" class="side-link"><span class="side-icon">✉️</span> <span>Executive Contact</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Sentinel Navigation Links -->
+      <div class="side-nav-group sentinel-only">
+        <div class="side-nav-heading">SENTINEL-X CYBER HUD NAVIGATION</div>
+        <ul class="side-nav-list sentinel-nav">
+          <li><a href="#hero" class="side-link active"><span class="side-icon">01</span> <span>Mission Control &amp; Bio</span></a></li>
+          <li><a href="#vulninvestigator" class="side-link"><span class="side-icon">02</span> <span>VulnInvestigator Prototype</span></a></li>
+          <li><a href="#ai-threat-lab" class="side-link"><span class="side-icon">03</span> <span>AI Threat Defense Lab</span></a></li>
+          <li><a href="#iam-matrix" class="side-link"><span class="side-icon">04</span> <span>Enterprise IGA Matrix</span></a></li>
+          <li><a href="#skills" class="side-link"><span class="side-icon">05</span> <span>Tactical Defense Stack</span></a></li>
+          <li><a href="#experience" class="side-link"><span class="side-icon">06</span> <span>Professional Flight Log</span></a></li>
+          <li><a href="#research" class="side-link"><span class="side-icon">07</span> <span>Research &amp; CV Lab</span></a></li>
+          <li><a href="#certifications" class="side-link"><span class="side-icon">08</span> <span>Verified Credentials</span></a></li>
+          <li><a href="#terminal-section" class="side-link"><span class="side-icon">09</span> <span>Interactive Security Terminal</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Sidebar Utilities & Footer -->
+      <div class="side-nav-footer">
+        <div class="side-footer-actions">
+          <button id="side-cmd-trigger" class="side-action-btn">
+            <span>⌘K Command Palette</span>
+          </button>
+          <button onclick="window.print()" class="side-action-btn">
+            <span>📄 Download CV (PDF)</span>
+          </button>
+          <button class="side-action-btn trigger-contact">
+            <span>✉️ Send Encrypted Message</span>
+          </button>
+          <button id="side-sfx-toggle" class="side-action-btn sentinel-only">
+            <span>🔈 SFX: OFF</span>
+          </button>
+        </div>
+
+        <div class="side-socials-row">
+          <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener">Scholar ↗</a>
+          <a href="https://github.com/daipayanghosal" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <div class="side-meta-loc">
+          Kolkata, India &bull; UTC+5:30
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Retractable Sidebar Backdrop Overlay -->
+  <div id="side-navbar-backdrop" class="side-navbar-backdrop" aria-hidden="true"></div>
 
   <!-- ==========================================================================
        DOSSIER VIEWPORT (BRAND NEW EXECUTIVE DESIGNER UI // NON-INTERACTIVE)
@@ -120,7 +203,7 @@
       <section id="dossier-hero" class="dossier-hero-section">
         <div class="dossier-status-pill">
           <span class="dossier-pulse-dot"></span>
-          <span>AVAILABLE FOR SENIOR IAM / APPSEC ROLES &bull; KOLKATA, INDIA (UTC+5:30)</span>
+          <span class="dossier-pill-text">AVAILABLE FOR SENIOR IAM / APPSEC ROLES &bull; KOLKATA, INDIA (UTC+5:30)</span>
         </div>
 
         <div class="dossier-hero-header">

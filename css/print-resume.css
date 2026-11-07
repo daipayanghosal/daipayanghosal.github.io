@@ -6,6 +6,9 @@
 @media print {
   /* Hide interactive widgets, canvas, dock, audio, simulator, and nav */
   .hud-nav,
+  .side-navbar,
+  .side-navbar-backdrop,
+  .sidebar-toggle-btn,
   .floating-dock,
   .mouse-glow,
   .cyber-grid-overlay,
