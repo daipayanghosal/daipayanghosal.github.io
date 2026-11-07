@@ -515,6 +515,12 @@ body[data-view="executive"] {
   gap: 1.5rem;
 }
 
+.dossier-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
 .dossier-feature-card {
   background: rgba(17, 21, 32, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -877,6 +883,7 @@ body[data-view="executive"] {
   .dossier-metrics-grid { grid-template-columns: repeat(2, 1fr); }
   .dossier-pillars-grid { grid-template-columns: 1fr; }
   .dossier-grid-2 { grid-template-columns: 1fr; }
+  .dossier-grid-3 { grid-template-columns: repeat(2, 1fr); }
   .dossier-papers-grid { grid-template-columns: 1fr; }
   .dossier-certs-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -885,6 +892,7 @@ body[data-view="executive"] {
   .dossier-name { font-size: 2.5rem; }
   .dossier-hero-header { flex-direction: column; align-items: flex-start; }
   .dossier-metrics-grid { grid-template-columns: 1fr; }
+  .dossier-grid-3 { grid-template-columns: 1fr; }
   .dossier-certs-grid { grid-template-columns: 1fr; }
   .dossier-project-ctas { width: 100%; flex-direction: column; }
   .dossier-project-ctas .dossier-btn { width: 100%; justify-content: center; }

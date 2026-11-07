@@ -212,7 +212,7 @@
             'vulninvestigator': 'dossier-vuln',
             'ai-threat-lab': 'dossier-ai',
             'iam-matrix': 'dossier-iam',
-            'skills': 'dossier-iam',
+            'skills': 'dossier-skills',
             'experience': 'dossier-experience',
             'research': 'dossier-research',
             'certifications': 'dossier-credentials'
@@ -385,7 +385,7 @@
 
   // 7. Dossier Navigation Scrollspy
   function initDossierScrollspy() {
-    const sections = ['dossier-hero', 'dossier-vuln', 'dossier-iam', 'dossier-ai', 'dossier-experience', 'dossier-research', 'dossier-credentials', 'dossier-contact'];
+    const sections = ['dossier-hero', 'dossier-vuln', 'dossier-iam', 'dossier-ai', 'dossier-skills', 'dossier-experience', 'dossier-research', 'dossier-credentials', 'dossier-contact'];
     const links = document.querySelectorAll('.dossier-nav a');
     if (!links.length) return;
 

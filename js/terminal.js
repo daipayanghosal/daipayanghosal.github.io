@@ -40,7 +40,7 @@ Available Security Shell Commands:
   Org:         Wipro Limited (Kolkata, IN)
   Focus:       AI Security, Saviynt IGA, Okta SSO, OWASP LLM Top 10, DevSecOps
   Alliances:   Slytherin 🐍 // FC Barcelona 🔵🔴 // Mercedes F1 🏎️ // Marvel (Spidey/Thor) ⚡ // Power Rangers 🦖
-  Email:       daipayanghosal@outlook.com // daipayanghosal.dev@gmail.com
+  Email:       daipayanghosal@outlook.com
   Location:    Kolkata, West Bengal, India [UTC+5:30]
   Academic:    Published Researcher in Neural Computing & Computer Vision
   Status:      [ACTIVE] Available for high-impact security engineering roles
@@ -62,16 +62,20 @@ Available Security Shell Commands:
     exp: () => `
 <span style="color:#00f0ff; font-weight:bold;">PROFESSIONAL FLIGHT LOG:</span>
 --------------------------------------------------
-  <span style="color:#10b981;">[Oct 2025 – Present]</span>  <span style="color:#ffffff; font-weight:bold;">Cyber Security Analyst (IAM)</span> — Wipro Limited
-    • Enterprise Saviynt IGA governance, dynamic RBAC/ABAC role engineering, & Zero Standing Privileges
-    • Authoritative Workday & Okta integration for event-driven identity lifecycle orchestration
-    • ServiceNow workflow automation creating immutable ITGC Section 404 audit trails
-    • Elimination of toxic access combinations & predictive Segregation of Duties (SoD) governance
+  <span style="color:#10b981;">[Oct 2025 – Present]</span>  <span style="color:#ffffff; font-weight:bold;">Cyber Security Analyst (IAM)</span> — Wipro Limited (Kolkata, IN)
+    • Identity Governance & RBAC: Oversee Saviynt IGA governance, RBAC models, & streamlined certifications
+    • Control Compliance: Architected enterprise access control frameworks aligned with ITGC principles
+    • Lifecycle Automation: Engineered automated Joiner-Mover-Leaver (JML) workflows via Workday HR & Okta
+    • Risk Remediation: Proactively detected and mitigated critical access control gaps and audit risks
+    • Workflow Integration: Integrated ServiceNow workflows creating verifiable audit trails and provisioning paths
+    • Stakeholder Alignment: Partnered with HR, IT Ops, and Risk Governance; authored system documentation
 
-  <span style="color:#38bdf8;">[June 2022 – Oct 2025]</span>  <span style="color:#ffffff; font-weight:bold;">Cyber Security Analyst (AppSec & DevSecOps)</span> — Wipro Limited
-    • Application risk assessments during early onboarding & secure SDLC integration
-    • Static Application Security Testing (SAST) with Checkmarx; vulnerability remediation
-    • CI/CD pipeline security controls and developer security liaison
+  <span style="color:#38bdf8;">[June 2022 – Oct 2025]</span>  <span style="color:#ffffff; font-weight:bold;">Cyber Security Analyst (AppSec & DevSecOps)</span> — Wipro Limited (Kolkata, IN)
+    • Risk Assessments & SDLC: Early-stage onboarding application risk assessments and secure SDLC integration
+    • CI/CD Pipeline Security: Evaluated and optimized security controls embedded within CI/CD pipelines
+    • Vulnerability Management: Static Application Security Testing (SAST) with Checkmarx; guided developer remediation
+    • Audit & Liaison: Compiled vulnerability findings and risk metrics to support regulatory compliance mandates
+    • Process Optimization: Refined Standard Operating Procedures (SOPs) and security governance documentation
 `,
 
     papers: () => `
