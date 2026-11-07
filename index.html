@@ -23,6 +23,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/dossier.css" />
+  <link rel="stylesheet" href="css/sentinel-os.css" />
   <link rel="stylesheet" href="css/print-resume.css" />
 </head>
 <body data-view="dossier">
@@ -833,13 +834,214 @@
   <!-- ==========================================================================
        SENTINEL OS CYBER COMMAND DECK (INTERACTIVE SIMULATORS & MULTIVERSE ARCADE)
        ========================================================================== -->
-  <div id="sentinel-view" class="sentinel-root">
+    <div id="sentinel-view" class="sentinel-root">
+    <!-- Tahoe Fluid Dynamic Wallpaper -->
+    <div class="tahoe-wallpaper"></div>
 
 
-  <!-- ==========================================================================
-       HERO / MISSION CONTROL & DOSSIER INTRO
-       ========================================================================== -->
-  <section id="hero" class="hero-section">
+    <!-- ======================================================================
+         macOS TAHOE LIQUID GLASS TOP MENU BAR (SENTINEL OS)
+         ====================================================================== -->
+    <header class="macos-menubar" id="macos-menubar">
+      <div class="macos-menu-left">
+        <div class="macos-apple-logo" id="macos-apple-logo" title="Apple Menu"><svg width="15" height="17" viewBox="0 0 170 170" fill="currentColor" style="display:inline-block; vertical-align:middle;"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.74 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.59-7.71-11.66-14.01-6.1-9.47-10.87-20.08-14.32-31.84-3.45-11.76-5.18-22.95-5.18-33.57 0-14.73 3.6-26.65 10.8-35.75 7.2-9.1 16.32-13.73 27.35-13.9 4.8 0 10.15 1.34 16.05 4.02 5.9 2.68 9.77 4.09 11.61 4.22 1.54 0 5.48-1.4 11.83-4.22 6.35-2.81 11.75-4.14 16.2-3.99 12.39.63 22.39 5.39 30 14.28-10.74 6.53-15.98 15.53-15.72 27 0 9.07 3.51 16.79 10.53 23.16 7.02 6.37 15.34 9.94 24.96 10.7-2.12 6.43-4.64 12.82-7.56 19.16zm-31.71-114.99c0 7.37-2.67 14.41-8.01 21.13-6.52 8.08-14.72 12.63-24.6 13.65-.21-1.4-.32-2.71-.32-3.92 0-7.37 2.82-14.59 8.46-21.65 5.64-7.06 13.69-11.39 24.15-12.99.21 1.25.32 2.51.32 3.78z"/></svg></div>
+        <div class="macos-app-name" id="macos-active-app-name">Sentinel OS</div>
+        <div class="macos-menu-item" onclick="SentinelOS.openApp('about')">About</div>
+        <div class="macos-menu-item" onclick="SentinelOS.openApp('terminal')">Terminal</div>
+        <div class="macos-menu-item" onclick="SentinelOS.openApp('vuln')">VulnInvestigator</div>
+        <div class="macos-menu-item" onclick="SentinelOS.openApp('arcade')">Arcade</div>
+        <div class="macos-menu-item" onclick="SentinelOS.openApp('settings')">Settings</div>
+      </div>
+
+      <div class="macos-menu-right">
+        <button class="macos-tray-btn" id="macos-wifi-btn" title="Wi-Fi: Connected to Sentinel-Secure-Net">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+        </button>
+        <button class="macos-tray-btn" id="macos-battery-btn" title="Battery: 100% (Power Adapter Connected)">
+          <svg width="18" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"></rect><line x1="23" y1="11" x2="23" y2="13"></line><line x1="5" y1="10" x2="15" y2="10" stroke="#34c759" stroke-width="4"></line></svg>
+          <span style="font-size:0.7rem; font-weight:600;">100%</span>
+        </button>
+        <button class="macos-tray-btn" id="macos-spotlight-btn" title="Spotlight Search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button class="macos-tray-btn" id="macos-cc-btn" title="Control Center">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+        </button>
+        <div class="macos-clock" id="macos-clock">Sun Nov 8 1:15 AM</div>
+      </div>
+    </header>
+
+    <!-- Apple Dropdown Menu -->
+    <div class="macos-dropdown-menu" id="macos-apple-menu">
+      <div class="macos-dropdown-item" id="menu-item-about">
+        <span>About Sentinel OS</span>
+      </div>
+      <div class="macos-dropdown-divider"></div>
+      <div class="macos-dropdown-item" id="menu-item-settings">
+        <span>System Settings...</span>
+      </div>
+      <div class="macos-dropdown-item" onclick="SentinelOS.openApp('vuln')">
+        <span>Launch VulnInvestigator...</span>
+      </div>
+      <div class="macos-dropdown-item" onclick="SentinelOS.openApp('terminal')">
+        <span>Open Terminal...</span>
+      </div>
+      <div class="macos-dropdown-divider"></div>
+      <div class="macos-dropdown-item" id="menu-item-dossier">
+        <span>Switch to Executive Dossier</span>
+        <span style="opacity:0.6; font-size:0.7rem;">⌘D</span>
+      </div>
+      <div class="macos-dropdown-divider"></div>
+      <div class="macos-dropdown-item" id="menu-item-restart">
+        <span>Restart Sentinel OS...</span>
+      </div>
+    </div>
+
+    <!-- Control Center Dropdown -->
+    <div class="macos-control-center" id="macos-control-center">
+      <div class="cc-grid-2">
+        <div class="cc-tile active" id="cc-wifi-tile">
+          <div class="cc-tile-icon">📶</div>
+          <div class="cc-tile-text">
+            <span class="cc-tile-title">Wi-Fi</span>
+            <span class="cc-tile-sub">Sentinel-Secure</span>
+          </div>
+        </div>
+        <div class="cc-tile active" id="cc-bluetooth-tile">
+          <div class="cc-tile-icon">ᛒ</div>
+          <div class="cc-tile-text">
+            <span class="cc-tile-title">Bluetooth</span>
+            <span class="cc-tile-sub">AirPods Pro</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cc-grid-2">
+        <div class="cc-tile active" id="cc-airdrop-tile">
+          <div class="cc-tile-icon">📡</div>
+          <div class="cc-tile-text">
+            <span class="cc-tile-title">AirDrop</span>
+            <span class="cc-tile-sub">Contacts Only</span>
+          </div>
+        </div>
+        <div class="cc-tile active" id="cc-sfx-tile">
+          <div class="cc-tile-icon">🔊</div>
+          <div class="cc-tile-text">
+            <span class="cc-tile-title">Sound FX</span>
+            <span class="cc-tile-sub">On</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cc-slider-box">
+        <div class="cc-slider-header">
+          <span>Display Brightness</span>
+          <span style="font-size:0.7rem; opacity:0.7;">100%</span>
+        </div>
+        <input type="range" min="20" max="120" value="100" class="cc-slider" id="cc-bright-slider" />
+      </div>
+
+      <div class="cc-slider-box">
+        <div class="cc-slider-header">
+          <span>Sound Volume</span>
+          <span style="font-size:0.7rem; opacity:0.7;">85%</span>
+        </div>
+        <input type="range" min="0" max="100" value="85" class="cc-slider" id="cc-volume-slider" />
+      </div>
+
+      <div class="cc-mode-switch" id="cc-switch-dossier">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <span style="font-size:1.1rem;">📑</span>
+          <div style="display:flex; flex-direction:column;">
+            <span style="font-size:0.76rem; font-weight:600; color:#fff;">Switch to Executive Dossier</span>
+            <span style="font-size:0.68rem; color:rgba(255,255,255,0.6);">Clean Minimalist Portfolio Mode</span>
+          </div>
+        </div>
+        <span style="font-size:0.85rem; color:var(--os-accent-blue);">➔</span>
+      </div>
+    </div>
+
+    <!-- "About Sentinel OS" Modal -->
+    <div class="macos-about-modal" id="macos-about-modal">
+      <div class="macos-about-logo"><svg width="15" height="17" viewBox="0 0 170 170" fill="currentColor" style="display:inline-block; vertical-align:middle;"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.74 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.59-7.71-11.66-14.01-6.1-9.47-10.87-20.08-14.32-31.84-3.45-11.76-5.18-22.95-5.18-33.57 0-14.73 3.6-26.65 10.8-35.75 7.2-9.1 16.32-13.73 27.35-13.9 4.8 0 10.15 1.34 16.05 4.02 5.9 2.68 9.77 4.09 11.61 4.22 1.54 0 5.48-1.4 11.83-4.22 6.35-2.81 11.75-4.14 16.2-3.99 12.39.63 22.39 5.39 30 14.28-10.74 6.53-15.98 15.53-15.72 27 0 9.07 3.51 16.79 10.53 23.16 7.02 6.37 15.34 9.94 24.96 10.7-2.12 6.43-4.64 12.82-7.56 19.16zm-31.71-114.99c0 7.37-2.67 14.41-8.01 21.13-6.52 8.08-14.72 12.63-24.6 13.65-.21-1.4-.32-2.71-.32-3.92 0-7.37 2.82-14.59 8.46-21.65 5.64-7.06 13.69-11.39 24.15-12.99.21 1.25.32 2.51.32 3.78z"/></svg></div>
+      <div class="macos-about-title">Sentinel OS</div>
+      <div class="macos-about-version">Version 16.0 Tahoe Liquid Glass Edition</div>
+      <div class="macos-about-specs">
+        <div class="macos-spec-row">
+          <span class="macos-spec-label">Processor</span>
+          <span class="macos-spec-val">Apple M3 Max (16-core CPU / 40-core GPU)</span>
+        </div>
+        <div class="macos-spec-row">
+          <span class="macos-spec-label">Memory</span>
+          <span class="macos-spec-val">128 GB Unified LPDDR5</span>
+        </div>
+        <div class="macos-spec-row">
+          <span class="macos-spec-label">Neural Engine</span>
+          <span class="macos-spec-val">16-Core AI Threat Matrix Accelerator</span>
+        </div>
+        <div class="macos-spec-row">
+          <span class="macos-spec-label">Identity Core</span>
+          <span class="macos-spec-val">Daipayan Ghosal (Wipro IAM &amp; AppSec)</span>
+        </div>
+        <div class="macos-spec-row">
+          <span class="macos-spec-label">Serial Number</span>
+          <span class="macos-spec-val">DG-0x8F4-TAHOE-2026</span>
+        </div>
+      </div>
+      <button class="macos-btn-subtle" id="btn-close-about" style="padding:0.4rem 1.25rem;">Close</button>
+    </div>
+
+
+    <!-- Desktop Workspace Surface -->
+    <div class="desktop-surface" id="desktop-surface">
+
+      <div class="desktop-shortcuts-grid">
+        <div class="desktop-shortcut-item" data-app="vuln">
+          <div class="desktop-shortcut-icon" style="background:linear-gradient(135deg,#007aff,#38bdf8);">
+            <span style="font-size:1.5rem;">🚀</span>
+          </div>
+          <span class="desktop-shortcut-label">VulnInvestigator</span>
+        </div>
+        <div class="desktop-shortcut-item" data-app="terminal">
+          <div class="desktop-shortcut-icon" style="background:linear-gradient(135deg,#1e293b,#0f172a); border:1px solid rgba(255,255,255,0.2);">
+            <span style="font-size:1.5rem;">💻</span>
+          </div>
+          <span class="desktop-shortcut-label">Terminal.app</span>
+        </div>
+        <div class="desktop-shortcut-item" data-app="arcade">
+          <div class="desktop-shortcut-icon" style="background:linear-gradient(135deg,#af52de,#ff2d55);">
+            <span style="font-size:1.5rem;">🕹️</span>
+          </div>
+          <span class="desktop-shortcut-label">Nerd Arcade</span>
+        </div>
+        <div class="desktop-shortcut-item" data-app="research">
+          <div class="desktop-shortcut-icon" style="background:linear-gradient(135deg,#ff9500,#ffcc00);">
+            <span style="font-size:1.5rem;">📚</span>
+          </div>
+          <span class="desktop-shortcut-label">Springer Papers</span>
+        </div>
+      </div>
+
+
+
+    <!-- Window: Mission Control & Bio -->
+    <div class="macos-window open active" id="win-about" data-app="about">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">👤</span>
+          <span class="macos-titlebar-title">Mission Control & Bio</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('about')">Toggle Zoom</span>
+        </div>
+      </div>
+      <div class="macos-window-content">
+<section id="hero" class="hero-section">
     <div class="container">
       <div class="hero-grid">
         <!-- Hero Left: Bio Card -->
@@ -1015,11 +1217,29 @@
       </div>
     </div>
   </section>
+      </div>
+      <div class="macos-resize-handle"></div>
+    </div>
 
-  <!-- ==========================================================================
-       FEATURED PROJECT: VULNINVESTIGATOR (GenAI & Threat Prioritisation)
-       ========================================================================== -->
-  <section id="vulninvestigator">
+
+    <!-- Window: VulnInvestigator — Contextual AppSec -->
+    <div class="macos-window" id="win-vuln" data-app="vuln">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">🚀</span>
+          <span class="macos-titlebar-title">VulnInvestigator — Contextual AppSec</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('vuln')">Toggle Zoom</span>
+        </div>
+      </div>
+      <div class="macos-window-content">
+<section id="vulninvestigator">
     <div class="container">
       <div class="section-header">
         <div class="section-tag">Flagship Production &amp; Research Prototype</div>
@@ -1184,11 +1404,29 @@
       </div>
     </div>
   </section>
+      </div>
+      <div class="macos-resize-handle"></div>
+    </div>
 
-  <!-- ==========================================================================
-       SECTION 1: GAMIFIED AI THREAT LAB & GUARDRAIL DEFENSE SIMULATOR
-       ========================================================================== -->
-  <section id="ai-threat-lab">
+
+    <!-- Window: AI Threat Defense Lab -->
+    <div class="macos-window" id="win-ai" data-app="ai">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">🛡️</span>
+          <span class="macos-titlebar-title">AI Threat Defense Lab</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('ai')">Toggle Zoom</span>
+        </div>
+      </div>
+      <div class="macos-window-content">
+<section id="ai-threat-lab">
     <div class="container">
       <div class="section-header">
         <div class="section-tag">Interactive Cyber Defense Sandbox</div>
@@ -1269,11 +1507,29 @@
       </div>
     </div>
   </section>
+      </div>
+      <div class="macos-resize-handle"></div>
+    </div>
 
-  <!-- ==========================================================================
-       SECTION 2: ENTERPRISE IDENTITY GOVERNANCE & ADMINISTRATION (IGA) MATRIX
-       ========================================================================== -->
-  <section id="iam-matrix">
+
+    <!-- Window: Enterprise IGA Matrix -->
+    <div class="macos-window" id="win-iam" data-app="iam">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">🔑</span>
+          <span class="macos-titlebar-title">Enterprise IGA Matrix</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('iam')">Toggle Zoom</span>
+        </div>
+      </div>
+      <div class="macos-window-content">
+<section id="iam-matrix">
     <div class="container">
       <div class="section-header">
         <div class="section-tag">Identity Governance & Administration (IGA) Architecture</div>
@@ -1311,11 +1567,29 @@
       </div>
     </div>
   </section>
+      </div>
+      <div class="macos-resize-handle"></div>
+    </div>
 
-  <!-- ==========================================================================
-       SECTION 3: CORE SKILLS & EXPERTISE BENTO
-       ========================================================================== -->
-  <section id="skills">
+
+    <!-- Window: Nerd Arcade — Multiverse Hub -->
+    <div class="macos-window" id="win-arcade" data-app="arcade">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">🕹️</span>
+          <span class="macos-titlebar-title">Nerd Arcade — Multiverse Hub</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('arcade')">Toggle Zoom</span>
+        </div>
+      </div>
+      <div class="macos-window-content">
+<section id="skills">
     <div class="container">
       <div class="section-header">
         <div class="section-tag">Enterprise Competencies</div>
@@ -1813,112 +2087,112 @@
       </div>
     </div>
   </section>
+      </div>
+      <div class="macos-resize-handle"></div>
+    </div>
 
 
-  <!-- ==========================================================================
-       SECTION 4: PROFESSIONAL EXPERIENCE
-       ========================================================================== -->
-  <section id="experience">
+    <!-- Window: Sentinel Terminal — zsh -->
+    <div class="macos-window open" id="win-terminal" data-app="terminal">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">💻</span>
+          <span class="macos-titlebar-title">Sentinel Terminal — zsh</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('terminal')">Toggle Zoom</span>
+        </div>
+      </div>
+      <div class="macos-window-content">
+<section id="terminal-section" class="sentinel-only">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">Career Milestones</div>
-        <h2 class="section-title">Professional Experience</h2>
+        <div class="section-tag">Root Shell Interface</div>
+        <h2 class="section-title">Sentinel-X Interactive Terminal</h2>
         <p class="section-desc">
-          Delivering enterprise cybersecurity excellence, automated identity governance, and secure software development lifecycles at Wipro Limited.
+          Interact directly with Daipayan's cyber console. Type commands or click quick-action pills to query telemetry, threat vectors, publications, or trigger easter eggs.
         </p>
       </div>
 
-      <div class="experience-list">
-        <!-- Role 1: Cyber Security Analyst (IAM) -->
-        <div class="exp-card">
-          <div class="exp-header">
-            <div class="exp-role-group">
-              <h3>Cyber Security Analyst (IAM)</h3>
-              <div class="exp-company">Wipro Limited • Kolkata, IN</div>
-            </div>
-            <div class="exp-date-badge">Oct 2025 – Present</div>
+      <div class="terminal-window">
+        <div class="terminal-titlebar">
+          <div class="terminal-dots">
+            <div class="terminal-dot dot-red"></div>
+            <div class="terminal-dot dot-yellow"></div>
+            <div class="terminal-dot dot-green"></div>
           </div>
+          <div class="title">daipayan@sentinel: ~ (zsh / interactive-cli)</div>
+          <div style="font-size:0.68rem; color:var(--text-dim);">UTF-8 // SEC-ENCLAVE</div>
+        </div>
 
-          <ul class="exp-bullets">
-            <li>
-              <strong>Identity Governance & RBAC:</strong> Oversee end-to-end identity governance utilizing Saviynt IGA; designed role-based access control (RBAC) models and streamlined access certifications to enforce strict compliance.
-            </li>
-            <li>
-              <strong>Control Compliance:</strong> Architected and maintained enterprise access control frameworks aligned with ITGC principles, embedding the principle of least privilege across business units.
-            </li>
-            <li>
-              <strong>Lifecycle Automation:</strong> Engineered and managed automated Joiner-Mover-Leaver (JML) identity lifecycle workflows by integrating Workday HR platforms with Okta IAM environments.
-            </li>
-            <li>
-              <strong>Risk Remediation:</strong> Proactively detected and mitigated critical access control gaps, significantly reducing risk exposure and enhancing corporate audit readiness.
-            </li>
-            <li>
-              <strong>Workflow Integration:</strong> Integrated ServiceNow workflows with identity solutions to create verifiable audit trails and structured access provisioning paths.
-            </li>
-            <li>
-              <strong>Stakeholder Alignment & Documentation:</strong> Partnered with HR, IT Operations, and Risk Governance teams to synchronize strategies; authored comprehensive documentation for system architectures and control procedures.
-            </li>
-          </ul>
-
-          <div class="exp-tech-tags">
-            <span class="exp-tech-tag">Saviynt IGA Level 200</span>
-            <span class="exp-tech-tag">Okta Identity Cloud</span>
-            <span class="exp-tech-tag">Workday HR</span>
-            <span class="exp-tech-tag">ServiceNow</span>
-            <span class="exp-tech-tag">ITGC Principles</span>
-            <span class="exp-tech-tag">RBAC/ABAC Architecture</span>
-            <span class="exp-tech-tag">Enterprise IGA</span>
-            <span class="exp-tech-tag">SoD Governance</span>
-            <span class="exp-tech-tag">DLP Governance</span>
+        <div class="terminal-body" id="terminal-body">
+          <div class="term-output">
+<span style="color:#00f0ff; font-weight:bold;">SENTINEL-X CYBER INTERFACE v4.12 [KOLKATA NODE]</span>
+Type <span style="color:#00f0ff; font-weight:bold;">help</span> to inspect valid commands, or click any quick command below.
+Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with read-only audit permissions.
           </div>
         </div>
 
-        <!-- Role 2: Cyber Security Analyst (AppSec & DevSecOps) -->
-        <div class="exp-card">
-          <div class="exp-header">
-            <div class="exp-role-group">
-              <h3>Cyber Security Analyst (AppSec & DevSecOps)</h3>
-              <div class="exp-company">Wipro Limited • Kolkata, IN</div>
-            </div>
-            <div class="exp-date-badge">June 2022 – Oct 2025</div>
+        <div style="padding: 0 1.25rem 1.25rem;">
+          <div class="term-input-row">
+            <span class="term-prompt">daipayan@sentinel:~$</span>
+            <input type="text" id="term-input" class="term-input" placeholder="type command (e.g. whoami, skills, papers, certs, threat-model, matrix)..." autocomplete="off" spellcheck="false" />
           </div>
 
-          <ul class="exp-bullets">
-            <li>
-              <strong>Risk Assessments & SDLC:</strong> Spearheaded application risk assessments during early-stage onboarding and secure SDLC integration to catch structural flaws before production.
-            </li>
-            <li>
-              <strong>CI/CD Pipeline Security:</strong> Evaluated and optimized security controls embedded within CI/CD pipelines, driving measurable maturity in automated pipeline defenses.
-            </li>
-            <li>
-              <strong>Vulnerability Management:</strong> Executed Static Application Security Testing (SAST) using Checkmarx; analyzed source code to discover vulnerabilities and partnered with engineers to guide remediation.
-            </li>
-            <li>
-              <strong>Audit & Liaison:</strong> Compiled detailed vulnerability findings, risk metrics, and mitigation actions to support corporate regulatory and compliance mandates; served as technical liaison between engineering and business stakeholders.
-            </li>
-            <li>
-              <strong>Process Optimization:</strong> Refined Standard Operating Procedures (SOPs) and governance documentation, accelerating process standardization across security practices.
-            </li>
-          </ul>
-
-          <div class="exp-tech-tags">
-            <span class="exp-tech-tag">Checkmarx SAST</span>
-            <span class="exp-tech-tag">Secure SDLC</span>
-            <span class="exp-tech-tag">DevSecOps</span>
-            <span class="exp-tech-tag">CI/CD Hardening</span>
-            <span class="exp-tech-tag">Python Scripting</span>
-            <span class="exp-tech-tag">Vulnerability Remediation</span>
-            <span class="exp-tech-tag">SOP Standardization</span>
+          <div class="term-quick-cmds">
+            <span style="font-size:0.72rem; color:var(--text-dim); margin-right:4px;">Quick Execute:</span>
+            <span class="quick-cmd-pill" data-cmd="whoami">whoami</span>
+            <span class="quick-cmd-pill" data-cmd="vuln">vuln</span>
+            <span class="quick-cmd-pill" data-cmd="skills">skills</span>
+            <span class="quick-cmd-pill" data-cmd="exp">exp</span>
+            <span class="quick-cmd-pill" data-cmd="threat-model">threat-model</span>
+            <span class="quick-cmd-pill" data-cmd="papers">papers</span>
+            <span class="quick-cmd-pill" data-cmd="certs">certs</span>
+            <span class="quick-cmd-pill" data-cmd="slytherin">🐍 slytherin</span>
+            <span class="quick-cmd-pill" data-cmd="barca">⚽ barca</span>
+            <span class="quick-cmd-pill" data-cmd="personality">♏ personality</span>
+            <span class="quick-cmd-pill" data-cmd="spiderman">🕷️ spiderman</span>
+            <span class="quick-cmd-pill" data-cmd="thor">⚡ thor</span>
+            <span class="quick-cmd-pill" data-cmd="morph">🦖 morph</span>
+            <span class="quick-cmd-pill" data-cmd="f1">🏎️ f1</span>
+            <span class="quick-cmd-pill" data-cmd="bong">☕ bong</span>
+            <span class="quick-cmd-pill" data-cmd="neofetch">neofetch</span>
+            <span class="quick-cmd-pill" data-cmd="matrix">matrix</span>
+            <span class="quick-cmd-pill" data-cmd="hack">hack</span>
+            <span class="quick-cmd-pill" data-cmd="clear">clear</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+      </div>
+      <div class="macos-resize-handle"></div>
+    </div>
 
-  <!-- ==========================================================================
-       SECTION 5: RESEARCH & COMPUTER VISION SUPERPIXEL PLAYGROUND
-       ========================================================================== -->
-  <section id="research">
+
+    <!-- Window: Published Research & CV Lab -->
+    <div class="macos-window" id="win-research" data-app="research">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">📚</span>
+          <span class="macos-titlebar-title">Published Research & CV Lab</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('research')">Toggle Zoom</span>
+        </div>
+      </div>
+      <div class="macos-window-content">
+<section id="research">
     <div class="container">
       <div class="section-header">
         <div class="section-tag">Published Academic Research</div>
@@ -2088,11 +2362,29 @@
       </div>
     </div>
   </section>
+      </div>
+      <div class="macos-resize-handle"></div>
+    </div>
 
-  <!-- ==========================================================================
-       SECTION 6: CERTIFICATIONS & EDUCATION
-       ========================================================================== -->
-  <section id="certifications">
+
+    <!-- Window: Verified Credentials & Keyring -->
+    <div class="macos-window" id="win-certs" data-app="certs">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">📜</span>
+          <span class="macos-titlebar-title">Verified Credentials & Keyring</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('certs')">Toggle Zoom</span>
+        </div>
+      </div>
+      <div class="macos-window-content">
+<section id="certifications">
     <div class="container">
       <div class="section-header">
         <div class="section-tag">Verified Credentials</div>
@@ -2174,76 +2466,147 @@
       </div>
     </div>
   </section>
+      </div>
+      <div class="macos-resize-handle"></div>
+    </div>
 
-  <!-- ==========================================================================
-       SECTION 7: INTERACTIVE CLI SECURITY TERMINAL (Sentinel Mode Only)
-       ========================================================================== -->
-  <section id="terminal-section" class="sentinel-only">
+
+    <!-- Window: Professional Flight Log -->
+    <div class="macos-window" id="win-experience" data-app="experience">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">💼</span>
+          <span class="macos-titlebar-title">Professional Flight Log</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('experience')">Toggle Zoom</span>
+        </div>
+      </div>
+      <div class="macos-window-content">
+<section id="experience">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">Root Shell Interface</div>
-        <h2 class="section-title">Sentinel-X Interactive Terminal</h2>
+        <div class="section-tag">Career Milestones</div>
+        <h2 class="section-title">Professional Experience</h2>
         <p class="section-desc">
-          Interact directly with Daipayan's cyber console. Type commands or click quick-action pills to query telemetry, threat vectors, publications, or trigger easter eggs.
+          Delivering enterprise cybersecurity excellence, automated identity governance, and secure software development lifecycles at Wipro Limited.
         </p>
       </div>
 
-      <div class="terminal-window">
-        <div class="terminal-titlebar">
-          <div class="terminal-dots">
-            <div class="terminal-dot dot-red"></div>
-            <div class="terminal-dot dot-yellow"></div>
-            <div class="terminal-dot dot-green"></div>
+      <div class="experience-list">
+        <!-- Role 1: Cyber Security Analyst (IAM) -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role-group">
+              <h3>Cyber Security Analyst (IAM)</h3>
+              <div class="exp-company">Wipro Limited • Kolkata, IN</div>
+            </div>
+            <div class="exp-date-badge">Oct 2025 – Present</div>
           </div>
-          <div class="title">daipayan@sentinel: ~ (zsh / interactive-cli)</div>
-          <div style="font-size:0.68rem; color:var(--text-dim);">UTF-8 // SEC-ENCLAVE</div>
+
+          <ul class="exp-bullets">
+            <li>
+              <strong>Identity Governance & RBAC:</strong> Oversee end-to-end identity governance utilizing Saviynt IGA; designed role-based access control (RBAC) models and streamlined access certifications to enforce strict compliance.
+            </li>
+            <li>
+              <strong>Control Compliance:</strong> Architected and maintained enterprise access control frameworks aligned with ITGC principles, embedding the principle of least privilege across business units.
+            </li>
+            <li>
+              <strong>Lifecycle Automation:</strong> Engineered and managed automated Joiner-Mover-Leaver (JML) identity lifecycle workflows by integrating Workday HR platforms with Okta IAM environments.
+            </li>
+            <li>
+              <strong>Risk Remediation:</strong> Proactively detected and mitigated critical access control gaps, significantly reducing risk exposure and enhancing corporate audit readiness.
+            </li>
+            <li>
+              <strong>Workflow Integration:</strong> Integrated ServiceNow workflows with identity solutions to create verifiable audit trails and structured access provisioning paths.
+            </li>
+            <li>
+              <strong>Stakeholder Alignment & Documentation:</strong> Partnered with HR, IT Operations, and Risk Governance teams to synchronize strategies; authored comprehensive documentation for system architectures and control procedures.
+            </li>
+          </ul>
+
+          <div class="exp-tech-tags">
+            <span class="exp-tech-tag">Saviynt IGA Level 200</span>
+            <span class="exp-tech-tag">Okta Identity Cloud</span>
+            <span class="exp-tech-tag">Workday HR</span>
+            <span class="exp-tech-tag">ServiceNow</span>
+            <span class="exp-tech-tag">ITGC Principles</span>
+            <span class="exp-tech-tag">RBAC/ABAC Architecture</span>
+            <span class="exp-tech-tag">Enterprise IGA</span>
+            <span class="exp-tech-tag">SoD Governance</span>
+            <span class="exp-tech-tag">DLP Governance</span>
+          </div>
         </div>
 
-        <div class="terminal-body" id="terminal-body">
-          <div class="term-output">
-<span style="color:#00f0ff; font-weight:bold;">SENTINEL-X CYBER INTERFACE v4.12 [KOLKATA NODE]</span>
-Type <span style="color:#00f0ff; font-weight:bold;">help</span> to inspect valid commands, or click any quick command below.
-Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with read-only audit permissions.
-          </div>
-        </div>
-
-        <div style="padding: 0 1.25rem 1.25rem;">
-          <div class="term-input-row">
-            <span class="term-prompt">daipayan@sentinel:~$</span>
-            <input type="text" id="term-input" class="term-input" placeholder="type command (e.g. whoami, skills, papers, certs, threat-model, matrix)..." autocomplete="off" spellcheck="false" />
+        <!-- Role 2: Cyber Security Analyst (AppSec & DevSecOps) -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role-group">
+              <h3>Cyber Security Analyst (AppSec & DevSecOps)</h3>
+              <div class="exp-company">Wipro Limited • Kolkata, IN</div>
+            </div>
+            <div class="exp-date-badge">June 2022 – Oct 2025</div>
           </div>
 
-          <div class="term-quick-cmds">
-            <span style="font-size:0.72rem; color:var(--text-dim); margin-right:4px;">Quick Execute:</span>
-            <span class="quick-cmd-pill" data-cmd="whoami">whoami</span>
-            <span class="quick-cmd-pill" data-cmd="vuln">vuln</span>
-            <span class="quick-cmd-pill" data-cmd="skills">skills</span>
-            <span class="quick-cmd-pill" data-cmd="exp">exp</span>
-            <span class="quick-cmd-pill" data-cmd="threat-model">threat-model</span>
-            <span class="quick-cmd-pill" data-cmd="papers">papers</span>
-            <span class="quick-cmd-pill" data-cmd="certs">certs</span>
-            <span class="quick-cmd-pill" data-cmd="slytherin">🐍 slytherin</span>
-            <span class="quick-cmd-pill" data-cmd="barca">⚽ barca</span>
-            <span class="quick-cmd-pill" data-cmd="personality">♏ personality</span>
-            <span class="quick-cmd-pill" data-cmd="spiderman">🕷️ spiderman</span>
-            <span class="quick-cmd-pill" data-cmd="thor">⚡ thor</span>
-            <span class="quick-cmd-pill" data-cmd="morph">🦖 morph</span>
-            <span class="quick-cmd-pill" data-cmd="f1">🏎️ f1</span>
-            <span class="quick-cmd-pill" data-cmd="bong">☕ bong</span>
-            <span class="quick-cmd-pill" data-cmd="neofetch">neofetch</span>
-            <span class="quick-cmd-pill" data-cmd="matrix">matrix</span>
-            <span class="quick-cmd-pill" data-cmd="hack">hack</span>
-            <span class="quick-cmd-pill" data-cmd="clear">clear</span>
+          <ul class="exp-bullets">
+            <li>
+              <strong>Risk Assessments & SDLC:</strong> Spearheaded application risk assessments during early-stage onboarding and secure SDLC integration to catch structural flaws before production.
+            </li>
+            <li>
+              <strong>CI/CD Pipeline Security:</strong> Evaluated and optimized security controls embedded within CI/CD pipelines, driving measurable maturity in automated pipeline defenses.
+            </li>
+            <li>
+              <strong>Vulnerability Management:</strong> Executed Static Application Security Testing (SAST) using Checkmarx; analyzed source code to discover vulnerabilities and partnered with engineers to guide remediation.
+            </li>
+            <li>
+              <strong>Audit & Liaison:</strong> Compiled detailed vulnerability findings, risk metrics, and mitigation actions to support corporate regulatory and compliance mandates; served as technical liaison between engineering and business stakeholders.
+            </li>
+            <li>
+              <strong>Process Optimization:</strong> Refined Standard Operating Procedures (SOPs) and governance documentation, accelerating process standardization across security practices.
+            </li>
+          </ul>
+
+          <div class="exp-tech-tags">
+            <span class="exp-tech-tag">Checkmarx SAST</span>
+            <span class="exp-tech-tag">Secure SDLC</span>
+            <span class="exp-tech-tag">DevSecOps</span>
+            <span class="exp-tech-tag">CI/CD Hardening</span>
+            <span class="exp-tech-tag">Python Scripting</span>
+            <span class="exp-tech-tag">Vulnerability Remediation</span>
+            <span class="exp-tech-tag">SOP Standardization</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+      </div>
+      <div class="macos-resize-handle"></div>
+    </div>
 
-  <!-- ==========================================================================
-       SECTION 8: RETRO 88x31 BADGES (Sentinel Mode Only)
-       ========================================================================== -->
-  <section id="retro-badges" class="retro-badges-section sentinel-only">
+
+    <!-- Window: Retro 88x31 Badges Marquee -->
+    <div class="macos-window" id="win-badges" data-app="badges">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">🎖️</span>
+          <span class="macos-titlebar-title">Retro 88x31 Badges Marquee</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('badges')">Toggle Zoom</span>
+        </div>
+      </div>
+      <div class="macos-window-content">
+<section id="retro-badges" class="retro-badges-section sentinel-only">
     <div class="container">
       <!-- Retro 88x31 Badges Marquee -->
       <div class="retro-badges-grid">
@@ -2298,114 +2661,173 @@ Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with
       </div>
     </div>
   </section>
-
-  <!-- ==========================================================================
-       COMMAND PALETTE MODAL (Ctrl+K)
-       ========================================================================== -->
-  <div id="palette-overlay" class="palette-overlay">
-    <div class="palette-modal">
-      <div class="palette-input-wrap">
-        <span style="color:var(--neon-cyan)">⌘</span>
-        <input type="text" id="palette-input" class="palette-input" placeholder="Type a command or jump to section..." autocomplete="off" />
-        <span style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim);">ESC to close</span>
       </div>
-      <div id="palette-results" class="palette-results">
-        <!-- Rendered dynamically -->
-      </div>
+      <div class="macos-resize-handle"></div>
     </div>
-  </div>
 
-  <!-- ==========================================================================
-       CONTACT & ENCRYPTED TRANSMISSION MODAL
-       ========================================================================== -->
-  <div id="contact-modal-overlay" class="contact-modal-overlay">
-    <div class="contact-modal-card">
-      <button id="contact-modal-close" class="modal-close-btn">&times;</button>
-      
-      <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--neon-cyan); margin-bottom:0.35rem;">
-        // DIRECT COMMUNICATIONS CHANNELS
+
+    <!-- Window: System Settings -->
+    <div class="macos-window" id="win-settings" data-app="settings">
+      <div class="macos-titlebar">
+        <div class="macos-traffic-lights">
+          <span class="traffic-light close" title="Close">✕</span>
+          <span class="traffic-light minimize" title="Minimize">–</span>
+          <span class="traffic-light zoom" title="Zoom">⤢</span>
+        </div>
+        <div class="macos-titlebar-center">
+          <span class="macos-titlebar-icon">⚙️</span>
+          <span class="macos-titlebar-title">System Settings</span>
+        </div>
+        <div class="macos-titlebar-actions">
+          <span class="macos-btn-subtle" onclick="SentinelOS.WindowManager.toggleMaximize('settings')">Toggle Zoom</span>
+        </div>
       </div>
-      <h3 style="font-size:1.5rem; font-weight:800; color:#fff; margin-bottom:0.75rem;">Get in Touch with Daipayan</h3>
-      <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem;">
-        Available for enterprise IAM / AppSec roles, AI Governance advisory, and academic research collaborations.
-      </p>
+      <div class="macos-window-content">
 
-      <!-- Quick Action Buttons -->
-      <div style="display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.5rem;">
-        <!-- Email Copy -->
-        <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); border-radius:8px; padding:0.75rem 1rem;">
-          <div>
-            <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dim);">PRIMARY EMAIL</div>
-            <div style="font-family:var(--font-mono); font-size:0.85rem; color:#fff;">daipayanghosal@outlook.com</div>
+        <div style="display:flex; gap:1.5rem; height:100%;">
+          <div style="width:190px; border-right:1px solid rgba(255,255,255,0.08); padding-right:1rem; display:flex; flex-direction:column; gap:0.4rem;">
+            <div style="display:flex; align-items:center; gap:0.6rem; padding:0.5rem; border-radius:8px; background:rgba(0,122,255,0.25); color:#fff; font-weight:600; font-size:0.8rem;">
+              <span>👤</span> Daipayan Ghosal
+            </div>
+            <div style="display:flex; align-items:center; gap:0.6rem; padding:0.45rem 0.5rem; border-radius:8px; color:rgba(255,255,255,0.8); font-size:0.78rem;">
+              <span>🔒</span> Identity &amp; Access
+            </div>
+            <div style="display:flex; align-items:center; gap:0.6rem; padding:0.45rem 0.5rem; border-radius:8px; color:rgba(255,255,255,0.8); font-size:0.78rem;">
+              <span>🛡️</span> AI Threat Defense
+            </div>
+            <div style="display:flex; align-items:center; gap:0.6rem; padding:0.45rem 0.5rem; border-radius:8px; color:rgba(255,255,255,0.8); font-size:0.78rem;">
+              <span>🔊</span> Sound &amp; Web Audio
+            </div>
+            <div style="display:flex; align-items:center; gap:0.6rem; padding:0.45rem 0.5rem; border-radius:8px; color:rgba(255,255,255,0.8); font-size:0.78rem;">
+              <span>💻</span> Displays &amp; Tahoe Glow
+            </div>
           </div>
-          <button id="btn-copy-email" class="ctrl-btn">
-            <span>Copy</span>
-            <span id="email-copy-feedback" style="display:none; color:var(--neon-emerald);">Copied!</span>
-          </button>
+          <div style="flex:1; display:flex; flex-direction:column; gap:1rem;">
+            <div style="display:flex; align-items:center; gap:1rem; background:rgba(255,255,255,0.05); padding:1rem; border-radius:12px; border:1px solid rgba(255,255,255,0.08);">
+              <img src="assets/avatar.jpg" alt="Avatar" style="width:52px; height:52px; border-radius:50%; border:2px solid var(--os-accent-blue);" />
+              <div>
+                <div style="font-weight:700; font-size:1.1rem; color:#fff;">Daipayan Ghosal</div>
+                <div style="font-size:0.78rem; color:rgba(255,255,255,0.65);">Cybersecurity Analyst &bull; Wipro Limited &bull; Saviynt Architect (L200)</div>
+                <div style="font-size:0.74rem; color:var(--os-accent-blue); margin-top:2px;">daipayanghosal@outlook.com &bull; Kolkata, India</div>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:12px; border:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:0.6rem;">
+              <div style="font-size:0.85rem; font-weight:600; color:#fff;">Interface Environment</div>
+              <div style="font-size:0.76rem; color:rgba(255,255,255,0.7); line-height:1.5;">
+                Currently running in <strong>Sentinel OS (macOS Tahoe Liquid Glass Edition)</strong>. Switch seamlessly between executive review and the live cyber workstation at any time.
+              </div>
+              <button class="btn-primary" onclick="window.switchViewMode('dossier')" style="align-self:flex-start; margin-top:0.4rem; padding:0.45rem 0.95rem; font-size:0.8rem;">
+                Switch to Clean Executive Dossier Mode 📑
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- GitHub Direct -->
-        <a href="https://github.com/daipayanghosal" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); border-radius:8px; padding:0.75rem 1rem; text-decoration:none;">
-          <div>
-            <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dim);">GITHUB PROFILE</div>
-            <div style="font-family:var(--font-mono); font-size:0.85rem; color:#fff;">github.com/daipayanghosal</div>
-          </div>
-          <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--neon-cyan); font-weight:bold;">Explore ↗</span>
-        </a>
-
-        <!-- LinkedIn Direct -->
-        <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:space-between; background:rgba(0,240,255,0.06); border:1px solid rgba(0,240,255,0.2); border-radius:8px; padding:0.75rem 1rem; text-decoration:none;">
-          <div>
-            <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--neon-cyan);">LINKEDIN PROFILE</div>
-            <div style="font-family:var(--font-mono); font-size:0.85rem; color:#fff;">linkedin.com/in/daipayan-ghosal</div>
-          </div>
-          <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--neon-cyan); font-weight:bold;">Connect ↗</span>
-        </a>
       </div>
-
-      <!-- Quick Message Form -->
-      <form id="contact-direct-form" style="display:flex; flex-direction:column; gap:0.75rem;">
-        <input type="text" id="contact-form-name" required placeholder="Your Name / Organization" style="background:#04070d; border:1px solid var(--border-subtle); border-radius:8px; padding:0.65rem 0.85rem; color:#fff; font-family:var(--font-mono); font-size:0.82rem; outline:none;" />
-        <textarea id="contact-form-msg" required placeholder="Brief message or role description..." style="height:80px; background:#04070d; border:1px solid var(--border-subtle); border-radius:8px; padding:0.65rem 0.85rem; color:#fff; font-family:var(--font-mono); font-size:0.82rem; outline:none; resize:none;"></textarea>
-        <button type="submit" class="btn-primary" style="justify-content:center;">
-          <span>📨 Dispatch Transmission</span>
-        </button>
-      </form>
+      <div class="macos-resize-handle"></div>
     </div>
-  </div>
 
-  <!-- ==========================================================================
-       FLOATING QUICK-ACTION DOCK
-       ========================================================================== -->
-  <div class="floating-dock">
-    <a href="#hero" class="dock-item" title="Overview">👤</a>
-    <a href="#vulninvestigator" class="dock-item" title="VulnInvestigator">🔍</a>
-    <a href="#ai-threat-lab" class="dock-item" title="AI Threat Lab">🛡️</a>
-    <a href="#iam-matrix" class="dock-item" title="IAM Matrix">🔑</a>
-    <a href="#skills" class="dock-item" title="Tactical Skills">⚡</a>
-    <a href="#experience" class="dock-item" title="Experience">💼</a>
-    <a href="#research" class="dock-item" title="Research Lab">🔬</a>
-    <a href="#terminal-section" class="dock-item sentinel-only" title="Interactive Terminal">💻</a>
-    <button class="dock-item trigger-contact" style="border:none; cursor:pointer;" title="Contact Modal">✉️</button>
-  </div>
-
-  <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
-  <footer>
-    <div class="container">
-      <div style="margin-bottom:0.75rem;">
-        [DAIPAYAN GHOSAL] // SEC-OPS & NEURAL RESILIENCE WORKSPACE // v4.12
-      </div>
-      <div>
-        Crafted with modern HTML5, CSS3, Web Audio API & Vanilla ES6. Zero runtime dependencies. 
-        Designed for high-impact enterprise resilience.
-      </div>
-      <div style="margin-top:0.5rem; opacity:0.6;">
-        © 2026 Daipayan Ghosal. All rights reserved. Kolkata, India.
-      </div>
     </div>
-  </footer>
+
+
+    <!-- ======================================================================
+         macOS TAHOE LIQUID GLASS DOCK
+         ====================================================================== -->
+    <div class="macos-dock-container">
+      <nav class="macos-dock" id="macos-dock" aria-label="Application Dock">
+        <div class="dock-app-item running" data-app="about" title="Mission Control & Bio">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#007aff,#5856d6);">
+            <span style="font-size:1.45rem;">👤</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">Mission Control &amp; Bio</span>
+        </div>
+        <div class="dock-app-item" data-app="vuln" title="VulnInvestigator">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#0ea5e9,#2563eb);">
+            <span style="font-size:1.45rem;">🚀</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">VulnInvestigator</span>
+        </div>
+        <div class="dock-app-item" data-app="ai" title="AI Threat Defense Lab">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#6366f1,#a855f7);">
+            <span style="font-size:1.45rem;">🛡️</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">AI Threat Lab</span>
+        </div>
+        <div class="dock-app-item" data-app="iam" title="Enterprise IGA Matrix">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706);">
+            <span style="font-size:1.45rem;">🔑</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">Enterprise IGA</span>
+        </div>
+        <div class="dock-app-item" data-app="arcade" title="Nerd Arcade Multiverse">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#ec4899,#8b5cf6);">
+            <span style="font-size:1.45rem;">🕹️</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">Nerd Arcade</span>
+        </div>
+        <div class="dock-app-item running" data-app="terminal" title="Sentinel Terminal (zsh)">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#0f172a,#1e293b); border:1px solid rgba(255,255,255,0.18);">
+            <span style="font-size:1.35rem;">💻</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">Terminal — zsh</span>
+        </div>
+        <div class="dock-app-item" data-app="research" title="Published Research & CV Lab">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">
+            <span style="font-size:1.35rem;">📚</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">Research Papers</span>
+        </div>
+        <div class="dock-app-item" data-app="certs" title="Verified Credentials & Keyring">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#10b981,#059669);">
+            <span style="font-size:1.35rem;">📜</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">Credentials &amp; BCA</span>
+        </div>
+        <div class="dock-app-item" data-app="experience" title="Professional Flight Log">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#475569,#334155);">
+            <span style="font-size:1.35rem;">💼</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">Flight Log (Wipro)</span>
+        </div>
+        <div class="dock-app-item" data-app="badges" title="Retro 88x31 Badges Marquee">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#f43f5e,#fb7185);">
+            <span style="font-size:1.35rem;">🎖️</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">Retro Badges</span>
+        </div>
+        <div class="dock-app-item" data-app="settings" title="System Settings">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#64748b,#475569);">
+            <span style="font-size:1.35rem;">⚙️</span>
+          </div>
+          <div class="dock-active-dot"></div>
+          <span class="dock-tooltip">System Settings</span>
+        </div>
+        <div class="dock-separator"></div>
+        <div class="dock-app-item" data-app="dossier" title="Switch to Executive Dossier">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#ffffff,#e2e8f0); color:#0f172a;">
+            <span style="font-size:1.35rem;">📑</span>
+          </div>
+          <span class="dock-tooltip">Switch to Executive Dossier</span>
+        </div>
+        <div class="dock-app-item" data-app="trash" title="Trash">
+          <div class="dock-app-icon" style="background:linear-gradient(135deg,#334155,#1e293b);">
+            <span style="font-size:1.35rem;">🗑️</span>
+          </div>
+          <span class="dock-tooltip">Trash</span>
+        </div>
+      </nav>
+    </div>
+
   </div> <!-- /#sentinel-view -->
 
 
@@ -2418,6 +2840,7 @@ Session authenticated as: <span style="color:#10b981;">visitor_guest</span> with
   <script src="js/jml-visualizer.js"></script>
   <script src="js/cv-research-sim.js"></script>
   <script src="js/terminal.js"></script>
+  <script src="js/sentinel-os.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
