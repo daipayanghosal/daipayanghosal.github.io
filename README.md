@@ -30,9 +30,8 @@ Live preview repository for `daipayanghosal.github.io`.
   - 🏆 *Executive Briefing* (Toggled Executive Dossier view)
   - 🏆 *The Construct Revealed* (Unlocked Matrix rain Easter Egg)
 
-### 3. Webring & Retro 88x31 Badges
-- Inspired by `https://ring.seggs.lol/` and developer webrings.
-- Includes retro pixel badges: Saviynt IGA Level 200, OWASP LLM Top 10, EC-Council C|EH, Azure SC-200, Qualys VMDR, Python 3.12, Zero Trust Least Privilege, and Springer Research.
+### 3. Retro 88x31 Badges
+- Includes retro pixel badges: VulnInvestigator, Saviynt IGA Level 200, OWASP LLM Top 10, EC-Council C|EH, Azure SC-200, Qualys VMDR, Python 3.12, Zero Trust Least Privilege, Springer Research, Slytherin, FC Barcelona, Mercedes AMG F1, Kolkata Bong, Scorpio ENTJ-A, Marvel, and Power Rangers.
 
 ---
 

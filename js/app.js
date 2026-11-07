@@ -397,25 +397,7 @@
       });
     }
 
-    // Random Webring button
-    const randomRingBtn = document.getElementById('webring-random-btn');
-    if (randomRingBtn) {
-      const ringMembers = [
-        'https://0xmukesh.github.io',
-        'https://rohith.net',
-        'https://shoobham84.github.io/',
-        'https://syswraith.com/',
-        'https://nielandvoid.com',
-        'https://lab.afreen.tech/',
-        'https://rehan-builds.vercel.app/',
-        'https://isoumya.is-a.dev/'
-      ];
-      randomRingBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = ringMembers[Math.floor(Math.random() * ringMembers.length)];
-        window.open(target, '_blank');
-      });
-    }
+
   }
 
   // 7. Dossier Navigation Scrollspy
