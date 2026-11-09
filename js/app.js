@@ -269,16 +269,82 @@
     );
   }
 
-  // 4. Contact Actions & Mailto Handling
+  // 4. Contact Actions & Mail Handling
   function initContactActions() {
-    const triggers = document.querySelectorAll('.trigger-contact');
-    triggers.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const contactSection = document.getElementById('dossier-contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
+    const copyBtn = document.getElementById('btn-copy-email');
+    const copyLabel = document.getElementById('copy-email-label');
+    const emailPill = document.getElementById('dossier-email-pill');
+    const copyHint = document.getElementById('copy-hint');
+
+    const email = 'daipayanghosal@outlook.com';
+
+    function copyToClipboard(feedbackFn) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(() => {
+          if (feedbackFn) feedbackFn(true);
+        }).catch(() => {
+          if (feedbackFn) feedbackFn(false);
+        });
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = email;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          if (feedbackFn) feedbackFn(true);
+        } catch (e) {
+          if (feedbackFn) feedbackFn(false);
         }
+        document.body.removeChild(textarea);
+      }
+    }
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        copyToClipboard((success) => {
+          if (copyLabel) {
+            const original = copyLabel.textContent;
+            copyLabel.textContent = success ? '✓ Copied Email!' : 'daipayanghosal@outlook.com';
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+              copyLabel.textContent = original;
+              copyBtn.classList.remove('copied');
+            }, 2500);
+          }
+        });
+      });
+    }
+
+    if (emailPill) {
+      emailPill.addEventListener('click', (e) => {
+        copyToClipboard((success) => {
+          if (copyHint) {
+            const original = copyHint.textContent;
+            copyHint.textContent = success ? '✓ Copied!' : 'daipayanghosal@outlook.com';
+            emailPill.classList.add('copied');
+            setTimeout(() => {
+              copyHint.textContent = original;
+              emailPill.classList.remove('copied');
+            }, 2500);
+          }
+        });
+      });
+    }
+
+    // Ensure Send Mail link works smoothly and opens mail client
+    const sendMailBtn = document.getElementById('btn-send-mail');
+    if (sendMailBtn) {
+      sendMailBtn.addEventListener('click', (e) => {
+        // Native mailto is allowed to execute freely
+        sendMailBtn.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          sendMailBtn.style.transform = '';
+        }, 150);
+      });
+    }
+  }
       });
     });
   }

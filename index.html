@@ -200,9 +200,9 @@
           <button onclick="window.print()" class="dossier-btn dossier-btn-outline">
             <span>📄 Executive Resume (PDF)</span>
           </button>
-          <button class="dossier-btn dossier-btn-outline trigger-contact">
+          <a href="#dossier-contact" class="dossier-btn dossier-btn-outline">
             <span>✉️ Get in Touch</span>
-          </button>
+          </a>
           <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener" class="dossier-btn dossier-btn-ghost">
             <span>LinkedIn ↗</span>
           </a>
@@ -732,19 +732,29 @@
       <!-- 9. EXECUTIVE CONTACT -->
       <section id="dossier-contact" class="dossier-section">
         <div class="dossier-contact-box">
-          <div class="dossier-section-head" style="margin-bottom: 1.5rem;">
+          <div class="dossier-section-head">
             <span class="dossier-section-tag">Direct Communication</span>
-            <h2 class="dossier-section-title" style="color: #ffffff;">Connect with Daipayan</h2>
+            <h2 class="dossier-section-title">Connect with Daipayan</h2>
             <p class="dossier-section-subtitle">
               Available for Senior IAM / IGA Architect, Application Security, and AI Threat Defense opportunities.
             </p>
           </div>
 
+          <!-- Direct Email Address Pill with 1-Click Copy -->
+          <div class="dossier-email-pill" id="dossier-email-pill" title="Click to copy email address">
+            <span class="email-icon">📫</span>
+            <span class="email-address">daipayanghosal@outlook.com</span>
+            <span class="copy-hint" id="copy-hint">(Click to copy)</span>
+          </div>
+
           <div class="dossier-contact-actions">
-            <button class="dossier-btn dossier-btn-primary trigger-contact">
-              <span>✉️ Send Encrypted Message</span>
+            <a href="mailto:daipayanghosal@outlook.com?subject=Inquiry%20for%20Daipayan%20Ghosal" class="dossier-btn dossier-btn-primary" id="btn-send-mail" title="Send email directly via your mail client">
+              <span>✉️ Send Mail</span>
+            </a>
+            <button type="button" class="dossier-btn dossier-btn-outline" id="btn-copy-email" title="Copy email address to clipboard">
+              <span id="copy-email-label">📋 Copy Email</span>
             </button>
-            <button onclick="window.print()" class="dossier-btn dossier-btn-outline">
+            <button onclick="window.print()" class="dossier-btn dossier-btn-outline" title="Print or Save Executive Resume as PDF">
               <span>📄 Download CV (PDF)</span>
             </button>
             <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener" class="dossier-btn dossier-btn-outline">
