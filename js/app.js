@@ -1,118 +1,28 @@
 /**
- * DAIPAYAN GHOSAL // PORTFOLIO
- * Main Application Orchestration Engine
- * View Switcher, Command Palette, Gamification, Contact Modal & HUD Telemetry
+ * DAIPAYAN GHOSAL // EXECUTIVE DOSSIER
+ * Core Portfolio Orchestration Engine
+ * Retractable Sidebar Drawer, Command Palette (⌘K), Scrollspy, and Contact Actions
  */
 
 (function () {
-  // 1. Dual Mode System: Executive Dossier (Default) vs Sentinel OS
-  const savedView = localStorage.getItem('portfolio_view') || localStorage.getItem('sentinel_view') || 'dossier';
-  const initialView = (savedView === 'sentinel') ? 'sentinel' : 'dossier';
-  document.body.setAttribute('data-view', initialView);
+  'use strict';
 
-  window.switchViewMode = function (mode) {
-    const normalizedMode = (mode === 'sentinel') ? 'sentinel' : 'dossier';
-    document.body.setAttribute('data-view', normalizedMode);
-    localStorage.setItem('portfolio_view', normalizedMode);
-    localStorage.setItem('sentinel_view', normalizedMode);
-
-    const btnSentinel = document.getElementById('btn-mode-sentinel');
-    const btnExecutive = document.getElementById('btn-mode-executive');
-    const sideBtnSentinel = document.getElementById('side-btn-sentinel');
-    const sideBtnExecutive = document.getElementById('side-btn-executive');
-
-    if (btnSentinel && btnExecutive) {
-      if (normalizedMode === 'dossier') {
-        btnExecutive.classList.add('active');
-        btnSentinel.classList.remove('active');
-      } else {
-        btnSentinel.classList.add('active');
-        btnExecutive.classList.remove('active');
-      }
-    }
-
-    if (sideBtnSentinel && sideBtnExecutive) {
-      if (normalizedMode === 'dossier') {
-        sideBtnExecutive.classList.add('active');
-        sideBtnSentinel.classList.remove('active');
-      } else {
-        sideBtnSentinel.classList.add('active');
-        sideBtnExecutive.classList.remove('active');
-      }
-    }
-
-    // Play chime and sound feedback ONLY in Sentinel mode
-    if (normalizedMode === 'sentinel' && window.soundEngine && window.soundEngine.enabled) {
-      window.soundEngine.playChime();
-    }
-  };
-
-  // 2. Gamified Achievement System (Sentinel Mode Only)
-  const UNLOCKED_ACHIEVEMENTS = JSON.parse(localStorage.getItem('sentinel_achievements') || '{}');
-
-  window.unlockAchievement = function (key, title, desc) {
-    // Suppress all gamification toasts when in Dossier mode
-    if (document.body.getAttribute('data-view') !== 'sentinel') return;
-    if (UNLOCKED_ACHIEVEMENTS[key]) return; // already unlocked
-
-    UNLOCKED_ACHIEVEMENTS[key] = { title, desc, time: Date.now() };
-    localStorage.setItem('sentinel_achievements', JSON.stringify(UNLOCKED_ACHIEVEMENTS));
-
-    // Show toast
-    const container = document.getElementById('toast-container');
-    if (!container) return;
-
-    const toast = document.createElement('div');
-    toast.className = 'achievement-toast';
-    toast.innerHTML = `
-      <div class="toast-icon">🏆</div>
-      <div class="toast-body">
-        <h5>ACHIEVEMENT UNLOCKED: ${title}</h5>
-        <p>${desc}</p>
-      </div>
-    `;
-
-    container.appendChild(toast);
-    setTimeout(() => toast.classList.add('show'), 50);
-
-    if (window.soundEngine) window.soundEngine.playChime();
-
-    setTimeout(() => {
-      toast.classList.remove('show');
-      setTimeout(() => toast.remove(), 400);
-    }, 4500);
-
-    updateAchievementCounter();
-  };
-
-  function updateAchievementCounter() {
-    const badge = document.getElementById('achievement-count-badge');
-    if (badge) {
-      const count = Object.keys(UNLOCKED_ACHIEVEMENTS).length;
-      badge.innerText = `[🏆 ${count}/5 ACHIEVEMENTS]`;
-    }
-  }
-
-  // 3. Command Palette (Ctrl+K or ⌘K)
+  // 1. Command Palette (Ctrl+K or ⌘K)
   const PALETTE_ACTIONS = [
-    { title: 'Overview & Profile', section: 'hero', icon: '👤', kbd: 'G O' },
-    { title: 'VulnInvestigator (Live App & GenAI Prototype)', section: 'vulninvestigator', icon: '🚀', kbd: 'G V' },
-    { title: 'AI Threat Defense Lab', section: 'ai-threat-lab', icon: '🛡️', kbd: 'G T' },
-    { title: 'Enterprise IGA Governance Matrix', section: 'iam-matrix', icon: '🔑', kbd: 'G I' },
-    { title: 'Skills & Enterprise Expertise', section: 'skills', icon: '⚡', kbd: 'G S' },
-    { title: 'Work Experience (Wipro)', section: 'experience', icon: '💼', kbd: 'G E' },
-    { title: 'Research & CV Superpixel Lab', section: 'research', icon: '🔬', kbd: 'G R' },
-    { title: 'Certifications & Credentials', section: 'certifications', icon: '📜', kbd: 'G C' },
-    { title: 'Interactive CLI Terminal (Sentinel OS)', section: 'terminal-section', icon: '💻', kbd: 'G X' },
-    { title: 'Slytherin Lore & Ambition', action: 'slytherin', icon: '🐍', kbd: 'S L' },
-    { title: 'FC Barcelona (Més que un club)', action: 'barca', icon: '⚽', kbd: 'F C' },
-    { title: 'Mercedes-AMG Petronas F1 Team', action: 'f1', icon: '🏎️', kbd: 'F 1' },
-    { title: 'Proud Bong // Kolkata Roots', action: 'bong', icon: '☕', kbd: 'B O' },
-    { title: 'Toggle Dossier / Sentinel OS Mode', action: 'toggleView', icon: '🔄', kbd: 'T' },
-    { title: 'Toggle Matrix Digital Rain', action: 'matrix', icon: '🟩', kbd: 'M' },
-    { title: 'Open Encrypted Contact Channels', action: 'contact', icon: '✉️', kbd: 'C' },
-    { title: 'Print / Save Executive Resume (PDF)', action: 'print', icon: '📄', kbd: 'P' },
-    { title: 'Toggle Audio Synthesizer (SFX)', action: 'sfx', icon: '🔊', kbd: 'S' }
+    { title: 'Overview & Profile', section: 'dossier-hero', icon: '👤', kbd: 'G O' },
+    { title: 'VulnInvestigator (Live App)', section: 'dossier-vuln', icon: '🚀', kbd: 'G V' },
+    { title: 'Enterprise Identity & Access Governance (IGA)', section: 'dossier-iam', icon: '🔑', kbd: 'G I' },
+    { title: 'AI Governance & LLM Security', section: 'dossier-ai', icon: '🛡️', kbd: 'G A' },
+    { title: 'Core Competencies & Skills', section: 'dossier-skills', icon: '⚡', kbd: 'G S' },
+    { title: 'Professional Experience (Wipro)', section: 'dossier-experience', icon: '💼', kbd: 'G E' },
+    { title: 'Published Research (Springer)', section: 'dossier-research', icon: '📚', kbd: 'G R' },
+    { title: 'Certifications & Credentials', section: 'dossier-credentials', icon: '📜', kbd: 'G C' },
+    { title: 'Executive Contact & Connect', section: 'dossier-contact', icon: '✉️', kbd: 'G T' },
+    { title: 'Download Executive Resume (PDF)', action: 'print', icon: '📄', kbd: 'P' },
+    { title: 'Launch VulnInvestigator Web App', url: 'https://daipayanghosal.github.io/VulnInvestigator', icon: '🌐', kbd: 'V' },
+    { title: 'LinkedIn Profile', url: 'https://www.linkedin.com/in/daipayan-ghosal/', icon: '🔗', kbd: 'L' },
+    { title: 'Google Scholar Citations', url: 'https://scholar.google.com/citations?user=eT3-swYAAAAJ', icon: '🎓', kbd: 'S' },
+    { title: 'GitHub Profile', url: 'https://github.com/daipayanghosal', icon: '🐙', kbd: 'G' }
   ];
 
   function initCommandPalette() {
@@ -120,6 +30,7 @@
     const input = document.getElementById('palette-input');
     const results = document.getElementById('palette-results');
     const triggerBtn = document.getElementById('hud-cmd-trigger');
+    const sideTriggerBtn = document.getElementById('side-cmd-trigger');
 
     if (!overlay || !input || !results) return;
 
@@ -133,7 +44,6 @@
       selectedIdx = 0;
       renderPaletteResults();
       input.focus();
-      if (window.soundEngine) window.soundEngine.playClick();
     };
 
     window.closePalette = function () {
@@ -143,9 +53,8 @@
     if (triggerBtn) {
       triggerBtn.addEventListener('click', window.openPalette);
     }
-    const sideCmdTrigger = document.getElementById('side-cmd-trigger');
-    if (sideCmdTrigger) {
-      sideCmdTrigger.addEventListener('click', () => {
+    if (sideTriggerBtn) {
+      sideTriggerBtn.addEventListener('click', () => {
         if (window.closeSideNavbar) window.closeSideNavbar();
         window.openPalette();
       });
@@ -169,23 +78,31 @@
     });
 
     input.addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase();
-      filteredActions = PALETTE_ACTIONS.filter(
-        (a) => a.title.toLowerCase().includes(q) || (a.section && a.section.toLowerCase().includes(q))
-      );
+      const q = e.target.value.toLowerCase().trim();
+      if (!q) {
+        filteredActions = [...PALETTE_ACTIONS];
+      } else {
+        filteredActions = PALETTE_ACTIONS.filter(
+          (a) => a.title.toLowerCase().includes(q) || (a.section && a.section.toLowerCase().includes(q))
+        );
+      }
       selectedIdx = 0;
       renderPaletteResults();
     });
 
     input.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowDown') {
-        selectedIdx = (selectedIdx + 1) % filteredActions.length;
-        renderPaletteResults();
         e.preventDefault();
+        if (filteredActions.length > 0) {
+          selectedIdx = (selectedIdx + 1) % filteredActions.length;
+          renderPaletteResults();
+        }
       } else if (e.key === 'ArrowUp') {
-        selectedIdx = (selectedIdx - 1 + filteredActions.length) % filteredActions.length;
-        renderPaletteResults();
         e.preventDefault();
+        if (filteredActions.length > 0) {
+          selectedIdx = (selectedIdx - 1 + filteredActions.length) % filteredActions.length;
+          renderPaletteResults();
+        }
       } else if (e.key === 'Enter') {
         e.preventDefault();
         if (filteredActions[selectedIdx]) {
@@ -195,13 +112,22 @@
     });
 
     function renderPaletteResults() {
+      if (filteredActions.length === 0) {
+        results.innerHTML = `
+          <div class="palette-empty" style="padding: 1.5rem; text-align: center; color: #64748b; font-size: 0.9rem;">
+            No matching sections or actions found.
+          </div>
+        `;
+        return;
+      }
+
       results.innerHTML = filteredActions
         .map(
           (act, idx) => `
         <div class="palette-item ${idx === selectedIdx ? 'selected' : ''}" data-idx="${idx}">
-          <div style="display: flex; align-items: center; gap: 0.65rem;">
-            <span>${act.icon}</span>
-            <span>${act.title}</span>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 1.15rem;">${act.icon}</span>
+            <span style="font-weight: 500;">${act.title}</span>
           </div>
           <kbd>${act.kbd}</kbd>
         </div>
@@ -223,215 +149,19 @@
     function executePaletteAction(act) {
       window.closePalette();
       if (act.section) {
-        const isDossier = document.body.getAttribute('data-view') !== 'sentinel';
-        let targetId = act.section;
-        if (isDossier) {
-          const map = {
-            'hero': 'dossier-hero',
-            'vulninvestigator': 'dossier-vuln',
-            'ai-threat-lab': 'dossier-ai',
-            'iam-matrix': 'dossier-iam',
-            'skills': 'dossier-skills',
-            'experience': 'dossier-experience',
-            'research': 'dossier-research',
-            'certifications': 'dossier-credentials'
-          };
-          targetId = map[act.section] || act.section;
+        const el = document.getElementById(act.section);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
         }
-        const el = document.getElementById(targetId) || document.getElementById(act.section);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      } else if (act.action === 'toggleView') {
-        const current = document.body.getAttribute('data-view');
-        window.switchViewMode(current === 'sentinel' ? 'dossier' : 'sentinel');
-      } else if (act.action === 'matrix') {
-        window.toggleMatrixMode();
-      } else if (act.action === 'contact') {
-        window.openContactModal();
       } else if (act.action === 'print') {
         window.print();
-      } else if (act.action === 'sfx') {
-        toggleSoundBtn();
-      } else if (['slytherin', 'barca', 'f1', 'bong'].includes(act.action)) {
-        if (document.body.getAttribute('data-view') !== 'sentinel') {
-          window.switchViewMode('sentinel');
-        }
-        setTimeout(() => {
-          const termInput = document.getElementById('term-input');
-          const termSection = document.getElementById('terminal-section');
-          if (termInput && termSection) {
-            termSection.scrollIntoView({ behavior: 'smooth' });
-            termInput.value = act.action;
-            termInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
-          }
-        }, 150);
+      } else if (act.url) {
+        window.open(act.url, '_blank', 'noopener,noreferrer');
       }
     }
   }
 
-  // 4. Sound FX Button Orchestration
-  function initSoundButton() {
-    const sfxBtn = document.getElementById('hud-sfx-toggle');
-    const sideSfxBtn = document.getElementById('side-sfx-toggle');
-
-    function updateLabel(enabled) {
-      if (sfxBtn) {
-        sfxBtn.innerHTML = enabled
-          ? '<span>🔊 SFX: ON</span>'
-          : '<span style="opacity: 0.6;">🔈 SFX: OFF</span>';
-      }
-      if (sideSfxBtn) {
-        sideSfxBtn.innerHTML = enabled
-          ? '<span>🔊 SFX: ON</span>'
-          : '<span>🔈 SFX: OFF</span>';
-      }
-    }
-
-    if (window.soundEngine) updateLabel(window.soundEngine.enabled);
-
-    if (sfxBtn) {
-      sfxBtn.addEventListener('click', () => {
-        const state = window.soundEngine.toggle();
-        updateLabel(state);
-      });
-    }
-
-    if (sideSfxBtn) {
-      sideSfxBtn.addEventListener('click', () => {
-        const state = window.soundEngine.toggle();
-        updateLabel(state);
-      });
-    }
-
-    window.toggleSoundBtn = () => {
-      const state = window.soundEngine.toggle();
-      updateLabel(state);
-    };
-  }
-
-  // 5. Contact Modal with Copy & WhatsApp fallback
-  function initContactModal() {
-    const modal = document.getElementById('contact-modal-overlay');
-    const closeBtn = document.getElementById('contact-modal-close');
-    const copyEmailBtn = document.getElementById('btn-copy-email');
-    const copyFeedback = document.getElementById('email-copy-feedback');
-
-    window.openContactModal = function () {
-      if (modal) modal.classList.add('active');
-      if (window.soundEngine) window.soundEngine.playClick();
-    };
-
-    window.closeContactModal = function () {
-      if (modal) modal.classList.remove('active');
-    };
-
-    if (closeBtn) closeBtn.addEventListener('click', window.closeContactModal);
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) window.closeContactModal();
-      });
-    }
-
-    const contactTriggers = document.querySelectorAll('.trigger-contact');
-    contactTriggers.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.openContactModal();
-      });
-    });
-
-    if (copyEmailBtn) {
-      copyEmailBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText('daipayanghosal@outlook.com').then(() => {
-          if (copyFeedback) {
-            copyFeedback.style.display = 'inline-block';
-            setTimeout(() => (copyFeedback.style.display = 'none'), 2500);
-          }
-          if (window.soundEngine) window.soundEngine.playChime();
-        });
-      });
-    }
-
-    // Direct Contact Form Simulation
-    const form = document.getElementById('contact-direct-form');
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('contact-form-name').value;
-        const msg = document.getElementById('contact-form-msg').value;
-
-        // Open mailto fallback
-        const mailtoUrl = `mailto:daipayanghosal@outlook.com?subject=Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(msg)}`;
-        window.location.href = mailtoUrl;
-
-        alert('Dispatching transmission to daipayanghosal@outlook.com via your email client.');
-        window.closeContactModal();
-      });
-    }
-  }
-
-  // 6. Live Time & Mouse Ambient Glow
-  function initLiveTelemetry() {
-    const clockEl = document.getElementById('telemetry-clock');
-    function updateClock() {
-      if (!clockEl) return;
-      const now = new Date();
-      // Format in IST (Kolkata)
-      const options = {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      };
-      const timeStr = new Intl.DateTimeFormat('en-US', options).format(now);
-      clockEl.innerText = `${timeStr} (Kolkata, IN)`;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-
-    // Mouse Glow
-    const glow = document.querySelector('.mouse-glow');
-    if (glow) {
-      window.addEventListener('mousemove', (e) => {
-        glow.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-      });
-    }
-
-
-  }
-
-  // 7. Dossier Navigation Scrollspy
-  function initDossierScrollspy() {
-    const sections = ['dossier-hero', 'dossier-vuln', 'dossier-iam', 'dossier-ai', 'dossier-skills', 'dossier-experience', 'dossier-research', 'dossier-credentials', 'dossier-contact'];
-    const links = document.querySelectorAll('.dossier-nav a, .side-nav-list.dossier-nav a');
-    if (!links.length) return;
-
-    window.addEventListener('scroll', () => {
-      if (document.body.getAttribute('data-view') === 'sentinel') return;
-      let current = 'dossier-hero';
-      const scrollPos = window.scrollY + 180;
-
-      for (const secId of sections) {
-        const el = document.getElementById(secId);
-        if (el && el.offsetTop <= scrollPos) {
-          current = secId;
-        }
-      }
-
-      links.forEach((link) => {
-        const href = link.getAttribute('href');
-        if (href === `#${current}`) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-    }, { passive: true });
-  }
-
-  // 8. Initialize Everything on Load
-  
-  // Retractable Side Navbar Drawer Engine
+  // 2. Retractable Side Navbar Drawer Engine
   function initSideNavbar() {
     const sidebar = document.getElementById('side-navbar');
     const backdrop = document.getElementById('side-navbar-backdrop');
@@ -445,9 +175,6 @@
       if (backdrop) backdrop.classList.add('open');
       if (toggleBtn) toggleBtn.classList.add('open');
       document.body.style.overflow = 'hidden';
-      if (window.soundEngine && document.body.getAttribute('data-view') === 'sentinel') {
-        window.soundEngine.playClick();
-      }
     };
 
     window.closeSideNavbar = function () {
@@ -498,94 +225,77 @@
         window.closeSideNavbar();
       });
     });
-
-    // Sidebar mode switcher buttons
-    const sideBtnSentinel = document.getElementById('side-btn-sentinel');
-    const sideBtnExecutive = document.getElementById('side-btn-executive');
-
-    if (sideBtnSentinel) {
-      sideBtnSentinel.addEventListener('click', () => {
-        window.switchViewMode('sentinel');
-        window.closeSideNavbar();
-      });
-    }
-    if (sideBtnExecutive) {
-      sideBtnExecutive.addEventListener('click', () => {
-        window.switchViewMode('dossier');
-        window.closeSideNavbar();
-      });
-    }
   }
 
-  function initSentinelScrollspy() {
-    const sections = ['hero', 'vulninvestigator', 'ai-threat-lab', 'iam-matrix', 'skills', 'experience', 'research', 'certifications', 'terminal-section'];
-    const links = document.querySelectorAll('.side-nav-list.sentinel-nav a');
+  // 3. Scrollspy Highlighting Active Section in Sidebar
+  function initDossierScrollspy() {
+    const sections = [
+      'dossier-hero',
+      'dossier-vuln',
+      'dossier-iam',
+      'dossier-ai',
+      'dossier-skills',
+      'dossier-experience',
+      'dossier-research',
+      'dossier-credentials',
+      'dossier-contact'
+    ];
+    const links = document.querySelectorAll('.side-nav-list.dossier-nav a');
     if (!links.length) return;
 
-    window.addEventListener('scroll', () => {
-      if (document.body.getAttribute('data-view') !== 'sentinel') return;
-      let current = 'hero';
-      const scrollPos = window.scrollY + 180;
+    window.addEventListener(
+      'scroll',
+      () => {
+        let current = 'dossier-hero';
+        const scrollPos = window.scrollY + 180;
 
-      for (const secId of sections) {
-        const el = document.getElementById(secId);
-        if (el && el.offsetTop <= scrollPos) {
-          current = secId;
+        for (const secId of sections) {
+          const el = document.getElementById(secId);
+          if (el && el.offsetTop <= scrollPos) {
+            current = secId;
+          }
         }
-      }
 
-      links.forEach((link) => {
-        const href = link.getAttribute('href');
-        if (href === `#${current}`) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-    }, { passive: true });
+        links.forEach((link) => {
+          const href = link.getAttribute('href');
+          if (href === `#${current}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      },
+      { passive: true }
+    );
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // Mode switcher buttons
-    const btnSentinel = document.getElementById('btn-mode-sentinel');
-    const btnExecutive = document.getElementById('btn-mode-executive');
-
-    if (btnSentinel) {
-      btnSentinel.addEventListener('click', () => window.switchViewMode('sentinel'));
-    }
-    if (btnExecutive) {
-      btnExecutive.addEventListener('click', () => window.switchViewMode('dossier'));
-    }
-
-    // Initial view sync (defaulting to dossier)
-    window.switchViewMode(initialView);
-
-    initSoundButton();
-    initCommandPalette();
-    initContactModal();
-    initLiveTelemetry();
-    updateAchievementCounter();
-    initDossierScrollspy();
-    initSentinelScrollspy();
-    initSideNavbar();
-
-    // Sound effects on buttons & links (Active ONLY in Sentinel OS mode)
-    document.querySelectorAll('a, button').forEach((el) => {
-      el.addEventListener('mouseenter', () => {
-        if (document.body.getAttribute('data-view') === 'sentinel' && window.soundEngine) {
-          window.soundEngine.playHover();
-        }
-      });
-      el.addEventListener('click', () => {
-        if (document.body.getAttribute('data-view') === 'sentinel' && window.soundEngine) {
-          window.soundEngine.playClick();
+  // 4. Contact Actions & Mailto Handling
+  function initContactActions() {
+    const triggers = document.querySelectorAll('.trigger-contact');
+    triggers.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const contactSection = document.getElementById('dossier-contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
+  }
+
+  // 5. Initialize Everything on DOM Ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Ensure body has data-view set to dossier
+    document.body.setAttribute('data-view', 'dossier');
+
+    initSideNavbar();
+    initCommandPalette();
+    initDossierScrollspy();
+    initContactActions();
 
     console.log(
-      '%c [SENTINEL-X] DAIPAYAN GHOSAL CYBER PORTFOLIO INITIALIZED %c',
-      'background: #00f0ff; color: #000; font-weight: bold; padding: 4px 8px; border-radius: 4px;',
+      '%c [DOSSIER] DAIPAYAN GHOSAL EXECUTIVE PORTFOLIO INITIALIZED %c',
+      'background: #38bdf8; color: #08090e; font-weight: bold; padding: 4px 8px; border-radius: 4px;',
       ''
     );
   });
