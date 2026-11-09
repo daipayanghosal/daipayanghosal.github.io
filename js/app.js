@@ -283,7 +283,46 @@
     });
   }
 
-  // 5. Initialize Everything on DOM Ready
+  // 5. Dynamic Experience Calculation (from May 30, 2022)
+  function initDynamicExperience() {
+    const el = document.getElementById('metric-experience-val');
+    const card = document.getElementById('metric-experience-card');
+    if (!el) return;
+
+    // Start date: May 30, 2022
+    const start = new Date(2022, 4, 30);
+    const now = new Date();
+
+    let years = now.getFullYear() - start.getFullYear();
+    let months = now.getMonth() - start.getMonth();
+    let days = now.getDate() - start.getDate();
+
+    if (days < 0) {
+      months--;
+    }
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    const primaryText = (months > 0 || days > 0) ? `${years}+ Yrs` : `${years} Yrs`;
+    const detailedText = months > 0 ? `${years}y ${months}m` : `${years} Yrs`;
+    const tooltipText = `Experience calculated dynamically from May 30, 2022: ${years} years, ${months} month${months === 1 ? '' : 's'}`;
+
+    el.textContent = primaryText;
+    if (card) {
+      card.setAttribute('title', `${tooltipText} (Click to toggle detailed breakdown)`);
+      card.style.cursor = 'pointer';
+
+      let toggled = false;
+      card.addEventListener('click', () => {
+        toggled = !toggled;
+        el.textContent = toggled ? detailedText : primaryText;
+      });
+    }
+  }
+
+  // 6. Initialize Everything on DOM Ready
   document.addEventListener('DOMContentLoaded', () => {
     // Ensure body has data-view set to dossier
     document.body.setAttribute('data-view', 'dossier');
@@ -292,6 +331,7 @@
     initCommandPalette();
     initDossierScrollspy();
     initContactActions();
+    initDynamicExperience();
 
     console.log(
       '%c [DOSSIER] DAIPAYAN GHOSAL EXECUTIVE PORTFOLIO INITIALIZED %c',
