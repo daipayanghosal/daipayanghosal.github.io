@@ -92,23 +92,11 @@ body[data-view="executive"] div.hud-status-badge.dossier-only {
   gap: 0.5rem;
 }
 
-/* Animated Ambient Aurora Background in Dossier Mode */
+/* Animated Ambient Aurora Background handled by single compositor-promoted .dossier-ambient-glow */
 body[data-view="dossier"]::before,
 body[data-view="executive"]::before {
-  content: '';
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 80% 30%, rgba(56, 189, 248, 0.07) 0%, transparent 50%),
-    radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 45%),
-    radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.04) 0%, transparent 40%);
-  animation: auroraFlow 25s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: 0;
+  display: none;
+  animation: none;
 }
 
 @keyframes auroraFlow {
@@ -158,20 +146,10 @@ body {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-deep);
-}
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+/* Compositor-Friendly Native Thin Scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b transparent;
 }
 
 /* Selection */
@@ -2692,29 +2670,14 @@ footer {
 
 /* Live Pulsing Status Dot */
 .live-dot-pulse {
+  position: relative;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #10b981;
   display: inline-block;
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-  animation: liveDotPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   flex-shrink: 0;
-}
-
-@keyframes liveDotPulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-    transform: scale(0.95);
-  }
-  70% {
-    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
-    transform: scale(1.15);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-    transform: scale(0.95);
-  }
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.22), 0 0 8px rgba(16, 185, 129, 0.55);
 }
 
 /* Brand & Header in Dossier Mode */
@@ -2753,19 +2716,18 @@ footer {
 
 /* Dossier Executive Security Architecture Deck (Hero Right) */
 .dossier-deck {
-  background: var(--bg-card);
+  background: rgba(15, 19, 31, 0.94);
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   padding: 1.6rem;
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.55);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.45);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease;
   position: relative;
   overflow: hidden;
+  contain: layout style;
 }
 
 .dossier-deck::before {
@@ -2779,8 +2741,7 @@ footer {
 }
 
 .dossier-deck:hover {
-  border-color: rgba(99, 102, 241, 0.35);
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.38);
   transform: translateY(-2px);
 }
 
@@ -2863,7 +2824,7 @@ footer {
   padding: 4px 10px;
   border-radius: 6px;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -3069,7 +3030,8 @@ body[data-view="executive"] .section-tag {
 html, body {
   width: 100%;
   max-width: 100vw;
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
+  touch-action: pan-y;
   box-sizing: border-box;
 }
 
@@ -3080,7 +3042,7 @@ html, body {
 .dossier-root, .sentinel-root {
   width: 100%;
   max-width: 100vw;
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
   padding-top: 4.25rem;
 }
 
@@ -3099,12 +3061,11 @@ html, body {
   right: 0;
   height: 58px;
   z-index: 100;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background: rgba(8, 10, 16, 0.88);
+  background: rgba(8, 10, 16, 0.96);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
+  contain: layout style;
 }
 
 .hud-container {
@@ -3298,7 +3259,7 @@ html, body {
   justify-content: center;
   cursor: pointer;
   font-size: 0.95rem;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   flex-shrink: 0;
 }
 
@@ -3341,7 +3302,7 @@ html, body {
   padding: 0.45rem 0.5rem;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3455,7 +3416,7 @@ body[data-view="sentinel"] .side-link.active {
   font-size: 0.78rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .side-action-btn:hover {
@@ -3872,13 +3833,13 @@ body[data-view="sentinel"] .side-link.active {
   html, body {
     width: 100% !important;
     max-width: 100vw !important;
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
   }
 
   .dossier-root, .sentinel-root {
     width: 100% !important;
     max-width: 100vw !important;
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     padding-top: 4.25rem !important;
   }
 

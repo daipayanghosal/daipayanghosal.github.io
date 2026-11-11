@@ -171,6 +171,7 @@
     if (!sidebar) return;
 
     window.openSideNavbar = function () {
+      if (window.__syncDossierScrollspy) window.__syncDossierScrollspy();
       sidebar.classList.add('open');
       if (backdrop) backdrop.classList.add('open');
       if (toggleBtn) toggleBtn.classList.add('open');
@@ -227,7 +228,7 @@
     });
   }
 
-  // 3. Scrollspy Highlighting Active Section in Sidebar
+  // 3. Scrollspy Highlighting Active Section in Sidebar (Zero Scroll-Time Layout/Paint)
   function initDossierScrollspy() {
     const sections = [
       'dossier-hero',
@@ -240,33 +241,94 @@
       'dossier-credentials',
       'dossier-contact'
     ];
-    const links = document.querySelectorAll('.side-nav-list.dossier-nav a');
+    const sidebar = document.getElementById('side-navbar');
+    const links = Array.from(document.querySelectorAll('.side-nav-list.dossier-nav a'));
     if (!links.length) return;
+
+    const linkByHref = new Map();
+    links.forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href) linkByHref.set(href, link);
+    });
+
+    let currentSection = 'dossier-hero';
+    let appliedSection = 'dossier-hero';
+
+    function applyActiveLink() {
+      if (currentSection === appliedSection) return;
+      const prev = linkByHref.get(`#${appliedSection}`);
+      const next = linkByHref.get(`#${currentSection}`);
+      if (prev) prev.classList.remove('active');
+      if (next) next.classList.add('active');
+      appliedSection = currentSection;
+    }
+
+    window.__syncDossierScrollspy = applyActiveLink;
+
+    if ('IntersectionObserver' in window) {
+      const visibleRatios = new Map();
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              visibleRatios.set(entry.target.id, entry.intersectionRatio);
+            } else {
+              visibleRatios.delete(entry.target.id);
+            }
+          });
+          let bestId = null;
+          let bestRatio = -1;
+          for (const secId of sections) {
+            const ratio = visibleRatios.get(secId);
+            if (ratio !== undefined && ratio > bestRatio) {
+              bestRatio = ratio;
+              bestId = secId;
+            }
+          }
+          if (bestId) {
+            currentSection = bestId;
+            if (sidebar && sidebar.classList.contains('open')) {
+              applyActiveLink();
+            }
+          }
+        },
+        { rootMargin: '-18% 0px -45% 0px', threshold: [0, 0.25, 0.5] }
+      );
+
+      sections.forEach((secId) => {
+        const el = document.getElementById(secId);
+        if (el) observer.observe(el);
+      });
+    }
+  }
+
+  // 3b. Single-Toggle Pointer-Events Guard During Active Scroll Burst
+  function initScrollHoverGuard() {
+    const mainEl = document.querySelector('.dossier-container');
+    if (!mainEl) return;
+    let isScrolling = false;
+    let stopTimer = null;
+
+    function endScroll() {
+      if (!isScrolling) return;
+      isScrolling = false;
+      mainEl.style.pointerEvents = '';
+    }
 
     window.addEventListener(
       'scroll',
       () => {
-        let current = 'dossier-hero';
-        const scrollPos = window.scrollY + 180;
-
-        for (const secId of sections) {
-          const el = document.getElementById(secId);
-          if (el && el.offsetTop <= scrollPos) {
-            current = secId;
-          }
+        if (!isScrolling) {
+          isScrolling = true;
+          mainEl.style.pointerEvents = 'none';
         }
-
-        links.forEach((link) => {
-          const href = link.getAttribute('href');
-          if (href === `#${current}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
+        clearTimeout(stopTimer);
+        stopTimer = setTimeout(endScroll, 120);
       },
       { passive: true }
     );
+
+    window.addEventListener('pointerdown', endScroll, { passive: true });
   }
 
   // 4. Contact Actions & Mail Handling
@@ -336,7 +398,7 @@
     // Ensure Send Mail link works smoothly and opens mail client
     const sendMailBtn = document.getElementById('btn-send-mail');
     if (sendMailBtn) {
-      sendMailBtn.addEventListener('click', (e) => {
+      sendMailBtn.addEventListener('click', () => {
         // Native mailto is allowed to execute freely
         sendMailBtn.style.transform = 'scale(0.98)';
         setTimeout(() => {
@@ -344,9 +406,6 @@
         }, 150);
       });
     }
-  }
-      });
-    });
   }
 
   // 5. Dynamic Experience Calculation (from May 30, 2022)
@@ -396,6 +455,7 @@
     initSideNavbar();
     initCommandPalette();
     initDossierScrollspy();
+    initScrollHoverGuard();
     initContactActions();
     initDynamicExperience();
 
