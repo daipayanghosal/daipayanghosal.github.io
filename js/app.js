@@ -83,7 +83,7 @@
     { title: 'Download Resume (PDF)', action: 'print', badge: 'PDF', kbd: 'P' },
     { title: 'Open VulnInvestigator Live', url: 'https://daipayanghosal.github.io/VulnInvestigator', badge: 'APP', kbd: 'V' },
     { title: 'Open Kahon Audio Sanctuary', url: 'https://kahonstory.com', badge: 'WEB', kbd: 'K' },
-    { title: 'Open Creative Studio (Vercel)', url: 'https://studio-beta-nine-42.vercel.app', badge: 'APP', kbd: 'W' },
+    { title: 'Open ChronoCanvas (Vercel)', url: 'https://studio-beta-nine-42.vercel.app', badge: 'APP', kbd: 'C' },
     { title: 'LinkedIn Profile', url: 'https://www.linkedin.com/in/daipayan-ghosal/', badge: 'EXT', kbd: 'L' },
     { title: 'Google Scholar Citations', url: 'https://scholar.google.com/citations?user=eT3-swYAAAAJ', badge: 'EXT', kbd: 'S' },
     { title: 'GitHub Profile', url: 'https://github.com/daipayanghosal', badge: 'EXT', kbd: 'G' }
