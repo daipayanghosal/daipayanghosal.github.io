@@ -493,7 +493,7 @@
   }
 
   // ==========================================================================
-  // 9. DYNAMIC EXPERIENCE CALCULATION (from May 30, 2022)
+  // 9. DYNAMIC EXPERIENCE CALCULATION (from June 1, 2022)
   // ==========================================================================
   function initDynamicExperience() {
     const el = document.getElementById('metric-experience-val');
@@ -503,7 +503,7 @@
     let isToggled = false;
 
     function renderExp() {
-      const start = new Date(2022, 4, 30); // May 30, 2022
+      const start = new Date(2022, 5, 1); // June 1, 2022 (Resume: June 2022)
       const now = new Date();
 
       let years = now.getFullYear() - start.getFullYear();
@@ -524,7 +524,7 @@
       el.textContent = isToggled ? detailedText : primaryText;
 
       if (card) {
-        const tooltip = `Experience calculated dynamically from May 30, 2022: ${years} years, ${months} months`;
+        const tooltip = `Experience calculated dynamically from June 2022: ${years} years, ${months} months`;
         card.setAttribute('title', tooltip);
       }
     }

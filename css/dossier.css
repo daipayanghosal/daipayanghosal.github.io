@@ -944,6 +944,12 @@ html[data-theme="light"] .saviynt-brand-val {
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
+.pill-prior {
+  background: rgba(14, 165, 233, 0.14);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
 .pill-academic {
   background: rgba(99, 102, 241, 0.14);
   color: var(--accent-indigo);
