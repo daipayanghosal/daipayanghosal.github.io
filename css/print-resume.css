@@ -1,126 +1,111 @@
 /* ==========================================================================
-   PRINT RESUME / EXECUTIVE DOSSIER STYLESHEET
-   Optimized for A4 / Letter format, clean black/white & subtle accent print
+   PRINT RESUME / EXECUTIVE MONOGRAPH PDF STYLESHEET
+   Optimized for A4 / Letter executive print output
    ========================================================================== */
 
 @media print {
-  /* Hide interactive widgets, canvas, dock, audio, simulator, and nav */
   .hud-nav,
   .side-navbar,
   .side-navbar-backdrop,
-  .sidebar-toggle-btn,
-  .floating-dock,
-  .mouse-glow,
-  .cyber-grid-overlay,
-  #cyber-canvas,
-  #matrix-canvas,
-  .toast-container,
   .palette-overlay,
-  .contact-modal-overlay,
-  .sim-presets-grid,
-  .sim-input-box,
-  .cv-controls,
-  .terminal-window,
-  .retro-badges-section,
-  .view-switch,
-  .ctrl-btn,
-  .hero-actions,
-  .btn-primary,
-  .btn-outline,
-  .hero-telemetry-card,
-  #sentinel-view,
+  .hero-cover-wrap,
+  .dossier-hero-actions,
+  .section-header-actions,
+  .dossier-contact-actions,
+  .contact-external-links,
+  .ledger-hint,
+  .copy-hint,
   footer {
     display: none !important;
   }
 
-  #dossier-view {
-    display: block !important;
-    padding-top: 0 !important;
-  }
-
-  .dossier-ambient-glow,
-  .dossier-hero-actions,
-  .dossier-project-ctas,
-  .dossier-contact-actions {
-    display: none !important;
-  }
-
-  body {
+  body,
+  .dossier-root {
     background: #ffffff !important;
     color: #111827 !important;
-    font-size: 11pt !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 10pt !important;
     line-height: 1.45 !important;
   }
 
-  .container {
+  .dossier-container {
     max-width: 100% !important;
     padding: 0 !important;
-    margin: 0 !important;
   }
 
-  section {
-    padding: 1.25rem 0 !important;
-    page-break-inside: avoid;
-  }
-
-  .hero-section {
-    padding-top: 0 !important;
-    padding-bottom: 1rem !important;
-  }
-
-  .hero-grid {
-    display: block !important;
-  }
-
-  .hero-intro-card {
-    background: transparent !important;
-    border: none !important;
+  .hero-profile-row {
+    margin-top: 0 !important;
     padding: 0 !important;
-    box-shadow: none !important;
+    margin-bottom: 10pt !important;
   }
 
-  .hero-title-group h1 {
-    font-size: 24pt !important;
+  .dossier-avatar-wrap {
+    width: 64pt !important;
+    height: 64pt !important;
+    border-color: #d1d5db !important;
+    outline: none !important;
+  }
+
+  .dossier-name {
+    font-size: 22pt !important;
     color: #111827 !important;
-    margin-bottom: 4pt !important;
   }
 
-  .hero-tagline {
-    font-size: 11pt !important;
-    color: #4b5563 !important;
-    font-weight: 600 !important;
+  .dossier-role-title {
+    color: #1f2937 !important;
   }
 
-  .section-title {
-    font-size: 14pt !important;
-    color: #111827 !important;
-    border-bottom: 1.5pt solid #111827 !important;
-    padding-bottom: 2pt !important;
-    margin-bottom: 8pt !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5pt !important;
-  }
-
-  .bento-card, .exp-card, .cert-card, .paper-card {
-    background: transparent !important;
-    border: 1pt solid #e5e7eb !important;
-    box-shadow: none !important;
-    color: #111827 !important;
-    page-break-inside: avoid;
-    margin-bottom: 8pt !important;
-    padding: 8pt !important;
-  }
-
-  .exp-bullets li, .hero-summary, .paper-venue {
+  .dossier-hero-meta,
+  .dossier-hero-lead,
+  .dossier-section-subtitle,
+  .editorial-body-copy,
+  .spec-row-desc,
+  .iga-entry-main p,
+  .matrix-col-val,
+  .directory-col p,
+  .dossier-deliverables li,
+  .bib-abstract,
+  .cred-scope,
+  .cred-issuer,
+  .ledger-lbl {
     color: #374151 !important;
   }
 
-  .exp-card::before, .experience-list::before {
-    display: none !important;
+  .dossier-section-title,
+  .ledger-val,
+  .spec-row-title,
+  .iga-entry-main h3,
+  .matrix-col-key,
+  .directory-col h3,
+  .dossier-role-name,
+  .exp-company-name,
+  .bib-title,
+  .cred-title,
+  strong {
+    color: #111827 !important;
   }
 
-  .exp-card {
-    margin-left: 0 !important;
+  .dossier-section {
+    padding: 12pt 0 !important;
+    border-bottom: 1pt solid #e5e7eb !important;
+    page-break-inside: avoid;
+  }
+
+  .hero-ledger,
+  .vuln-editorial-grid,
+  .control-matrix,
+  .contact-band,
+  .formula-block {
+    background: transparent !important;
+    border-color: #d1d5db !important;
+  }
+
+  .dossier-email-pill {
+    border: none !important;
+    padding: 0 !important;
+    color: #111827 !important;
+    background: transparent !important;
   }
 
   a {

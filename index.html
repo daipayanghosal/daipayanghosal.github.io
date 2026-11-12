@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Daipayan Ghosal | Cybersecurity Analyst & AI Governance Researcher</title>
+  <title>Daipayan Ghosal — Cybersecurity Analyst &amp; AI Governance Researcher</title>
   <meta name="description" content="Portfolio of Daipayan Ghosal — Cybersecurity Analyst specializing in Identity & Access Governance (Saviynt IGA, Okta), Application Security (AppSec/DevSecOps), and AI Governance & LLM Threat Defense. Published researcher in Neural Computing." />
   <meta name="keywords" content="Daipayan Ghosal, Cybersecurity Analyst, IAM, Saviynt IGA, Okta, AppSec, DevSecOps, OWASP LLM, AI Governance, Kolkata, Wipro, C|EH, Qualys VMDR" />
   <meta name="author" content="Daipayan Ghosal" />
@@ -11,14 +11,14 @@
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://daipayanghosal.github.io/" />
-  <meta property="og:title" content="Daipayan Ghosal | Cybersecurity Analyst & AI Governance Researcher" />
-  <meta property="og:description" content="Executive Portfolio of Daipayan Ghosal — Cybersecurity Analyst specializing in Identity & Access Governance (Saviynt IGA, Okta), Application Security, and AI Governance & LLM Threat Defense. 4 Springer Publications." />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/63237368?v=4" />
+  <meta property="og:title" content="Daipayan Ghosal — Cybersecurity Analyst & AI Governance Researcher" />
+  <meta property="og:description" content="Cybersecurity Analyst specializing in Identity & Access Governance (Saviynt IGA, Okta), Application Security, and AI Governance & LLM Threat Defense. 4 peer-reviewed publications." />
+  <meta property="og:image" content="https://daipayanghosal.github.io/assets/profile.jpg" />
 
-  <!-- Google Fonts Preconnect -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css" />
@@ -27,777 +27,683 @@
 </head>
 <body data-view="dossier">
 
-  <!-- Ambient Background Mesh Glow -->
-  <div class="dossier-ambient-glow"></div>
-
   <!-- ==========================================================================
-       TOP BAR & RETRACTABLE SIDE NAVBAR (MOBILE OPTIMIZED)
+       TOP NAVIGATION CHROME
        ========================================================================== -->
   <header class="hud-nav">
     <div class="hud-container">
       <div class="hud-left">
-        <!-- Retractable Sidebar Toggle Button -->
-        <button id="btn-sidebar-toggle" class="sidebar-toggle-btn" aria-label="Toggle Navigation Sidebar" title="Open Navigation Menu">
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
+        <button id="btn-sidebar-toggle" class="sidebar-toggle-btn" aria-label="Toggle Navigation Menu" title="Navigation Menu">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="2" y1="5" x2="14" y2="5"></line>
+            <line x1="2" y1="11" x2="14" y2="11"></line>
+          </svg>
         </button>
 
         <a href="#dossier-hero" class="hud-brand">
-          <div class="brand-icon">⬡</div>
-          <span class="brand-dossier-text">DAIPAYAN GHOSAL <span class="dossier-role-pill">Cybersecurity Analyst</span></span>
+          <span class="brand-dossier-text">DAIPAYAN GHOSAL</span>
         </a>
 
-        <div class="hud-status-badge">
-          <span class="live-dot-pulse"></span>
-          <span>AVAILABLE</span>
+        <div class="hud-status-badge" aria-label="Availability Status">
+          <span class="live-dot-pulse" aria-hidden="true"></span>
+          <span>Available &middot; Kolkata</span>
         </div>
       </div>
 
-      <!-- Compact Top Controls -->
       <div class="hud-right">
-        <!-- Command Palette Trigger -->
-        <button id="hud-cmd-trigger" class="ctrl-btn" title="Launch Command Palette (Ctrl+K or ⌘K)">
-          <span>⌘K</span>
+        <button id="hud-cmd-trigger" class="ctrl-btn" title="Open Command Index (Ctrl+K or ⌘K)">
+          <span class="ctrl-kbd">&#8984;K</span>
+          <span class="ctrl-label">Index</span>
         </button>
 
-        <!-- Direct Resume Print (Desktop) -->
-        <button onclick="window.print()" class="ctrl-btn hud-cv-btn" title="Print or Save Executive Resume as PDF">
-          <span>📄 CV</span>
+        <button onclick="window.print()" class="ctrl-btn hud-cv-btn" title="Print or Save Resume as PDF">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 1h6l3 3v11H4V1z"></path>
+            <path d="M10 1v3h3"></path>
+          </svg>
+          <span>Resume PDF</span>
         </button>
       </div>
     </div>
   </header>
 
   <!-- ==========================================================================
-       RETRACTABLE SIDE NAVBAR DRAWER (ACCESSIBLE ACROSS ALL DEVICES)
+       RETRACTABLE SIDEBAR DRAWER
        ========================================================================== -->
-  <aside id="side-navbar" class="side-navbar" aria-label="Main Navigation">
+  <aside id="side-navbar" class="side-navbar" aria-label="Section Navigation">
     <div class="side-navbar-inner">
-      <!-- Sidebar Identity Card Header -->
       <div class="side-navbar-header">
         <div class="side-brand">
           <div class="side-avatar">
-            <img src="assets/avatar.jpg" alt="Daipayan Ghosal" onerror="this.src='https://avatars.githubusercontent.com/u/63237368?v=4'" />
-            <span class="side-status-dot"></span>
+            <img src="assets/profile.jpg" alt="Daipayan Ghosal" onerror="this.src='https://avatars.githubusercontent.com/u/63237368?v=4'" />
           </div>
           <div class="side-brand-meta">
             <div class="side-name">Daipayan Ghosal</div>
-            <div class="side-title">Cybersecurity Analyst &amp; AI Researcher</div>
+            <div class="side-title">Cybersecurity &amp; AI Researcher</div>
           </div>
         </div>
-        <button id="btn-sidebar-close" class="side-close-btn" aria-label="Close Navigation Menu" title="Close Sidebar">
-          <span>✕</span>
+        <button id="btn-sidebar-close" class="side-close-btn" aria-label="Close Navigation Menu" title="Close Menu">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="2" y1="2" x2="12" y2="12"></line>
+            <line x1="12" y1="2" x2="2" y2="12"></line>
+          </svg>
         </button>
       </div>
 
-      <!-- Dossier Navigation Links -->
       <div class="side-nav-group">
-        <div class="side-nav-heading">PORTFOLIO SECTIONS</div>
+        <div class="side-nav-heading">CONTENTS</div>
         <ul class="side-nav-list dossier-nav">
-          <li><a href="#dossier-hero" class="side-link active"><span class="side-icon">👤</span> <span>About &amp; Overview</span></a></li>
-          <li><a href="#dossier-vuln" class="side-link"><span class="side-icon">🚀</span> <span>VulnInvestigator (Live)</span></a></li>
-          <li><a href="#dossier-iam" class="side-link"><span class="side-icon">🔑</span> <span>Enterprise IGA</span></a></li>
-          <li><a href="#dossier-ai" class="side-link"><span class="side-icon">🛡️</span> <span>AI Security</span></a></li>
-          <li><a href="#dossier-skills" class="side-link"><span class="side-icon">⚡</span> <span>Core Skills</span></a></li>
-          <li><a href="#dossier-experience" class="side-link"><span class="side-icon">💼</span> <span>Professional Experience</span></a></li>
-          <li><a href="#dossier-research" class="side-link"><span class="side-icon">📚</span> <span>Published Research</span></a></li>
-          <li><a href="#dossier-credentials" class="side-link"><span class="side-icon">📜</span> <span>Certifications &amp; BCA</span></a></li>
-          <li><a href="#dossier-contact" class="side-link"><span class="side-icon">✉️</span> <span>Executive Contact</span></a></li>
+          <li><a href="#dossier-hero" class="side-link active"><span class="side-num">00</span> <span>Overview</span></a></li>
+          <li><a href="#dossier-vuln" class="side-link"><span class="side-num">01</span> <span>VulnInvestigator</span></a></li>
+          <li><a href="#dossier-iam" class="side-link"><span class="side-num">02</span> <span>Identity Governance</span></a></li>
+          <li><a href="#dossier-ai" class="side-link"><span class="side-num">03</span> <span>AI &amp; LLM Defense</span></a></li>
+          <li><a href="#dossier-skills" class="side-link"><span class="side-num">04</span> <span>Core Skills</span></a></li>
+          <li><a href="#dossier-experience" class="side-link"><span class="side-num">05</span> <span>Experience</span></a></li>
+          <li><a href="#dossier-research" class="side-link"><span class="side-num">06</span> <span>Published Research</span></a></li>
+          <li><a href="#dossier-credentials" class="side-link"><span class="side-num">07</span> <span>Certifications &amp; Education</span></a></li>
+          <li><a href="#dossier-contact" class="side-link"><span class="side-num">08</span> <span>Contact</span></a></li>
         </ul>
       </div>
 
-      <!-- Sidebar Utilities & Footer -->
       <div class="side-nav-footer">
         <div class="side-footer-actions">
           <button id="side-cmd-trigger" class="side-action-btn">
-            <span>⌘K Command Palette</span>
+            <span>Command Index</span>
+            <kbd>&#8984;K</kbd>
           </button>
           <button onclick="window.print()" class="side-action-btn">
-            <span>📄 Download CV (PDF)</span>
+            <span>Download Resume (PDF)</span>
           </button>
           <a href="#dossier-contact" class="side-action-btn side-link">
-            <span>✉️ Connect / Contact</span>
+            <span>Direct Contact</span>
           </a>
         </div>
 
         <div class="side-socials-row">
-          <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener">Scholar ↗</a>
-          <a href="https://github.com/daipayanghosal" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+          <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener">Scholar &#8599;</a>
+          <a href="https://github.com/daipayanghosal" target="_blank" rel="noopener">GitHub &#8599;</a>
         </div>
 
         <div class="side-meta-loc">
-          Kolkata, India &bull; UTC+5:30
+          Kolkata, India &middot; UTC+5:30
         </div>
       </div>
     </div>
   </aside>
 
-  <!-- Retractable Sidebar Backdrop Overlay -->
   <div id="side-navbar-backdrop" class="side-navbar-backdrop" aria-hidden="true"></div>
 
   <!-- ==========================================================================
-       DOSSIER VIEWPORT (BRAND NEW EXECUTIVE DESIGNER UI // NON-INTERACTIVE)
+       MAIN EDITORIAL PORTFOLIO
        ========================================================================== -->
   <div id="dossier-view" class="dossier-root">
     <main class="dossier-container">
-      <!-- 1. DOSSIER HERO -->
+
+      <!-- 0. COVER BANNER, PORTRAIT & HERO MASTHEAD -->
       <section id="dossier-hero" class="dossier-hero-section">
-        <div class="dossier-status-pill">
-          <span class="dossier-pulse-dot"></span>
-          <span class="dossier-pill-text">AVAILABLE FOR AI SECURITY ROLES &bull; KOLKATA, INDIA (UTC+5:30)</span>
+        <div class="hero-cover-wrap">
+          <img
+            src="assets/cover.jpg"
+            alt="Mountain landscape overlooking tea hills and cloud cover"
+            class="hero-cover-img"
+            width="1024"
+            height="768"
+          />
+          <div class="hero-cover-scrim" aria-hidden="true"></div>
         </div>
 
-        <div class="dossier-hero-header">
+        <div class="hero-profile-row">
           <div class="dossier-avatar-wrap">
-            <img src="assets/avatar.jpg" alt="Daipayan Ghosal" class="dossier-avatar-img" onerror="this.src='https://avatars.githubusercontent.com/u/63237368?v=4'" />
+            <img
+              src="assets/profile.jpg"
+              alt="Portrait of Daipayan Ghosal"
+              class="dossier-avatar-img"
+              width="640"
+              height="640"
+              onerror="this.src='https://avatars.githubusercontent.com/u/63237368?v=4'"
+            />
           </div>
-          <div class="dossier-hero-titles">
+          <div class="hero-location-note">
+            <span>Kolkata, India (UTC+5:30)</span>
+            <span class="meta-sep" aria-hidden="true">&middot;</span>
+            <span>Open to IAM / AppSec / AI Security Roles</span>
+          </div>
+        </div>
+
+        <div class="hero-masthead-grid">
+          <div class="hero-identity">
             <h1 class="dossier-name">Daipayan Ghosal</h1>
-            <p class="dossier-role-title">Cybersecurity Analyst &amp; AI Governance Researcher</p>
+            <p class="dossier-role-title">Cybersecurity Analyst &mdash; Identity Governance, AppSec &amp; AI Security</p>
             <div class="dossier-hero-meta">
-              <span>Wipro Limited</span> &bull; <span>Saviynt Certified Architect (L200)</span> &bull; <span>4 Springer Publications</span>
+              <span>Wipro Limited</span>
+              <span class="meta-sep" aria-hidden="true">&middot;</span>
+              <span>Saviynt Certified Architect (L200)</span>
+              <span class="meta-sep" aria-hidden="true">&middot;</span>
+              <span>4 Peer-Reviewed Publications</span>
+            </div>
+
+            <p class="dossier-hero-lead">
+              Cybersecurity Analyst at Wipro Limited focused on enterprise <strong>Identity &amp; Access Governance (Saviynt IGA, Okta, Workday JML)</strong>, <strong>Application Security (DevSecOps, SAST, Qualys VMDR)</strong>, and generative AI threat defense. Published researcher in neural computing and computer vision working on evidence-grounded LLM tooling and OWASP LLM risk controls.
+            </p>
+
+            <div class="dossier-hero-actions">
+              <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" class="dossier-btn dossier-btn-primary">
+                <span>VulnInvestigator Live &#8599;</span>
+              </a>
+              <button onclick="window.print()" class="dossier-btn dossier-btn-outline">
+                <span>Resume (PDF)</span>
+              </button>
+              <a href="#dossier-contact" class="dossier-btn dossier-btn-outline">
+                <span>Contact</span>
+              </a>
+              <div class="hero-inline-links">
+                <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener" class="editorial-text-link">LinkedIn &#8599;</a>
+                <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="editorial-text-link">Scholar &#8599;</a>
+                <a href="https://github.com/daipayanghosal" target="_blank" rel="noopener" class="editorial-text-link">GitHub &#8599;</a>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-ledger" aria-label="Career Summary Metrics">
+            <div class="ledger-cell ledger-cell-interactive" id="metric-experience-card" data-start="2022-05-30" title="Calculated dynamically from May 30, 2022. Click to toggle years/months breakdown.">
+              <div class="ledger-val" id="metric-experience-val">3+ Yrs</div>
+              <div class="ledger-lbl">Enterprise Cyber &amp; IAM (Wipro)</div>
+              <div class="ledger-hint">Click to toggle detail</div>
+            </div>
+            <div class="ledger-cell">
+              <div class="ledger-val">4</div>
+              <div class="ledger-lbl">Peer-Reviewed Springer / Conference Papers</div>
+            </div>
+            <div class="ledger-cell">
+              <div class="ledger-val">CEH</div>
+              <div class="ledger-lbl">Certified Ethical Hacker (EC-Council)</div>
+            </div>
+            <div class="ledger-cell">
+              <div class="ledger-val">L200</div>
+              <div class="ledger-lbl">Saviynt IGA Certified Architect</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 01. FEATURED ENGINEERING: VULNINVESTIGATOR -->
+      <section id="dossier-vuln" class="dossier-section">
+        <div class="section-header-row">
+          <div>
+            <div class="section-index">01 / FEATURED ENGINEERING</div>
+            <h2 class="dossier-section-title">VulnInvestigator</h2>
+            <p class="dossier-section-subtitle">
+              Evidence-grounded vulnerability-to-threat investigation and contextual risk prioritisation pipeline.
+            </p>
+          </div>
+          <div class="section-header-actions">
+            <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" class="dossier-btn dossier-btn-primary">
+              <span>Open Live App &#8599;</span>
+            </a>
+            <a href="https://github.com/daipayanghosal/VulnInvestigator" target="_blank" rel="noopener" class="dossier-btn dossier-btn-outline">
+              <span>GitHub Repository &#8599;</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="vuln-editorial-grid">
+          <div class="vuln-narrative-col">
+            <div class="vuln-live-meta">
+              <span class="live-indicator-text"><span class="dot-static" aria-hidden="true"></span> LIVE DEPLOYMENT</span>
+              <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" class="editorial-mono-link">
+                daipayanghosal.github.io/VulnInvestigator &#8599;
+              </a>
+            </div>
+
+            <p class="editorial-body-copy">
+              Standard CVSS base scores weight severity in isolation, overlooking whether a vulnerability is actively exploited in the wild or segmented behind internal controls. <strong>VulnInvestigator</strong> computes contextual risk rankings from CVSS, CISA KEV status, asset criticality, and network exposure telemetry, correlated directly with <strong>MITRE ATT&amp;CK STIX 2.1</strong> techniques.
+            </p>
+
+            <div class="formula-block">
+              <div class="formula-label">RISK SCORING MODEL</div>
+              <code>Score = 0.35 &times; CVSS + 0.30 &times; KEV + 0.20 &times; Asset + 0.15 &times; Exposure</code>
+            </div>
+
+            <div class="inline-spec-row">
+              <span class="inline-spec-label">STACK</span>
+              <span class="inline-spec-items">
+                Python 3.12 &middot; Streamlit &middot; NVD REST API v2 &middot; CISA KEV &middot; MITRE ATT&amp;CK STIX 2.1 &middot; Ollama / Gemini RAG &middot; Pandas &amp; PyArrow &middot; MIT License
+              </span>
+            </div>
+          </div>
+
+          <div class="vuln-pillars-list">
+            <div class="ruled-spec-row">
+              <div class="spec-row-index">01</div>
+              <div>
+                <h3 class="spec-row-title">Contextual Multi-Factor Weighting</h3>
+                <p class="spec-row-desc">Elevates actively weaponized exploits verified in CISA KEV while de-prioritizing low-exposure internal CVEs with no known exploitation path.</p>
+              </div>
+            </div>
+            <div class="ruled-spec-row">
+              <div class="spec-row-index">02</div>
+              <div>
+                <h3 class="spec-row-title">Evidence-Grounded GenAI (&lt;0.02% Hallucination)</h3>
+                <p class="spec-row-desc">Routes normalized telemetry into local Ollama and Gemini models under strict citation verification against NVD API v2.0 and CISA KEV records.</p>
+              </div>
+            </div>
+            <div class="ruled-spec-row">
+              <div class="spec-row-index">03</div>
+              <div>
+                <h3 class="spec-row-title">Evaluated via Kendall&rsquo;s &tau; &amp; nDCG</h3>
+                <p class="spec-row-desc">Quantitatively benchmarked remediation queues using rank correlation (Kendall&rsquo;s &tau;) and Normalized Discounted Cumulative Gain (nDCG).</p>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <p class="dossier-hero-lead">
-          Agile Cybersecurity Analyst with cross-domain expertise spanning <strong>Identity &amp; Access Governance (IGA/IAM)</strong>, 
-          <strong>Application Security (AppSec)</strong>, and proactive threat research. Anchored by a published academic background in 
-          applied machine learning and neural computing (<strong>4 peer-reviewed publications</strong>), I operate at the intersection of 
-          AI governance and enterprise resilience—specializing in architecting secure LLM integrations, mitigating complex algorithmic threat 
-          vectors, orchestrating automated HR-to-cloud identity lifecycles with 100% ITGC compliance, and scaling proactive SecOps maturity.
+      <!-- 02. ENTERPRISE IDENTITY & ACCESS GOVERNANCE (IGA) -->
+      <section id="dossier-iam" class="dossier-section">
+        <div class="asymmetric-index-grid">
+          <div class="index-rail">
+            <div class="section-index">02 / ENTERPRISE ARCHITECTURE</div>
+            <h2 class="dossier-section-title">Identity &amp; Access Governance</h2>
+            <p class="dossier-section-subtitle">
+              Zero-drift identity lifecycle automation, preventative SoD rules, and continuous ITGC defensibility at enterprise scale.
+            </p>
+          </div>
+
+          <div class="ruled-entries-col">
+            <article class="iga-spec-entry">
+              <div class="iga-entry-main">
+                <h3>Authoritative HR Lifecycle (JML)</h3>
+                <p>Automated Joiner-Mover-Leaver pipelines fed by <strong>Workday HCM</strong> into <strong>Saviynt EIC</strong> and <strong>Okta</strong>. Handles day-one birthright provisioning, dynamic transfer re-evaluation, and immediate exit deprovisioning.</p>
+              </div>
+              <div class="iga-entry-meta">Workday HCM &middot; Zero Orphan Accounts &middot; Exit Automation</div>
+            </article>
+
+            <article class="iga-spec-entry">
+              <div class="iga-entry-main">
+                <h3>Dynamic RBAC / ABAC &amp; Least Privilege</h3>
+                <p>Role-Based and Attribute-Based Access Control architectures spanning cloud and on-premises environments, removing standing administrative privileges through time-bound elevation.</p>
+              </div>
+              <div class="iga-entry-meta">Role Mining &middot; Zero Standing Privileges &middot; Least Privilege</div>
+            </article>
+
+            <article class="iga-spec-entry">
+              <div class="iga-entry-main">
+                <h3>Predictive Segregation of Duties (SoD)</h3>
+                <p>Preventative and detective SoD policies configured in Saviynt EIC to flag conflicting entitlements before access is granted, maintaining clean financial and operational control boundaries.</p>
+              </div>
+              <div class="iga-entry-meta">Preventative Rules &middot; Conflict Remediation &middot; Audit Defensibility</div>
+            </article>
+
+            <article class="iga-spec-entry">
+              <div class="iga-entry-main">
+                <h3>Continuous Attestation &amp; ITGC Audits</h3>
+                <p>Structured access certification campaigns and ServiceNow fulfillment workflows maintaining 100% IT General Controls (ITGC) compliance for internal and external auditors.</p>
+              </div>
+              <div class="iga-entry-meta">100% ITGC Compliance &middot; ServiceNow &middot; Recertification</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03. AI SECURITY & THREAT DEFENSE -->
+      <section id="dossier-ai" class="dossier-section">
+        <div class="section-header-row">
+          <div>
+            <div class="section-index">03 / APPLIED THREAT RESEARCH</div>
+            <h2 class="dossier-section-title">AI Security &amp; LLM Threat Defense</h2>
+            <p class="dossier-section-subtitle">
+              Hardening generative AI and agentic workflows against prompt-layer exploitation and sensitive data exposure.
+            </p>
+          </div>
+          <div class="section-header-actions">
+            <a href="https://genai.owasp.org/" target="_blank" rel="noopener" class="dossier-btn dossier-btn-outline">
+              <span>OWASP Top 10 for LLMs &#8599;</span>
+            </a>
+          </div>
+        </div>
+
+        <p class="editorial-body-copy editorial-body-wide">
+          Conventional network perimeters and static WAF signatures cannot detect adversarial semantics embedded inside natural-language prompts. My work focuses on isolating untrusted user payloads, preventing RAG data exfiltration, and validating LLM controls against empirical red-teaming frameworks.
         </p>
 
-        <!-- Key Impact Metrics Bar -->
-        <div class="dossier-metrics-grid">
-          <div class="dossier-metric-card" id="metric-experience-card" data-start="2022-05-30" title="Calculated live from May 30, 2022">
-            <div class="dossier-metric-val" id="metric-experience-val">3+ Yrs</div>
-            <div class="dossier-metric-lbl">Enterprise Cyber &amp; IAM (Wipro)</div>
+        <div class="control-matrix" role="table" aria-label="AI Security Controls Matrix">
+          <div class="matrix-row matrix-head" role="row">
+            <div class="matrix-col-key" role="columnheader">DOMAIN / VECTOR</div>
+            <div class="matrix-col-val" role="columnheader">IMPLEMENTED DEFENSE &amp; RESEARCH</div>
           </div>
-          <div class="dossier-metric-card">
-            <div class="dossier-metric-val">4</div>
-            <div class="dossier-metric-lbl">Peer-Reviewed Springer Papers</div>
+          <div class="matrix-row" role="row">
+            <div class="matrix-col-key" role="cell">Personal AI Red-Teaming Labs</div>
+            <div class="matrix-col-val" role="cell">Deployed isolated local models (Ollama, DeepSeek R1) via Google Colab to stress-test prompt boundaries, evaluate agentic failure modes, and map mitigations to OWASP Top 10 for LLMs.</div>
           </div>
-          <div class="dossier-metric-card">
-            <div class="dossier-metric-val">C|EH</div>
-            <div class="dossier-metric-lbl">Certified Ethical Hacker (EC-Council)</div>
+          <div class="matrix-row" role="row">
+            <div class="matrix-col-key" role="cell">Prompt Injection (LLM01)</div>
+            <div class="matrix-col-val" role="cell">Dual-filter semantic validation separating system instruction channels from untrusted user content and indirect retrieved payloads.</div>
           </div>
-          <div class="dossier-metric-card">
-            <div class="dossier-metric-val">L200</div>
-            <div class="dossier-metric-lbl">Saviynt Certified Architect</div>
+          <div class="matrix-row" role="row">
+            <div class="matrix-col-key" role="cell">Data Leakage Prevention (LLM06)</div>
+            <div class="matrix-col-val" role="cell">Automated PII tokenization, context scoping, and synthetic masking enforced prior to RAG vector indexing and inference calls.</div>
           </div>
-        </div>
-
-        <!-- Hero Actions / Fast Catch-up -->
-        <div class="dossier-hero-actions">
-          <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" class="dossier-btn dossier-btn-primary">
-            <span>🚀 Launch VulnInvestigator Live App ↗</span>
-          </a>
-          <button onclick="window.print()" class="dossier-btn dossier-btn-outline">
-            <span>📄 Executive Resume (PDF)</span>
-          </button>
-          <a href="#dossier-contact" class="dossier-btn dossier-btn-outline">
-            <span>✉️ Get in Touch</span>
-          </a>
-          <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener" class="dossier-btn dossier-btn-ghost">
-            <span>LinkedIn ↗</span>
-          </a>
-          <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="dossier-btn dossier-btn-ghost">
-            <span>Google Scholar ↗</span>
-          </a>
-          <a href="https://github.com/daipayanghosal" target="_blank" rel="noopener" class="dossier-btn dossier-btn-ghost">
-            <span>GitHub ↗</span>
-          </a>
+          <div class="matrix-row" role="row">
+            <div class="matrix-col-key" role="cell">Governance &amp; Compliance</div>
+            <div class="matrix-col-val" role="cell">Architecture risk alignment across EU AI Act risk tiers and NIST AI Risk Management Framework (AI RMF) control baselines.</div>
+          </div>
         </div>
       </section>
 
-      <!-- 2. FEATURED PROJECT: VULNINVESTIGATOR (NON-INTERACTIVE SHOWCASE + DIRECT EXTERNAL LINKS) -->
-      <section id="dossier-vuln" class="dossier-section">
-        <div class="dossier-section-head">
-          <span class="dossier-section-tag">Flagship Open-Source Innovation</span>
-          <h2 class="dossier-section-title">VulnInvestigator</h2>
-          <p class="dossier-section-subtitle">
-            Evidence-grounded GenAI for vulnerability-to-threat investigation and contextual risk prioritisation.
-          </p>
+      <!-- 04. CORE SKILLS & TECHNICAL EXPERTISE -->
+      <section id="dossier-skills" class="dossier-section">
+        <div class="section-header-row">
+          <div>
+            <div class="section-index">04 / CAPABILITIES</div>
+            <h2 class="dossier-section-title">Core Skills &amp; Technical Expertise</h2>
+            <p class="dossier-section-subtitle">
+              Cross-domain execution spanning identity governance, secure software pipelines, vulnerability orchestration, and AI defense.
+            </p>
+          </div>
         </div>
 
-        <div class="dossier-project-card">
-          <div class="dossier-project-banner">
-            <div class="dossier-project-status">
-              <span class="dossier-pulse-dot"></span>
-              <span>LIVE WEB APPLICATION</span>
+        <div class="directory-grid-3">
+          <div class="directory-col">
+            <div class="directory-num">01</div>
+            <h3>AI Security &amp; Governance</h3>
+            <p>Securing LLM integrations, evaluating agentic workflows, conducting prompt injection testing, and enforcing OWASP LLM controls.</p>
+            <div class="directory-list">LLM &amp; RAG Security &middot; Prompt Injection Testing &middot; AI Risk Assessments &middot; OWASP Top 10 for LLMs</div>
+          </div>
+
+          <div class="directory-col">
+            <div class="directory-num">02</div>
+            <h3>Identity &amp; Access Governance</h3>
+            <p>Architecting enterprise IAM models, automating Workday-to-Okta JML lifecycles, and governing AI data access controls and DLP.</p>
+            <div class="directory-list">Saviynt IGA (L200/L100) &middot; Okta &middot; Workday JML Lifecycle &middot; RBAC / ABAC &middot; AI Access &amp; DLP</div>
+          </div>
+
+          <div class="directory-col">
+            <div class="directory-num">03</div>
+            <h3>Risk, Audit &amp; Compliance</h3>
+            <p>Maintaining access control frameworks aligned with ITGC principles, enforcing least privilege, and supporting regulatory audits.</p>
+            <div class="directory-list">IT General Controls (ITGC) &middot; Control Evaluation &middot; Audit Evidence &middot; EU AI Act</div>
+          </div>
+
+          <div class="directory-col">
+            <div class="directory-num">04</div>
+            <h3>Application &amp; Pipeline Security</h3>
+            <p>Leading early-stage application risk assessments, strengthening CI/CD security gates, SAST triage, and secure code reviews.</p>
+            <div class="directory-list">Secure SDLC &middot; DevSecOps &middot; Checkmarx SAST &middot; Code Review &middot; Python Scripting</div>
+          </div>
+
+          <div class="directory-col">
+            <div class="directory-num">05</div>
+            <h3>Vulnerability Management</h3>
+            <p>Coordinating infrastructure scanning, penetration testing, incident response workflows, and remediation SLA tracking.</p>
+            <div class="directory-list">Qualys VMDR &middot; Penetration Testing (C|EH) &middot; Incident Response &middot; SLA Governance</div>
+          </div>
+
+          <div class="directory-col">
+            <div class="directory-num">06</div>
+            <h3>Engineering &amp; Operations</h3>
+            <p>Standardizing security SOPs, synthesizing executive vulnerability metrics, and aligning engineering and compliance stakeholders.</p>
+            <div class="directory-list">SOP Standardization &middot; Executive Risk Reporting &middot; Stakeholder Alignment</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05. PROFESSIONAL EXPERIENCE -->
+      <section id="dossier-experience" class="dossier-section">
+        <div class="section-header-row">
+          <div>
+            <div class="section-index">05 / WORK HISTORY</div>
+            <h2 class="dossier-section-title">Professional Experience</h2>
+            <p class="dossier-section-subtitle">
+              Enterprise identity governance, application security, and DevSecOps engineering at Wipro Limited.
+            </p>
+          </div>
+        </div>
+
+        <div class="experience-ledger">
+          <article class="exp-ledger-row">
+            <div class="exp-meta-col">
+              <div class="exp-period-badge">Oct 2025 &ndash; Present</div>
+              <div class="exp-company-name">Wipro Limited</div>
+              <div class="exp-location">Kolkata, India</div>
             </div>
-            <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" class="dossier-project-live-link">
-              daipayanghosal.github.io/VulnInvestigator ↗
+            <div class="exp-detail-col">
+              <h3 class="dossier-role-name">Cyber Security Analyst (IAM)</h3>
+              <ul class="dossier-deliverables">
+                <li><strong>Identity Governance &amp; RBAC:</strong> Oversee enterprise identity governance utilizing Saviynt IGA; designed RBAC models and streamlined access certification campaigns.</li>
+                <li><strong>Control Compliance:</strong> Maintain access control frameworks aligned with ITGC principles, embedding least privilege across business units.</li>
+                <li><strong>Lifecycle Automation:</strong> Engineered automated Joiner-Mover-Leaver (JML) workflows integrating Workday HR platforms with Okta IAM environments.</li>
+                <li><strong>Risk Remediation:</strong> Detect and remediate critical entitlement gaps to lower exposure and keep audit readiness defensible.</li>
+                <li><strong>Workflow Integration:</strong> Integrated ServiceNow ticketing workflows with identity controls for traceable access provisioning paths.</li>
+                <li><strong>Cross-Team Alignment:</strong> Partnered with HR, IT Operations, and Risk Governance teams to standardize system architectures and control runbooks.</li>
+              </ul>
+              <div class="exp-inline-tags">Saviynt IGA L200/L100 &middot; Okta IAM &middot; Workday HR &middot; ITGC &middot; ServiceNow &middot; RBAC &middot; Predictive SoD</div>
+            </div>
+          </article>
+
+          <article class="exp-ledger-row">
+            <div class="exp-meta-col">
+              <div class="exp-period-badge exp-period-past">June 2022 &ndash; Oct 2025</div>
+              <div class="exp-company-name">Wipro Limited</div>
+              <div class="exp-location">Kolkata, India</div>
+            </div>
+            <div class="exp-detail-col">
+              <h3 class="dossier-role-name">Cyber Security Analyst (AppSec &amp; DevSecOps)</h3>
+              <ul class="dossier-deliverables">
+                <li><strong>Risk Assessments &amp; SDLC:</strong> Led early-stage application risk assessments during onboarding to surface structural flaws prior to production release.</li>
+                <li><strong>CI/CD Pipeline Security:</strong> Evaluated and strengthened automated security gates embedded within CI/CD delivery pipelines.</li>
+                <li><strong>Vulnerability Management:</strong> Executed Static Application Security Testing (SAST) with Checkmarx and partnered directly with developers on code-level remediation.</li>
+                <li><strong>Audit &amp; Reporting:</strong> Compiled structured vulnerability metrics and risk remediation summaries for regulatory reviews across engineering and business teams.</li>
+                <li><strong>Process Standardization:</strong> Refined Standard Operating Procedures (SOPs) and governance runbooks across security operations.</li>
+              </ul>
+              <div class="exp-inline-tags">Secure SDLC &middot; DevSecOps &middot; Checkmarx SAST &middot; Code Review &middot; Python &middot; Qualys VMDR &middot; SLA Management</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 06. PUBLISHED RESEARCH PAPERS -->
+      <section id="dossier-research" class="dossier-section">
+        <div class="section-header-row">
+          <div>
+            <div class="section-index">06 / ACADEMIC PUBLICATIONS</div>
+            <h2 class="dossier-section-title">Published Research</h2>
+            <p class="dossier-section-subtitle">
+              Peer-reviewed journal articles and conference proceedings in neural computing, metaheuristic optimization, and image segmentation.
+            </p>
+          </div>
+          <div class="section-header-actions">
+            <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="dossier-btn dossier-btn-outline">
+              <span>Google Scholar Profile &#8599;</span>
             </a>
           </div>
-
-          <div class="dossier-project-body">
-            <div class="dossier-project-title-row">
-              <div>
-                <h3 class="dossier-project-heading">VulnInvestigator 🔍</h3>
-                <p class="dossier-project-subheading">Contextual Risk Prioritisation &amp; STIX Correlation Pipeline</p>
-              </div>
-              <div class="dossier-project-ctas">
-                <a href="https://daipayanghosal.github.io/VulnInvestigator" target="_blank" rel="noopener" class="dossier-btn dossier-btn-primary">
-                  <span>🚀 Launch Live App ↗</span>
-                </a>
-                <a href="https://github.com/daipayanghosal/VulnInvestigator" target="_blank" rel="noopener" class="dossier-btn dossier-btn-outline">
-                  <span>📂 GitHub Repository ↗</span>
-                </a>
-              </div>
-            </div>
-
-            <p class="dossier-project-desc">
-              Traditional vulnerability management relies on theoretical CVSS base scores that ignore whether an exploit is actively weaponized 
-              in the wild or isolated behind zero-trust network boundaries. <strong>VulnInvestigator</strong> augments vulnerability assessment by 
-              dynamically computing contextual risk scores using multi-factor weighting (CVSS, CISA KEV exploitation, asset criticality, network exposure) 
-              and correlates normalized telemetry with <strong>MITRE ATT&amp;CK STIX 2.1</strong> techniques. A strictly grounded GenAI pipeline synthesizes 
-              evidence-grounded reports with citation verification, reducing hallucination rates to &lt;0.02%.
-            </p>
-
-            <!-- Core Architecture Highlights (3 Columns) -->
-            <div class="dossier-pillars-grid">
-              <div class="dossier-pillar-card">
-                <h4>🎯 Contextual Multi-Factor Scoring</h4>
-                <p>Re-weights CVE severity using formula: <code>Score = 0.35*CVSS + 0.30*KEV + 0.20*Asset + 0.15*Exposure</code>. Elevates actively weaponized exploits while de-prioritizing low-exposure internal vulnerabilities.</p>
-              </div>
-              <div class="dossier-pillar-card">
-                <h4>🛡️ Evidence-Grounded GenAI</h4>
-                <p>Feeds normalized threat intelligence into local Ollama &amp; Gemini models with strict hallucination validation, requiring verbatim citations from NVD API v2.0 and CISA KEV records.</p>
-              </div>
-              <div class="dossier-pillar-card">
-                <h4>📊 Evaluated on Kendall's &tau; &amp; nDCG</h4>
-                <p>Scientifically validated priority ranking using Kendall's rank correlation coefficient and Normalized Discounted Cumulative Gain (nDCG) to confirm high-fidelity remediation queue accuracy.</p>
-              </div>
-            </div>
-
-            <!-- Tech Stack -->
-            <div class="dossier-tags-row">
-              <span class="dossier-tag-label">Tech Stack:</span>
-              <span class="dossier-tag">Python 3.12</span>
-              <span class="dossier-tag">Streamlit</span>
-              <span class="dossier-tag">NVD REST API v2</span>
-              <span class="dossier-tag">CISA KEV Catalogue</span>
-              <span class="dossier-tag">MITRE ATT&amp;CK STIX 2.1</span>
-              <span class="dossier-tag">Google Gemini / Ollama RAG</span>
-              <span class="dossier-tag">Pandas &amp; PyArrow</span>
-              <span class="dossier-tag">MIT License</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. ENTERPRISE IDENTITY & ACCESS GOVERNANCE (IGA) -->
-      <section id="dossier-iam" class="dossier-section">
-        <div class="dossier-section-head">
-          <span class="dossier-section-tag">Enterprise Architecture</span>
-          <h2 class="dossier-section-title">Identity &amp; Access Governance (IGA)</h2>
-          <p class="dossier-section-subtitle">
-            End-to-end zero-trust identity lifecycle orchestration and continuous compliance at enterprise scale.
-          </p>
         </div>
 
-        <div class="dossier-grid-2">
-          <div class="dossier-feature-card">
-            <div class="dossier-feature-icon">🔄</div>
-            <h3>Authoritative HR Lifecycle (JML)</h3>
-            <p>
-              Architecting automated Joiner, Mover, Leaver (JML) pipelines fed by <strong>Workday HCM</strong> into 
-              <strong>Saviynt EIC</strong> and <strong>Okta</strong>. Automates birthright role assignments on day-one, triggers dynamic access re-evaluations during role transfers, and guarantees instantaneous zero-drift deprovisioning upon employee exit.
-            </p>
-            <div class="dossier-tags-row">
-              <span class="dossier-tag">Workday HCM Sync</span>
-              <span class="dossier-tag">Zero Orphan Accounts</span>
-              <span class="dossier-tag">Automated Deprovisioning</span>
-            </div>
-          </div>
-
-          <div class="dossier-feature-card">
-            <div class="dossier-feature-icon">🛡️</div>
-            <h3>Dynamic RBAC/ABAC &amp; Least Privilege</h3>
-            <p>
-              Engineering scalable Role-Based and Attribute-Based Access Control frameworks across cloud and on-premises applications. 
-              Eliminating standing administrative privileges through dynamic time-bound elevation and context-aware entitlements.
-            </p>
-            <div class="dossier-tags-row">
-              <span class="dossier-tag">Role Mining</span>
-              <span class="dossier-tag">Zero Standing Privileges</span>
-              <span class="dossier-tag">Least Privilege Access</span>
-            </div>
-          </div>
-
-          <div class="dossier-feature-card">
-            <div class="dossier-feature-icon">⚖️</div>
-            <h3>Predictive Segregation of Duties (SoD)</h3>
-            <p>
-              Designing preventative and detective Segregation of Duties rules in Saviynt EIC to proactively detect toxic access combinations 
-              (e.g., Accounts Payable creation vs. Payment Approval) before entitlements are granted.
-            </p>
-            <div class="dossier-tags-row">
-              <span class="dossier-tag">Preventative Rules</span>
-              <span class="dossier-tag">Conflict Remediation</span>
-              <span class="dossier-tag">Audit Defensibility</span>
-            </div>
-          </div>
-
-          <div class="dossier-feature-card">
-            <div class="dossier-feature-icon">📋</div>
-            <h3>Continuous Attestation &amp; ITGC Audits</h3>
-            <p>
-              Conducting automated access certification campaigns across enterprise populations. Enforcing 100% IT General Controls (ITGC) 
-              compliance and generating audit-ready attestation reports for internal and external regulatory assessors.
-            </p>
-            <div class="dossier-tags-row">
-              <span class="dossier-tag">100% ITGC Compliance</span>
-              <span class="dossier-tag">ServiceNow Workflows</span>
-              <span class="dossier-tag">Access Recertification</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. AI SECURITY & THREAT DEFENSE -->
-      <section id="dossier-ai" class="dossier-section">
-        <div class="dossier-section-head">
-          <span class="dossier-section-tag">Applied Threat Research</span>
-          <h2 class="dossier-section-title">AI Security &amp; LLM Threat Defense</h2>
-          <p class="dossier-section-subtitle">
-            Proactive defense strategies for securing generative AI pipelines against adversarial manipulation.
-          </p>
-        </div>
-
-        <div class="dossier-card">
-          <div class="dossier-ai-split">
-            <div class="dossier-ai-info">
-              <h3>Hardening LLMs Against OWASP Top 10 for GenAI</h3>
-              <p>
-                As enterprises integrate Large Language Models into decision loops, conventional network firewalls fail to mitigate prompt-layer threat vectors. 
-                My research and implementations focus on architecting dual-filter semantic guardrails, mitigating indirect prompt injection, 
-                preventing training data extraction, and enforcing strict input token sanitization.
-              </p>
-              <div class="dossier-ai-bullets">
-                <div class="dossier-bullet">
-                  <strong>Personal Projects &amp; AI Labs:</strong> Configured and deployed local AI models (Ollama, DeepSeek R1) via Google Colab in isolated environments to test prompt structures, evaluate agentic AI vulnerabilities, and map findings to the OWASP Top 10 for LLMs.
-                </div>
-                <div class="dossier-bullet">
-                  <strong>Prompt Injection Defense (LLM01):</strong> Semantic classification filters separating system instructions from untrusted user payloads.
-                </div>
-                <div class="dossier-bullet">
-                  <strong>Data Leakage Prevention (LLM06):</strong> Automated PII tokenization and synthetic data masking prior to RAG context embedding.
-                </div>
-                <div class="dossier-bullet">
-                  <strong>Regulatory &amp; Ethical Governance:</strong> Aligning LLM architectures with the EU AI Act risk categories and NIST AI Risk Management Framework.
-                </div>
+        <ol class="bibliography-list">
+          <li class="bib-item">
+            <div class="bib-num">[01]</div>
+            <div class="bib-body">
+              <div class="bib-meta-line">
+                <span class="bib-year">2023</span>
+                <span class="bib-venue">Springer Nature &middot; Neural Computing and Applications 35 (21), 15315&ndash;15332</span>
               </div>
-              <div style="margin-top: 1.5rem;">
-                <a href="https://genai.owasp.org/" target="_blank" rel="noopener" class="dossier-btn dossier-btn-outline">
-                  <span>📘 OWASP Top 10 for LLMs Reference ↗</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. CORE SKILLS & EXPERTISE MATRIX -->
-      <section id="dossier-skills" class="dossier-section">
-        <div class="dossier-section-head">
-          <span class="dossier-section-tag">Enterprise Competencies</span>
-          <h2 class="dossier-section-title">Core Skills &amp; Technical Expertise</h2>
-          <p class="dossier-section-subtitle">
-            Cross-domain proficiency across AI security governance, enterprise identity lifecycles, AppSec pipelines, vulnerability management, and regulatory compliance.
-          </p>
-        </div>
-
-        <div class="dossier-grid-3">
-          <!-- 1. AI Security & Governance -->
-          <div class="dossier-feature-card">
-            <div>
-              <div class="dossier-feature-icon">🤖</div>
-              <h3>AI Security &amp; Governance</h3>
-              <p>Architecting secure LLM integrations, evaluating agentic AI vulnerabilities, running prompt injection testing, and enforcing OWASP Top 10 for LLMs defense.</p>
-            </div>
-            <div class="dossier-tags-row">
-              <span class="dossier-tag">LLM &amp; RAG Security</span>
-              <span class="dossier-tag">Prompt Injection Testing</span>
-              <span class="dossier-tag">AI Risk Assessments</span>
-              <span class="dossier-tag">OWASP Top 10 for LLMs</span>
-            </div>
-          </div>
-
-          <!-- 2. Identity & Access Governance -->
-          <div class="dossier-feature-card">
-            <div>
-              <div class="dossier-feature-icon">🔑</div>
-              <h3>Identity &amp; Access Governance</h3>
-              <p>Architecting enterprise identity governance, designing scalable RBAC models, engineering automated JML lifecycles, and managing AI access controls &amp; DLP.</p>
-            </div>
-            <div class="dossier-tags-row">
-              <span class="dossier-tag">IAM</span>
-              <span class="dossier-tag">Saviynt IGA (Level 200/100)</span>
-              <span class="dossier-tag">Okta</span>
-              <span class="dossier-tag">JML Lifecycle</span>
-              <span class="dossier-tag">RBAC</span>
-              <span class="dossier-tag">AI Access Controls &amp; DLP</span>
-            </div>
-          </div>
-
-          <!-- 3. Risk, Audit & Compliance -->
-          <div class="dossier-feature-card">
-            <div>
-              <div class="dossier-feature-icon">⚖️</div>
-              <h3>Risk, Audit &amp; Compliance</h3>
-              <p>Maintaining access control frameworks aligned with ITGC principles, embedding least privilege, supporting corporate audits, and EU AI Act awareness.</p>
-            </div>
-            <div class="dossier-tags-row">
-              <span class="dossier-tag">IT General Controls (ITGC)</span>
-              <span class="dossier-tag">Control Evaluation</span>
-              <span class="dossier-tag">Audit Support</span>
-              <span class="dossier-tag">EU AI Act Awareness</span>
-            </div>
-          </div>
-
-          <!-- 4. Application & Pipeline Security -->
-          <div class="dossier-feature-card">
-            <div>
-              <div class="dossier-feature-icon">🛡️</div>
-              <h3>Application &amp; Pipeline Security</h3>
-              <p>Spearheading early-stage application risk assessments, driving CI/CD pipeline security controls, executing SAST with Checkmarx, and code reviews.</p>
-            </div>
-            <div class="dossier-tags-row">
-              <span class="dossier-tag">Secure SDLC</span>
-              <span class="dossier-tag">DevSecOps</span>
-              <span class="dossier-tag">SAST (Checkmarx)</span>
-              <span class="dossier-tag">Code Review</span>
-              <span class="dossier-tag">Python Scripting</span>
-            </div>
-          </div>
-
-          <!-- 5. Vulnerability Management -->
-          <div class="dossier-feature-card">
-            <div>
-              <div class="dossier-feature-icon">🎯</div>
-              <h3>Vulnerability Management</h3>
-              <p>Executing vulnerability scanning, penetration testing, incident response, and SLA remediation management utilizing Qualys VMDR across enterprise assets.</p>
-            </div>
-            <div class="dossier-tags-row">
-              <span class="dossier-tag">Qualys VMDR</span>
-              <span class="dossier-tag">Penetration Testing (C|EH)</span>
-              <span class="dossier-tag">Incident Response</span>
-              <span class="dossier-tag">SLA Management</span>
-            </div>
-          </div>
-
-          <!-- 6. Core Competencies -->
-          <div class="dossier-feature-card">
-            <div>
-              <div class="dossier-feature-icon">⚡</div>
-              <h3>Core Competencies</h3>
-              <p>Accelerating security process standardization, compiling executive vulnerability reports and risk metrics, and aligning cross-functional business stakeholders.</p>
-            </div>
-            <div class="dossier-tags-row">
-              <span class="dossier-tag">Process Optimization</span>
-              <span class="dossier-tag">Technical Reporting</span>
-              <span class="dossier-tag">Stakeholder Communication</span>
-              <span class="dossier-tag">Cross-Domain Agility</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 6. PROFESSIONAL EXPERIENCE -->
-      <section id="dossier-experience" class="dossier-section">
-        <div class="dossier-section-head">
-          <span class="dossier-section-tag">Career Milestones</span>
-          <h2 class="dossier-section-title">Professional Experience</h2>
-          <p class="dossier-section-subtitle">
-            Enterprise cybersecurity resilience, automated identity governance, and secure software development lifecycles at Wipro Limited.
-          </p>
-        </div>
-
-        <div class="dossier-timeline">
-          <!-- Role 1: IAM -->
-          <div class="dossier-timeline-item">
-            <div class="dossier-timeline-badge">PRESENT</div>
-            <div class="dossier-timeline-content">
-              <div class="dossier-timeline-header">
-                <div>
-                  <h3 class="dossier-role-name">Cyber Security Analyst (IAM)</h3>
-                  <div class="dossier-company">Wipro Limited &bull; Kolkata, IN</div>
-                </div>
-                <span class="dossier-period">Oct 2025 – Present</span>
-              </div>
-              <ul class="dossier-deliverables">
-                <li><strong>Identity Governance &amp; RBAC:</strong> Oversee end-to-end identity governance utilizing Saviynt IGA; designed role-based access control (RBAC) models and streamlined access certifications to enforce strict compliance.</li>
-                <li><strong>Control Compliance:</strong> Architected and maintained enterprise access control frameworks aligned with ITGC principles, embedding the principle of least privilege across business units.</li>
-                <li><strong>Lifecycle Automation:</strong> Engineered and managed automated Joiner-Mover-Leaver (JML) identity lifecycle workflows by integrating Workday HR platforms with Okta IAM environments.</li>
-                <li><strong>Risk Remediation:</strong> Proactively detected and mitigated critical access control gaps, significantly reducing risk exposure and enhancing corporate audit readiness.</li>
-                <li><strong>Workflow Integration:</strong> Integrated ServiceNow workflows with identity solutions to create verifiable audit trails and structured access provisioning paths.</li>
-                <li><strong>Stakeholder Alignment &amp; Documentation:</strong> Partnered with HR, IT Operations, and Risk Governance teams to synchronize strategies; authored comprehensive documentation for system architectures and control procedures.</li>
-              </ul>
-              <div class="dossier-tags-row">
-                <span class="dossier-tag">Saviynt IGA Level 200/100</span>
-                <span class="dossier-tag">Okta IAM</span>
-                <span class="dossier-tag">Workday HR</span>
-                <span class="dossier-tag">ITGC Principles</span>
-                <span class="dossier-tag">ServiceNow Workflows</span>
-                <span class="dossier-tag">Least Privilege (RBAC)</span>
-                <span class="dossier-tag">Predictive SoD</span>
-                <span class="dossier-tag">Audit Readiness</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Role 2: AppSec & DevSecOps -->
-          <div class="dossier-timeline-item">
-            <div class="dossier-timeline-badge">2022 — 2025</div>
-            <div class="dossier-timeline-content">
-              <div class="dossier-timeline-header">
-                <div>
-                  <h3 class="dossier-role-name">Cyber Security Analyst (AppSec &amp; DevSecOps)</h3>
-                  <div class="dossier-company">Wipro Limited &bull; Kolkata, IN</div>
-                </div>
-                <span class="dossier-period">June 2022 – Oct 2025</span>
-              </div>
-              <ul class="dossier-deliverables">
-                <li><strong>Risk Assessments &amp; SDLC:</strong> Spearheaded application risk assessments during early-stage onboarding and secure SDLC integration to catch structural flaws before production.</li>
-                <li><strong>CI/CD Pipeline Security:</strong> Evaluated and optimized security controls embedded within CI/CD pipelines, driving measurable maturity in automated pipeline defenses.</li>
-                <li><strong>Vulnerability Management:</strong> Executed Static Application Security Testing (SAST) using Checkmarx; analyzed source code to discover vulnerabilities and partnered with engineers to guide remediation.</li>
-                <li><strong>Audit &amp; Liaison:</strong> Compiled detailed vulnerability findings, risk metrics, and mitigation actions to support corporate regulatory and compliance mandates; served as technical liaison between engineering and business stakeholders.</li>
-                <li><strong>Process Optimization:</strong> Refined Standard Operating Procedures (SOPs) and governance documentation, accelerating process standardization across security practices.</li>
-              </ul>
-              <div class="dossier-tags-row">
-                <span class="dossier-tag">Secure SDLC</span>
-                <span class="dossier-tag">DevSecOps</span>
-                <span class="dossier-tag">SAST (Checkmarx)</span>
-                <span class="dossier-tag">Code Review</span>
-                <span class="dossier-tag">Python Scripting</span>
-                <span class="dossier-tag">Qualys VMDR</span>
-                <span class="dossier-tag">SLA Management</span>
-                <span class="dossier-tag">SOP Standardization</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 7. PUBLISHED RESEARCH PAPERS (CITATIONS + DIRECT DOI LINKS // NO SIMULATORS) -->
-      <section id="dossier-research" class="dossier-section">
-        <div class="dossier-section-head">
-          <span class="dossier-section-tag">Academic Publications</span>
-          <h2 class="dossier-section-title">Published Research</h2>
-          <p class="dossier-section-subtitle">
-            Peer-reviewed book chapters and journal papers published in Springer Computer Science series, IEEE/Springer proceedings, and scientific journals.
-          </p>
-        </div>
-
-        <div class="dossier-scholar-banner">
-          <div>
-            <h4>Daipayan Ghosal on Google Scholar</h4>
-            <p>4 peer-reviewed publications indexed in computer vision, metaheuristic optimization, superpixel segmentation, and applied neural computing.</p>
-          </div>
-          <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="dossier-btn dossier-btn-primary">
-            <span>🎓 View Google Scholar Profile ↗</span>
-          </a>
-        </div>
-
-        <div class="dossier-papers-grid">
-          <!-- Paper 1 -->
-          <div class="dossier-paper-card">
-            <div class="dossier-paper-meta">
-              <span class="dossier-paper-tag">SPRINGER NATURE // NCA</span>
-              <span class="dossier-paper-year">2023</span>
-            </div>
-            <h3 class="dossier-paper-title">Chaotic fitness-dependent quasi-reflected Aquila optimizer for superpixel based white blood cell segmentation</h3>
-            <p class="dossier-paper-journal">Neural Computing and Applications 35 (21), 15315-15332 (2023). DOI: 10.1007/s00521-023-08486-0</p>
-            <p class="dossier-paper-abstract">
-              Introduces an advanced bio-medical image segmentation framework combining chaos theory and fitness-dependent quasi-reflection mechanisms 
-              with the Aquila Optimizer to achieve high-precision superpixel white blood cell boundary segmentation in complex hematological microscopy datasets.
-            </p>
-            <div class="dossier-paper-footer">
+              <h3 class="bib-title">Chaotic fitness-dependent quasi-reflected Aquila optimizer for superpixel based white blood cell segmentation</h3>
+              <p class="bib-abstract">Bio-medical image segmentation framework combining chaos theory and fitness-dependent quasi-reflection with the Aquila Optimizer for superpixel white blood cell boundary extraction.</p>
               <a href="https://doi.org/10.1007/s00521-023-08486-0" target="_blank" rel="noopener" class="dossier-link-doi">
-                <span>📄 View on Springer (DOI: 10.1007/s00521-023-08486-0) ↗</span>
+                DOI: 10.1007/s00521-023-08486-0 &#8599;
               </a>
             </div>
-          </div>
+          </li>
 
-          <!-- Paper 2 -->
-          <div class="dossier-paper-card">
-            <div class="dossier-paper-meta">
-              <span class="dossier-paper-tag">SPRINGER // ISAI (CCIS)</span>
-              <span class="dossier-paper-year">2022</span>
-            </div>
-            <h3 class="dossier-paper-title">Concrete Crack Segmentation Using Histogram Based Fast Clustering and Morphological Operators</h3>
-            <p class="dossier-paper-journal">International Symposium on Artificial Intelligence, Springer CCIS, 305-313 (2022). DOI: 10.1007/978-3-031-22485-0</p>
-            <p class="dossier-paper-abstract">
-              Proposes an efficient unsupervised framework uniting fast histogram-based clustering with tailored morphological operators 
-              to segment structural concrete cracks accurately from coarse background noise while drastically cutting computational complexity.
-            </p>
-            <div class="dossier-paper-footer">
+          <li class="bib-item">
+            <div class="bib-num">[02]</div>
+            <div class="bib-body">
+              <div class="bib-meta-line">
+                <span class="bib-year">2022</span>
+                <span class="bib-venue">Springer CCIS &middot; International Symposium on Artificial Intelligence, pp. 305&ndash;313</span>
+              </div>
+              <h3 class="bib-title">Concrete Crack Segmentation Using Histogram Based Fast Clustering and Morphological Operators</h3>
+              <p class="bib-abstract">Unsupervised computer vision method combining fast histogram clustering with morphological filtering to isolate structural concrete cracks from background noise at low computational cost.</p>
               <a href="https://doi.org/10.1007/978-3-031-22485-0" target="_blank" rel="noopener" class="dossier-link-doi">
-                <span>📄 View on Springer (DOI: 10.1007/978-3-031-22485-0) ↗</span>
+                DOI: 10.1007/978-3-031-22485-0 &#8599;
               </a>
             </div>
-          </div>
+          </li>
 
-          <!-- Paper 3 -->
-          <div class="dossier-paper-card">
-            <div class="dossier-paper-meta">
-              <span class="dossier-paper-tag">PLEIADES / SPRINGER // PRIA</span>
-              <span class="dossier-paper-year">2022</span>
-            </div>
-            <h3 class="dossier-paper-title">A comparative study among clustering techniques for leaf segmentation in rosette plants</h3>
-            <p class="dossier-paper-journal">Pattern Recognition and Image Analysis 32 (1), 129-141 (2022). DOI: 10.1134/S1054661821040118</p>
-            <p class="dossier-paper-abstract">
-              Rigorous comparative investigation of rough-set-based partitional clustering (Rough K-Means) versus traditional K-Means and Fuzzy C-Means 
-              implemented across CIELab color spaces for automated plant phenotyping and leaf extraction.
-            </p>
-            <div class="dossier-paper-footer">
+          <li class="bib-item">
+            <div class="bib-num">[03]</div>
+            <div class="bib-body">
+              <div class="bib-meta-line">
+                <span class="bib-year">2022</span>
+                <span class="bib-venue">Pleiades / Springer &middot; Pattern Recognition and Image Analysis 32 (1), 129&ndash;141</span>
+              </div>
+              <h3 class="bib-title">A comparative study among clustering techniques for leaf segmentation in rosette plants</h3>
+              <p class="bib-abstract">Comparative evaluation of rough-set-based partitional clustering (Rough K-Means) against K-Means and Fuzzy C-Means in CIELab color space for plant phenotyping.</p>
               <a href="https://doi.org/10.1134/S1054661821040118" target="_blank" rel="noopener" class="dossier-link-doi">
-                <span>📄 View on Springer (DOI: 10.1134/S1054661821040118) ↗</span>
+                DOI: 10.1134/S1054661821040118 &#8599;
               </a>
             </div>
-          </div>
+          </li>
 
-          <!-- Paper 4 -->
-          <div class="dossier-paper-card">
-            <div class="dossier-paper-meta">
-              <span class="dossier-paper-tag">STUCOSREC // PROCEEDINGS</span>
-              <span class="dossier-paper-year">2021</span>
-            </div>
-            <h3 class="dossier-paper-title">Leaf Segmentation of Rosette Plants using Rough K-Means in CIELab Color Space</h3>
-            <p class="dossier-paper-journal">Proceedings of the 2021 7th Student Computer Science Research Conference, 19 (2021). DOI: 10.18690/978-961-286-516-0.5</p>
-            <p class="dossier-paper-abstract">
-              Demonstrates the effectiveness of Rough K-Means clustering within the perceptually uniform CIELab color space 
-              to resolve boundary uncertainty and illuminate overlapping leaf regions in agricultural computer vision.
-            </p>
-            <div class="dossier-paper-footer">
+          <li class="bib-item">
+            <div class="bib-num">[04]</div>
+            <div class="bib-body">
+              <div class="bib-meta-line">
+                <span class="bib-year">2021</span>
+                <span class="bib-venue">University of Maribor Press &middot; 7th Student Computer Science Research Conference, p. 19</span>
+              </div>
+              <h3 class="bib-title">Leaf Segmentation of Rosette Plants using Rough K-Means in CIELab Color Space</h3>
+              <p class="bib-abstract">Rough K-Means clustering across perceptually uniform CIELab coordinates to resolve overlapping boundary regions in agricultural imaging datasets.</p>
               <a href="https://doi.org/10.18690/978-961-286-516-0.5" target="_blank" rel="noopener" class="dossier-link-doi">
-                <span>📄 View Proceedings (DOI: 10.18690/978-961-286-516-0.5) ↗</span>
+                DOI: 10.18690/978-961-286-516-0.5 &#8599;
               </a>
             </div>
-          </div>
-        </div>
+          </li>
+        </ol>
       </section>
 
-      <!-- 8. CERTIFICATIONS & CREDENTIALS -->
+      <!-- 07. CERTIFICATIONS & EDUCATION -->
       <section id="dossier-credentials" class="dossier-section">
-        <div class="dossier-section-head">
-          <span class="dossier-section-tag">Industry Certifications &amp; Academics</span>
-          <h2 class="dossier-section-title">Certifications &amp; Education</h2>
-          <p class="dossier-section-subtitle">
-            Enterprise-certified credentials in identity governance, vulnerability management, ethical hacking, and rigorous academic foundation.
-          </p>
+        <div class="section-header-row">
+          <div>
+            <div class="section-index">07 / QUALIFICATIONS</div>
+            <h2 class="dossier-section-title">Certifications &amp; Education</h2>
+            <p class="dossier-section-subtitle">
+              Verified credentials across identity governance, vulnerability management, ethical hacking, and computer applications.
+            </p>
+          </div>
         </div>
 
-        <div class="dossier-certs-grid">
-          <div class="dossier-cert-card">
-            <div class="dossier-cert-badge">L200</div>
-            <h4>Saviynt IGA Level 200</h4>
-            <p>Saviynt Inc. (2026) &bull; Enterprise Identity Cloud, JML Lifecycles, RBAC/ABAC, Predictive SoD &amp; Connectors</p>
+        <div class="credentials-table">
+          <div class="cred-row">
+            <div class="cred-code">L200</div>
+            <div class="cred-title">Saviynt IGA Level 200</div>
+            <div class="cred-scope">Enterprise Identity Cloud, JML Lifecycles, RBAC/ABAC, Predictive SoD &amp; Connectors</div>
+            <div class="cred-issuer">Saviynt Inc. &middot; 2026</div>
           </div>
-          <div class="dossier-cert-card">
-            <div class="dossier-cert-badge">L100</div>
-            <h4>Saviynt IGA Level 100</h4>
-            <p>Saviynt Inc. (2026) &bull; Identity Governance Core Architecture, Access Requests, Certifications &amp; Roles</p>
+
+          <div class="cred-row">
+            <div class="cred-code">L100</div>
+            <div class="cred-title">Saviynt IGA Level 100</div>
+            <div class="cred-scope">Identity Governance Architecture, Access Requests, Certifications &amp; Role Modeling</div>
+            <div class="cred-issuer">Saviynt Inc. &middot; 2026</div>
           </div>
-          <div class="dossier-cert-card">
-            <div class="dossier-cert-badge">VMDR</div>
-            <h4>Qualys Certified Specialist - VMDR</h4>
-            <p>Qualys (2024) &bull; Vulnerability Management, Detection and Response Lifecycle Orchestration</p>
+
+          <div class="cred-row">
+            <div class="cred-code">VMDR</div>
+            <div class="cred-title">Qualys Certified Specialist &mdash; VMDR</div>
+            <div class="cred-scope">Vulnerability Management, Asset Discovery, Prioritized Detection &amp; Response</div>
+            <div class="cred-issuer">Qualys &middot; 2024</div>
           </div>
-          <div class="dossier-cert-card">
-            <div class="dossier-cert-badge">C|EH</div>
-            <h4>Certified Ethical Hacker (C|EH)</h4>
-            <p>EC-Council (2023) &bull; Penetration Testing, Threat Vector Assessment, Network Perimeter Hardening</p>
+
+          <div class="cred-row">
+            <div class="cred-code">CEH</div>
+            <div class="cred-title">Certified Ethical Hacker (CEH)</div>
+            <div class="cred-scope">Penetration Testing, Threat Vector Assessment &amp; Network Hardening</div>
+            <div class="cred-issuer">EC-Council &middot; 2023</div>
           </div>
-          <div class="dossier-cert-card">
-            <div class="dossier-cert-badge" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">SC-200</div>
-            <h4>Microsoft Security Operations Analyst (Azure SC-200)</h4>
-            <p>Microsoft (In Progress) &bull; Sentinel SIEM, Defender XDR, Threat Hunting &amp; Incident Mitigation</p>
+
+          <div class="cred-row">
+            <div class="cred-code">SC-200</div>
+            <div class="cred-title">Microsoft Security Operations Analyst (Azure SC-200)</div>
+            <div class="cred-scope">Microsoft Sentinel SIEM, Defender XDR, Threat Hunting &amp; Incident Mitigation</div>
+            <div class="cred-issuer">Microsoft &middot; In Progress</div>
           </div>
-          <div class="dossier-cert-card" style="border-color: rgba(52, 211, 153, 0.3);">
-            <div class="dossier-cert-badge" style="background: linear-gradient(135deg, #059669, #10b981);">BCA: 81.75%</div>
-            <h4>Bachelor of Computer Applications (BCA)</h4>
-            <p>Midnapore College (Autonomous) &bull; Vidyasagar University (2019 – 2022) &bull; Graduation Score: 81.75%</p>
+
+          <div class="cred-row">
+            <div class="cred-code">BCA</div>
+            <div class="cred-title">Bachelor of Computer Applications (81.75%)</div>
+            <div class="cred-scope">Midnapore College (Autonomous) &middot; Vidyasagar University</div>
+            <div class="cred-issuer">2019 &ndash; 2022</div>
           </div>
         </div>
       </section>
 
-      <!-- 9. EXECUTIVE CONTACT -->
-      <section id="dossier-contact" class="dossier-section">
-        <div class="dossier-contact-box">
-          <div class="dossier-section-head">
-            <span class="dossier-section-tag">Direct Communication</span>
+      <!-- 08. EXECUTIVE CONTACT -->
+      <section id="dossier-contact" class="dossier-section dossier-section-last">
+        <div class="contact-band">
+          <div class="contact-copy">
+            <div class="section-index">08 / DIRECT COMMUNICATION</div>
             <h2 class="dossier-section-title">Connect with Daipayan</h2>
             <p class="dossier-section-subtitle">
-              Available for Senior IAM / IGA Architect, Application Security, and AI Threat Defense opportunities.
+              Available for Senior IAM / IGA Architect, Application Security, and AI Threat Defense roles.
             </p>
+
+            <button type="button" class="dossier-email-pill" id="dossier-email-pill" title="Click to copy email address">
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1.5" y="3" width="13" height="10" rx="1.5"></rect>
+                <path d="M2 4l6 4.5L14 4"></path>
+              </svg>
+              <span class="email-address">daipayanghosal@outlook.com</span>
+              <span class="copy-hint" id="copy-hint">Copy</span>
+            </button>
           </div>
 
-          <!-- Direct Email Address Pill with 1-Click Copy -->
-          <div class="dossier-email-pill" id="dossier-email-pill" title="Click to copy email address">
-            <span class="email-icon">📫</span>
-            <span class="email-address">daipayanghosal@outlook.com</span>
-            <span class="copy-hint" id="copy-hint">(Click to copy)</span>
-          </div>
-
-          <div class="dossier-contact-actions">
-            <a href="mailto:daipayanghosal@outlook.com?subject=Inquiry%20for%20Daipayan%20Ghosal" class="dossier-btn dossier-btn-primary" id="btn-send-mail" title="Send email directly via your mail client">
-              <span>✉️ Send Mail</span>
-            </a>
-            <button type="button" class="dossier-btn dossier-btn-outline" id="btn-copy-email" title="Copy email address to clipboard">
-              <span id="copy-email-label">📋 Copy Email</span>
-            </button>
-            <button onclick="window.print()" class="dossier-btn dossier-btn-outline" title="Print or Save Executive Resume as PDF">
-              <span>📄 Download CV (PDF)</span>
-            </button>
-            <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener" class="dossier-btn dossier-btn-outline">
-              <span>LinkedIn Profile ↗</span>
-            </a>
-            <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="dossier-btn dossier-btn-outline">
-              <span>Google Scholar ↗</span>
-            </a>
-            <a href="https://github.com/daipayanghosal" target="_blank" rel="noopener" class="dossier-btn dossier-btn-outline">
-              <span>GitHub ↗</span>
-            </a>
+          <div class="contact-actions-col">
+            <div class="dossier-contact-actions">
+              <a href="mailto:daipayanghosal@outlook.com?subject=Inquiry%20for%20Daipayan%20Ghosal" class="dossier-btn dossier-btn-primary" id="btn-send-mail" title="Send email directly via your mail client">
+                <span>Send Mail</span>
+              </a>
+              <button type="button" class="dossier-btn dossier-btn-outline" id="btn-copy-email" title="Copy email address to clipboard">
+                <span id="copy-email-label">Copy Email</span>
+              </button>
+              <button onclick="window.print()" class="dossier-btn dossier-btn-outline" title="Print or Save Resume as PDF">
+                <span>Download CV (PDF)</span>
+              </button>
+            </div>
+            <div class="contact-external-links">
+              <a href="https://www.linkedin.com/in/daipayan-ghosal/" target="_blank" rel="noopener" class="editorial-text-link">LinkedIn Profile &#8599;</a>
+              <a href="https://scholar.google.com/citations?user=eT3-swYAAAAJ" target="_blank" rel="noopener" class="editorial-text-link">Google Scholar &#8599;</a>
+              <a href="https://github.com/daipayanghosal" target="_blank" rel="noopener" class="editorial-text-link">GitHub &#8599;</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 10. DOSSIER FOOTER -->
+      <!-- COLOPHON FOOTER -->
       <footer class="dossier-footer">
-        <div>
-          <strong>DAIPAYAN GHOSAL</strong> &bull; Cybersecurity Analyst &amp; AI Governance Researcher
+        <div class="footer-left">
+          <strong>Daipayan Ghosal</strong> &middot; Cybersecurity Analyst &amp; AI Governance Researcher
         </div>
-        <div style="font-size:0.85rem; color:#64748b; margin-top:0.35rem;">
-          Designed for high-impact enterprise review. Zero tracking, zero runtime dependencies.
-        </div>
-        <div style="font-size:0.8rem; color:#475569; margin-top:0.5rem;">
-          &copy; 2026 Daipayan Ghosal. All rights reserved. Kolkata, India.
+        <div class="footer-right">
+          &copy; 2026 Daipayan Ghosal &middot; Kolkata, India
         </div>
       </footer>
     </main>
   </div>
 
-  
-
-
   <!-- Command Palette Modal (Ctrl+K or ⌘K) -->
   <div id="palette-overlay" class="palette-overlay" aria-hidden="true">
-    <div class="palette-modal" role="dialog" aria-modal="true" aria-label="Command Palette">
+    <div class="palette-modal" role="dialog" aria-modal="true" aria-label="Command Index">
       <div class="palette-input-wrap">
-        <span class="palette-search-icon">🔍</span>
-        <input type="text" id="palette-input" class="palette-input" placeholder="Type to search sections or actions..." autocomplete="off" spellcheck="false" />
+        <span class="palette-search-label">&#8984;K</span>
+        <input type="text" id="palette-input" class="palette-input" placeholder="Jump to section or action..." autocomplete="off" spellcheck="false" />
         <kbd class="palette-esc-kbd">ESC</kbd>
       </div>
       <div id="palette-results" class="palette-results"></div>
       <div class="palette-footer">
-        <span><kbd>↑</kbd> <kbd>↓</kbd> Navigate</span>
-        <span><kbd>↵</kbd> Select</span>
+        <span><kbd>&#8593;</kbd> <kbd>&#8595;</kbd> Navigate</span>
+        <span><kbd>&#8629;</kbd> Select</span>
         <span><kbd>ESC</kbd> Close</span>
       </div>
     </div>

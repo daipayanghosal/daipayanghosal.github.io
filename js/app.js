@@ -9,20 +9,20 @@
 
   // 1. Command Palette (Ctrl+K or ⌘K)
   const PALETTE_ACTIONS = [
-    { title: 'Overview & Profile', section: 'dossier-hero', icon: '👤', kbd: 'G O' },
-    { title: 'VulnInvestigator (Live App)', section: 'dossier-vuln', icon: '🚀', kbd: 'G V' },
-    { title: 'Enterprise Identity & Access Governance (IGA)', section: 'dossier-iam', icon: '🔑', kbd: 'G I' },
-    { title: 'AI Governance & LLM Security', section: 'dossier-ai', icon: '🛡️', kbd: 'G A' },
-    { title: 'Core Competencies & Skills', section: 'dossier-skills', icon: '⚡', kbd: 'G S' },
-    { title: 'Professional Experience (Wipro)', section: 'dossier-experience', icon: '💼', kbd: 'G E' },
-    { title: 'Published Research (Springer)', section: 'dossier-research', icon: '📚', kbd: 'G R' },
-    { title: 'Certifications & Credentials', section: 'dossier-credentials', icon: '📜', kbd: 'G C' },
-    { title: 'Executive Contact & Connect', section: 'dossier-contact', icon: '✉️', kbd: 'G T' },
-    { title: 'Download Executive Resume (PDF)', action: 'print', icon: '📄', kbd: 'P' },
-    { title: 'Launch VulnInvestigator Web App', url: 'https://daipayanghosal.github.io/VulnInvestigator', icon: '🌐', kbd: 'V' },
-    { title: 'LinkedIn Profile', url: 'https://www.linkedin.com/in/daipayan-ghosal/', icon: '🔗', kbd: 'L' },
-    { title: 'Google Scholar Citations', url: 'https://scholar.google.com/citations?user=eT3-swYAAAAJ', icon: '🎓', kbd: 'S' },
-    { title: 'GitHub Profile', url: 'https://github.com/daipayanghosal', icon: '🐙', kbd: 'G' }
+    { title: 'Overview & Profile', section: 'dossier-hero', badge: '00', kbd: 'G O' },
+    { title: 'VulnInvestigator (Live App)', section: 'dossier-vuln', badge: '01', kbd: 'G V' },
+    { title: 'Identity & Access Governance (IGA)', section: 'dossier-iam', badge: '02', kbd: 'G I' },
+    { title: 'AI Security & LLM Threat Defense', section: 'dossier-ai', badge: '03', kbd: 'G A' },
+    { title: 'Core Skills & Technical Expertise', section: 'dossier-skills', badge: '04', kbd: 'G S' },
+    { title: 'Professional Experience (Wipro)', section: 'dossier-experience', badge: '05', kbd: 'G E' },
+    { title: 'Published Research (Springer)', section: 'dossier-research', badge: '06', kbd: 'G R' },
+    { title: 'Certifications & Education', section: 'dossier-credentials', badge: '07', kbd: 'G C' },
+    { title: 'Contact & Direct Mail', section: 'dossier-contact', badge: '08', kbd: 'G T' },
+    { title: 'Download Resume (PDF)', action: 'print', badge: 'PDF', kbd: 'P' },
+    { title: 'Open VulnInvestigator Web App', url: 'https://daipayanghosal.github.io/VulnInvestigator', badge: 'APP', kbd: 'V' },
+    { title: 'LinkedIn Profile', url: 'https://www.linkedin.com/in/daipayan-ghosal/', badge: 'EXT', kbd: 'L' },
+    { title: 'Google Scholar Citations', url: 'https://scholar.google.com/citations?user=eT3-swYAAAAJ', badge: 'EXT', kbd: 'S' },
+    { title: 'GitHub Profile', url: 'https://github.com/daipayanghosal', badge: 'EXT', kbd: 'G' }
   ];
 
   function initCommandPalette() {
@@ -125,9 +125,9 @@
         .map(
           (act, idx) => `
         <div class="palette-item ${idx === selectedIdx ? 'selected' : ''}" data-idx="${idx}">
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <span style="font-size: 1.15rem;">${act.icon}</span>
-            <span style="font-weight: 500;">${act.title}</span>
+          <div class="palette-item-left">
+            <span class="palette-item-badge">${act.badge || ''}</span>
+            <span>${act.title}</span>
           </div>
           <kbd>${act.kbd}</kbd>
         </div>
@@ -255,12 +255,15 @@
     let appliedSection = 'dossier-hero';
 
     function applyActiveLink() {
-      if (currentSection === appliedSection) return;
+      const nearBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
+      const targetSection = nearBottom ? 'dossier-contact' : currentSection;
+      if (targetSection === appliedSection) return;
       const prev = linkByHref.get(`#${appliedSection}`);
-      const next = linkByHref.get(`#${currentSection}`);
+      const next = linkByHref.get(`#${targetSection}`);
       if (prev) prev.classList.remove('active');
       if (next) next.classList.add('active');
-      appliedSection = currentSection;
+      appliedSection = targetSection;
     }
 
     window.__syncDossierScrollspy = applyActiveLink;
@@ -292,7 +295,7 @@
             }
           }
         },
-        { rootMargin: '-18% 0px -45% 0px', threshold: [0, 0.25, 0.5] }
+        { rootMargin: '-12% 0px -28% 0px', threshold: [0, 0.25, 0.5] }
       );
 
       sections.forEach((secId) => {
@@ -340,25 +343,33 @@
 
     const email = 'daipayanghosal@outlook.com';
 
+    function legacyCopy(feedbackFn) {
+      const textarea = document.createElement('textarea');
+      textarea.value = email;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      let ok = false;
+      try {
+        ok = document.execCommand('copy');
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(textarea);
+      if (feedbackFn) feedbackFn(ok);
+    }
+
     function copyToClipboard(feedbackFn) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(email).then(() => {
           if (feedbackFn) feedbackFn(true);
         }).catch(() => {
-          if (feedbackFn) feedbackFn(false);
+          legacyCopy(feedbackFn);
         });
       } else {
-        const textarea = document.createElement('textarea');
-        textarea.value = email;
-        document.body.appendChild(textarea);
-        textarea.select();
-        try {
-          document.execCommand('copy');
-          if (feedbackFn) feedbackFn(true);
-        } catch (e) {
-          if (feedbackFn) feedbackFn(false);
-        }
-        document.body.removeChild(textarea);
+        legacyCopy(feedbackFn);
       }
     }
 
@@ -367,10 +378,12 @@
         e.preventDefault();
         copyToClipboard((success) => {
           if (copyLabel) {
-            const original = copyLabel.textContent;
-            copyLabel.textContent = success ? '✓ Copied Email!' : 'daipayanghosal@outlook.com';
+            const original = copyLabel.dataset.original || copyLabel.textContent;
+            copyLabel.dataset.original = original;
+            copyLabel.textContent = success ? 'Copied Email' : email;
             copyBtn.classList.add('copied');
-            setTimeout(() => {
+            clearTimeout(copyBtn._copyTimer);
+            copyBtn._copyTimer = setTimeout(() => {
               copyLabel.textContent = original;
               copyBtn.classList.remove('copied');
             }, 2500);
@@ -380,13 +393,15 @@
     }
 
     if (emailPill) {
-      emailPill.addEventListener('click', (e) => {
+      emailPill.addEventListener('click', () => {
         copyToClipboard((success) => {
           if (copyHint) {
-            const original = copyHint.textContent;
-            copyHint.textContent = success ? '✓ Copied!' : 'daipayanghosal@outlook.com';
+            const original = copyHint.dataset.original || copyHint.textContent;
+            copyHint.dataset.original = original;
+            copyHint.textContent = success ? 'Copied' : email;
             emailPill.classList.add('copied');
-            setTimeout(() => {
+            clearTimeout(emailPill._copyTimer);
+            emailPill._copyTimer = setTimeout(() => {
               copyHint.textContent = original;
               emailPill.classList.remove('copied');
             }, 2500);
