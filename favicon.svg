@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131C1A"/>
+      <stop offset="100%" stop-color="#0B0F0E"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#1A472A"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="url(#glow)" stroke-width="2" stroke-opacity="0.6"/>
+  <path d="M32 12 L48 20 V33 C48 42.5 41 51 32 54 C23 51 16 42.5 16 33 V20 Z" fill="none" stroke="url(#glow)" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="32" y="38" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="16" fill="#E2E8F0" text-anchor="middle" letter-spacing="-0.5">DG</text>
+</svg>

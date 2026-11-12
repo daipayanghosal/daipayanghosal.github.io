@@ -1,0 +1,22 @@
+{
+  "name": "Daipayan Ghosal Portfolio",
+  "short_name": "Daipayan",
+  "description": "Portfolio of Daipayan Ghosal — Cybersecurity Analyst, IGA Architect & GenAI Builder",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0F0E",
+  "theme_color": "#0B0F0E",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/profile.jpg",
+      "sizes": "640x640",
+      "type": "image/jpeg"
+    }
+  ]
+}
