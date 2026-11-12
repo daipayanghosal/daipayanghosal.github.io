@@ -63,11 +63,6 @@ window.PORTFOLIO_I18N = {
     proj_studio_desc:
       'Modern Next.js, TypeScript, and Tailwind CSS full-stack web studio crafted for fluid component interfaces and high-speed static/edge rendering.',
 
-    proj_osint_tag: 'OPEN-SOURCE LAB',
-    proj_osint_title: 'OSINT & Vision R&D',
-    proj_osint_desc:
-      'Curated security & ML experiments on GitHub including GHunt & Toutatis reconnaissance tooling alongside Real-Time Facial Emotion Detection with deep learning.',
-
     sec_iam_kicker: '02 · ENTERPRISE ARCHITECTURE',
     sec_iam_title: 'Identity & Access Governance',
     sec_iam_sub: 'Zero-drift JML automation, preventative SoD policies, and audit-ready ITGC compliance.',
@@ -204,11 +199,6 @@ window.PORTFOLIO_I18N = {
     proj_studio_title: 'ক্রিয়েটিভ ওয়েব স্টুডিও',
     proj_studio_desc:
       'দ্রুতগতির স্ট্যাটিক/এজ রেন্ডারিং ও ইন্টার‍্যাক্টিভ কম্পোনেন্টের জন্য Next.js, TypeScript ও Tailwind CSS দিয়ে তৈরি আধুনিক ফুল-স্ট্যাক ওয়েব অ্যাপ।',
-
-    proj_osint_tag: 'ওপেন-সোর্স গবেষণা',
-    proj_osint_title: 'OSINT ও ভিশন ল্যাব',
-    proj_osint_desc:
-      'গিটহাবে রক্ষিত সিকিউরিটি ও ডিপ-লার্নিং প্রজেক্টসমূহ—যেমন GHunt ও Toutatis রিকনাইসেন্স টুলস এবং রিয়েল-টাইম ফেসিয়াল ইমোশন ডিটেকশন।',
 
     sec_iam_kicker: '০২ · এন্টারপ্রাইজ আর্কিটেকচার',
     sec_iam_title: 'আইডেন্টিটি ও অ্যাক্সেস গভার্নেন্স',
