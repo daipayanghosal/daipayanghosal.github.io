@@ -40,62 +40,7 @@
   }
 
   // ==========================================================================
-  // 2. BILINGUAL TRANSLATION ENGINE (English & Bengali)
-  // ==========================================================================
-  let currentLang = 'en';
-
-  function initLanguage() {
-    const saved = localStorage.getItem('portfolio_lang');
-    currentLang = saved === 'bn' ? 'bn' : 'en';
-    applyLanguage(currentLang);
-
-    const enBtns = document.querySelectorAll('[data-lang-btn="en"]');
-    const bnBtns = document.querySelectorAll('[data-lang-btn="bn"]');
-
-    enBtns.forEach((btn) => {
-      btn.addEventListener('click', () => applyLanguage('en'));
-    });
-    bnBtns.forEach((btn) => {
-      btn.addEventListener('click', () => applyLanguage('bn'));
-    });
-  }
-
-  function applyLanguage(lang) {
-    currentLang = lang;
-    document.documentElement.setAttribute('lang', lang);
-    localStorage.setItem('portfolio_lang', lang);
-
-    // Update switcher UI
-    document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
-      const bLang = btn.getAttribute('data-lang-btn');
-      if (bLang === lang) {
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-      } else {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-pressed', 'false');
-      }
-    });
-
-    // Apply translations
-    const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[lang] : null;
-    if (!dict) return;
-
-    document.querySelectorAll('[data-i18n]').forEach((el) => {
-      const key = el.getAttribute('data-i18n');
-      if (dict[key]) {
-        el.textContent = dict[key];
-      }
-    });
-
-    // Update dynamic experience metric to reflect language
-    if (window.__updateDynamicExperience) {
-      window.__updateDynamicExperience();
-    }
-  }
-
-  // ==========================================================================
-  // 3. PROJECT BENTO FILTER CHIPS
+  // 2. PROJECT BENTO FILTER CHIPS
   // ==========================================================================
   function initProjectFilters() {
     const filterBtns = document.querySelectorAll('.filter-pill-btn');
@@ -137,7 +82,7 @@
     { title: 'Connect & Direct Contact', section: 'dossier-contact', badge: '08', kbd: 'G T' },
     { title: 'Download Resume (PDF)', action: 'print', badge: 'PDF', kbd: 'P' },
     { title: 'Open VulnInvestigator Live', url: 'https://daipayanghosal.github.io/VulnInvestigator', badge: 'APP', kbd: 'V' },
-    { title: 'Open Kahon · কাহন Audio Sanctuary', url: 'https://github.com/daipayanghosal/KahonStorySite', badge: 'APP', kbd: 'K' },
+    { title: 'Open Kahon Audio Sanctuary', url: 'https://github.com/daipayanghosal/KahonStorySite', badge: 'APP', kbd: 'K' },
     { title: 'Open Creative Studio (Vercel)', url: 'https://studio-beta-nine-42.vercel.app', badge: 'APP', kbd: 'W' },
     { title: 'LinkedIn Profile', url: 'https://www.linkedin.com/in/daipayan-ghosal/', badge: 'EXT', kbd: 'L' },
     { title: 'Google Scholar Citations', url: 'https://scholar.google.com/citations?user=eT3-swYAAAAJ', badge: 'EXT', kbd: 'S' },
@@ -506,9 +451,7 @@
           if (copyLabel) {
             const original = copyLabel.dataset.original || copyLabel.textContent;
             copyLabel.dataset.original = original;
-            const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[currentLang] : null;
-            const copiedText = dict ? dict.btn_copied : 'Copied!';
-            copyLabel.textContent = success ? copiedText : email;
+            copyLabel.textContent = success ? 'Copied!' : email;
             copyBtn.classList.add('copied');
             clearTimeout(copyBtn._copyTimer);
             copyBtn._copyTimer = setTimeout(() => {
@@ -526,9 +469,7 @@
           if (copyHint) {
             const original = copyHint.dataset.original || copyHint.textContent;
             copyHint.dataset.original = original;
-            const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[currentLang] : null;
-            const copiedText = dict ? dict.pill_copied : 'Copied';
-            copyHint.textContent = success ? copiedText : email;
+            copyHint.textContent = success ? 'Copied' : email;
             emailPill.classList.add('copied');
             clearTimeout(emailPill._copyTimer);
             emailPill._copyTimer = setTimeout(() => {
@@ -577,22 +518,8 @@
         months += 12;
       }
 
-      const isBn = currentLang === 'bn';
-      const toBnNum = (n) => String(n).replace(/\d/g, (d) => '০১২৩৪৫৬৭৮৯'[d]);
-
-      const yStr = isBn ? toBnNum(years) : String(years);
-      const mStr = isBn ? toBnNum(months) : String(months);
-
-      let primaryText = '';
-      let detailedText = '';
-
-      if (isBn) {
-        primaryText = (months > 0 || days > 0) ? `${yStr}+ বছর` : `${yStr} বছর`;
-        detailedText = months > 0 ? `${yStr} বছর ${mStr} মাস` : `${yStr} বছর`;
-      } else {
-        primaryText = (months > 0 || days > 0) ? `${yStr}+ Yrs` : `${yStr} Yrs`;
-        detailedText = months > 0 ? `${yStr}y ${mStr}m` : `${yStr} Yrs`;
-      }
+      const primaryText = (months > 0 || days > 0) ? `${years}+ Yrs` : `${years} Yrs`;
+      const detailedText = months > 0 ? `${years}y ${months}m` : `${years} Yrs`;
 
       el.textContent = isToggled ? detailedText : primaryText;
 
@@ -620,7 +547,6 @@
   document.addEventListener('DOMContentLoaded', () => {
     document.body.setAttribute('data-view', 'dossier');
     initTheme();
-    initLanguage();
     initProjectFilters();
     initSideNavbar();
     initCommandPalette();

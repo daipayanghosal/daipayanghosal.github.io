@@ -23,18 +23,15 @@
           t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
         }
         document.documentElement.setAttribute('data-theme', t);
-        var l = localStorage.getItem('portfolio_lang');
-        if (l === 'bn' || l === 'en') {
-          document.documentElement.setAttribute('lang', l);
-        }
+        localStorage.removeItem('portfolio_lang');
       } catch (e) {}
     })();
   </script>
 
-  <!-- Modern GenZ Fonts + Geometric Bengali Typography -->
+  <!-- Modern GenZ Typography & Vector Emblems -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css" />
@@ -77,12 +74,6 @@
       </div>
 
       <div class="hud-right">
-        <!-- Bilingual Switcher [ EN | বাংলা ] -->
-        <div class="lang-toggle-wrap" role="group" aria-label="Language Switcher">
-          <button type="button" class="lang-btn active" data-lang-btn="en" aria-pressed="true">EN</button>
-          <button type="button" class="lang-btn" data-lang-btn="bn" aria-pressed="false">বাংলা</button>
-        </div>
-
         <!-- Theme Switcher (Light / Dark) -->
         <button id="btn-theme-toggle" class="theme-toggle-btn" aria-label="Toggle Color Theme" title="Switch Light / Dark Theme">
           <!-- Custom Tailored Sun Icon -->
@@ -375,7 +366,7 @@
           <div>
             <div class="section-kicker" data-i18n="sec_projects_kicker">01 &middot; GITHUB &amp; FEATURED BUILDS</div>
             <h2 class="dossier-section-title" data-i18n="sec_projects_title">Shipped Systems &amp; Creative Labs</h2>
-            <p class="dossier-section-subtitle" data-i18n="sec_projects_sub">From evidence-grounded GenAI threat intelligence to dreamy Bengali audio-story interfaces.</p>
+            <p class="dossier-section-subtitle" data-i18n="sec_projects_sub">From evidence-grounded GenAI threat intelligence to dreamy narrative audio-story interfaces.</p>
           </div>
 
           <!-- Interactive Category Filter -->
@@ -457,7 +448,7 @@
             </div>
           </article>
 
-          <!-- BUILD 2: KAHON · কাহন AUDIO STORY SANCTUARY (BRAND NEW REPO!) -->
+          <!-- BUILD 2: KAHON AUDIO STORY SANCTUARY (BRAND NEW REPO!) -->
           <article class="project-bento-card" data-category="web">
             <div>
               <div class="project-top-row">
@@ -471,9 +462,9 @@
                 <span class="project-tag-pill tag-new" data-i18n="proj_kahon_tag">NEW REPO · NOV 2026</span>
               </div>
 
-              <h3 class="project-title" data-i18n="proj_kahon_title">Kahon &middot; কাহন Audio Sanctuary</h3>
+              <h3 class="project-title" data-i18n="proj_kahon_title">Kahon Audio Sanctuary</h3>
               <p class="project-desc" data-i18n="proj_kahon_desc">
-                Dreamy, Spotify-inspired web audio player facade built for Bengali storytelling channel @kahonstory — syncing 279+ stories, 39 playlists &amp; 535+ hours with dynamic cover-art color-morphing ambience.
+                Dreamy, Spotify-inspired web audio player facade built for audio storytelling channel @kahonstory — syncing 279+ stories, 39 playlists &amp; 535+ hours with dynamic cover-art color-morphing ambience.
               </p>
 
               <!-- Stylized Soundwave Bar Strip -->
@@ -1160,7 +1151,6 @@
   <!-- ==========================================================================
        SCRIPTS
        ========================================================================== -->
-  <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

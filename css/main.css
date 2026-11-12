@@ -49,7 +49,6 @@
   /* Fonts */
   --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-bengali: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
   --nav-height: 58px;
@@ -89,20 +88,6 @@ html[data-theme="light"] {
   --card-border: rgba(15, 23, 42, 0.08);
   --card-shadow: 0 10px 25px -8px rgba(15, 23, 42, 0.06);
   --card-shadow-hover: 0 18px 36px -10px rgba(79, 70, 229, 0.12);
-}
-
-/* Bengali Typographic Adaptation */
-html[lang="bn"] {
-  font-family: var(--font-bengali);
-}
-html[lang="bn"] .brand-text,
-html[lang="bn"] .dossier-name,
-html[lang="bn"] .dossier-section-title,
-html[lang="bn"] h1,
-html[lang="bn"] h2,
-html[lang="bn"] h3 {
-  font-family: var(--font-bengali);
-  letter-spacing: normal;
 }
 
 *, *::before, *::after {
@@ -333,42 +318,6 @@ html[data-theme="light"] .hud-nav {
   align-items: center;
   gap: 0.55rem;
   flex-shrink: 0;
-}
-
-/* Language Switcher Pill Toggle [ EN | বাংলা ] */
-.lang-toggle-wrap {
-  display: inline-flex;
-  align-items: center;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-pill);
-  padding: 2px;
-  height: 32px;
-}
-
-.lang-btn {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0 0.55rem;
-  height: 100%;
-  border-radius: var(--radius-pill);
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.16s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lang-btn.active {
-  background: var(--accent-indigo);
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.35);
-}
-
-.lang-btn:not(.active):hover {
-  color: var(--text-primary);
 }
 
 /* Theme Switcher Button (Sun / Moon) */
@@ -832,15 +781,6 @@ html[data-theme="light"] .theme-icon-moon {
   .hud-brand .brand-dossier-text {
     font-size: 0.84rem;
     letter-spacing: 0.02em;
-  }
-
-  .lang-toggle-wrap {
-    height: 30px;
-  }
-
-  .lang-btn {
-    font-size: 0.68rem;
-    padding: 0 0.45rem;
   }
 
   .theme-toggle-btn {
