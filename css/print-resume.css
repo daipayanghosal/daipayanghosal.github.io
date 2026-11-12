@@ -1,16 +1,18 @@
 /* ==========================================================================
-   PRINT RESUME / EXECUTIVE MONOGRAPH PDF STYLESHEET
+   PRINT RESUME / EXECUTIVE PDF STYLESHEET
    Optimized for A4 / Letter executive print output
    ========================================================================== */
 
 @media print {
   .hud-nav,
+  .ambient-aura-layer,
   .side-navbar,
   .side-navbar-backdrop,
   .palette-overlay,
   .hero-cover-wrap,
   .dossier-hero-actions,
-  .section-header-actions,
+  .filter-pills,
+  .project-actions-row,
   .dossier-contact-actions,
   .contact-external-links,
   .ledger-hint,
@@ -25,7 +27,7 @@
     color: #111827 !important;
     padding: 0 !important;
     margin: 0 !important;
-    font-size: 10pt !important;
+    font-size: 9.5pt !important;
     line-height: 1.45 !important;
   }
 
@@ -41,43 +43,69 @@
   }
 
   .dossier-avatar-wrap {
-    width: 64pt !important;
-    height: 64pt !important;
-    border-color: #d1d5db !important;
-    outline: none !important;
+    width: 60pt !important;
+    height: 60pt !important;
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border: 1pt solid #d1d5db !important;
+  }
+
+  .dossier-avatar-img {
+    border: none !important;
   }
 
   .dossier-name {
-    font-size: 22pt !important;
+    font-size: 20pt !important;
     color: #111827 !important;
   }
 
   .dossier-role-title {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
     color: #1f2937 !important;
+    -webkit-text-fill-color: #1f2937 !important;
   }
 
-  .dossier-hero-meta,
+  .project-bento-card,
+  .bento-stat-card,
+  .feature-bento-tile,
+  .ai-defense-card,
+  .skill-bento-card,
+  .timeline-card,
+  .research-card,
+  .cred-card,
+  .contact-band,
+  .vuln-visual-panel,
+  .kahon-wave-panel {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-color: #d1d5db !important;
+    page-break-inside: avoid;
+  }
+
+  .project-desc,
   .dossier-hero-lead,
   .dossier-section-subtitle,
-  .editorial-body-copy,
-  .spec-row-desc,
-  .iga-entry-main p,
-  .matrix-col-val,
-  .directory-col p,
+  .tile-body p,
+  .ai-defense-card p,
+  .skill-bento-card p,
   .dossier-deliverables li,
   .bib-abstract,
   .cred-scope,
-  .cred-issuer,
-  .ledger-lbl {
+  .ledger-lbl,
+  .meta-chip {
     color: #374151 !important;
+    background: transparent !important;
   }
 
+  .project-title,
   .dossier-section-title,
   .ledger-val,
-  .spec-row-title,
-  .iga-entry-main h3,
-  .matrix-col-key,
-  .directory-col h3,
+  .tile-body h3,
+  .ai-card-head h3,
+  .skill-card-head h3,
   .dossier-role-name,
   .exp-company-name,
   .bib-title,
@@ -89,16 +117,6 @@
   .dossier-section {
     padding: 12pt 0 !important;
     border-bottom: 1pt solid #e5e7eb !important;
-    page-break-inside: avoid;
-  }
-
-  .hero-ledger,
-  .vuln-editorial-grid,
-  .control-matrix,
-  .contact-band,
-  .formula-block {
-    background: transparent !important;
-    border-color: #d1d5db !important;
   }
 
   .dossier-email-pill {

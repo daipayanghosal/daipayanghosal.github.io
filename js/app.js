@@ -1,25 +1,144 @@
 /**
- * DAIPAYAN GHOSAL // EXECUTIVE DOSSIER
- * Core Portfolio Orchestration Engine
- * Retractable Sidebar Drawer, Command Palette (⌘K), Scrollspy, and Contact Actions
+ * DAIPAYAN GHOSAL // PORTFOLIO ORCHESTRATION ENGINE
+ * Bilingual Engine (EN / BN), Light & Dark Theme Manager,
+ * Interactive Bento Project Filters, Retractable Drawer, ⌘K Palette, and Performance Guard
  */
 
 (function () {
   'use strict';
 
-  // 1. Command Palette (Ctrl+K or ⌘K)
+  // ==========================================================================
+  // 1. DUAL THEME ENGINE (Light & Dark)
+  // ==========================================================================
+  function initTheme() {
+    const saved = localStorage.getItem('portfolio_theme');
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const initialTheme = saved || (systemPrefersLight ? 'light' : 'dark');
+
+    applyTheme(initialTheme);
+
+    const themeToggleBtn = document.getElementById('btn-theme-toggle');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    }
+
+    // Listen to OS theme changes if user has not set explicit manual choice
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('portfolio_theme')) {
+        applyTheme(e.matches ? 'light' : 'dark');
+      }
+    });
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio_theme', theme);
+  }
+
+  // ==========================================================================
+  // 2. BILINGUAL TRANSLATION ENGINE (English & Bengali)
+  // ==========================================================================
+  let currentLang = 'en';
+
+  function initLanguage() {
+    const saved = localStorage.getItem('portfolio_lang');
+    currentLang = saved === 'bn' ? 'bn' : 'en';
+    applyLanguage(currentLang);
+
+    const enBtns = document.querySelectorAll('[data-lang-btn="en"]');
+    const bnBtns = document.querySelectorAll('[data-lang-btn="bn"]');
+
+    enBtns.forEach((btn) => {
+      btn.addEventListener('click', () => applyLanguage('en'));
+    });
+    bnBtns.forEach((btn) => {
+      btn.addEventListener('click', () => applyLanguage('bn'));
+    });
+  }
+
+  function applyLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.setAttribute('lang', lang);
+    localStorage.setItem('portfolio_lang', lang);
+
+    // Update switcher UI
+    document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
+      const bLang = btn.getAttribute('data-lang-btn');
+      if (bLang === lang) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+
+    // Apply translations
+    const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[lang] : null;
+    if (!dict) return;
+
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) {
+        el.textContent = dict[key];
+      }
+    });
+
+    // Update dynamic experience metric to reflect language
+    if (window.__updateDynamicExperience) {
+      window.__updateDynamicExperience();
+    }
+  }
+
+  // ==========================================================================
+  // 3. PROJECT BENTO FILTER CHIPS
+  // ==========================================================================
+  function initProjectFilters() {
+    const filterBtns = document.querySelectorAll('.filter-pill-btn');
+    const cards = document.querySelectorAll('.project-bento-card');
+
+    if (!filterBtns.length || !cards.length) return;
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter') || 'all';
+
+        cards.forEach((card) => {
+          const cat = card.getAttribute('data-category') || '';
+          if (filter === 'all' || cat.includes(filter)) {
+            card.classList.remove('is-hidden');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+  }
+
+  // ==========================================================================
+  // 4. COMMAND PALETTE (Ctrl+K or ⌘K)
+  // ==========================================================================
   const PALETTE_ACTIONS = [
     { title: 'Overview & Profile', section: 'dossier-hero', badge: '00', kbd: 'G O' },
-    { title: 'VulnInvestigator (Live App)', section: 'dossier-vuln', badge: '01', kbd: 'G V' },
+    { title: 'Shipped Systems & Featured Builds', section: 'dossier-projects', badge: '01', kbd: 'G P' },
     { title: 'Identity & Access Governance (IGA)', section: 'dossier-iam', badge: '02', kbd: 'G I' },
     { title: 'AI Security & LLM Threat Defense', section: 'dossier-ai', badge: '03', kbd: 'G A' },
-    { title: 'Core Skills & Technical Expertise', section: 'dossier-skills', badge: '04', kbd: 'G S' },
+    { title: 'Core Skills & Technical Stack', section: 'dossier-skills', badge: '04', kbd: 'G S' },
     { title: 'Professional Experience (Wipro)', section: 'dossier-experience', badge: '05', kbd: 'G E' },
-    { title: 'Published Research (Springer)', section: 'dossier-research', badge: '06', kbd: 'G R' },
+    { title: 'Published Research (Springer Nature)', section: 'dossier-research', badge: '06', kbd: 'G R' },
     { title: 'Certifications & Education', section: 'dossier-credentials', badge: '07', kbd: 'G C' },
-    { title: 'Contact & Direct Mail', section: 'dossier-contact', badge: '08', kbd: 'G T' },
+    { title: 'Connect & Direct Contact', section: 'dossier-contact', badge: '08', kbd: 'G T' },
     { title: 'Download Resume (PDF)', action: 'print', badge: 'PDF', kbd: 'P' },
-    { title: 'Open VulnInvestigator Web App', url: 'https://daipayanghosal.github.io/VulnInvestigator', badge: 'APP', kbd: 'V' },
+    { title: 'Open VulnInvestigator Live', url: 'https://daipayanghosal.github.io/VulnInvestigator', badge: 'APP', kbd: 'V' },
+    { title: 'Open Kahon · কাহন Audio Sanctuary', url: 'https://github.com/daipayanghosal/KahonStorySite', badge: 'APP', kbd: 'K' },
+    { title: 'Open Creative Studio (Vercel)', url: 'https://studio-beta-nine-42.vercel.app', badge: 'APP', kbd: 'W' },
     { title: 'LinkedIn Profile', url: 'https://www.linkedin.com/in/daipayan-ghosal/', badge: 'EXT', kbd: 'L' },
     { title: 'Google Scholar Citations', url: 'https://scholar.google.com/citations?user=eT3-swYAAAAJ', badge: 'EXT', kbd: 'S' },
     { title: 'GitHub Profile', url: 'https://github.com/daipayanghosal', badge: 'EXT', kbd: 'G' }
@@ -114,7 +233,7 @@
     function renderPaletteResults() {
       if (filteredActions.length === 0) {
         results.innerHTML = `
-          <div class="palette-empty" style="padding: 1.5rem; text-align: center; color: #64748b; font-size: 0.9rem;">
+          <div class="palette-empty" style="padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
             No matching sections or actions found.
           </div>
         `;
@@ -161,7 +280,9 @@
     }
   }
 
-  // 2. Retractable Side Navbar Drawer Engine
+  // ==========================================================================
+  // 5. RETRACTABLE SIDEBAR DRAWER
+  // ==========================================================================
   function initSideNavbar() {
     const sidebar = document.getElementById('side-navbar');
     const backdrop = document.getElementById('side-navbar-backdrop');
@@ -219,7 +340,6 @@
       }
     });
 
-    // Close on link click
     const sideLinks = sidebar.querySelectorAll('.side-link');
     sideLinks.forEach((link) => {
       link.addEventListener('click', () => {
@@ -228,11 +348,13 @@
     });
   }
 
-  // 3. Scrollspy Highlighting Active Section in Sidebar (Zero Scroll-Time Layout/Paint)
+  // ==========================================================================
+  // 6. SCROLLSPY (High Performance, Zero Frame Jitter)
+  // ==========================================================================
   function initDossierScrollspy() {
     const sections = [
       'dossier-hero',
-      'dossier-vuln',
+      'dossier-projects',
       'dossier-iam',
       'dossier-ai',
       'dossier-skills',
@@ -305,7 +427,9 @@
     }
   }
 
-  // 3b. Single-Toggle Pointer-Events Guard During Active Scroll Burst
+  // ==========================================================================
+  // 7. SCROLL HOVER GUARD (120-144fps Guaranteed)
+  // ==========================================================================
   function initScrollHoverGuard() {
     const mainEl = document.querySelector('.dossier-container');
     if (!mainEl) return;
@@ -334,7 +458,9 @@
     window.addEventListener('pointerdown', endScroll, { passive: true });
   }
 
-  // 4. Contact Actions & Mail Handling
+  // ==========================================================================
+  // 8. CONTACT ACTIONS & CLIPBOARD COPY
+  // ==========================================================================
   function initContactActions() {
     const copyBtn = document.getElementById('btn-copy-email');
     const copyLabel = document.getElementById('copy-email-label');
@@ -380,7 +506,9 @@
           if (copyLabel) {
             const original = copyLabel.dataset.original || copyLabel.textContent;
             copyLabel.dataset.original = original;
-            copyLabel.textContent = success ? 'Copied Email' : email;
+            const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[currentLang] : null;
+            const copiedText = dict ? dict.btn_copied : 'Copied!';
+            copyLabel.textContent = success ? copiedText : email;
             copyBtn.classList.add('copied');
             clearTimeout(copyBtn._copyTimer);
             copyBtn._copyTimer = setTimeout(() => {
@@ -398,7 +526,9 @@
           if (copyHint) {
             const original = copyHint.dataset.original || copyHint.textContent;
             copyHint.dataset.original = original;
-            copyHint.textContent = success ? 'Copied' : email;
+            const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[currentLang] : null;
+            const copiedText = dict ? dict.pill_copied : 'Copied';
+            copyHint.textContent = success ? copiedText : email;
             emailPill.classList.add('copied');
             clearTimeout(emailPill._copyTimer);
             emailPill._copyTimer = setTimeout(() => {
@@ -410,12 +540,10 @@
       });
     }
 
-    // Ensure Send Mail link works smoothly and opens mail client
     const sendMailBtn = document.getElementById('btn-send-mail');
     if (sendMailBtn) {
       sendMailBtn.addEventListener('click', () => {
-        // Native mailto is allowed to execute freely
-        sendMailBtn.style.transform = 'scale(0.98)';
+        sendMailBtn.style.transform = 'scale(0.97)';
         setTimeout(() => {
           sendMailBtn.style.transform = '';
         }, 150);
@@ -423,61 +551,82 @@
     }
   }
 
-  // 5. Dynamic Experience Calculation (from May 30, 2022)
+  // ==========================================================================
+  // 9. DYNAMIC EXPERIENCE CALCULATION (from May 30, 2022)
+  // ==========================================================================
   function initDynamicExperience() {
     const el = document.getElementById('metric-experience-val');
     const card = document.getElementById('metric-experience-card');
     if (!el) return;
 
-    // Start date: May 30, 2022
-    const start = new Date(2022, 4, 30);
-    const now = new Date();
+    let isToggled = false;
 
-    let years = now.getFullYear() - start.getFullYear();
-    let months = now.getMonth() - start.getMonth();
-    let days = now.getDate() - start.getDate();
+    function renderExp() {
+      const start = new Date(2022, 4, 30); // May 30, 2022
+      const now = new Date();
 
-    if (days < 0) {
-      months--;
+      let years = now.getFullYear() - start.getFullYear();
+      let months = now.getMonth() - start.getMonth();
+      let days = now.getDate() - start.getDate();
+
+      if (days < 0) {
+        months--;
+      }
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      const isBn = currentLang === 'bn';
+      const toBnNum = (n) => String(n).replace(/\d/g, (d) => '০১২৩৪৫৬৭৮৯'[d]);
+
+      const yStr = isBn ? toBnNum(years) : String(years);
+      const mStr = isBn ? toBnNum(months) : String(months);
+
+      let primaryText = '';
+      let detailedText = '';
+
+      if (isBn) {
+        primaryText = (months > 0 || days > 0) ? `${yStr}+ বছর` : `${yStr} বছর`;
+        detailedText = months > 0 ? `${yStr} বছর ${mStr} মাস` : `${yStr} বছর`;
+      } else {
+        primaryText = (months > 0 || days > 0) ? `${yStr}+ Yrs` : `${yStr} Yrs`;
+        detailedText = months > 0 ? `${yStr}y ${mStr}m` : `${yStr} Yrs`;
+      }
+
+      el.textContent = isToggled ? detailedText : primaryText;
+
+      if (card) {
+        const tooltip = `Experience calculated dynamically from May 30, 2022: ${years} years, ${months} months`;
+        card.setAttribute('title', tooltip);
+      }
     }
-    if (months < 0) {
-      years--;
-      months += 12;
-    }
 
-    const primaryText = (months > 0 || days > 0) ? `${years}+ Yrs` : `${years} Yrs`;
-    const detailedText = months > 0 ? `${years}y ${months}m` : `${years} Yrs`;
-    const tooltipText = `Experience calculated dynamically from May 30, 2022: ${years} years, ${months} month${months === 1 ? '' : 's'}`;
+    window.__updateDynamicExperience = renderExp;
+    renderExp();
 
-    el.textContent = primaryText;
     if (card) {
-      card.setAttribute('title', `${tooltipText} (Click to toggle detailed breakdown)`);
       card.style.cursor = 'pointer';
-
-      let toggled = false;
       card.addEventListener('click', () => {
-        toggled = !toggled;
-        el.textContent = toggled ? detailedText : primaryText;
+        isToggled = !isToggled;
+        renderExp();
       });
     }
   }
 
-  // 6. Initialize Everything on DOM Ready
+  // ==========================================================================
+  // 10. DOM READY BOOTSTRAP
+  // ==========================================================================
   document.addEventListener('DOMContentLoaded', () => {
-    // Ensure body has data-view set to dossier
     document.body.setAttribute('data-view', 'dossier');
-
+    initTheme();
+    initLanguage();
+    initProjectFilters();
     initSideNavbar();
     initCommandPalette();
     initDossierScrollspy();
     initScrollHoverGuard();
     initContactActions();
     initDynamicExperience();
-
-    console.log(
-      '%c [DOSSIER] DAIPAYAN GHOSAL EXECUTIVE PORTFOLIO INITIALIZED %c',
-      'background: #38bdf8; color: #08090e; font-weight: bold; padding: 4px 8px; border-radius: 4px;',
-      ''
-    );
   });
 })();
